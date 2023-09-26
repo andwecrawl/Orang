@@ -12,6 +12,11 @@
 		D1BA59042AC330E9007437F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59032AC330E9007437F4 /* ViewController.swift */; };
 		D1BA59092AC330EA007437F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1BA59082AC330EA007437F4 /* Assets.xcassets */; };
 		D1BA590C2AC330EA007437F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BA590A2AC330EA007437F4 /* LaunchScreen.storyboard */; };
+		D1BA59152AC3317B007437F4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA59142AC3317B007437F4 /* Alamofire */; };
+		D1BA59182AC33185007437F4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA59172AC33185007437F4 /* SnapKit */; };
+		D1BA591B2AC331C3007437F4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA591A2AC331C3007437F4 /* Realm */; };
+		D1BA591D2AC331C3007437F4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA591C2AC331C3007437F4 /* RealmSwift */; };
+		D1BA59202AC331DA007437F4 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA591F2AC331DA007437F4 /* TextFieldEffects */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +34,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1BA591D2AC331C3007437F4 /* RealmSwift in Frameworks */,
+				D1BA591B2AC331C3007437F4 /* Realm in Frameworks */,
+				D1BA59152AC3317B007437F4 /* Alamofire in Frameworks */,
+				D1BA59182AC33185007437F4 /* SnapKit in Frameworks */,
+				D1BA59202AC331DA007437F4 /* TextFieldEffects in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -80,6 +90,13 @@
 			dependencies = (
 			);
 			name = Orang;
+			packageProductDependencies = (
+				D1BA59142AC3317B007437F4 /* Alamofire */,
+				D1BA59172AC33185007437F4 /* SnapKit */,
+				D1BA591A2AC331C3007437F4 /* Realm */,
+				D1BA591C2AC331C3007437F4 /* RealmSwift */,
+				D1BA591F2AC331DA007437F4 /* TextFieldEffects */,
+			);
 			productName = Orang;
 			productReference = D1BA58FC2AC330E9007437F4 /* Orang.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +125,12 @@
 				Base,
 			);
 			mainGroup = D1BA58F32AC330E9007437F4;
+			packageReferences = (
+				D1BA59132AC3317B007437F4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				D1BA59162AC33185007437F4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D1BA59192AC331C3007437F4 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				D1BA591E2AC331DA007437F4 /* XCRemoteSwiftPackageReference "TextFieldEffects" */,
+			);
 			productRefGroup = D1BA58FD2AC330E9007437F4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -354,6 +377,69 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D1BA59132AC3317B007437F4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		D1BA59162AC33185007437F4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		D1BA59192AC331C3007437F4 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		D1BA591E2AC331DA007437F4 /* XCRemoteSwiftPackageReference "TextFieldEffects" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/raulriera/TextFieldEffects.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D1BA59142AC3317B007437F4 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BA59132AC3317B007437F4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		D1BA59172AC33185007437F4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BA59162AC33185007437F4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		D1BA591A2AC331C3007437F4 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BA59192AC331C3007437F4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		D1BA591C2AC331C3007437F4 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BA59192AC331C3007437F4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
+		D1BA591F2AC331DA007437F4 /* TextFieldEffects */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BA591E2AC331DA007437F4 /* XCRemoteSwiftPackageReference "TextFieldEffects" */;
+			productName = TextFieldEffects;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D1BA58F42AC330E9007437F4 /* Project object */;
 }
