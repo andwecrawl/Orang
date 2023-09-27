@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */; };
 		D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59012AC330E9007437F4 /* SceneDelegate.swift */; };
-		D1BA59042AC330E9007437F4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59032AC330E9007437F4 /* ViewController.swift */; };
+		D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59032AC330E9007437F4 /* ProfileViewController.swift */; };
 		D1BA59092AC330EA007437F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1BA59082AC330EA007437F4 /* Assets.xcassets */; };
 		D1BA590C2AC330EA007437F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BA590A2AC330EA007437F4 /* LaunchScreen.storyboard */; };
 		D1BA59152AC3317B007437F4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA59142AC3317B007437F4 /* Alamofire */; };
@@ -17,16 +17,24 @@
 		D1BA591B2AC331C3007437F4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA591A2AC331C3007437F4 /* Realm */; };
 		D1BA591D2AC331C3007437F4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA591C2AC331C3007437F4 /* RealmSwift */; };
 		D1BA59202AC331DA007437F4 /* TextFieldEffects in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA591F2AC331DA007437F4 /* TextFieldEffects */; };
+		D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59262AC3329C007437F4 /* BaseViewController.swift */; };
+		D1BA59292AC332A3007437F4 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59282AC332A3007437F4 /* BaseCollectionViewCell.swift */; };
+		D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA592A2AC332C5007437F4 /* BaseTableViewCell.swift */; };
+		D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA592D2AC334E3007437F4 /* reusableViewProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		D1BA58FC2AC330E9007437F4 /* Orang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1BA59012AC330E9007437F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D1BA59032AC330E9007437F4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D1BA59032AC330E9007437F4 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		D1BA59082AC330EA007437F4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D1BA590B2AC330EA007437F4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1BA590D2AC330EA007437F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D1BA59262AC3329C007437F4 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		D1BA59282AC332A3007437F4 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1BA592A2AC332C5007437F4 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		D1BA592D2AC334E3007437F4 /* reusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reusableViewProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,12 +74,48 @@
 			children = (
 				D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */,
 				D1BA59012AC330E9007437F4 /* SceneDelegate.swift */,
-				D1BA59032AC330E9007437F4 /* ViewController.swift */,
+				D1BA59212AC33249007437F4 /* Scene */,
+				D1BA59222AC33256007437F4 /* Module */,
 				D1BA59082AC330EA007437F4 /* Assets.xcassets */,
 				D1BA590A2AC330EA007437F4 /* LaunchScreen.storyboard */,
 				D1BA590D2AC330EA007437F4 /* Info.plist */,
 			);
 			path = Orang;
+			sourceTree = "<group>";
+		};
+		D1BA59212AC33249007437F4 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA59252AC33293007437F4 /* Base */,
+				D1BA59032AC330E9007437F4 /* ProfileViewController.swift */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		D1BA59222AC33256007437F4 /* Module */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Module;
+			sourceTree = "<group>";
+		};
+		D1BA59252AC33293007437F4 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA592C2AC334D0007437F4 /* Protocol */,
+				D1BA59262AC3329C007437F4 /* BaseViewController.swift */,
+				D1BA59282AC332A3007437F4 /* BaseCollectionViewCell.swift */,
+				D1BA592A2AC332C5007437F4 /* BaseTableViewCell.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		D1BA592C2AC334D0007437F4 /* Protocol */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA592D2AC334E3007437F4 /* reusableViewProtocol.swift */,
+			);
+			path = Protocol;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -157,8 +201,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1BA59042AC330E9007437F4 /* ViewController.swift in Sources */,
+				D1BA59292AC332A3007437F4 /* BaseCollectionViewCell.swift in Sources */,
+				D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */,
+				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
+				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
 				D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */,
+				D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */,
 				D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
