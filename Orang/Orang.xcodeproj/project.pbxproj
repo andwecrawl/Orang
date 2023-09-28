@@ -21,6 +21,7 @@
 		D1BA59292AC332A3007437F4 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59282AC332A3007437F4 /* BaseCollectionViewCell.swift */; };
 		D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA592A2AC332C5007437F4 /* BaseTableViewCell.swift */; };
 		D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA592D2AC334E3007437F4 /* reusableViewProtocol.swift */; };
+		D1BA59322AC3F1FF007437F4 /* ProfileTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59312AC3F1FF007437F4 /* ProfileTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		D1BA59282AC332A3007437F4 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BA592A2AC332C5007437F4 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		D1BA592D2AC334E3007437F4 /* reusableViewProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = reusableViewProtocol.swift; sourceTree = "<group>"; };
+		D1BA59312AC3F1FF007437F4 /* ProfileTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BA59252AC33293007437F4 /* Base */,
-				D1BA59032AC330E9007437F4 /* ProfileViewController.swift */,
+				D1BA592F2AC3EE40007437F4 /* Profile */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -95,6 +97,7 @@
 		D1BA59222AC33256007437F4 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				D1BA59302AC3EE4D007437F4 /* Data */,
 			);
 			path = Module;
 			sourceTree = "<group>";
@@ -116,6 +119,22 @@
 				D1BA592D2AC334E3007437F4 /* reusableViewProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		D1BA592F2AC3EE40007437F4 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA59032AC330E9007437F4 /* ProfileViewController.swift */,
+				D1BA59312AC3F1FF007437F4 /* ProfileTableViewCell.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		D1BA59302AC3EE4D007437F4 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D1BA59292AC332A3007437F4 /* BaseCollectionViewCell.swift in Sources */,
+				D1BA59322AC3F1FF007437F4 /* ProfileTableViewCell.swift in Sources */,
 				D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */,
 				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
