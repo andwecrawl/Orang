@@ -14,7 +14,7 @@ class ProfileViewController: BaseViewController {
         view.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         view.showsVerticalScrollIndicator = false
         view.separatorStyle = .none
-        view.rowHeight = 180
+        view.rowHeight = 230
         return view
     }()
     
@@ -62,7 +62,6 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier) as? ProfileTableViewCell else { return UITableViewCell() }
-        cell.backgroundColor = .cyan
         return cell
     }
     
