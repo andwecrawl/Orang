@@ -9,7 +9,7 @@ import UIKit
 
 extension UIView {
     
-    func addOuterShadowAndRadius(outerView: UIView, innerView: UIView) {
+    static func addOuterShadowAndRadius(outerView: UIView, innerView: UIView) {
         // 그림자랑 cornerRadius 수정
         innerView.layer.cornerRadius = 15
         innerView.clipsToBounds = true
@@ -17,7 +17,7 @@ extension UIView {
         outerView.layer.shadowColor = UIColor.black.cgColor
         outerView.layer.shadowOffset = .zero
         outerView.layer.shadowRadius = 10
-        outerView.layer.shadowOpacity = 0.3
+        outerView.layer.shadowOpacity = 0.2
     }
     
     func addInnerShadow() {
