@@ -16,6 +16,11 @@ class addViewController: BaseViewController {
         
     }
     
+    func setNavigationBar() {
+        // scrollEdgeAppearance를 적용하고 싶음... ... 추후 적용!!
+        navigationController?.navigationBar.prefersLargeTitles = true
+    }
+    
     override func configureHierarchy() {
         
     }

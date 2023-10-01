@@ -40,7 +40,8 @@ class ProfileViewController: BaseViewController {
     }
     
     @objc func addButtonClicked() {
-        
+        let vc = addViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func settingButtonClicked() {
@@ -67,10 +68,22 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         print("clicked!")
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
-//    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-//        
-//    }
-    
+    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+        let modify = UIAction(title: "수정하기") { _ in
+            // 수정 ViewController
+            print("수정하깅")
+        }
+        let delete = UIAction(title: "삭제하기") { _ in
+            // 삭제 Alert 띄움
+            print("삭제하깅")
+        }
+        
+        let menuConfiguration = UIContextMenuConfiguration(actionProvider:  { _ in
+            UIMenu(title: "", children: [modify, delete])
+        })
+        return menuConfiguration
+    }
 }
