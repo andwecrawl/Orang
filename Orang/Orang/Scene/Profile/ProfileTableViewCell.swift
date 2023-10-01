@@ -47,7 +47,7 @@ class ProfileTableViewCell: BaseTableViewCell {
     }
     
     
-    override func configureView() {
+    override func configureHierarchy() {
         self.addSubview(outerView)
         outerView.addSubview(innerView)
         innerView.addSubview(profileImageView)

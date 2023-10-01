@@ -12,7 +12,7 @@ class BaseTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        configureView()
+        configureHierarchy()
         setConstraints()
     }
     
@@ -26,7 +26,7 @@ class BaseTableViewCell: UITableViewCell {
         
     }
     
-    func configureView() {
+    func configureHierarchy() {
         
     }
     
