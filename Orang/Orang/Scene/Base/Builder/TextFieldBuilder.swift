@@ -9,10 +9,12 @@ import UIKit
 import TextFieldEffects
 
 class HSTextField: HoshiTextField {
-    static func makeText(placeholder: String) -> HSTextField {
+    static func textFieldBuilder(placeholder: String) -> HSTextField {
         let textField = HSTextField(frame: .zero)
         textField.placeholderColor = .darkGray
-        textField.placeholderLabel.text = placeholder
+        textField.placeholder = placeholder
+        textField.borderInactiveColor = .gray
+        textField.borderActiveColor = .yellow
         return textField
     }
 }
