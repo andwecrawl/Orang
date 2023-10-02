@@ -17,10 +17,12 @@ struct Pet {
     var RegistrationNum: Int
 }
 
-enum Species: Int, PersistableEnum {
-    case dog
-    case cat
-    case hamster
-    case smallAnimal
-    case reptile // 파충류
+enum Species: String, PersistableEnum {
+    case dog = "강아지"
+    case cat = "고양이"
+    case hamster = "햄스터"
+    case hedgehog = "고슴도치"
+    case rabbit = "토끼"
+    case reptile = "파충류"
+    case etc = "기타"
 }
