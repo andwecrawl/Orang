@@ -9,7 +9,7 @@ import UIKit
 
 class ProfileViewController: BaseViewController {
 
-    let tableView = {
+    private let tableView = {
         let view = UITableView(frame: .zero)
         view.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
         view.showsVerticalScrollIndicator = false
@@ -33,18 +33,18 @@ class ProfileViewController: BaseViewController {
         tableView.dataSource = self
     }
     
-    func setNavigationBar() {
+    private func setNavigationBar() {
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonClicked))
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingButtonClicked))
         navigationItem.rightBarButtonItems = [settingButton, addButton]
     }
     
-    @objc func addButtonClicked() {
+    @objc private func addButtonClicked() {
         let vc = addViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    @objc func settingButtonClicked() {
+    @objc private func settingButtonClicked() {
         
     }
 
