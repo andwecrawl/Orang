@@ -11,6 +11,7 @@
 		D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */; };
 		D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC32ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift */; };
 		D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */; };
+		D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC82ACAFC3700477A14 /* ImageManager.swift */; };
 		D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */; };
 		D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59012AC330E9007437F4 /* SceneDelegate.swift */; };
 		D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59032AC330E9007437F4 /* ProfileViewController.swift */; };
@@ -40,6 +41,7 @@
 		D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		D1B52EC32ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextFieldBuilder.swift; sourceTree = "<group>"; };
 		D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableRepository.swift; sourceTree = "<group>"; };
+		D1B52EC82ACAFC3700477A14 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		D1BA58FC2AC330E9007437F4 /* Orang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1BA59012AC330E9007437F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -80,6 +82,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1B52EC72ACAFC2100477A14 /* ImageManager */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52EC82ACAFC3700477A14 /* ImageManager.swift */,
+			);
+			path = ImageManager;
+			sourceTree = "<group>";
+		};
 		D1BA58F32AC330E9007437F4 = {
 			isa = PBXGroup;
 			children = (
@@ -126,6 +136,7 @@
 				D1BA594A2AC828F7007437F4 /* Design */,
 				D1BA59302AC3EE4D007437F4 /* Data */,
 				D1BA59412AC73614007437F4 /* Realm */,
+				D1B52EC72ACAFC2100477A14 /* ImageManager */,
 				D1BA593C2AC6F8F4007437F4 /* Protocol */,
 			);
 			path = Module;
@@ -318,6 +329,7 @@
 				D1BA59352AC6B887007437F4 /* LabelBuilder.swift in Sources */,
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
+				D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */,
 				D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */,
 				D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */,
 				D1BA59372AC6B898007437F4 /* ViewAppearance.swift in Sources */,
