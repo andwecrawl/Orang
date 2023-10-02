@@ -36,8 +36,27 @@ class addViewController: BaseViewController {
         view.addSubview(profileImageView)
         view.addSubview(profileImageButton)
         
+        profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
+        
+        [nameStackView, birthStackView, meetDateStackView, weightStackView, registrationStackView].forEach {
+            view.addSubview($0)
+        }
         nameStackView.AddArrangedSubviews([nameLabel, nameTextField])
         birthStackView.AddArrangedSubviews([birthLabel, birthTextField])
+    @objc func profileImageButtonClicked() {
+    
+        // picker 기본 설정!!
+        var configuration = PHPickerConfiguration()
+        
+        // 최대 몇 개까지 고르게 할지!!
+        configuration.selectionLimit = 1
+        
+        // 어떤 거만 허용할지!
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
     }
     
     override func setConstraints() {
@@ -75,4 +94,27 @@ class addViewController: BaseViewController {
         }
     }
     
+extension addViewController: PHPickerViewControllerDelegate {
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        
+        // 이미지 클릭 시 화면 dismiss
+        picker.dismiss(animated: true)
+        
+        // itemProvider == 선택한 asset을 보여주는 역할을 함!!
+        if let itemProvider = results.first?.itemProvider,
+           itemProvider.canLoadObject(ofClass: UIImage.self) {
+            let type: NSItemProviderReading.Type = UIImage.self
+            itemProvider.loadObject(ofClass: type) { image, error in
+                if let image = image as? UIImage {
+                    // View를 다시 그려주는 거기 땜에 main에 넣어주깅...
+                    DispatchQueue.main.async {
+                        self.profileImageView.image = image
+                        
+                    }
+                } else {
+                    print(error)
+                }
+            }
+        }
+    }
 }

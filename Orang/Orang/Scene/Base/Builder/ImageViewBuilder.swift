@@ -17,6 +17,7 @@ extension UIImageView {
             make.height.equalTo(size)
             make.width.equalTo(size)
         }
+        view.clipsToBounds = true
         view.layer.cornerRadius = size / 2
         return view
     }
