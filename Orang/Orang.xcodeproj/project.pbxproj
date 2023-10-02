@@ -10,6 +10,7 @@
 		D1B52EC02AC9918000477A14 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1B52EBF2AC9918000477A14 /* IQKeyboardManagerSwift */; };
 		D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */; };
 		D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC32ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift */; };
+		D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */; };
 		D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */; };
 		D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59012AC330E9007437F4 /* SceneDelegate.swift */; };
 		D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59032AC330E9007437F4 /* ProfileViewController.swift */; };
@@ -38,6 +39,7 @@
 /* Begin PBXFileReference section */
 		D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		D1B52EC32ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextFieldBuilder.swift; sourceTree = "<group>"; };
+		D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableRepository.swift; sourceTree = "<group>"; };
 		D1BA58FC2AC330E9007437F4 /* Orang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1BA59012AC330E9007437F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BA59422AC7364D007437F4 /* PetTable.swift */,
+				D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -206,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				D1BA59552AC82CFC007437F4 /* Extension */,
-				D1BA59522AC82B4C007437F4 /* Localizable.strings */,
 			);
 			path = Localization;
 			sourceTree = "<group>";
@@ -215,6 +217,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BA59562AC82D08007437F4 /* String+.swift */,
+				D1BA59522AC82B4C007437F4 /* Localizable.strings */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -318,6 +321,7 @@
 				D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */,
 				D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */,
 				D1BA59372AC6B898007437F4 /* ViewAppearance.swift in Sources */,
+				D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */,
 				D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */,
 				D1BA59452AC7395D007437F4 /* Pet.swift in Sources */,
 				D1BA59572AC82D08007437F4 /* String+.swift in Sources */,

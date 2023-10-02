@@ -6,28 +6,50 @@
 //
 
 import UIKit
+import PhotosUI
 
 class addViewController: BaseViewController {
     
-    let profileImageView = UIImageView.imageViewBuilder(size: 130)
-    let profileImageButton = UIButton.profileButtonBuilder(size: 130)
+    private lazy var profileImageView = UIImageView.imageViewBuilder(size: 130)
+    private lazy var profileImageButton = UIButton.profileButtonBuilder(size: 130)
     
-    let nameLabel = UILabel.labelBuilder(text: "name".localized(), size: 16, weight: .bold)
-    let nameTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputName".localized())
-    let nameStackView = UIStackView.stackViewBuilder()
+    private lazy var nameLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 16, weight: .bold)
+    private lazy var nameTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputName".localized())
+    private lazy var nameStackView = UIStackView.stackViewBuilder()
     
-    let birthLabel = UILabel.labelBuilder(text: "birthday".localized(), size: 16, weight: .bold)
-    let birthTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputBirthday".localized())
-    let birthStackView = UIStackView.stackViewBuilder()
+    private lazy var birthLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 16, weight: .bold)
+    private lazy var birthTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputBirthday".localized())
+    private lazy var birthStackView = UIStackView.stackViewBuilder()
+    
+    private lazy var meetDateLabel = UILabel.labelBuilder(text: "meetDateSetting".localized(), size: 16, weight: .bold)
+    private lazy var meetDateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputMeetDate".localized())
+    private lazy var meetDateStackView = UIStackView.stackViewBuilder()
+    
+    private lazy var weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 16, weight: .bold)
+    private lazy var weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputWeight".localized())
+    private lazy var weightStackView = UIStackView.stackViewBuilder()
+    
+    private lazy var registrationLabel = UILabel.labelBuilder(text: "registrationNumber".localized(), size: 16, weight: .bold)
+    private lazy var registrationTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputWeight".localized())
+    private lazy var registrationStackView = UIStackView.stackViewBuilder()
+    
+    private lazy var listStackView = UIStackView.stackViewBuilder(axis: .vertical)
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setNavigationBar()
     }
     
+    
     func setNavigationBar() {
-        // scrollEdgeAppearance를 적용하고 싶음... ... 추후 적용!!
-        navigationController?.navigationBar.prefersLargeTitles = true
+        let saveButton = UIBarButtonItem(title: "저장", style: .done, target: self, action: #selector(saveButtonClicked))
+        navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc func saveButtonClicked() {
+        
     }
     
     override func configureHierarchy() {
@@ -43,6 +65,14 @@ class addViewController: BaseViewController {
         }
         nameStackView.AddArrangedSubviews([nameLabel, nameTextField])
         birthStackView.AddArrangedSubviews([birthLabel, birthTextField])
+        meetDateStackView.AddArrangedSubviews([meetDateLabel, meetDateTextField])
+        weightStackView.AddArrangedSubviews([weightLabel, weightTextField])
+        registrationStackView.AddArrangedSubviews([registrationLabel, registrationTextField])
+        
+//        view.addSubview(listStackView)
+//        listStackView.AddArrangedSubviews([nameStackView, birthStackView, meetDateStackView, weightStackView, registrationStackView])
+    }
+    
     @objc func profileImageButtonClicked() {
     
         // picker 기본 설정!!
@@ -75,25 +105,60 @@ class addViewController: BaseViewController {
             make.width.equalTo(80)
             make.height.equalTo(50)
         }
+        
         nameStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(profileImageView.snp.bottom).offset(30)
             make.height.equalTo(50)
         }
-        setStackViewConstrations(stackView: birthStackView, label: birthLabel, topElement: nameStackView)
-    func setStackViewConstrations(stackView: UIStackView, label: UILabel, topElement: UIView) {
-        label.snp.makeConstraints { make in
+        
+        birthLabel.snp.makeConstraints { make in
             make.width.equalTo(80)
             make.height.equalTo(50)
         }
         
-        stackView.snp.makeConstraints { make in
+        birthStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.top.equalTo(topElement.snp.bottom).offset(16)
+            make.top.equalTo(nameStackView.snp.bottom).offset(16)
+            make.height.equalTo(50)
+        }
+        
+        meetDateLabel.snp.makeConstraints { make in
+            make.width.equalTo(80)
+            make.height.equalTo(50)
+        }
+        
+        meetDateStackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(birthStackView.snp.bottom).offset(16)
+            make.height.equalTo(50)
+        }
+        
+        weightLabel.snp.makeConstraints { make in
+            make.width.equalTo(80)
+            make.height.equalTo(50)
+        }
+        
+        weightStackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(meetDateStackView.snp.bottom).offset(16)
+            make.height.equalTo(50)
+        }
+        
+        registrationLabel.snp.makeConstraints { make in
+            make.width.equalTo(80)
+            make.height.equalTo(50)
+        }
+        
+        registrationStackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(weightStackView.snp.bottom).offset(16)
             make.height.equalTo(50)
         }
     }
-    
+}
+
+
 extension addViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
