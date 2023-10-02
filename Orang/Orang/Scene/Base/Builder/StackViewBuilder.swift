@@ -16,4 +16,8 @@ extension UIStackView {
         view.alignment = .leading
         return view
     }
+    
+    func AddArrangedSubviews(_ views: [UIView]) {
+        views.forEach { self.addArrangedSubview($0) }
+    }
 }
