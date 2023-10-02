@@ -82,8 +82,8 @@ extension UnderLineTextField {
     static func textFieldBuilder(placeholder: String) -> UnderLineTextField {
         let textField = UnderLineTextField()
         textField.borderStyle = .none
-        textField.tintColor = .gray
-        textField.textColor = .gray
+        textField.tintColor = Design.Color.tintColor
+        textField.textColor = Design.Color.content
         textField.setPlaceholder(
             placeholder: placeholder,
             color: .lightGray
