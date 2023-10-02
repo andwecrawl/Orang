@@ -18,7 +18,11 @@ class BaseViewController: UIViewController {
     }
     
     func configureHierarchy() {
-        view.backgroundColor = .white
+        view.backgroundColor = Design.Color.background
+        let navigationBar = navigationController?.navigationBar
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.shadowColor = .systemGray4
+        navigationBar?.scrollEdgeAppearance = navigationBarAppearance
     }
     
     func setConstraints() {
