@@ -15,17 +15,17 @@ class ProfileTableViewCell: BaseTableViewCell {
     let profileImageView = UIImageView.imageViewBuilder(size: 130)
     
     let dateLabel = UILabel.labelBuilder(size: 13, weight: .light, color: .lightGray, alignment: .right)
-    let belongLabel = UILabel.labelBuilder(size: 16, weight: .bold, alignment: .right)
+    let belongLabel = UILabel.labelBuilder(size: 16, weight: .bold, color: .black, alignment: .right)
     
-    let speciesSettingLabel = UILabel.labelBuilder(size: 15, weight: .semibold, alignment: .left)
-    let nameSettingLabel = UILabel.labelBuilder(size: 15, weight: .semibold, alignment: .left)
-    let birthSettingLabel = UILabel.labelBuilder(size: 15, weight: .semibold, alignment: .left)
-    let weightSettingLabel = UILabel.labelBuilder(size: 15, weight: .semibold, alignment: .left)
+    let speciesSettingLabel = UILabel.labelBuilder(text: "speciesSetting".localized(),size: 15, weight: .semibold, color: .black, alignment: .left)
+    let nameSettingLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left)
+    let birthSettingLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left)
+    let weightSettingLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left)
     
-    let speciesLabel = UILabel.labelBuilder(size: 15, weight: .light)
-    let nameLabel = UILabel.labelBuilder(size: 15, weight: .light)
-    let birthLabel = UILabel.labelBuilder(size: 15, weight: .light)
-    let weightLabel = UILabel.labelBuilder(size: 15, weight: .light)
+    let speciesLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black)
+    let nameLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black)
+    let birthLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black)
+    let weightLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black)
     
     let speciesStackView = UIStackView.stackViewBuilder()
     let nameStackView = UIStackView.stackViewBuilder()
@@ -50,6 +50,7 @@ class ProfileTableViewCell: BaseTableViewCell {
     override func configureHierarchy() {
         self.addSubview(outerView)
         outerView.addSubview(innerView)
+        outerView.layer.opacity = 0.8
         innerView.addSubview(profileImageView)
         profileImageView.backgroundColor = .gray
         
@@ -125,13 +126,9 @@ class ProfileTableViewCell: BaseTableViewCell {
         dateLabel.text = "~에 만났어요!"
         belongLabel.text = "만난 지 120일"
 
-        speciesSettingLabel.text = "종"
         speciesLabel.text = "햄스터ㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ"
-        nameSettingLabel.text = "이름"
         nameLabel.text = "쩨라드 웨이"
-        birthSettingLabel.text = "생일"
         birthLabel.text = "2020.04.23"
-        weightSettingLabel.text = "몸무게"
         weightLabel.text = "88g"
     }
     
