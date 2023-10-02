@@ -1,0 +1,32 @@
+/* 
+  Localizable.strings
+  Orang
+
+  Created by yeoni on 2023/09/30.
+  
+*/
+
+
+
+// tabBar
+"Profile" = "프로필";
+
+// profileVC
+"nameSetting" = "이름";
+"inputName" = "이름을 입력해 주세요";
+"meetDateSetting" = "만난 날";
+"meetDate" = "%@에 만났어요";
+"belongDateSetting" = "만난 지 %d일";
+"inputMeetDate" = "만난 날을 입력해 주세요";
+"speciesSetting" = "종";
+"birthdaySetting" = "생일";
+"inputBirthday" = "생일을 입력해 주세요";
+"weightSetting" = "몸무게";
+"inputWeight" = "몸무게를 입력해 주세요";
+"registrationNumber" = "등록번호";
+"inputRegistrationNumber" = "등록번호를 입력해 주세요";
+
+
+
+
+
