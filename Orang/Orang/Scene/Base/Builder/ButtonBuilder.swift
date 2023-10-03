@@ -28,8 +28,15 @@ extension UIButton {
     
     static func unitPopUpButtonBuilder(unitClosure: @escaping (UIAction) -> ()) -> UIButton {
         let button = UIButton()
-        button.tintColor = Design.Color.tintColor
+        button.setTitleColor(Design.Color.content, for: .normal)
+        button.layer.cornerRadius = 8
+        button.layer.borderColor = Design.Color.content?.cgColor
+        button.layer.borderWidth = 1
         
+        button.snp.makeConstraints { make in
+            make.width.equalTo(70)
+            make.height.equalTo(40)
+        }
         button.menu = UIMenu(children: [
             UIAction(title: "g", handler: unitClosure),
             UIAction(title: "kg", handler: unitClosure),
