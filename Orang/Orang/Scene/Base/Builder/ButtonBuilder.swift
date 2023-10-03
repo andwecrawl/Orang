@@ -43,6 +43,7 @@ extension UIButton {
             configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 13)
             configuration.imagePadding = 8
             configuration.titleAlignment = .leading
+            configuration.baseBackgroundColor = .clear
             
             switch button.state {
                 
@@ -50,13 +51,13 @@ extension UIButton {
                 container.foregroundColor = Design.Color.content
                 configuration.attributedTitle = AttributedString(title, attributes: container)
                 configuration.image = UIImage(systemName: "checkmark.square.fill")
-                configuration.baseBackgroundColor = .clear
             case .highlighted:
                 break
             default:
-                container.foregroundColor = .darkGray
+                container.foregroundColor = .darkGray.withAlphaComponent(0.7)
                 configuration.attributedTitle = AttributedString(title, attributes: container)
                 configuration.image = UIImage(systemName: "checkmark.square")
+                
             }
             
             button.configuration = configuration
@@ -68,7 +69,7 @@ extension UIButton {
     static func unitPopUpButtonBuilder(unitClosure: @escaping (UIAction) -> ()) -> UIButton {
         let button = UIButton()
         button.layer.cornerRadius = 8
-        button.layer.borderColor = Design.Color.content?.cgColor
+        button.layer.borderColor = Design.Color.border.cgColor
         button.layer.borderWidth = 1
         
         button.snp.makeConstraints { make in
