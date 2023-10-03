@@ -20,16 +20,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let tabBar = UITabBarController()
         
-        let alertVC = AlertViewController()
-        let alertNav = UINavigationController(rootViewController: alertVC)
+        let alertNav = UINavigationController(rootViewController: AlertViewController())
         alertNav.tabBarItem = UITabBarItem(title: "일정 관리", image: UIImage(systemName: "alarm"), tag: 0)
         
-        let recordVC = RecordViewController()
-        let recordNav = UINavigationController(rootViewController: recordVC)
+        let recordNav = UINavigationController(rootViewController: RecordViewController())
         recordNav.tabBarItem = UITabBarItem(title: "기록하기", image: UIImage(systemName: "pencil.and.outline"), tag: 0)
         
-        let profileVC = ProfileViewController()
-        let profileNav = UINavigationController(rootViewController: profileVC)
+        let profileNav = UINavigationController(rootViewController: ProfileViewController())
         profileNav.tabBarItem = UITabBarItem(title: "아이 설정", image: UIImage(systemName: "pawprint.circle.fill"), tag: 0)
         
         tabBar.setViewControllers([alertNav, recordNav, profileNav], animated: true)
