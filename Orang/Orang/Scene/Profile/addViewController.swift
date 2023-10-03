@@ -155,6 +155,12 @@ class addViewController: BaseViewController {
         }
         
         profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
+        
+        idkBirthButton.addTarget(self, action: #selector(idkBirthButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func idkBirthButtonClicked() {
+        idkBirthButton.isSelected.toggle()
     }
 }
 
@@ -189,14 +195,9 @@ extension addViewController {
 // profile Image
 extension addViewController: PHPickerViewControllerDelegate {
     @objc func profileImageButtonClicked() {
-        
         // picker 기본 설정!!
         var configuration = PHPickerConfiguration()
-        
-        // 최대 몇 개까지 고르게 할지!!
         configuration.selectionLimit = 1
-        
-        // 어떤 거만 허용할지!
         configuration.filter = .images
         
         let picker = PHPickerViewController(configuration: configuration)
@@ -205,7 +206,6 @@ extension addViewController: PHPickerViewControllerDelegate {
     }
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        
         // 이미지 클릭 시 화면 dismiss
         picker.dismiss(animated: true)
         
@@ -215,12 +215,11 @@ extension addViewController: PHPickerViewControllerDelegate {
             let type: NSItemProviderReading.Type = UIImage.self
             itemProvider.loadObject(ofClass: type) { image, error in
                 if let image = image as? UIImage {
-                    // View를 다시 그려주는 거기 땜에 main에 넣어주깅...
                     DispatchQueue.main.async {
                         self.profileImageView.image = image
-                        
                     }
                 } else {
+                    // 다시 시도 Alert
                     print(error)
                 }
             }
