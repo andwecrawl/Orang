@@ -30,3 +30,11 @@
 
 
 
+// species String
+"dog" = "강아지";
+"cat" = "고양이";
+"hamster" = "햄스터, 래트";
+"hedgehog" = "고슴도치";
+"rabbit" = "토끼";
+"reptile" = "파충류";
+"etc" = "기타";
