@@ -21,19 +21,20 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationBar()
     }
     
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        title = "Profile"
         view.addSubview(tableView)
         tableView.delegate = self
         tableView.dataSource = self
     }
     
-    private func setNavigationBar() {
+    override func setNavigationBar() {
+        super.setNavigationBar()
+        
+        title = "Profile"
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonClicked))
         let settingButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingButtonClicked))
         navigationItem.rightBarButtonItems = [settingButton, addButton]

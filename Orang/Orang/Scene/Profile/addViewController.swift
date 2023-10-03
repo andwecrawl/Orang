@@ -20,6 +20,7 @@ class addViewController: BaseViewController {
     private lazy var birthLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 16, weight: .bold)
     private lazy var birthTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputBirthday".localized())
     private lazy var birthStackView = UIStackView.stackViewBuilder()
+    private lazy var idkBirthButton = UIButton.idkButtonBuilder()
     
     private lazy var meetDateLabel = UILabel.labelBuilder(text: "meetDateSetting".localized(), size: 16, weight: .bold)
     private lazy var meetDateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputMeetDate".localized())
@@ -40,12 +41,12 @@ class addViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setNavigationBar()
         configureView()
     }
     
-    
-    func setNavigationBar() {
+    override func setNavigationBar() {
+        super.setNavigationBar()
+        
         let saveButton = UIBarButtonItem(title: "저장", style: .done, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
     }
@@ -60,33 +61,16 @@ class addViewController: BaseViewController {
         view.addSubview(profileImageView)
         view.addSubview(profileImageButton)
         
-        profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
-        
         [nameStackView, birthStackView, meetDateStackView, weightStackView, registrationStackView].forEach {
             view.addSubview($0)
         }
         nameStackView.AddArrangedSubviews([nameLabel, nameTextField])
-        birthStackView.AddArrangedSubviews([birthLabel, birthTextField])
+        birthStackView.AddArrangedSubviews([birthLabel, birthTextField, idkBirthButton])
         meetDateStackView.AddArrangedSubviews([meetDateLabel, meetDateTextField])
         weightStackView.AddArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
         registrationStackView.AddArrangedSubviews([registrationLabel, registrationTextField])
     }
-    
-    @objc func profileImageButtonClicked() {
-    
-        // picker 기본 설정!!
-        var configuration = PHPickerConfiguration()
-        
-        // 최대 몇 개까지 고르게 할지!!
-        configuration.selectionLimit = 1
-        
-        // 어떤 거만 허용할지!
-        configuration.filter = .images
-        
-        let picker = PHPickerViewController(configuration: configuration)
-        picker.delegate = self
-        self.present(picker, animated: true, completion: nil)
-    }
+
     
     override func setConstraints() {
         profileImageView.backgroundColor = .gray
@@ -163,8 +147,14 @@ class addViewController: BaseViewController {
         [birthTextField, meetDateTextField].forEach {
             setupDatePicker(textField: $0)
         }
+        
+        profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
     }
-    
+}
+
+
+// datePicker
+extension addViewController {
     private func setupDatePicker(textField: UITextField) {
         let datePicker = UIDatePicker()
         datePicker.tag = textField.tag
@@ -187,23 +177,6 @@ class addViewController: BaseViewController {
             meetDateTextField.text = sender.dateFormat()
         }
     }
-}
-
-extension addViewController: UITextFieldDelegate {
-    
-    // 입력 감지하여 키보드 올려줌
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        textField.becomeFirstResponder()
-    }
-    
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
-    }
-    
 }
 
 

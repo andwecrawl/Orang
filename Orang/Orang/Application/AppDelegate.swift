@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         UINavigationBar.appearance().tintColor = Design.Color.tintColor
         UITabBar.appearance().tintColor = Design.Color.tintColor
+        UIButton.appearance().setTitleColor(Design.Color.content, for: .normal)
+        UIButton.appearance().tintColor = Design.Color.tintColor
         
         return true
     }
