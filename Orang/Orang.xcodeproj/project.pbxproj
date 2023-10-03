@@ -13,6 +13,8 @@
 		D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */; };
 		D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC82ACAFC3700477A14 /* ImageManager.swift */; };
 		D1B52ECC2ACBDC7F00477A14 /* DatePicker+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52ECB2ACBDC7F00477A14 /* DatePicker+.swift */; };
+		D1B52ED12ACBED4900477A14 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52ED02ACBED4900477A14 /* RecordViewController.swift */; };
+		D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52ED22ACBEE3B00477A14 /* AlertViewController.swift */; };
 		D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */; };
 		D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59012AC330E9007437F4 /* SceneDelegate.swift */; };
 		D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59032AC330E9007437F4 /* ProfileViewController.swift */; };
@@ -44,6 +46,8 @@
 		D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableRepository.swift; sourceTree = "<group>"; };
 		D1B52EC82ACAFC3700477A14 /* ImageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageManager.swift; sourceTree = "<group>"; };
 		D1B52ECB2ACBDC7F00477A14 /* DatePicker+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DatePicker+.swift"; sourceTree = "<group>"; };
+		D1B52ED02ACBED4900477A14 /* RecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		D1B52ED22ACBEE3B00477A14 /* AlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertViewController.swift; sourceTree = "<group>"; };
 		D1BA58FC2AC330E9007437F4 /* Orang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1BA59012AC330E9007437F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +113,22 @@
 			path = Application;
 			sourceTree = "<group>";
 		};
+		D1B52ECE2ACBED2400477A14 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52ED02ACBED4900477A14 /* RecordViewController.swift */,
+			);
+			path = Record;
+			sourceTree = "<group>";
+		};
+		D1B52ECF2ACBED3400477A14 /* Alert */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52ED22ACBEE3B00477A14 /* AlertViewController.swift */,
+			);
+			path = Alert;
+			sourceTree = "<group>";
+		};
 		D1BA58F32AC330E9007437F4 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				D1BA59252AC33293007437F4 /* Base */,
+				D1B52ECF2ACBED3400477A14 /* Alert */,
+				D1B52ECE2ACBED2400477A14 /* Record */,
 				D1BA592F2AC3EE40007437F4 /* Profile */,
 			);
 			path = Scene;
@@ -342,11 +364,13 @@
 				D1BA593E2AC6FC2F007437F4 /* StackViewBuilder.swift in Sources */,
 				D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */,
 				D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */,
+				D1B52ED12ACBED4900477A14 /* RecordViewController.swift in Sources */,
 				D1BA594C2AC82901007437F4 /* ColorSet.swift in Sources */,
 				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
 				D1B52ECC2ACBDC7F00477A14 /* DatePicker+.swift in Sources */,
 				D1BA59402AC71147007437F4 /* ImageViewBuilder.swift in Sources */,
 				D1BA59352AC6B887007437F4 /* LabelBuilder.swift in Sources */,
+				D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */,
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
 				D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */,
@@ -435,7 +459,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -490,7 +514,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -515,7 +539,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -547,7 +571,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
