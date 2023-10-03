@@ -28,6 +28,9 @@ class addViewController: BaseViewController {
     private lazy var weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 16, weight: .bold)
     private lazy var weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputWeight".localized())
     private lazy var weightStackView = UIStackView.stackViewBuilder()
+    private lazy var weightUnitButton = UIButton.unitPopUpButtonBuilder { action in
+        print("changed to \(action.title)")
+    }
     
     private lazy var registrationLabel = UILabel.labelBuilder(text: "registrationNumber".localized(), size: 16, weight: .bold)
     private lazy var registrationTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputRegistrationNumber".localized())
@@ -65,7 +68,7 @@ class addViewController: BaseViewController {
         nameStackView.AddArrangedSubviews([nameLabel, nameTextField])
         birthStackView.AddArrangedSubviews([birthLabel, birthTextField])
         meetDateStackView.AddArrangedSubviews([meetDateLabel, meetDateTextField])
-        weightStackView.AddArrangedSubviews([weightLabel, weightTextField])
+        weightStackView.AddArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
         registrationStackView.AddArrangedSubviews([registrationLabel, registrationTextField])
     }
     
