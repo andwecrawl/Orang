@@ -30,16 +30,15 @@ class addViewController: BaseViewController {
     private lazy var weightStackView = UIStackView.stackViewBuilder()
     
     private lazy var registrationLabel = UILabel.labelBuilder(text: "registrationNumber".localized(), size: 16, weight: .bold)
-    private lazy var registrationTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputWeight".localized())
+    private lazy var registrationTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputRegistrationNumber".localized())
     private lazy var registrationStackView = UIStackView.stackViewBuilder()
-    
-    private lazy var listStackView = UIStackView.stackViewBuilder(axis: .vertical)
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setNavigationBar()
+        configureView()
     }
     
     
@@ -68,9 +67,6 @@ class addViewController: BaseViewController {
         meetDateStackView.AddArrangedSubviews([meetDateLabel, meetDateTextField])
         weightStackView.AddArrangedSubviews([weightLabel, weightTextField])
         registrationStackView.AddArrangedSubviews([registrationLabel, registrationTextField])
-        
-//        view.addSubview(listStackView)
-//        listStackView.AddArrangedSubviews([nameStackView, birthStackView, meetDateStackView, weightStackView, registrationStackView])
     }
     
     @objc func profileImageButtonClicked() {
@@ -156,9 +152,59 @@ class addViewController: BaseViewController {
             make.height.equalTo(50)
         }
     }
+    
+    func configureView() {
+        birthTextField.tag = 1
+        meetDateTextField.tag = 2
+        
+        [birthTextField, meetDateTextField].forEach {
+            setupDatePicker(textField: $0)
+        }
+    }
+    
+    private func setupDatePicker(textField: UITextField) {
+        let datePicker = UIDatePicker()
+        datePicker.tag = textField.tag
+        datePicker.datePickerMode = .date
+        datePicker.preferredDatePickerStyle = .inline
+        
+        // 원하는 언어로 지역 설정
+        datePicker.locale = Locale(identifier: "ko-KR")
+        datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
+        
+        textField.inputView = datePicker
+        textField.text = datePicker.dateFormat()
+    }
+
+    // 값이 변할 때 마다 동작
+    @objc func dateChange(_ sender: UIDatePicker) {
+        if sender.tag == 1 {
+            birthTextField.text = sender.dateFormat()
+        } else {
+            meetDateTextField.text = sender.dateFormat()
+        }
+    }
+}
+
+extension addViewController: UITextFieldDelegate {
+    
+    // 입력 감지하여 키보드 올려줌
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        textField.becomeFirstResponder()
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
+    
 }
 
 
+// profile Image
 extension addViewController: PHPickerViewControllerDelegate {
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
