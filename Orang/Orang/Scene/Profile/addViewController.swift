@@ -20,7 +20,6 @@ class addViewController: BaseViewController {
     private lazy var birthLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 16, weight: .bold)
     private lazy var birthTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputBirthday".localized())
     private lazy var birthStackView = UIStackView.stackViewBuilder()
-    private lazy var idkBirthButton = UIButton.idkButtonBuilder()
     private lazy var idkBirthButton = UIButton.idkButtonBuilder(title: "생일이 기억나지 않아요.")
     
     private lazy var meetDateLabel = UILabel.labelBuilder(text: "meetDateSetting".localized(), size: 16, weight: .bold)
@@ -189,6 +188,22 @@ extension addViewController {
 
 // profile Image
 extension addViewController: PHPickerViewControllerDelegate {
+    @objc func profileImageButtonClicked() {
+        
+        // picker 기본 설정!!
+        var configuration = PHPickerConfiguration()
+        
+        // 최대 몇 개까지 고르게 할지!!
+        configuration.selectionLimit = 1
+        
+        // 어떤 거만 허용할지!
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+    
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
         
         // 이미지 클릭 시 화면 dismiss
