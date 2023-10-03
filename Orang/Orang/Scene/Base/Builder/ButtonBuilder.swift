@@ -9,21 +9,35 @@ import UIKit
 
 extension UIButton {
     static func buttonBuilder(image: UIImage?, title: String, font: UIFont) -> UIButton {
-        let view = UIButton()
-        view.titleLabel?.font = font
-        view.setTitle(title, for: .normal)
-        view.setImage(image, for: .normal)
-        return view
+        let button = UIButton()
+        button.titleLabel?.font = font
+        button.setTitle(title, for: .normal)
+        button.setImage(image, for: .normal)
+        return button
     }
     
     static func profileButtonBuilder(size: CGFloat) -> UIButton {
-        let view = UIButton()
-        view.snp.makeConstraints { make in
+        let button = UIButton()
+        button.snp.makeConstraints { make in
             make.height.equalTo(size)
             make.width.equalTo(size)
         }
-        view.layer.cornerRadius = size / 2
-        return view
+        button.layer.cornerRadius = size / 2
+        return button
+    }
+    
+    static func unitPopUpButtonBuilder(unitClosure: @escaping (UIAction) -> ()) -> UIButton {
+        let button = UIButton()
+        button.tintColor = Design.Color.tintColor
+        
+        button.menu = UIMenu(children: [
+            UIAction(title: "g", handler: unitClosure),
+            UIAction(title: "kg", handler: unitClosure),
+            UIAction(title: "lb", handler: unitClosure)
+        ])
+        button.showsMenuAsPrimaryAction = true
+        button.changesSelectionAsPrimaryAction = true
+        return button
     }
 }
 
