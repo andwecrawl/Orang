@@ -12,7 +12,6 @@ extension UIImageView {
         let view = UIImageView()
         view.tintColor = tintColor
         view.contentMode = .scaleAspectFill
-        view.layer.opacity = 0.5
         view.snp.makeConstraints { make in
             make.height.equalTo(size)
             make.width.equalTo(size)
