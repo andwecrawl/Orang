@@ -17,8 +17,23 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // View 시작
         guard let scene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: scene)
-        let vc = ProfileViewController()
-        window?.rootViewController = UINavigationController(rootViewController: vc)
+        
+        let tabBar = UITabBarController()
+        
+        let alertVC = AlertViewController()
+        let alertNav = UINavigationController(rootViewController: alertVC)
+        alertNav.tabBarItem = UITabBarItem(title: "일정 관리", image: UIImage(systemName: "alarm"), tag: 0)
+        
+        let recordVC = RecordViewController()
+        let recordNav = UINavigationController(rootViewController: recordVC)
+        recordNav.tabBarItem = UITabBarItem(title: "기록하기", image: UIImage(systemName: "pencil.and.outline"), tag: 0)
+        
+        let profileVC = ProfileViewController()
+        let profileNav = UINavigationController(rootViewController: profileVC)
+        profileNav.tabBarItem = UITabBarItem(title: "아이 설정", image: UIImage(systemName: "pawprint.circle.fill"), tag: 0)
+        
+        tabBar.setViewControllers([alertNav, recordNav, profileNav], animated: true)
+        window?.rootViewController = tabBar
         window?.makeKeyAndVisible()
     }
 
