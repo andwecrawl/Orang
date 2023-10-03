@@ -26,15 +26,16 @@ extension UIButton {
         return button
     }
     
-    static func idkButtonBuilder() -> UIButton {
+    static func idkButtonBuilder(title: String) -> UIButton {
         let button = UIButton()
         
         button.snp.makeConstraints { make in
-            make.height.equalTo(40)
-            make.width.equalTo(70)
+            make.height.equalTo(30)
+            make.width.equalTo(100)
         }
         
         button.configurationUpdateHandler = { button in
+
             var container = AttributeContainer()
             container.font = .systemFont(ofSize: 14, weight: .semibold)
             
@@ -47,16 +48,15 @@ extension UIButton {
                 
             case .selected:
                 container.foregroundColor = Design.Color.content
-                configuration.attributedTitle = AttributedString("모르겠어요", attributes: container)
+                configuration.attributedTitle = AttributedString(title, attributes: container)
                 configuration.image = UIImage(systemName: "checkmark.square.fill")
                 configuration.baseBackgroundColor = .clear
             case .highlighted:
                 break
             default:
                 container.foregroundColor = .darkGray
-                configuration.attributedTitle = AttributedString("모르겠어요", attributes: container)
+                configuration.attributedTitle = AttributedString(title, attributes: container)
                 configuration.image = UIImage(systemName: "checkmark.square")
-
             }
             
             button.configuration = configuration
