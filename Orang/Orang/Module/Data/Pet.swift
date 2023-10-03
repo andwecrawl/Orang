@@ -17,12 +17,16 @@ struct Pet {
     var RegistrationNum: Int
 }
 
-enum Species: String, PersistableEnum {
-    case dog = "강아지"
-    case cat = "고양이"
-    case hamster = "햄스터"
-    case hedgehog = "고슴도치"
-    case rabbit = "토끼"
-    case reptile = "파충류"
-    case etc = "기타"
+enum Species: Int, PersistableEnum, CaseIterable {
+    case dog
+    case cat
+    case hamster
+    case hedgehog
+    case rabbit
+    case reptile
+    case etc
+    
+    var toString: String {
+        return String(describing: self).localized()
+    }
 }
