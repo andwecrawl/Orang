@@ -21,6 +21,7 @@ class addViewController: BaseViewController {
     private lazy var birthTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputBirthday".localized())
     private lazy var birthStackView = UIStackView.stackViewBuilder()
     private lazy var idkBirthButton = UIButton.idkButtonBuilder()
+    private lazy var idkBirthButton = UIButton.idkButtonBuilder(title: "생일이 기억나지 않아요.")
     
     private lazy var meetDateLabel = UILabel.labelBuilder(text: "meetDateSetting".localized(), size: 16, weight: .bold)
     private lazy var meetDateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputMeetDate".localized())
@@ -65,7 +66,8 @@ class addViewController: BaseViewController {
             view.addSubview($0)
         }
         nameStackView.AddArrangedSubviews([nameLabel, nameTextField])
-        birthStackView.AddArrangedSubviews([birthLabel, birthTextField, idkBirthButton])
+        birthStackView.AddArrangedSubviews([birthLabel, birthTextField])
+        view.addSubview(idkBirthButton)
         meetDateStackView.AddArrangedSubviews([meetDateLabel, meetDateTextField])
         weightStackView.AddArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
         registrationStackView.AddArrangedSubviews([registrationLabel, registrationTextField])
@@ -104,6 +106,11 @@ class addViewController: BaseViewController {
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(nameStackView.snp.bottom).offset(16)
             make.height.equalTo(50)
+        }
+        
+        idkBirthButton.snp.makeConstraints { make in
+            make.top.equalTo(birthStackView.snp.bottom).inset(8)
+            make.horizontalEdges.equalTo(birthStackView)
         }
         
         meetDateLabel.snp.makeConstraints { make in
