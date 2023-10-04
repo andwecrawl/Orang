@@ -14,7 +14,8 @@ struct Pet {
     var birthday: String
     var belongDate: String
     var weight: Float
-    var RegistrationNum: Int
+    var RegistrationNum: Int?
+    var imageIdentifier: String
 }
 
 enum Species: Int, PersistableEnum, CaseIterable {
