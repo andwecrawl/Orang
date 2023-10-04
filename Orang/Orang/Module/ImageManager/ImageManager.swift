@@ -33,12 +33,14 @@ class ImageManager {
         }
     }
     
-    func saveImageToDirectory(directoryName: DirectoryName, imageName: String, image: UIImage?) {
+    func saveImageToDirectory(directoryName: DirectoryName, identifier: String, image: UIImage?) {
         
         let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         
         // 저장할 directoryURL 설정
         let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
+        
+        var imageName = "\(directoryName.rawValue)_\(identifier)"
         
         // 이미지 이름 & 최종 경로 설정
         let fileURL = directoryURL.appendingPathComponent(imageName, conformingTo: .jpeg)
@@ -60,21 +62,7 @@ class ImageManager {
         let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
         let fileURL = directoryURL.appendingPathComponent(identifier, conformingTo: .jpeg)
         
-        
-        
         guard fileManager.fileExists(atPath: fileURL.path) else { return nil }
-        
-        /*
-         여러 개를 읽고 싶다면...
-         do {
-         let fileURLs = try fileManager.contentsOfDirectory(at: documentURL, includingPropertiesForKeys: nil)
-         let imageURLs = fileURLs.filter { $0.pathExtension.lowercased() == "jpeg" }
-         let images = imageURLs.compactMap { UIImage(contentsOfFile: $0.path) }
-         } catch let error {
-         print("Error to read directory: \(error)")
-         }
-         */
-        
         
         return UIImage(contentsOfFile: fileURL.path)
     }
@@ -82,7 +70,8 @@ class ImageManager {
     func removeImageFromDirectory(directoryName: DirectoryName, identifier: String) {
         let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
-        let fileURL = directoryURL.appendingPathComponent(identifier, conformingTo: .jpeg)
+        let imageName = "\(directoryName.rawValue)_\(identifier)"
+        let fileURL = directoryURL.appendingPathComponent(imageName, conformingTo: .jpeg)
         
         do {
             if fileManager.fileExists(atPath: fileURL.path) {
