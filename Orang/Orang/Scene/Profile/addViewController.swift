@@ -14,19 +14,24 @@ class addViewController: BaseViewController {
     private lazy var profileImageButton = UIButton.profileButtonBuilder(size: 130)
     
     private lazy var nameLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 16, weight: .bold)
+    let speciesLabel = UILabel.labelBuilder(text: "종", size: 16, weight: .bold, settingTitle: true)
+    var speciesUnitButton = UIButton()
+    let speciesStackView = UIStackView.stackViewBuilder()
+    
+    private lazy var nameLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var nameTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputName".localized())
     private lazy var nameStackView = UIStackView.stackViewBuilder()
     
-    private lazy var birthLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 16, weight: .bold)
+    private lazy var birthLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var birthTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputBirthday".localized())
     private lazy var birthStackView = UIStackView.stackViewBuilder()
     private lazy var idkBirthButton = UIButton.idkButtonBuilder(title: "생일이 기억나지 않아요.")
     
-    private lazy var meetDateLabel = UILabel.labelBuilder(text: "meetDateSetting".localized(), size: 16, weight: .bold)
+    private lazy var meetDateLabel = UILabel.labelBuilder(text: "meetDateSetting".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var meetDateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputMeetDate".localized())
     private lazy var meetDateStackView = UIStackView.stackViewBuilder()
     
-    private lazy var weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 16, weight: .bold)
+    private lazy var weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputWeight".localized())
     private lazy var weightStackView = UIStackView.stackViewBuilder()
     private lazy var weightUnitButton = UIButton.unitPopUpButtonBuilder { action in
@@ -34,6 +39,7 @@ class addViewController: BaseViewController {
     }
     
     private lazy var registrationLabel = UILabel.labelBuilder(text: "registrationNumber".localized(), size: 16, weight: .bold)
+    private lazy var registrationLabel = UILabel.labelBuilder(text: "registrationNumber".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var registrationTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputRegistrationNumber".localized())
     private lazy var registrationStackView = UIStackView.stackViewBuilder()
     
