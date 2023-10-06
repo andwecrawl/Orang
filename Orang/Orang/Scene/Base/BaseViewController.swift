@@ -14,16 +14,16 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         setNavigationBar()
-        configureView()
         configureHierarchy()
         setConstraints()
+        configureView()
     }
     
     func setNavigationBar() {
-        let navigationBar = navigationController?.navigationBar
-        let navigationBarAppearance = UINavigationBarAppearance()
-        navigationBarAppearance.shadowColor = .systemGray4
-        navigationBar?.scrollEdgeAppearance = navigationBarAppearance
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        
+        navigationItem.largeTitleDisplayMode = .always
     }
     
     func configureHierarchy() {
