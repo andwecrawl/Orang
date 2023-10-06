@@ -18,6 +18,10 @@
 		D1B52EFE2ACDC48E00477A14 /* ViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EFD2ACDC48E00477A14 /* ViewController+.swift */; };
 		D1B52F002ACE79CF00477A14 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EFF2ACE79CF00477A14 /* BaseCollectionViewCell.swift */; };
 		D1B52F092ACFEFC100477A14 /* MedicalHistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52F082ACFEFC100477A14 /* MedicalHistoryViewController.swift */; };
+		D1B52F0C2ACFF0FB00477A14 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52F0B2ACFF0FB00477A14 /* DiaryViewController.swift */; };
+		D1B52F0E2AD002A800477A14 /* WeightRecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52F0D2AD002A800477A14 /* WeightRecordViewController.swift */; };
+		D1B52F102AD01F8400477A14 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52F0F2AD01F8400477A14 /* FeedViewController.swift */; };
+		D1B52F132AD0299700477A14 /* PooViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52F122AD0299600477A14 /* PooViewController.swift */; };
 		D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */; };
 		D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59012AC330E9007437F4 /* SceneDelegate.swift */; };
 		D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59032AC330E9007437F4 /* ProfileViewController.swift */; };
@@ -54,6 +58,10 @@
 		D1B52EFD2ACDC48E00477A14 /* ViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+.swift"; sourceTree = "<group>"; };
 		D1B52EFF2ACE79CF00477A14 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1B52F082ACFEFC100477A14 /* MedicalHistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalHistoryViewController.swift; sourceTree = "<group>"; };
+		D1B52F0B2ACFF0FB00477A14 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
+		D1B52F0D2AD002A800477A14 /* WeightRecordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeightRecordViewController.swift; sourceTree = "<group>"; };
+		D1B52F0F2AD01F8400477A14 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		D1B52F122AD0299600477A14 /* PooViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooViewController.swift; sourceTree = "<group>"; };
 		D1BA58FC2AC330E9007437F4 /* Orang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Orang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D1BA59012AC330E9007437F4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -142,6 +150,7 @@
 		D1B52F052ACFEF8300477A14 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
+				D1B52F0B2ACFF0FB00477A14 /* DiaryViewController.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -149,6 +158,9 @@
 		D1B52F062ACFEF9C00477A14 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				D1B52F0D2AD002A800477A14 /* WeightRecordViewController.swift */,
+				D1B52F0F2AD01F8400477A14 /* FeedViewController.swift */,
+				D1B52F122AD0299600477A14 /* PooViewController.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -395,6 +407,7 @@
 				D1BA59472AC73CEB007437F4 /* addViewController.swift in Sources */,
 				D1BA59322AC3F1FF007437F4 /* ProfileTableViewCell.swift in Sources */,
 				D1BA593E2AC6FC2F007437F4 /* StackViewBuilder.swift in Sources */,
+				D1B52F132AD0299700477A14 /* PooViewController.swift in Sources */,
 				D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */,
 				D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */,
 				D1B52ED12ACBED4900477A14 /* RecordViewController.swift in Sources */,
@@ -402,11 +415,14 @@
 				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
 				D1B52ECC2ACBDC7F00477A14 /* DatePicker+.swift in Sources */,
 				D1BA59402AC71147007437F4 /* ImageViewBuilder.swift in Sources */,
+				D1B52F0C2ACFF0FB00477A14 /* DiaryViewController.swift in Sources */,
 				D1BA59352AC6B887007437F4 /* LabelBuilder.swift in Sources */,
 				D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */,
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
+				D1B52F0E2AD002A800477A14 /* WeightRecordViewController.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
 				D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */,
+				D1B52F102AD01F8400477A14 /* FeedViewController.swift in Sources */,
 				D1B52F002ACE79CF00477A14 /* BaseCollectionViewCell.swift in Sources */,
 				D1BA59002AC330E9007437F4 /* AppDelegate.swift in Sources */,
 				D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */,
