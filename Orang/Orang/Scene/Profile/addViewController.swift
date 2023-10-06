@@ -13,10 +13,9 @@ class addViewController: BaseViewController {
     private lazy var profileImageView = UIImageView.imageViewBuilder(size: 130)
     private lazy var profileImageButton = UIButton.profileButtonBuilder(size: 130)
     
-    private lazy var nameLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 16, weight: .bold)
-    let speciesLabel = UILabel.labelBuilder(text: "종", size: 16, weight: .bold, settingTitle: true)
-    var speciesUnitButton = UIButton()
-    let speciesStackView = UIStackView.stackViewBuilder()
+    private lazy var speciesLabel = UILabel.labelBuilder(text: "speciesSetting".localized(), size: 16, weight: .bold, settingTitle: true)
+    private lazy var speciesTextField = UnderLineTextField.textFieldBuilder(placeholder: "chooseSpecies".localized())
+    private lazy var speciesStackView = UIStackView.stackViewBuilder()
     
     private lazy var nameLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var nameTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputName".localized())
@@ -34,14 +33,16 @@ class addViewController: BaseViewController {
     private lazy var weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputWeight".localized())
     private lazy var weightStackView = UIStackView.stackViewBuilder()
-    private lazy var weightUnitButton = UIButton.unitPopUpButtonBuilder { action in
-        print("changed to \(action.title)")
-    }
+    private lazy var weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
+        UIAction(title: "g", handler: { _ in }),
+        UIAction(title: "kg", handler: { _ in }),
+        UIAction(title: "lb", handler: { _ in })
+    ])
     
-    private lazy var registrationLabel = UILabel.labelBuilder(text: "registrationNumber".localized(), size: 16, weight: .bold)
     private lazy var registrationLabel = UILabel.labelBuilder(text: "registrationNumber".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var registrationTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputRegistrationNumber".localized())
     private lazy var registrationStackView = UIStackView.stackViewBuilder()
+    private lazy var idkRegistrationButton = UIButton.idkButtonBuilder(title: "등록번호가 없어요.")
     
     
     override func viewDidLoad() {
@@ -51,14 +52,36 @@ class addViewController: BaseViewController {
     }
     
     override func setNavigationBar() {
-        super.setNavigationBar()
+        navigationItem.largeTitleDisplayMode = .never
         
         let saveButton = UIBarButtonItem(title: "저장", style: .done, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
     }
     
     @objc func saveButtonClicked() {
+        guard let name = nameTextField.text else { return }
+        guard let weight = weightTextField.text else { return }
         
+        if name.isEmpty && weight.isEmpty {
+            nameTextField.setError()
+            weightTextField.setError()
+        } else if weight.isEmpty {
+            weightTextField.setError()
+        } else if name.isEmpty {
+            nameTextField.setError()
+        }
+         
+         if meetDateTextField.text?.isEmpty ?? true {
+             meetDateTextField.setError()
+             sendOneSidedAlert(title: "처음 만난 날을 입력해 주세요!")
+         }
+        
+         
+        
+    }
+    
+    func isValid() -> Bool {
+        return true
     }
     
     override func configureHierarchy() {
@@ -67,17 +90,20 @@ class addViewController: BaseViewController {
         view.addSubview(profileImageView)
         view.addSubview(profileImageButton)
         
-        [nameStackView, birthStackView, meetDateStackView, weightStackView, registrationStackView].forEach {
+        [speciesStackView, nameStackView, birthStackView, meetDateStackView, weightStackView, registrationStackView].forEach {
             view.addSubview($0)
         }
+        
+        speciesStackView.AddArrangedSubviews([speciesLabel, speciesTextField])
         nameStackView.AddArrangedSubviews([nameLabel, nameTextField])
         birthStackView.AddArrangedSubviews([birthLabel, birthTextField])
         view.addSubview(idkBirthButton)
         meetDateStackView.AddArrangedSubviews([meetDateLabel, meetDateTextField])
         weightStackView.AddArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
         registrationStackView.AddArrangedSubviews([registrationLabel, registrationTextField])
+        view.addSubview(idkRegistrationButton)
     }
-
+    
     
     override func setConstraints() {
         profileImageView.backgroundColor = .gray
@@ -91,19 +117,15 @@ class addViewController: BaseViewController {
             make.centerX.equalTo(profileImageView)
         }
         
-        nameLabel.snp.makeConstraints { make in
-            make.width.equalTo(80)
-            make.height.equalTo(50)
-        }
-        
-        nameStackView.snp.makeConstraints { make in
+        speciesStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(profileImageView.snp.bottom).offset(30)
             make.height.equalTo(50)
         }
         
-        birthLabel.snp.makeConstraints { make in
-            make.width.equalTo(80)
+        nameStackView.snp.makeConstraints { make in
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(speciesStackView.snp.bottom).offset(16)
             make.height.equalTo(50)
         }
         
@@ -115,22 +137,12 @@ class addViewController: BaseViewController {
         
         idkBirthButton.snp.makeConstraints { make in
             make.top.equalTo(birthStackView.snp.bottom).inset(8)
-            make.horizontalEdges.equalTo(birthStackView)
-        }
-        
-        meetDateLabel.snp.makeConstraints { make in
-            make.width.equalTo(80)
-            make.height.equalTo(50)
+            make.horizontalEdges.equalTo(birthTextField)
         }
         
         meetDateStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(birthStackView.snp.bottom).offset(16)
-            make.height.equalTo(50)
-        }
-        
-        weightLabel.snp.makeConstraints { make in
-            make.width.equalTo(80)
             make.height.equalTo(50)
         }
         
@@ -140,19 +152,19 @@ class addViewController: BaseViewController {
             make.height.equalTo(50)
         }
         
-        registrationLabel.snp.makeConstraints { make in
-            make.width.equalTo(80)
-            make.height.equalTo(50)
-        }
-        
         registrationStackView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.top.equalTo(weightStackView.snp.bottom).offset(16)
             make.height.equalTo(50)
         }
+        
+        idkRegistrationButton.snp.makeConstraints { make in
+            make.top.equalTo(registrationStackView.snp.bottom).inset(8)
+            make.horizontalEdges.equalTo(registrationTextField)
+        }
     }
     
-    func configureView() {
+    override func configureView() {
         birthTextField.tag = 1
         meetDateTextField.tag = 2
         
@@ -162,18 +174,33 @@ class addViewController: BaseViewController {
         
         profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
         
-        idkBirthButton.addTarget(self, action: #selector(idkBirthButtonClicked), for: .touchUpInside)
+        [idkBirthButton, idkRegistrationButton].forEach { $0.addTarget(self, action: #selector(idkButtonClicked), for: .touchUpInside) }
     }
     
-    @objc func idkBirthButtonClicked() {
-        idkBirthButton.isSelected.toggle()
+    @objc func idkButtonClicked(_ sender: UIButton) {
+        sender.isSelected.toggle()
+        let textField = sender == idkBirthButton ? birthTextField : registrationTextField
+        if sender.isSelected {
+            textField.text = sender.titleLabel?.text ?? ""
+            textField.isUserInteractionEnabled = false
+        } else {
+            textField.text = ""
+            textField.isUserInteractionEnabled = true
+        }
     }
+}
+
+
+// speciesPicker
+extension addViewController: UIPickerViewDelegate {
+    
 }
 
 
 // datePicker
 extension addViewController {
     private func setupDatePicker(textField: UITextField) {
+        // 여기서 datePicker를 weak로 써줘야 하나?
         let datePicker = UIDatePicker()
         datePicker.tag = textField.tag
         datePicker.datePickerMode = .date
@@ -186,7 +213,7 @@ extension addViewController {
         textField.inputView = datePicker
         textField.text = datePicker.dateFormat()
     }
-
+    
     // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
