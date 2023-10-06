@@ -14,7 +14,7 @@
 // profileVC
 "speciesSetting" = "종";
 "chooseSpecies" = "종을 골라주세요.";
-"inputDetailSpecies" = "자세한 종을 작성해 주세요."
+"inputDetailSpecies" = "자세한 종을 작성해 주세요.";
 "nameSetting" = "이름";
 "inputName" = "이름을 입력해 주세요.";
 "meetDateSetting" = "만난 날";
