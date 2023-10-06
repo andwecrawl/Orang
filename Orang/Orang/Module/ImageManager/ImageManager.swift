@@ -22,8 +22,6 @@ class ImageManager {
     func makeDirectory(directoryName: DirectoryName) {
         
         let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        // 실제 파일 이름
         let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
         
         do {
@@ -33,19 +31,17 @@ class ImageManager {
         }
     }
     
+    func createFileURL(directoryName: DirectoryName, identifier: String) -> URL {
+        let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
+        var imageName = "\(directoryName.rawValue)_\(identifier)"
+        let fileURL = directoryURL.appendingPathComponent(identifier, conformingTo: .jpeg)
+        return fileURL
+    }
+    
     func saveImageToDirectory(directoryName: DirectoryName, identifier: String, image: UIImage?) {
         
-        let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        
-        // 저장할 directoryURL 설정
-        let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
-        
-        var imageName = "\(directoryName.rawValue)_\(identifier)"
-        
-        // 이미지 이름 & 최종 경로 설정
-        let fileURL = directoryURL.appendingPathComponent(imageName, conformingTo: .jpeg)
-        
-        print(fileURL)
+        let fileURL = createFileURL(directoryName: directoryName, identifier: identifier)
         
         do {
             if let imageData = image?.jpegData(compressionQuality: 0.3) {
@@ -58,9 +54,7 @@ class ImageManager {
     }
     
     func loadImageFromDirectory(directoryName: DirectoryName, with identifier: String) -> UIImage? {
-        let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
-        let fileURL = directoryURL.appendingPathComponent(identifier, conformingTo: .jpeg)
+        let fileURL = createFileURL(directoryName: directoryName, identifier: identifier)
         
         guard fileManager.fileExists(atPath: fileURL.path) else { return nil }
         
@@ -68,10 +62,7 @@ class ImageManager {
     }
     
     func removeImageFromDirectory(directoryName: DirectoryName, identifier: String) {
-        let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
-        let imageName = "\(directoryName.rawValue)_\(identifier)"
-        let fileURL = directoryURL.appendingPathComponent(imageName, conformingTo: .jpeg)
+        let fileURL = createFileURL(directoryName: directoryName, identifier: identifier)
         
         do {
             if fileManager.fileExists(atPath: fileURL.path) {
