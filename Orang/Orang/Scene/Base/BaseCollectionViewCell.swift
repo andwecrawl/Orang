@@ -22,11 +22,6 @@ class BaseCollectionViewCell: UICollectionViewCell {
     }
     
     
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        
-    }
-    
     func configureHierarchy() {
         
     }
