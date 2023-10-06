@@ -6,7 +6,6 @@
 //
 
 import Foundation
-import RealmSwift
 
 struct Pet {
     var species: Species
@@ -16,18 +15,4 @@ struct Pet {
     var weight: Float
     var RegistrationNum: Int?
     var imageIdentifier: String
-}
-
-enum Species: Int, PersistableEnum, CaseIterable {
-    case dog
-    case cat
-    case hamster
-    case hedgehog
-    case rabbit
-    case reptile
-    case etc
-    
-    var toString: String {
-        return String(describing: self).localized()
-    }
 }
