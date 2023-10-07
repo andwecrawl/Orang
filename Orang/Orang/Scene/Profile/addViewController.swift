@@ -52,6 +52,7 @@ class AddViewController: BaseViewController {
     var birth: Date? = nil
     var meetDate: Date? = nil
     var registrationNum: String? = nil
+    let repository = PetTableRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,6 +100,9 @@ class AddViewController: BaseViewController {
             return
         }
         
+        repository.create(pet)
+        repository.loadFileURL()
+        navigationController?.popViewController(animated: true)
     }
     
     func hasError(species: Species?, detailSpecies: String, name: String, birth: Date?, meetDate: Date, weight: Float?) -> Bool {
