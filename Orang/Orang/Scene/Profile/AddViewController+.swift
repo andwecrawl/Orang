@@ -56,14 +56,21 @@ extension AddViewController {
         datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
         
         textField.inputView = datePicker
+        if textField == birthTextField {
+            birth = datePicker.date
+        } else {
+            meetDate = datePicker.date
+        }
         textField.text = datePicker.dateToString()
     }
     
     // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
+            birth = sender.date
             birthTextField.text = sender.dateToString()
         } else {
+            meetDate = sender.date
             meetDateTextField.text = sender.dateToString()
         }
     }
@@ -99,6 +106,7 @@ extension AddViewController: PHPickerViewControllerDelegate {
                 } else {
                     // 다시 시도 Alert
                     print(error)
+                    self.sendOneSidedAlert(title: "이미지를 저장할 수 없습니다!", message: "한 번 더 시도해 주세요!")
                 }
             }
         }

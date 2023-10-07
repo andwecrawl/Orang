@@ -49,6 +49,9 @@ class AddViewController: BaseViewController {
     private lazy var idkRegistrationButton = UIButton.idkButtonBuilder(title: "등록번호가 없어요.")
     
     var species: Species? = nil
+    var birth: Date? = nil
+    var meetDate: Date? = nil
+    var registrationNum: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,39 +67,66 @@ class AddViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
+        let image = profileImageView.image
         guard let name = nameTextField.text else { return }
-        guard let weight = weightTextField.text else { return }
-        guard let species else {
-            speciesTextField.setError()
+        guard let meetDate else { return }
+        if idkBirthButton.isSelected {
+            birth = nil
+        }
+        guard let weightStr = weightTextField.text, let weight = Float(weightStr) else {
+            let _ = hasError(species: .none, detailSpecies: "", name: name, birth: birth, meetDate: meetDate, weight: .none)
             return
         }
+        guard let species else {
+            let _ = hasError(species: .none, detailSpecies: "", name: name, birth: birth, meetDate: meetDate, weight: weight)
+            return
+        }
+        guard let detailSpecies = detailSpeciesTextField.text else {
+            let _ = hasError(species: species, detailSpecies: "", name: name, birth: birth, meetDate: meetDate, weight: weight)
+            return
+        }
+        registrationNum = registrationTextField.text
         
-        if name.isEmpty && weight.isEmpty {
-            nameTextField.setError()
-            weightTextField.setError()
-        } else if weight.isEmpty {
-            weightTextField.setError()
-        } else if name.isEmpty {
-            nameTextField.setError()
+        
+        let hasError = hasError(species: species, detailSpecies: detailSpecies, name: name, birth: birth, meetDate: meetDate, weight: weight)
+        if hasError { return }
+        
+        
         }
     }
     
-    func hasError(detailSpecies: String, name: String, birth: Date, meetDate: Date, weight: String) {
-        if detailSpecies.isEmpty {
+    func hasError(species: Species?, detailSpecies: String, name: String, birth: Date?, meetDate: Date, weight: Float?) -> Bool {
+        var foundError = false
+        if species == .none || ((species == .reptile || species == .etc) && detailSpecies.isEmpty) {
             speciesTextField.setError()
+            foundError = true
         }
         if name.isEmpty {
             nameTextField.setError()
+            foundError = true
         }
-        if birth {
-            birthTextField.setError()
+        if let birth {
+            if birth.compareNow() == .orderedDescending {
+                birthTextField.setError()
+                foundError = true
+            } else if birth.compare(meetDate) == .orderedDescending {
+                birthTextField.setError()
+                foundError = true
+            }
         }
-        if meetDate {
+        if meetDate.compareNow() == .orderedDescending {
             meetDateTextField.setError()
+            foundError = true
         }
-        if weight.isEmpty {
+        guard let weight else {
             weightTextField.setError()
+            return true
         }
+        if weight < 0 {
+            weightTextField.setError()
+            foundError = true
+        }
+        return foundError
     }
     
     override func configureHierarchy() {
@@ -198,6 +228,8 @@ class AddViewController: BaseViewController {
         [detailSpeciesTextField, nameTextField, birthTextField, meetDateTextField, weightTextField, speciesTextField, registrationTextField].forEach {
             if $0 == birthTextField || $0 == meetDateTextField {
                 setupDatePicker(textField: $0)
+            } else if $0 == weightTextField || $0 == registrationTextField {
+                $0.keyboardType = .decimalPad
             }
             $0.delegate = self
             
@@ -236,7 +268,8 @@ class AddViewController: BaseViewController {
             textField.text = sender.titleLabel?.text ?? ""
             textField.isUserInteractionEnabled = false
         } else {
-            textField.text = ""
+            let date = Date()
+            textField.text = date.toFormattedString()
             textField.isUserInteractionEnabled = true
         }
     }
@@ -248,6 +281,13 @@ extension AddViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == birthTextField || textField == meetDateTextField || textField == speciesTextField {
             return false
+        } else if textField == registrationTextField || textField == weightTextField {
+            let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
+            let withDecimal = (
+                string == NumberFormatter().decimalSeparator &&
+                textField.text?.contains(string) == false
+            )
+            return isNumber || withDecimal
         } else {
             return true
         }
