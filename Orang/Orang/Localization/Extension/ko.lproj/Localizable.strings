@@ -38,3 +38,9 @@
 "rabbit" = "토끼";
 "reptile" = "파충류";
 "etc" = "기타";
+
+"alertMessage" = "%@을 입력해 주세요!";
+
+
+// 단위
+"count" = "개";
