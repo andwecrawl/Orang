@@ -13,11 +13,11 @@ class FeedViewController: BaseViewController {
         
     }
     let numberTextField = UnderLineTextField.textFieldBuilder(placeholder: "숫자만 적어 주세요!")
-    let weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
+    let unitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
         UIAction(title: "g", handler: { _ in }),
         UIAction(title: "kg", handler: { _ in }),
         UIAction(title: "lb", handler: { _ in }),
-        UIAction(title: "count", handler: { _ in })
+        UIAction(title: "count".localized(), handler: { _ in })
     ])
     let numberStackView = UIStackView.stackViewBuilder()
     
@@ -50,7 +50,7 @@ class FeedViewController: BaseViewController {
             numberStackView
         ].forEach { view.addSubview($0) }
         
-        numberStackView.AddArrangedSubviews([numberTextField, weightUnitButton])
+        numberStackView.AddArrangedSubviews([numberTextField, unitButton])
     }
     
     override func configureView() {

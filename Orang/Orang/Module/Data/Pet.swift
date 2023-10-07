@@ -9,10 +9,13 @@ import Foundation
 
 struct Pet {
     var species: Species
+    var detailSpecies: String?
     var name: String
-    var birthday: String
-    var belongDate: String
+    var birthday: Date?
+    var belongDate: Date
     var weight: Float
     var RegistrationNum: Int?
-    var imageIdentifier: String
+    var imageIdentifier: String {
+        return "\(species.toString)_\(name)_\(belongDate)"
+    }
 }
