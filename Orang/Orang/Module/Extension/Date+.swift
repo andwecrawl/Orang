@@ -8,16 +8,21 @@
 import Foundation
 
 extension Date {
-    func toString() -> String {
+    func toFormattedString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy / MM / dd"
         
         return formatter.string(from: self)
     }
     
-    func compareDate(date: Date = Date()) -> ComparisonResult {
-        // Ascending: 이전
-        // Descending: 이후
+    func toString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
+        return formatter.string(from: self)
+    }
+    
+    func compareNow() -> ComparisonResult {
+        let date = Date()
         return self.compare(date)
     }
 }
