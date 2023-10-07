@@ -50,15 +50,15 @@ extension AddViewController {
         datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
         
         textField.inputView = datePicker
-        textField.text = datePicker.dateFormat()
+        textField.text = datePicker.dateToString()
     }
     
     // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
-            birthTextField.text = sender.dateFormat()
+            birthTextField.text = sender.dateToString()
         } else {
-            meetDateTextField.text = sender.dateFormat()
+            meetDateTextField.text = sender.dateToString()
         }
     }
 }
