@@ -14,8 +14,5 @@ struct Pet {
     var birthday: Date?
     var belongDate: Date
     var weight: Float
-    var RegistrationNum: Int?
-    var imageIdentifier: String {
-        return "\(species.toString)_\(name)_\(belongDate)"
-    }
+    var RegistrationNum: String?
 }
