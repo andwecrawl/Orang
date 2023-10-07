@@ -195,8 +195,12 @@ class AddViewController: BaseViewController {
         birthTextField.tag = 1
         meetDateTextField.tag = 2
         
-        [birthTextField, meetDateTextField].forEach {
-            setupDatePicker(textField: $0)
+        [detailSpeciesTextField, nameTextField, birthTextField, meetDateTextField, weightTextField, speciesTextField, registrationTextField].forEach {
+            if $0 == birthTextField || $0 == meetDateTextField {
+                setupDatePicker(textField: $0)
+            }
+            $0.delegate = self
+            
         }
         
         profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
@@ -239,7 +243,17 @@ class AddViewController: BaseViewController {
 }
 
 
-// speciesPicker
-extension addViewController: UIPickerViewDelegate {
+// textField
+extension AddViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        if textField == birthTextField || textField == meetDateTextField || textField == speciesTextField {
+            return false
+        } else {
+            return true
+        }
+    }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+    }
 }

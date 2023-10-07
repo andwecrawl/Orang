@@ -20,10 +20,16 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     // 해당 셀을 선택했을 때 어떻게 할지 action을 여기서 지정!
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selected = Species.allCases[row]
+        species = selected
         if selected == .cat || selected == .dog {
             configureRegistrationSection(canRegistrate: true)
+            configureDetailSpeciesTextField(hasDetail: false)
+        } else if selected == .reptile || selected == .etc {
+            configureRegistrationSection(canRegistrate: false)
+            configureDetailSpeciesTextField(hasDetail: true)
         } else {
             configureRegistrationSection(canRegistrate: false)
+            configureDetailSpeciesTextField(hasDetail: false)
         }
         
         speciesTextField.text = selected.toString
