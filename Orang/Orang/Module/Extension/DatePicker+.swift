@@ -8,10 +8,11 @@
 import UIKit
 
 extension UIDatePicker {
-    func dateFormat() -> String {
+    func dateToString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy / MM / dd"
         
         return formatter.string(from: self.date)
     }
 }
+
