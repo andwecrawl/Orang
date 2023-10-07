@@ -92,7 +92,13 @@ class AddViewController: BaseViewController {
         if hasError { return }
         
         
+        let pet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate, weight: weight, RegistrationNum: registrationNum)
+        ImageManager.shared.makeDirectory(directoryName: .profile)
+        if !ImageManager.shared.saveImageToDirectory(directoryName: .profile, identifier: pet.createdDate.toString(), image: image) {
+            sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+            return
         }
+        
     }
     
     func hasError(species: Species?, detailSpecies: String, name: String, birth: Date?, meetDate: Date, weight: Float?) -> Bool {
