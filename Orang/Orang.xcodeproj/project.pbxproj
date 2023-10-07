@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		D182730A2AD0F31200F4709B /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273092AD0F31200F4709B /* Date+.swift */; };
-		D182730C2AD0FE6700F4709B /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D182730B2AD0FE6700F4709B /* String+.swift */; };
 		D1B52EC02AC9918000477A14 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1B52EBF2AC9918000477A14 /* IQKeyboardManagerSwift */; };
 		D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */; };
 		D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1B52EC32ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift */; };
@@ -53,7 +52,6 @@
 
 /* Begin PBXFileReference section */
 		D18273092AD0F31200F4709B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
-		D182730B2AD0FE6700F4709B /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
 		D1B52EC32ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineTextFieldBuilder.swift; sourceTree = "<group>"; };
 		D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PetTableRepository.swift; sourceTree = "<group>"; };
@@ -132,7 +130,6 @@
 			children = (
 				D1B52EFD2ACDC48E00477A14 /* ViewController+.swift */,
 				D18273092AD0F31200F4709B /* Date+.swift */,
-				D182730B2AD0FE6700F4709B /* String+.swift */,
 				D1B52ECB2ACBDC7F00477A14 /* DatePicker+.swift */,
 			);
 			path = Extension;
@@ -438,7 +435,6 @@
 				D1BA59402AC71147007437F4 /* ImageViewBuilder.swift in Sources */,
 				D1B52F152AD033BC00477A14 /* AddViewController+.swift in Sources */,
 				D1B52F0C2ACFF0FB00477A14 /* DiaryViewController.swift in Sources */,
-				D182730C2AD0FE6700F4709B /* String+.swift in Sources */,
 				D1BA59352AC6B887007437F4 /* LabelBuilder.swift in Sources */,
 				D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */,
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
