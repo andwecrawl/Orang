@@ -41,7 +41,7 @@ class ProfileViewController: BaseViewController {
     }
     
     @objc private func addButtonClicked() {
-        let vc = addViewController()
+        let vc = AddViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -73,17 +73,19 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
-        let modify = UIAction(title: "수정하기") { _ in
+        let modify = UIAction(title: "수정하기", image: UIImage(systemName: "pencil")) { _ in
             // 수정 ViewController
             print("수정하깅")
         }
-        let delete = UIAction(title: "삭제하기") { _ in
-            // 삭제 Alert 띄움
-            print("삭제하깅")
+        let delete = UIAction(title: "삭제하기", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
+            self.sendActionAlert(title: "해당 데이터를 삭제하시겠어요?", message: "삭제할 경우 일정 및 모든 아이 데이터가 사라지며 복구가 불가능합니다!") { _ in
+                // 삭제하는 코드
+                print("진짜진짜삭제")
+            } denyHandler: { _ in }
         }
         
         let menuConfiguration = UIContextMenuConfiguration(actionProvider:  { _ in
-            UIMenu(title: "", children: [modify, delete])
+            UIMenu(title: "쩨에 대한", children: [modify, delete])
         })
         return menuConfiguration
     }
