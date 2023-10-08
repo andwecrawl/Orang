@@ -34,6 +34,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
     
     let profileStackView = UIStackView.stackViewBuilder(space: 8)
     
+    var pet: PetTable?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -95,8 +96,8 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(innerView).inset(22)
-            make.trailing.equalTo(innerView).inset(16)
             make.leading.equalTo(profileImageView.snp.trailing).offset(20)
+            make.trailing.equalTo(innerView).inset(16)
         }
         
         belongLabel.snp.makeConstraints { make in
@@ -124,12 +125,36 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         }
         
         dateLabel.text = "~에 만났어요!"
-        belongLabel.text = "만난 지 120일"
+        belongLabel.text = "만난 지 0000일"
 
-        speciesLabel.text = "햄스터ㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹㅁㄴㅇㄹ"
+        speciesLabel.text = "햄스터"
         nameLabel.text = "쩨라드 웨이"
         birthLabel.text = "2020.04.23"
         weightLabel.text = "88g"
     }
     
+    func configureView() {
+        guard let pet else { return }
+        dateLabel.text = "meetDate %@".localized(with: pet.belongDate.toFormattedString())
+        belongLabel.text = "belongDate %d".localized(with: pet.belongDate.compareToNow())
+
+        let image = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
+        print(pet.profileImage)
+        print("image: \(String(describing: image))")
+        profileImageView.image = image
+        let species = pet.species
+        if species == .reptile || species == .etc {
+            guard let detailSpecies = pet.detailSpecies else { return }
+            speciesLabel.text = detailSpecies
+        } else {
+            speciesLabel.text = species.toString
+        }
+        nameLabel.text = pet.name
+        if let birthday = pet.birthday {
+            birthLabel.text = birthday.toFormattedString()
+        } else {
+            birthLabel.text = "생일을 몰라요"
+        }
+        weightLabel.text = "\(pet.weight)"
+    }
 }
