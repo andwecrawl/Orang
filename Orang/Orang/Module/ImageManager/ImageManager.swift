@@ -27,7 +27,7 @@ class ImageManager {
     func createURL(URLCase: FileURLCase, directoryName: DirectoryName, identifier: String) -> (URL, String) {
         let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
-        var imageName = "\(directoryName.rawValue)_\(identifier).jpeg"
+        let imageName = "\(directoryName.rawValue)_\(identifier).jpeg"
         let fileURL = directoryURL.appendingPathComponent(imageName)
         switch URLCase {
         case .directory:
@@ -67,8 +67,7 @@ class ImageManager {
     }
     
     func editImageToDirectory(directoryName: DirectoryName, identifier: String, image: UIImage?) -> Bool {
-        
-        let (fileURL, imageName) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
+        let (fileURL, _) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
         
         do {
             if let imageData = image?.jpegData(compressionQuality: 0.3) {
@@ -83,10 +82,8 @@ class ImageManager {
     }
     
     func loadImageFromDirectory(directoryName: DirectoryName, with identifier: String) -> UIImage? {
-        let (fileURL, imageName) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
+        let (fileURL, _) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
         
-        print(" ====== image ====== ")
-        print(imageName)
         if fileManager.fileExists(atPath: fileURL.path) {
             return UIImage(contentsOfFile: fileURL.path)
         } else {
