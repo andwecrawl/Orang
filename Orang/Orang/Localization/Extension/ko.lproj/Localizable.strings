@@ -22,6 +22,8 @@
 "Profile" = "프로필";
 
 // profileVC
+"meetDate %@" = "%@에 만났어요!";
+"belongDate %d" = "만난 지 %d일";
 "speciesSetting" = "종";
 "chooseSpecies" = "종을 골라주세요.";
 "inputDetailSpecies" = "자세한 종을 작성해 주세요.";
@@ -49,7 +51,13 @@
 "reptile" = "파충류";
 "etc" = "기타";
 
-"alertMessage" = "%@을 입력해 주세요!";
+
+// AlertMessage
+"modifiy" = "수정하기";
+"delete" = "삭제하기";
+"deleteTitle %@" = "%@의 프로필을 삭제하시겠어요?";
+"deleteSubscript %@" = "삭제할 경우 %@의 모든 데이터와 일정이 사라지며 복구가 불가능합니다!";
+
 
 
 // 단위
