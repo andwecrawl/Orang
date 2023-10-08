@@ -14,9 +14,9 @@ class FeedViewController: BaseViewController {
     }
     let numberTextField = UnderLineTextField.textFieldBuilder(placeholder: "숫자만 적어 주세요!")
     let unitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
-        UIAction(title: "g", handler: { _ in }),
-        UIAction(title: "kg", handler: { _ in }),
-        UIAction(title: "lb", handler: { _ in }),
+        UIAction(title: Unit.g.rawValue, handler: { _ in }),
+        UIAction(title: Unit.kg.rawValue, handler: { _ in }),
+        UIAction(title: Unit.lb.rawValue, handler: { _ in }),
         UIAction(title: "count".localized(), handler: { _ in })
     ])
     let numberStackView = UIStackView.stackViewBuilder()
