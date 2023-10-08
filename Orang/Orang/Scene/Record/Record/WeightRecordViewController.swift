@@ -11,9 +11,9 @@ class WeightRecordViewController: BaseViewController {
     
     let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "숫자만 적어 주세요!")
     let weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
-        UIAction(title: "g", handler: { _ in }),
-        UIAction(title: "kg", handler: { _ in }),
-        UIAction(title: "lb", handler: { _ in }),
+        UIAction(title: Unit.g.rawValue, handler: { _ in }),
+        UIAction(title: Unit.kg.rawValue, handler: { _ in }),
+        UIAction(title: Unit.lb.rawValue, handler: { _ in }),
     ])
     let weightStackView = UIStackView.stackViewBuilder()
     

@@ -92,6 +92,8 @@ class AddViewController: BaseViewController {
         let hasError = hasError(species: species, detailSpecies: detailSpecies, name: name, birth: birth, meetDate: meetDate, weight: weight)
         if hasError { return }
         
+        let weightUnitStr = weightUnitButton.titleLabel?.text ?? "g"
+        let weightUnit = Unit(rawValue: weightUnitStr) ?? .g
         
         let pet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate, weight: weight, RegistrationNum: registrationNum)
         ImageManager.shared.makeDirectory(directoryName: .profile)
@@ -107,7 +109,10 @@ class AddViewController: BaseViewController {
     
     func hasError(species: Species?, detailSpecies: String, name: String, birth: Date?, meetDate: Date, weight: Float?) -> Bool {
         var foundError = false
-        if species == .none || ((species == .reptile || species == .etc) && detailSpecies.isEmpty) {
+        if ((species == .reptile || species == .etc) && detailSpecies.isEmpty) {
+            detailSpeciesTextField.setError()
+            foundError = true
+        } else if species == .none {
             speciesTextField.setError()
             foundError = true
         }
