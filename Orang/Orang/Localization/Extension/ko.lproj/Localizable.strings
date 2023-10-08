@@ -7,6 +7,16 @@
 */
 
 
+// RecordVC
+"dailyTodo" = "일상 할 일";
+"dailyTodoDetail" =
+"식사 / 간식 알림, 산책 / 놀이 알림,
+청소 알림, 구매 시기 알림을 설정할 수 있어요!";
+
+"medicalAppointment" = "병원 일정 관리";
+"medicalAppointmentDetail" =
+"아이별로 병원 일정 및 투약 일정을
+관리하고 설정할 수 있어요!";
 
 // tabBar
 "Profile" = "프로필";
