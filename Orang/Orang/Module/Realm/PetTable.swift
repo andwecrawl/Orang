@@ -18,11 +18,12 @@ class PetTable: Object {
     @Persisted var birthday: Date?
     @Persisted var belongDate: Date
     @Persisted var weight: Float
+    @Persisted var weightUnit: Unit
     @Persisted var registrationNum: String?
     @Persisted var profileImage: String
 //    @Persisted var notes: 추후 만들 특이 사항 table!!
     
-    convenience init(species: Species, detailSpecies: String?, name: String, birthday: Date?, belongDate: Date, weight: Float, RegistrationNum: String?) {
+    convenience init(species: Species, detailSpecies: String?, name: String, birthday: Date?, belongDate: Date, weight: Float, weightUnit: Unit, RegistrationNum: String?) {
         self.init()
         
         self.createdDate = Date()
@@ -32,11 +33,8 @@ class PetTable: Object {
         self.birthday = birthday
         self.belongDate = belongDate
         self.weight = weight
+        self.weightUnit = weightUnit
         self.registrationNum = RegistrationNum
-        self.profileImage = "\(createdDate.toString())"
-    }
-    
-    convenience init(pet: Pet) {
-        self.init(species: pet.species, detailSpecies: pet.detailSpecies, name: pet.name, birthday: pet.birthday, belongDate: pet.belongDate, weight: pet.weight, RegistrationNum: pet.RegistrationNum)
+        self.profileImage = "\(createdDate.forLoadImage())"
     }
 }
