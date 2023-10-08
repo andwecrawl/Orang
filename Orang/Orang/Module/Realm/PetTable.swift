@@ -35,6 +35,6 @@ class PetTable: Object {
         self.weight = weight
         self.weightUnit = weightUnit
         self.registrationNum = RegistrationNum
-        self.profileImage = "\(createdDate.forLoadImage())"
+        self.profileImage = "\(createdDate.toString())"
     }
 }
