@@ -51,7 +51,6 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
     override func configureHierarchy() {
         self.addSubview(outerView)
         outerView.addSubview(innerView)
-        outerView.layer.opacity = 0.8
         innerView.addSubview(profileImageView)
         profileImageView.backgroundColor = .gray
         
@@ -155,6 +154,6 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         } else {
             birthLabel.text = "생일을 몰라요"
         }
-        weightLabel.text = "\(pet.weight)"
+        weightLabel.text = "\(pet.weight)\(pet.weightUnit.rawValue)"
     }
 }
