@@ -27,7 +27,7 @@ class ImageManager {
     func createURL(URLCase: FileURLCase, directoryName: DirectoryName, identifier: String) -> (URL, String) {
         let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
-        var imageName = "\(directoryName.rawValue)_\(identifier).jpg"
+        var imageName = "\(directoryName.rawValue)_\(identifier).jpeg"
         let fileURL = directoryURL.appendingPathComponent(imageName)
         switch URLCase {
         case .directory:
@@ -83,24 +83,27 @@ class ImageManager {
     }
     
     func loadImageFromDirectory(directoryName: DirectoryName, with identifier: String) -> UIImage? {
-        let (fileURL, _) = createURL(URLCase: .directory, directoryName: directoryName, identifier: identifier)
+        let (fileURL, imageName) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
         
-        guard fileManager.fileExists(atPath: fileURL.path) else { return nil }
-        
-        return UIImage(contentsOfFile: fileURL.path)
+        print(" ====== image ====== ")
+        print(imageName)
+        if fileManager.fileExists(atPath: fileURL.path) {
+            return UIImage(contentsOfFile: fileURL.path)
+        } else {
+            print("못찾겟다")
+            return nil
+        }
     }
     
-    func removeImageFromDirectory(directoryName: DirectoryName, identifier: String) -> Bool {
+    func removeImageFromDirectory(directoryName: DirectoryName, identifier: String) {
         let (fileURL, _) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
         
         do {
             if fileManager.fileExists(atPath: fileURL.path) {
                 try fileManager.removeItem(at: fileURL)
             }
-            return true
         } catch let error {
             print("Failed to delete file: \(error.localizedDescription)")
-            return false
         }
     }
 }

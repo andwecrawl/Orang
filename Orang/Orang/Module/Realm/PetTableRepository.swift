@@ -29,16 +29,16 @@ class PetTableRepository: PetTableRepositoryType {
     }
     
     func fetch() -> Results<PetTable> {
-        let data = realm.objects(PetTable.self).sorted(byKeyPath: "date", ascending: false)
+        let data = realm.objects(PetTable.self).sorted(byKeyPath: "createdDate", ascending: false)
         return data
     }
     
     func delete(_ item: PetTable) {
         let task = realm.objects(PetTable.self)
-//        guard let product = task.where { $0.productID == item.productID }.first else { return }
+        guard let product = task.where({ $0._id == item._id }).first else { return }
         do {
             try realm.write {
-//                realm.delete(product)
+                realm.delete(product)
             }
         } catch {
             
