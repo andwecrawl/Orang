@@ -18,7 +18,7 @@ extension UIButton {
     
     static func shadowButtonBuilder(title: String, subtitle: String, isBig: Bool) -> UIButton {
         let button = UIButton()
-        button.backgroundColor = .white.withAlphaComponent(0.8)
+        button.backgroundColor = Design.Color.buttonBackground
         button.contentHorizontalAlignment = .leading
         button.layer.cornerRadius = 15
         button.layer.shadowColor = UIColor.black.cgColor
@@ -40,7 +40,7 @@ extension UIButton {
         var titleContainer = AttributeContainer()
         var subtitleContainer = AttributeContainer()
         titleContainer.foregroundColor = Design.Color.content
-        subtitleContainer.foregroundColor = Design.Color.placeholder
+        subtitleContainer.foregroundColor = Design.Color.border
         
         if isBig {
             titleContainer.font = .systemFont(ofSize: 17, weight: .bold)
