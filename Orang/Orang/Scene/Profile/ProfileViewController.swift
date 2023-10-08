@@ -24,6 +24,13 @@ class ProfileViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         list = repository.fetch()
+        repository.loadFileURL()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.reloadData()
     }
     
     override func configureHierarchy() {
@@ -62,15 +69,15 @@ class ProfileViewController: BaseViewController {
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return list.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.identifier, for: indexPath) as? ProfileCollectionViewCell else { return UICollectionViewCell() }
         
         let row = indexPath.row
-//        cell.backgroundColor = .blue
-        cell.nameLabel.text = "안녕하세요?"
+        cell.pet = list[row]
+        cell.configureView()
         
         return cell
     }
@@ -94,14 +101,18 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     }
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
-        let modify = UIAction(title: "수정하기", image: UIImage(systemName: "pencil")) { _ in
+        guard let indexPath = indexPaths.first else { return nil }
+        let pet = list[indexPath.item]
+        
+        let modify = UIAction(title: "modifiy".localized(), image: UIImage(systemName: "pencil")) { _ in
             // 수정 ViewController
             print("수정하깅")
         }
-        let delete = UIAction(title: "삭제하기", image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
-            self.sendActionAlert(title: "해당 데이터를 삭제하시겠어요?", message: "삭제할 경우 일정 및 모든 아이 데이터가 사라지며 복구가 불가능합니다!") { _ in
-                // 삭제하는 코드
-                print("진짜진짜삭제")
+        let delete = UIAction(title: "delete".localized(), image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
+            self.sendActionAlert(title: "deleteTitle %@".localized(with: pet.name), message: "deleteSubscript %@".localized(with: pet.name)) { _ in
+                ImageManager.shared.removeImageFromDirectory(directoryName: .profile, identifier: pet.profileImage)
+                self.repository.delete(pet)
+                collectionView.reloadData()
             } denyHandler: { _ in }
         }
 
