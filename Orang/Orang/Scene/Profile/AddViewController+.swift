@@ -61,17 +61,17 @@ extension AddViewController {
         } else {
             meetDate = datePicker.date
         }
-        textField.text = datePicker.dateToString()
+        textField.text = datePicker.date.toFormattedString()
     }
     
     // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
             birth = sender.date
-            birthTextField.text = sender.dateToString()
+            birthTextField.text = sender.date.toFormattedString()
         } else {
             meetDate = sender.date
-            meetDateTextField.text = sender.dateToString()
+            meetDateTextField.text = sender.date.toFormattedString()
         }
     }
 }
