@@ -6,29 +6,32 @@
 //
 
 import UIKit
+import RealmSwift
 
 class ProfileViewController: BaseViewController {
 
-    private let tableView = {
-        let view = UITableView(frame: .zero)
-        view.register(ProfileTableViewCell.self, forCellReuseIdentifier: ProfileTableViewCell.identifier)
-        view.showsVerticalScrollIndicator = false
-        view.separatorStyle = .none
-        view.rowHeight = 230
+    let collectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
+        view.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: ProfileCollectionViewCell.identifier)
+        view.keyboardDismissMode = .onDrag
+        view.backgroundColor = Design.Color.background
         return view
     }()
     
+    let repository = PetTableRepository()
+    var list: Results<PetTable>!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        list = repository.fetch()
     }
     
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        view.addSubview(tableView)
-        tableView.delegate = self
-        tableView.dataSource = self
+        view.addSubview(collectionView)
+        collectionView.delegate = self
+        collectionView.dataSource = self
     }
     
     override func setNavigationBar() {
@@ -50,29 +53,47 @@ class ProfileViewController: BaseViewController {
     }
 
     override func setConstraints() {
-        tableView.snp.makeConstraints { make in
+        collectionView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
 }
 
-extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
+extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 10
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: ProfileTableViewCell.identifier) as? ProfileTableViewCell else { return UITableViewCell() }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.identifier, for: indexPath) as? ProfileCollectionViewCell else { return UICollectionViewCell() }
+        
+        let row = indexPath.row
+//        cell.backgroundColor = .blue
+        cell.nameLabel.text = "안녕하세요?"
+        
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("clicked!")
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+    static func configureCollectionViewLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        let space: CGFloat = 20
+        
+        layout.itemSize = CGSize(width: UIScreen.main.bounds.width - space * 2, height: 200)
+        layout.sectionInset = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
+        
+        layout.minimumLineSpacing = space
+        layout.minimumInteritemSpacing = space
+        layout.scrollDirection = .vertical
+        
+        return layout
     }
     
-    func tableView(_ tableView: UITableView, contextMenuConfigurationForRowAt indexPath: IndexPath, point: CGPoint) -> UIContextMenuConfiguration? {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("here")
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
         let modify = UIAction(title: "수정하기", image: UIImage(systemName: "pencil")) { _ in
             // 수정 ViewController
             print("수정하깅")
@@ -83,7 +104,7 @@ extension ProfileViewController: UITableViewDataSource, UITableViewDelegate {
                 print("진짜진짜삭제")
             } denyHandler: { _ in }
         }
-        
+
         let menuConfiguration = UIContextMenuConfiguration(actionProvider:  { _ in
             UIMenu(title: "쩨에 대한", children: [modify, delete])
         })
