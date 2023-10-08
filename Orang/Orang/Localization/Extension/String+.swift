@@ -11,7 +11,7 @@ import Foundation
 extension String {
     func toDate() -> Date? {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy / MM / dd"
+        formatter.dateFormat = "yyyy년 MM월 dd일"
         
         return formatter.date(from: self)
     }
@@ -24,6 +24,8 @@ extension String {
     func localized(comment: String = "") -> String {
         return NSLocalizedString(self, comment: comment)
     }
+    
+    // 이거모지?
     func localized(with argument: CVarArg = [], comment: String = "") -> String {
         return String(format: self.localized(comment: comment), argument)
     }
