@@ -1,5 +1,5 @@
 //
-//  ProfileTableViewCell.swift
+//  ProfileCollectionViewCell.swift
 //  Orang
 //
 //  Created by yeoni on 2023/09/27.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ProfileTableViewCell: BaseTableViewCell {
+class ProfileCollectionViewCell: BaseCollectionViewCell {
     
     let innerView = UIView()
     let outerView = UIView()
@@ -80,8 +80,8 @@ class ProfileTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         outerView.backgroundColor = .white
         outerView.snp.makeConstraints { make in
-            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
-            make.verticalEdges.equalTo(self.safeAreaLayoutGuide).inset(16)
+            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
+            make.verticalEdges.equalTo(self.safeAreaLayoutGuide)
         }
         
         innerView.snp.makeConstraints { make in
