@@ -48,6 +48,8 @@ class AddViewController: BaseViewController {
     private lazy var registrationStackView = UIStackView.stackViewBuilder()
     private lazy var idkRegistrationButton = UIButton.idkButtonBuilder(title: "등록번호가 없어요.")
     
+    var pet: PetTable?
+    
     var species: Species? = nil
     var birth: Date? = nil
     var meetDate: Date? = nil
@@ -57,7 +59,6 @@ class AddViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        configureView()
     }
     
     override func setNavigationBar() {
@@ -95,15 +96,19 @@ class AddViewController: BaseViewController {
         let weightUnitStr = weightUnitButton.titleLabel?.text ?? "g"
         let weightUnit = Unit(rawValue: weightUnitStr) ?? .g
         
-        let pet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate, weight: weight, RegistrationNum: registrationNum)
+        let newPet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate, weight: weight, weightUnit: weightUnit, RegistrationNum: registrationNum)
         ImageManager.shared.makeDirectory(directoryName: .profile)
-        if !ImageManager.shared.saveImageToDirectory(directoryName: .profile, identifier: pet.createdDate.toString(), image: image) {
+        if !ImageManager.shared.saveImageToDirectory(directoryName: .profile, identifier: newPet.createdDate.toString(), image: image) {
             sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
             return
         }
         
-        repository.create(pet)
-        repository.loadFileURL()
+        if let pet {
+            repository.update(id: pet._id, newPet)
+        } else {
+            repository.create(newPet)
+        }
+        
         navigationController?.popViewController(animated: true)
     }
     
@@ -256,6 +261,41 @@ class AddViewController: BaseViewController {
         
         configureRegistrationSection(canRegistrate: false)
         configureDetailSpeciesTextField(hasDetail: false)
+        
+        setEditVC()
+    }
+    
+    func setEditVC() {
+        guard let pet else { return }
+        
+        let image = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
+        profileImageView.image = image
+        let species = pet.species
+        self.species = species
+        if species == .reptile || species == .etc {
+            guard let detailSpecies = pet.detailSpecies else { return }
+            speciesTextField.text = species.toString
+            detailSpeciesTextField.text = detailSpecies
+        } else {
+            speciesTextField.text = species.toString
+        }
+        nameTextField.text = pet.name
+        if let birthday = pet.birthday {
+            birthTextField.text = birthday.toFormattedString()
+        } else {
+            idkBirthButton.isSelected = true
+        }
+        weightTextField.text = "\(pet.weight)"
+        
+        
+        if let menu = weightUnitButton.menu?.children {
+            menu.forEach { action in
+                if action.title == pet.weightUnit.rawValue {
+                    let element = action as? UIAction
+                    element?.state = .on
+                }
+            }
+        }
     }
     
     func configureRegistrationSection(canRegistrate: Bool) {

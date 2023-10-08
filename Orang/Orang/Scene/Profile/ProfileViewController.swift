@@ -107,6 +107,9 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         let modify = UIAction(title: "modifiy".localized(), image: UIImage(systemName: "pencil")) { _ in
             // 수정 ViewController
             print("수정하깅")
+            let vc = AddViewController()
+            vc.pet = pet
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         let delete = UIAction(title: "delete".localized(), image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
             self.sendActionAlert(title: "deleteTitle %@".localized(with: pet.name), message: "deleteSubscript %@".localized(with: pet.name)) { _ in
