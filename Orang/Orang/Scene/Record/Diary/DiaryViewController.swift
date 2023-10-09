@@ -9,10 +9,12 @@ import UIKit
 
 class DiaryViewController: BaseViewController {
     
-    let collectionView = {
+    lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
         view.register(PicCollectionViewCell.self, forCellWithReuseIdentifier: PicCollectionViewCell.identifier)
         view.register(AddCollectionViewCell.self, forCellWithReuseIdentifier: AddCollectionViewCell.identifier)
+        view.delegate = self
+        view.dataSource = self
         return view
     }()
     
@@ -56,7 +58,7 @@ class DiaryViewController: BaseViewController {
         }
         
         titleTextField.snp.makeConstraints { make in
-            make.centerY.equalTo(view)
+            make.top.equalTo(collectionView.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
@@ -68,8 +70,6 @@ class DiaryViewController: BaseViewController {
     }
     
     override func configureView() {
-        collectionView.delegate = self
-        collectionView.dataSource = self
     }
     
 }
@@ -105,7 +105,7 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         }
     }
     
-    static func setCollectionViewLayout() -> UICollectionViewFlowLayout {
+    func setCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         let space: CGFloat = 8
         
