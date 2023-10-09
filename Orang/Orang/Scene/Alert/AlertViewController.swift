@@ -41,7 +41,8 @@ class AlertViewController: BaseViewController {
             calendar,
             dailyTodoButton,
             medicalAppointmentButton
-        ].forEach { view.addSubview($0) }
+        ]
+            .forEach { view.addSubview($0) }
         
     }
         
