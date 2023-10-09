@@ -139,11 +139,14 @@ extension UIButton {
         return button
     }
     
-    static func pictureButtonBuilder(image: UIImage?) -> UIButton {
+    static func pictureButtonBuilder(image: String, imageSize: CGFloat, radius: CGFloat) -> UIButton {
         let button = UIButton()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: imageSize)
+        let image = UIImage(systemName: image, withConfiguration: imageConfig)
         button.setImage(image, for: .normal)
+        button.tintColor = .darkGray
         button.backgroundColor = Design.Color.halfGray
-        button.layer.cornerRadius = 16
+        button.layer.cornerRadius = radius
         button.snp.makeConstraints { make in
             make.height.equalTo(button.snp.width)
         }
