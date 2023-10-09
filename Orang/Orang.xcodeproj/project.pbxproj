@@ -51,6 +51,7 @@
 		D1BB7FAD2AD3D009001FFF1C /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */; };
 		D1BB7FAF2AD3D00F001FFF1C /* AddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */; };
 		D1BB7FB52AD46451001FFF1C /* AlertAddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB42AD46451001FFF1C /* AlertAddViewController.swift */; };
+		D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB62AD465DE001FFF1C /* AlertCollectionViewCell.swift */; };
 		D1BB7FB92AD467E9001FFF1C /* AlertSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB82AD467E9001FFF1C /* AlertSetting.swift */; };
 		D1BB7FBC2AD4683B001FFF1C /* DailyTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */; };
 /* End PBXBuildFile section */
@@ -97,6 +98,7 @@
 		D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB7FB42AD46451001FFF1C /* AlertAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAddViewController.swift; sourceTree = "<group>"; };
+		D1BB7FB62AD465DE001FFF1C /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -168,6 +170,7 @@
 			children = (
 				D1B52ED22ACBEE3B00477A14 /* AlertViewController.swift */,
 				D1BB7FB42AD46451001FFF1C /* AlertAddViewController.swift */,
+				D1BB7FB62AD465DE001FFF1C /* AlertCollectionViewCell.swift */,
 			);
 			path = Alert;
 			sourceTree = "<group>";
@@ -476,6 +479,7 @@
 				D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */,
 				D1BA59572AC82D08007437F4 /* String+.swift in Sources */,
 				D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */,
+				D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
