@@ -14,6 +14,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
         
         configureHierarchy()
         setConstraints()
+        configureView()
     }
     
     @available(*, unavailable)
@@ -27,6 +28,10 @@ class BaseCollectionViewCell: UICollectionViewCell {
     }
     
     func setConstraints() {
+        
+    }
+    
+    func configureView() {
         
     }
     

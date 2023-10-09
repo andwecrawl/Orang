@@ -132,7 +132,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         weightLabel.text = "88g"
     }
     
-    func configureView() {
+    override func configureView() {
         guard let pet else { return }
         dateLabel.text = "meetDate %@".localized(with: pet.belongDate.toFormattedString())
         belongLabel.text = "belongDate %d".localized(with: pet.belongDate.compareToNow())
