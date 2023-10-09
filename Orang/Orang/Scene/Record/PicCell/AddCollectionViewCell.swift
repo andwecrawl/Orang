@@ -9,8 +9,7 @@ import UIKit
 
 class AddCollectionViewCell: BaseCollectionViewCell {
     
-    let addButton = UIButton.pictureButtonBuilder(image: UIImage(systemName: "plus"))
-    
+    let addButton = UIButton.pictureButtonBuilder(image: "plus", imageSize: 16, radius: 16)
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -25,7 +24,7 @@ class AddCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
-        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpOutside)
+        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
         
         let menuElement: [UIMenuElement] = [
             UIAction(title: "사진 보관함", image: UIImage(systemName: "photo.on.rectangle"), handler: { _ in
@@ -39,9 +38,10 @@ class AddCollectionViewCell: BaseCollectionViewCell {
             })
         ]
         addButton.menu = UIMenu(children: menuElement)
+        addButton.showsMenuAsPrimaryAction = true
     }
     
     @objc func addButtonClicked() {
-        
+        print("selected!!")
     }
 }
