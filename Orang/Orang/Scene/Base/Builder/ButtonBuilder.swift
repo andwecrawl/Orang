@@ -138,5 +138,15 @@ extension UIButton {
         button.configuration = config
         return button
     }
+    
+    static func pictureButtonBuilder(image: UIImage?) -> UIButton {
+        let button = UIButton()
+        button.setImage(image, for: .normal)
+        button.backgroundColor = Design.Color.halfGray
+        button.layer.cornerRadius = 16
+        button.snp.makeConstraints { make in
+            make.height.equalTo(button.snp.width)
+        }
+        return button
+    }
 }
-
