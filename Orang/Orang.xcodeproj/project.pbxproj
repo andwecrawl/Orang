@@ -50,7 +50,6 @@
 		D1BA59572AC82D08007437F4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59562AC82D08007437F4 /* String+.swift */; };
 		D1BB7FAD2AD3D009001FFF1C /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */; };
 		D1BB7FAF2AD3D00F001FFF1C /* AddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */; };
-		D1BB7FB12AD43B05001FFF1C /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB02AD43B05001FFF1C /* Button+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +93,6 @@
 		D1BA59562AC82D08007437F4 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionViewCell.swift; sourceTree = "<group>"; };
-		D1BB7FB02AD43B05001FFF1C /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -257,7 +255,6 @@
 				D1B52EFF2ACE79CF00477A14 /* BaseCollectionViewCell.swift */,
 				D1BA592C2AC334D0007437F4 /* Protocol */,
 				D1BA59332AC6B87C007437F4 /* Builder */,
-				D1BB7FB22AD43B1A001FFF1C /* Appearance */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -341,14 +338,6 @@
 				D1BA59522AC82B4C007437F4 /* Localizable.strings */,
 			);
 			path = Extension;
-			sourceTree = "<group>";
-		};
-		D1BB7FB22AD43B1A001FFF1C /* Appearance */ = {
-			isa = PBXGroup;
-			children = (
-				D1BB7FB02AD43B05001FFF1C /* Button+.swift */,
-			);
-			path = Appearance;
 			sourceTree = "<group>";
 		};
 		D1BB7FB32AD45153001FFF1C /* PicCell */ = {
@@ -467,7 +456,6 @@
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
 				D1B52F0E2AD002A800477A14 /* WeightRecordViewController.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
-				D1BB7FB12AD43B05001FFF1C /* Button+.swift in Sources */,
 				D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */,
 				D1B52F102AD01F8400477A14 /* FeedViewController.swift in Sources */,
 				D1B52F172AD0383A00477A14 /* Species.swift in Sources */,
