@@ -98,15 +98,15 @@ extension AddViewController: PHPickerViewControllerDelegate {
         if let itemProvider = results.first?.itemProvider,
            itemProvider.canLoadObject(ofClass: UIImage.self) {
             let type: NSItemProviderReading.Type = UIImage.self
-            itemProvider.loadObject(ofClass: type) { image, error in
+            itemProvider.loadObject(ofClass: type) { [weak self](image, error) in
                 if let image = image as? UIImage {
                     DispatchQueue.main.async {
-                        self.profileImageView.image = image
+                        self?.profileImageView.image = image
                     }
                 } else {
                     // 다시 시도 Alert
                     print(error)
-                    self.sendOneSidedAlert(title: "이미지를 저장할 수 없습니다!", message: "한 번 더 시도해 주세요!")
+                    self?.sendOneSidedAlert(title: "이미지를 저장할 수 없습니다!", message: "한 번 더 시도해 주세요!")
                 }
             }
         }
