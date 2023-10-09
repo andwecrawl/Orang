@@ -11,8 +11,10 @@ class Design {
     enum Color {
         static let background = UIColor(named: "background")
         static let border = UIColor.systemGray
-        static let placeholder = UIColor.systemGray
+        static let halfGray = UIColor.systemGray4.withAlphaComponent(0.8)
+        static let todaysColor = UIColor.systemGray.withAlphaComponent(0.4)
         static let content = UIColor(named: "contentColor")
         static let tintColor = UIColor(named: "tintColor")
+        static let buttonBackground = UIColor(named: "buttonBackground")
     }
 }
