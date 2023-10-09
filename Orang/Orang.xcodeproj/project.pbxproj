@@ -48,6 +48,9 @@
 		D1BA594C2AC82901007437F4 /* ColorSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA594B2AC82901007437F4 /* ColorSet.swift */; };
 		D1BA59502AC82B4C007437F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1BA59522AC82B4C007437F4 /* Localizable.strings */; };
 		D1BA59572AC82D08007437F4 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59562AC82D08007437F4 /* String+.swift */; };
+		D1BB7FAD2AD3D009001FFF1C /* PicCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */; };
+		D1BB7FAF2AD3D00F001FFF1C /* AddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */; };
+		D1BB7FB12AD43B05001FFF1C /* Button+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB02AD43B05001FFF1C /* Button+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +92,9 @@
 		D1BA59512AC82B4C007437F4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1BA59542AC82BD3007437F4 /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D1BA59562AC82D08007437F4 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1BB7FB02AD43B05001FFF1C /* Button+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Button+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,6 +153,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B52ED02ACBED4900477A14 /* RecordViewController.swift */,
+				D1BB7FB32AD45153001FFF1C /* PicCell */,
 				D1B52F052ACFEF8300477A14 /* Diary */,
 				D1B52F062ACFEF9C00477A14 /* Record */,
 				D1B52F072ACFEFAA00477A14 /* Medical */,
@@ -250,6 +257,7 @@
 				D1B52EFF2ACE79CF00477A14 /* BaseCollectionViewCell.swift */,
 				D1BA592C2AC334D0007437F4 /* Protocol */,
 				D1BA59332AC6B87C007437F4 /* Builder */,
+				D1BB7FB22AD43B1A001FFF1C /* Appearance */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -333,6 +341,23 @@
 				D1BA59522AC82B4C007437F4 /* Localizable.strings */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		D1BB7FB22AD43B1A001FFF1C /* Appearance */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FB02AD43B05001FFF1C /* Button+.swift */,
+			);
+			path = Appearance;
+			sourceTree = "<group>";
+		};
+		D1BB7FB32AD45153001FFF1C /* PicCell */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */,
+				D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */,
+			);
+			path = PicCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +455,7 @@
 				D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */,
 				D18273142AD2CEA200F4709B /* Unit.swift in Sources */,
 				D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */,
+				D1BB7FAF2AD3D00F001FFF1C /* AddCollectionViewCell.swift in Sources */,
 				D1B52ED12ACBED4900477A14 /* RecordViewController.swift in Sources */,
 				D1BA594C2AC82901007437F4 /* ColorSet.swift in Sources */,
 				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
@@ -441,6 +467,7 @@
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
 				D1B52F0E2AD002A800477A14 /* WeightRecordViewController.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
+				D1BB7FB12AD43B05001FFF1C /* Button+.swift in Sources */,
 				D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */,
 				D1B52F102AD01F8400477A14 /* FeedViewController.swift in Sources */,
 				D1B52F172AD0383A00477A14 /* Species.swift in Sources */,
@@ -451,6 +478,7 @@
 				D1B52F092ACFEFC100477A14 /* MedicalHistoryViewController.swift in Sources */,
 				D1B52EFE2ACDC48E00477A14 /* ViewController+.swift in Sources */,
 				D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */,
+				D1BB7FAD2AD3D009001FFF1C /* PicCollectionViewCell.swift in Sources */,
 				D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */,
 				D1BA59572AC82D08007437F4 /* String+.swift in Sources */,
 				D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */,
