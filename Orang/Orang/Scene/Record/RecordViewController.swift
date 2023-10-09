@@ -51,7 +51,8 @@ class RecordViewController: BaseViewController {
             medicalView,
             medicalTitleLabel,
             medicalStackView
-        ].forEach { view.addSubview($0) }
+        ]
+            .forEach { view.addSubview($0) }
         
         recordStackView.AddArrangedSubviews([firstRecordButton, secondRecordButton, thirdRecordButton, fourthRecordButton])
         medicalStackView.AddArrangedSubviews([medicalVaccineButton, medicalHistoryButton])
@@ -94,7 +95,7 @@ class RecordViewController: BaseViewController {
     
     override func setConstraints() {
         introduceLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(16)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(40)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
         }

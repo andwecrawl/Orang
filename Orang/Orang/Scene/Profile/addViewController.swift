@@ -155,7 +155,15 @@ class AddViewController: BaseViewController {
         view.addSubview(profileImageView)
         view.addSubview(profileImageButton)
         
-        [totalSpeciesStackView, nameStackView, birthStackView, meetDateStackView, weightStackView, registrationStackView].forEach {
+        [
+            totalSpeciesStackView,
+            nameStackView,
+            birthStackView,
+            meetDateStackView,
+            weightStackView,
+            registrationStackView
+        ]
+            .forEach {
             view.addSubview($0)
         }
         
@@ -245,14 +253,22 @@ class AddViewController: BaseViewController {
         birthTextField.tag = 1
         meetDateTextField.tag = 2
         
-        [detailSpeciesTextField, nameTextField, birthTextField, meetDateTextField, weightTextField, speciesTextField, registrationTextField].forEach {
+        [
+            detailSpeciesTextField,
+            nameTextField,
+            birthTextField,
+            meetDateTextField,
+            weightTextField,
+            speciesTextField,
+            registrationTextField
+        ]
+            .forEach {
             if $0 == birthTextField || $0 == meetDateTextField {
                 setupDatePicker(textField: $0)
             } else if $0 == weightTextField || $0 == registrationTextField {
                 $0.keyboardType = .decimalPad
             }
             $0.delegate = self
-            
         }
         
         profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)

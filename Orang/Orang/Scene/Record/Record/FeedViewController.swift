@@ -48,7 +48,8 @@ class FeedViewController: BaseViewController {
         
         [
             numberStackView
-        ].forEach { view.addSubview($0) }
+        ]
+            .forEach { view.addSubview($0) }
         
         numberStackView.AddArrangedSubviews([numberTextField, unitButton])
     }

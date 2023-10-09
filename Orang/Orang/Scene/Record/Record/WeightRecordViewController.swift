@@ -43,7 +43,8 @@ class WeightRecordViewController: BaseViewController {
         
         [
             weightStackView
-        ].forEach { view.addSubview($0) }
+        ]
+            .forEach { view.addSubview($0) }
         
         weightStackView.AddArrangedSubviews([weightTextField, weightUnitButton])
     }
