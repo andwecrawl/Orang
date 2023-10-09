@@ -105,8 +105,6 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         let pet = list[indexPath.item]
         
         let modify = UIAction(title: "modifiy".localized(), image: UIImage(systemName: "pencil")) { _ in
-            // 수정 ViewController
-            print("수정하깅")
             let vc = AddViewController()
             vc.pet = pet
             self.navigationController?.pushViewController(vc, animated: true)
@@ -120,7 +118,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
 
         let menuConfiguration = UIContextMenuConfiguration(actionProvider:  { _ in
-            UIMenu(title: "쩨에 대한", children: [modify, delete])
+            UIMenu(children: [modify, delete])
         })
         return menuConfiguration
     }
