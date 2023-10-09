@@ -77,11 +77,22 @@ class RecordViewController: BaseViewController {
     }
     
     @objc func diaryButtonClicked() {
-        print("diaryButtonClicked!")
+        let vc = DiaryViewController()
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func recordButtonClicked(_ sender: UIButton) {
-        print("\(sender.titleLabel?.text)")
+        switch sender.tag {
+        case 3:
+            let vc = WeightRecordViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case 4:
+            let vc = WeightRecordViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        default:
+            let vc = WeightRecordViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        }
     }
     
     @objc func medicalButtonClicked(_ sender: UIButton) {
