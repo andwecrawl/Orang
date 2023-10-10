@@ -60,7 +60,7 @@
 		D1BB7FC42AD52082001FFF1C /* MedicalRecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */; };
 		D1BB7FC72AD5314F001FFF1C /* AbnormalSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */; };
 		D1BB7FC92AD531AC001FFF1C /* VaccineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */; };
-		D1BB7FCB2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCA2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift */; };
+		D1BB7FCB2AD53F3C001FFF1C /* ChoosePetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCA2AD53F3C001FFF1C /* ChoosePetCollectionViewCell.swift */; };
 		D1BB7FCD2AD544CA001FFF1C /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */; };
 		D1BB7FCF2AD55BF2001FFF1C /* WithViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */; };
 /* End PBXBuildFile section */
@@ -116,7 +116,7 @@
 		D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordTable.swift; sourceTree = "<group>"; };
 		D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptomsViewController.swift; sourceTree = "<group>"; };
 		D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineViewController.swift; sourceTree = "<group>"; };
-		D1BB7FCA2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosePetCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1BB7FCA2AD53F3C001FFF1C /* ChoosePetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoosePetCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
 		D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -407,7 +407,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */,
-				D1BB7FCA2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift */,
+				D1BB7FCA2AD53F3C001FFF1C /* ChoosePetCollectionViewCell.swift */,
 			);
 			path = WithViewController;
 			sourceTree = "<group>";
@@ -545,7 +545,7 @@
 				D1BB7FC72AD5314F001FFF1C /* AbnormalSymptomsViewController.swift in Sources */,
 				D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */,
 				D1BB7FBE2AD51ABF001FFF1C /* DiaryTableRepository.swift in Sources */,
-				D1BB7FCB2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift in Sources */,
+				D1BB7FCB2AD53F3C001FFF1C /* ChoosePetCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
