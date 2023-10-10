@@ -77,21 +77,26 @@ class RecordViewController: BaseViewController {
     }
     
     @objc func diaryButtonClicked() {
-        let vc = DiaryViewController()
+        let vc = WithViewController()
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func recordButtonClicked(_ sender: UIButton) {
         switch sender.tag {
-        case 3:
+        case 1:
             let vc = WeightRecordViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case 2:
+            let vc = FeedViewController()
+            navigationController?.pushViewController(vc, animated: true)
+        case 3:
+            let vc = PooViewController()
             navigationController?.pushViewController(vc, animated: true)
         case 4:
-            let vc = WeightRecordViewController()
+            let vc = AbnormalSymptomsViewController()
             navigationController?.pushViewController(vc, animated: true)
         default:
-            let vc = WeightRecordViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            break
         }
     }
     
@@ -155,11 +160,4 @@ class RecordViewController: BaseViewController {
         }
         
     }
-    
-    static func setCollectionViewLayout() -> UICollectionViewFlowLayout {
-        let layout = UICollectionViewFlowLayout()
-        let space = 10
-        return layout
-    }
-    
 }
