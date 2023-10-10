@@ -18,6 +18,35 @@
 "아이별로 병원 일정 및 투약 일정을
 관리하고 설정할 수 있어요!";
 
+// 이상 증상
+// title
+"weiredSkinTitle" = "피부가 이상해요!"; // 피부가 이상하다
+"weiredEyesTitle" = "눈이 이상해요!"; // 눈이 이상하다
+"weiredNoseTitle" = "코가 이상해요!"; // 코가 이상하다
+"hardToBreathTitle" = "호흡을 힘들어해요.";// 호흡을 괴로워한다
+"pukeTitle" = "구토를 했어요."; // 구토
+"caughtTitle" = "기침을 계속 해요."; // 기침을 계속 한다
+"convulsionTitle" = "경련을 해요."; // 경련
+"walkingWeiredTitle" = "걷는 모습이 이상해요."; // 걷는 모습이 이상하다
+"diarrheaTitle" = "설사를 했어요.";// 설사
+"bloodyStoolTitle" = "혈변을 눴어요."; // 혈변
+"etcTitle" = "그 외에 이런 증상이 있어요!";
+
+// subtitle
+"weiredSkin" = "빨갛게 부어오르거나 발진/두드러기가 있어요."; // 피부가 이상하다
+"weiredEyes" = "눈이 튀어나오거나 충혈되어 있어요."; // 눈이 이상하다
+"weiredNose" = "코가 파랗게 변하거나 바짝 말라 있어요."; // 코가 이상하다
+"hardToBreath" = "계속 앉아만 있으려고 하거나 호흡을 힘들어해요.";// 호흡을 괴로워한다
+"puke" = ""; // 구토
+"caught" = "기침을 계속 해요."; // 기침을 계속 한다
+"convulsion" = "경련을 해요."; // 경련
+"walkingWeired" = "걷는 모습이 이상해요."; // 걷는 모습이 이상하다
+"diarrhea" = "설사를 했어요.";// 설사
+"bloodyStool" = "혈변을 눴어요."; // 혈변
+"etc" = "그 외에 이런 증상이 있어요!";
+
+
+
 // tabBar
 "Profile" = "프로필";
 
