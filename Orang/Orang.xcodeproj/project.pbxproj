@@ -54,6 +54,15 @@
 		D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB62AD465DE001FFF1C /* AlertCollectionViewCell.swift */; };
 		D1BB7FB92AD467E9001FFF1C /* AlertSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB82AD467E9001FFF1C /* AlertSetting.swift */; };
 		D1BB7FBC2AD4683B001FFF1C /* DailyTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */; };
+		D1BB7FBE2AD51ABF001FFF1C /* DiaryTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBD2AD51ABF001FFF1C /* DiaryTableRepository.swift */; };
+		D1BB7FC02AD51F62001FFF1C /* DiaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */; };
+		D1BB7FC22AD51FC2001FFF1C /* RecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */; };
+		D1BB7FC42AD52082001FFF1C /* MedicalRecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */; };
+		D1BB7FC72AD5314F001FFF1C /* AbnormalSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */; };
+		D1BB7FC92AD531AC001FFF1C /* VaccineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */; };
+		D1BB7FCB2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCA2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift */; };
+		D1BB7FCD2AD544CA001FFF1C /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */; };
+		D1BB7FCF2AD55BF2001FFF1C /* WithViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +108,17 @@
 		D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB7FB42AD46451001FFF1C /* AlertAddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertAddViewController.swift; sourceTree = "<group>"; };
 		D1BB7FB62AD465DE001FFF1C /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1BB7FB82AD467E9001FFF1C /* AlertSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSetting.swift; sourceTree = "<group>"; };
+		D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTodo.swift; sourceTree = "<group>"; };
+		D1BB7FBD2AD51ABF001FFF1C /* DiaryTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTableRepository.swift; sourceTree = "<group>"; };
+		D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTable.swift; sourceTree = "<group>"; };
+		D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTable.swift; sourceTree = "<group>"; };
+		D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordTable.swift; sourceTree = "<group>"; };
+		D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptomsViewController.swift; sourceTree = "<group>"; };
+		D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineViewController.swift; sourceTree = "<group>"; };
+		D1BB7FCA2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = choosePetCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
+		D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,7 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B52ED02ACBED4900477A14 /* RecordViewController.swift */,
-				D1BB7FB32AD45153001FFF1C /* PicCell */,
+				D1BB7FD02AD570A3001FFF1C /* WithViewController */,
 				D1B52F052ACFEF8300477A14 /* Diary */,
 				D1B52F062ACFEF9C00477A14 /* Record */,
 				D1B52F072ACFEFAA00477A14 /* Medical */,
@@ -179,6 +199,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B52F0B2ACFF0FB00477A14 /* DiaryViewController.swift */,
+				D1BB7FB32AD45153001FFF1C /* PicCell */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -189,6 +210,7 @@
 				D1B52F0D2AD002A800477A14 /* WeightRecordViewController.swift */,
 				D1B52F0F2AD01F8400477A14 /* FeedViewController.swift */,
 				D1B52F122AD0299600477A14 /* PooViewController.swift */,
+				D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -197,6 +219,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B52F082ACFEFC100477A14 /* MedicalHistoryViewController.swift */,
+				D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */,
 			);
 			path = Medical;
 			sourceTree = "<group>";
@@ -289,7 +312,9 @@
 			isa = PBXGroup;
 			children = (
 				D1B52F162AD0383A00477A14 /* Species.swift */,
+				D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */,
 				D18273132AD2CEA200F4709B /* Unit.swift */,
+				D1BB7FBA2AD4680D001FFF1C /* AlertSetting */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -318,7 +343,10 @@
 			isa = PBXGroup;
 			children = (
 				D1BA59422AC7364D007437F4 /* PetTable.swift */,
+				D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */,
+				D1BB7FC52AD5296E001FFF1C /* Later */,
 				D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */,
+				D1BB7FBD2AD51ABF001FFF1C /* DiaryTableRepository.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -355,6 +383,33 @@
 				D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */,
 			);
 			path = PicCell;
+			sourceTree = "<group>";
+		};
+		D1BB7FBA2AD4680D001FFF1C /* AlertSetting */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FB82AD467E9001FFF1C /* AlertSetting.swift */,
+				D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */,
+			);
+			path = AlertSetting;
+			sourceTree = "<group>";
+		};
+		D1BB7FC52AD5296E001FFF1C /* Later */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */,
+				D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */,
+			);
+			path = Later;
+			sourceTree = "<group>";
+		};
+		D1BB7FD02AD570A3001FFF1C /* WithViewController */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */,
+				D1BB7FCA2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift */,
+			);
+			path = WithViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,15 +508,21 @@
 				D18273142AD2CEA200F4709B /* Unit.swift in Sources */,
 				D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */,
 				D1BB7FAF2AD3D00F001FFF1C /* AddCollectionViewCell.swift in Sources */,
+				D1BB7FBC2AD4683B001FFF1C /* DailyTodo.swift in Sources */,
 				D1B52ED12ACBED4900477A14 /* RecordViewController.swift in Sources */,
 				D1BA594C2AC82901007437F4 /* ColorSet.swift in Sources */,
+				D1BB7FCD2AD544CA001FFF1C /* RecordType.swift in Sources */,
 				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
+				D1BB7FC42AD52082001FFF1C /* MedicalRecordTable.swift in Sources */,
 				D1BA59402AC71147007437F4 /* ImageViewBuilder.swift in Sources */,
+				D1BB7FB92AD467E9001FFF1C /* AlertSetting.swift in Sources */,
 				D1B52F152AD033BC00477A14 /* AddViewController+.swift in Sources */,
 				D1B52F0C2ACFF0FB00477A14 /* DiaryViewController.swift in Sources */,
+				D1BB7FC92AD531AC001FFF1C /* VaccineViewController.swift in Sources */,
 				D1BA59352AC6B887007437F4 /* LabelBuilder.swift in Sources */,
 				D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */,
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
+				D1BB7FC02AD51F62001FFF1C /* DiaryTable.swift in Sources */,
 				D1B52F0E2AD002A800477A14 /* WeightRecordViewController.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
 				D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */,
@@ -473,13 +534,18 @@
 				D1BA59372AC6B898007437F4 /* ViewAppearance.swift in Sources */,
 				D1B52F092ACFEFC100477A14 /* MedicalHistoryViewController.swift in Sources */,
 				D1BB7FB52AD46451001FFF1C /* AlertAddViewController.swift in Sources */,
+				D1BB7FC22AD51FC2001FFF1C /* RecordTable.swift in Sources */,
 				D1B52EFE2ACDC48E00477A14 /* ViewController+.swift in Sources */,
 				D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */,
 				D1BB7FAD2AD3D009001FFF1C /* PicCollectionViewCell.swift in Sources */,
+				D1BB7FCF2AD55BF2001FFF1C /* WithViewController.swift in Sources */,
 				D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */,
 				D1BA59572AC82D08007437F4 /* String+.swift in Sources */,
 				D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */,
+				D1BB7FC72AD5314F001FFF1C /* AbnormalSymptomsViewController.swift in Sources */,
 				D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */,
+				D1BB7FBE2AD51ABF001FFF1C /* DiaryTableRepository.swift in Sources */,
+				D1BB7FCB2AD53F3C001FFF1C /* choosePetCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

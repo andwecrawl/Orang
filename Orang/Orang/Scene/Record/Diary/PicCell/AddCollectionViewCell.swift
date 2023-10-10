@@ -19,7 +19,7 @@ class AddCollectionViewCell: BaseCollectionViewCell {
     
     override func setConstraints() {
         addButton.snp.makeConstraints { make in
-            make.edges.equalTo(self.safeAreaLayoutGuide).inset(10)
+            make.edges.equalTo(self.safeAreaLayoutGuide)
         }
     }
     
