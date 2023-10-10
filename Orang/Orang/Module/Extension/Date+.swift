@@ -15,6 +15,13 @@ extension Date {
         return formatter.string(from: self)
     }
     
+    func toFormattedStringTime() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH시 mm분"
+        
+        return formatter.string(from: self)
+    }
+    
     func toString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
