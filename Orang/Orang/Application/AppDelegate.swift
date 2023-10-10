@@ -10,9 +10,6 @@ import IQKeyboardManagerSwift
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         IQKeyboardManager.shared.enable = true
@@ -22,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITabBar.appearance().tintColor = Design.Color.tintColor
         UIButton.appearance().setTitleColor(Design.Color.content, for: .normal)
         UIButton.appearance().tintColor = Design.Color.tintColor
-        
+        UICollectionView.appearance().backgroundColor = Design.Color.background
         return true
     }
 
