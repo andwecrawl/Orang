@@ -138,8 +138,6 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         belongLabel.text = "belongDate %d".localized(with: pet.belongDate.compareToNow())
 
         let image = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
-        print(pet.profileImage)
-        print("image: \(String(describing: image))")
         profileImageView.image = image
         let species = pet.species
         if species == .reptile || species == .etc {
