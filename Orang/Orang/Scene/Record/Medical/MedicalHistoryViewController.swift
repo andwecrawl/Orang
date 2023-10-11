@@ -9,6 +9,8 @@ import UIKit
 
 class MedicalHistoryViewController: BaseViewController {
     
+    var selectedPet: [PetTable]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }

@@ -14,6 +14,7 @@ class PooViewController: BaseViewController {
     let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
     let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
+    var selectedPet: [PetTable]?
     
     override func viewDidLoad() {
         super.viewDidLoad()

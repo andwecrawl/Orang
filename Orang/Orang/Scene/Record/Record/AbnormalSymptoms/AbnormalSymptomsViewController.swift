@@ -12,11 +12,14 @@ class AbnormalSymptomsViewController: BaseViewController {
     lazy var tableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.register(AbnormalSymptomsTableViewCell.self, forCellReuseIdentifier: AbnormalSymptomsTableViewCell.identifier)
+//        view.rowHeight = UITableView.automaticDimension
+        view.estimatedRowHeight = 60
         view.delegate = self
         view.dataSource = self
         return view
     }()
     
+    var selectedPet: [PetTable]?
     var list: [AbnormalSymptoms] = []
     
     

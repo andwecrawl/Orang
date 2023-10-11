@@ -66,6 +66,7 @@
 		D1BB7FE12AD68F74001FFF1C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE02AD68F74001FFF1C /* Realm */; };
 		D1BB7FE32AD68F74001FFF1C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE22AD68F74001FFF1C /* RealmSwift */; };
 		D1BB7FE72AD693A1001FFF1C /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE62AD693A1001FFF1C /* M13Checkbox */; };
+		D1BB7FE92AD6B581001FFF1C /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -124,6 +125,7 @@
 		D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithViewController.swift; sourceTree = "<group>"; };
 		D1BB7FD32AD679DF001FFF1C /* AbnormalSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptoms.swift; sourceTree = "<group>"; };
 		D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptomsTableViewCell.swift; sourceTree = "<group>"; };
+		D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -335,6 +337,7 @@
 				D1BA593D2AC6FC2F007437F4 /* StackViewBuilder.swift */,
 				D1BA59362AC6B898007437F4 /* ViewAppearance.swift */,
 				D1B52EC32ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift */,
+				D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */,
 			);
 			path = Builder;
 			sourceTree = "<group>";
@@ -546,6 +549,7 @@
 				D1BA59322AC3F1FF007437F4 /* ProfileCollectionViewCell.swift in Sources */,
 				D1BA593E2AC6FC2F007437F4 /* StackViewBuilder.swift in Sources */,
 				D1B52F132AD0299700477A14 /* PooViewController.swift in Sources */,
+				D1BB7FE92AD6B581001FFF1C /* TextViewBuilder.swift in Sources */,
 				D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */,
 				D18273142AD2CEA200F4709B /* Unit.swift in Sources */,
 				D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */,

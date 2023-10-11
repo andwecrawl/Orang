@@ -9,6 +9,8 @@ import UIKit
 
 class VaccineViewController: BaseViewController {
     
+    var selectedPet: [PetTable]?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
