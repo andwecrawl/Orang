@@ -10,7 +10,7 @@ import UIKit
 class WeightRecordViewController: BaseViewController {
     
     let weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(),size: 16, weight: .semibold, settingTitle: true)
-    let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "숫자만 적어 주세요!")
+    let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputNumber".localized())
     let weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
         UIAction(title: Unit.g.rawValue, handler: { _ in }),
         UIAction(title: Unit.kg.rawValue, handler: { _ in }),
@@ -18,9 +18,9 @@ class WeightRecordViewController: BaseViewController {
     ])
     let weightStackView = UIStackView.stackViewBuilder()
     
-    let dateLabel = UILabel.labelBuilder(text: "날짜", size: 16, weight: .bold, settingTitle: true)
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "날짜를 입력해 주세요!")
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "시간을 입력해 주세요!", isTimeTextfield: true)
+    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
     let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     override func viewDidLoad() {
@@ -31,9 +31,9 @@ class WeightRecordViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "몸무게 기록 추가하기"
+        title = "weightTitle".localized()
         
-        let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
         
         

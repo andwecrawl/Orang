@@ -9,19 +9,23 @@ import UIKit
 
 class FeedViewController: BaseViewController {
     
-    let typeTextField = UnderLineTextField.textFieldBuilder(placeholder: "간식 이름을 적어 주세요!")
+    let typeLabel = UILabel.labelBuilder(text: "snackVariation".localized(), size: 16, weight: .bold, settingTitle: true)
+    let typeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputSnackType".localized())
+    let typeStackView = UIStackView.stackViewBuilder()
     
-    let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "숫자만 적어 주세요!")
-    let weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
+    let numberLabel = UILabel.labelBuilder(text: "amount".localized(),size: 16, weight: .semibold, settingTitle: true)
+    let numberTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputNumber".localized())
+    let unitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
         UIAction(title: Unit.g.rawValue, handler: { _ in }),
         UIAction(title: Unit.kg.rawValue, handler: { _ in }),
         UIAction(title: Unit.lb.rawValue, handler: { _ in }),
         UIAction(title: "count".localized(), handler: { _ in })
     ])
-    let weightStackView = UIStackView.stackViewBuilder()
+    let numberStackView = UIStackView.stackViewBuilder()
     
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "날짜를 입력해 주세요!")
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "시간을 입력해 주세요!")
+    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
     let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     override func viewDidLoad() {
@@ -32,9 +36,9 @@ class FeedViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "간식 기록 추가하기"
+        title = "snackTitle".localized()
         
-        let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
         
         
@@ -48,36 +52,38 @@ class FeedViewController: BaseViewController {
         super.configureHierarchy()
         
         [
-            weightStackView,
-            typeTextField,
+            numberStackView,
+            typeStackView,
             dateStackView
         ]
             .forEach { view.addSubview($0) }
         
-        weightStackView.AddArrangedSubviews([weightTextField, weightUnitButton])
-        dateStackView.AddArrangedSubviews([dateTextField, timeTextField])
+        typeStackView.AddArrangedSubviews([typeLabel, typeTextField])
+        numberStackView.AddArrangedSubviews([numberLabel, numberTextField, unitButton])
+        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func setConstraints() {
-        dateStackView.distribution = .fillEqually
-        dateStackView.snp.makeConstraints { make in
+        
+        typeStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        typeTextField.snp.makeConstraints { make in
-            make.top.equalTo(dateStackView.snp.bottom).offset(16)
+        numberStackView.snp.makeConstraints { make in
+            make.top.equalTo(typeTextField.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        weightStackView.snp.makeConstraints { make in
-            make.top.equalTo(typeTextField.snp.bottom).offset(16)
+        
+        dateStackView.snp.makeConstraints { make in
+            make.top.equalTo(numberStackView.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
     
     override func configureView() {
-        [dateTextField, timeTextField, typeTextField, weightTextField].forEach { element in
+        [dateTextField, timeTextField, typeTextField, numberTextField].forEach { element in
             element.textAlignment = .center
             element.delegate = self
         }
@@ -130,7 +136,7 @@ extension FeedViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == dateTextField || textField == timeTextField {
             return false
-        } else if textField == weightTextField {
+        } else if textField == numberTextField {
             let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
             let withDecimal = (
                 string == NumberFormatter().decimalSeparator &&

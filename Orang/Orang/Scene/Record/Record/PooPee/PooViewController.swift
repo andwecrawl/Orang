@@ -9,15 +9,10 @@ import UIKit
 
 class PooViewController: BaseViewController {
     
-    let numberTextField = UnderLineTextField.textFieldBuilder(placeholder: "숫자만 적어 주세요!")
-    let weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
-        UIAction(title: "g", handler: { _ in }),
-        UIAction(title: "kg", handler: { _ in }),
-        UIAction(title: "lb", handler: { _ in }),
-        UIAction(title: "count".localized(), handler: { _ in })
-    ])
-    let numberStackView = UIStackView.stackViewBuilder()
-    
+    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
+    let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     
     override func viewDidLoad() {
@@ -28,9 +23,9 @@ class PooViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "몸무게 기록 추가하기"
+        title = "pooPeeTitle".localized()
         
-        let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
         
 
@@ -44,15 +39,15 @@ class PooViewController: BaseViewController {
         super.configureHierarchy()
         
         [
-            numberStackView
+            dateStackView
         ]
             .forEach { view.addSubview($0) }
         
-        numberStackView.AddArrangedSubviews([numberTextField, weightUnitButton])
+        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func configureView() {
-        numberStackView.snp.makeConstraints { make in
+        dateStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(30)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
