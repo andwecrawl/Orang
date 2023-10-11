@@ -32,9 +32,6 @@
 		D1BA59092AC330EA007437F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1BA59082AC330EA007437F4 /* Assets.xcassets */; };
 		D1BA590C2AC330EA007437F4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1BA590A2AC330EA007437F4 /* LaunchScreen.storyboard */; };
 		D1BA59152AC3317B007437F4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA59142AC3317B007437F4 /* Alamofire */; };
-		D1BA59182AC33185007437F4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA59172AC33185007437F4 /* SnapKit */; };
-		D1BA591B2AC331C3007437F4 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA591A2AC331C3007437F4 /* Realm */; };
-		D1BA591D2AC331C3007437F4 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA591C2AC331C3007437F4 /* RealmSwift */; };
 		D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59262AC3329C007437F4 /* BaseViewController.swift */; };
 		D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA592A2AC332C5007437F4 /* BaseTableViewCell.swift */; };
 		D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA592D2AC334E3007437F4 /* reusableViewProtocol.swift */; };
@@ -64,6 +61,11 @@
 		D1BB7FCD2AD544CA001FFF1C /* RecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */; };
 		D1BB7FCF2AD55BF2001FFF1C /* WithViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */; };
 		D1BB7FD42AD679DF001FFF1C /* AbnormalSymptoms.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FD32AD679DF001FFF1C /* AbnormalSymptoms.swift */; };
+		D1BB7FDB2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */; };
+		D1BB7FDE2AD68F65001FFF1C /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FDD2AD68F65001FFF1C /* SnapKit */; };
+		D1BB7FE12AD68F74001FFF1C /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE02AD68F74001FFF1C /* Realm */; };
+		D1BB7FE32AD68F74001FFF1C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE22AD68F74001FFF1C /* RealmSwift */; };
+		D1BB7FE72AD693A1001FFF1C /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE62AD693A1001FFF1C /* M13Checkbox */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +123,7 @@
 		D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordType.swift; sourceTree = "<group>"; };
 		D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WithViewController.swift; sourceTree = "<group>"; };
 		D1BB7FD32AD679DF001FFF1C /* AbnormalSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptoms.swift; sourceTree = "<group>"; };
+		D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptomsTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,12 +131,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1BA591D2AC331C3007437F4 /* RealmSwift in Frameworks */,
+				D1BB7FE72AD693A1001FFF1C /* M13Checkbox in Frameworks */,
+				D1BB7FE32AD68F74001FFF1C /* RealmSwift in Frameworks */,
 				D18273102AD26F5900F4709B /* FSCalendar in Frameworks */,
-				D1BA591B2AC331C3007437F4 /* Realm in Frameworks */,
+				D1BB7FDE2AD68F65001FFF1C /* SnapKit in Frameworks */,
 				D1BA59152AC3317B007437F4 /* Alamofire in Frameworks */,
-				D1BA59182AC33185007437F4 /* SnapKit in Frameworks */,
 				D1B52EC02AC9918000477A14 /* IQKeyboardManagerSwift in Frameworks */,
+				D1BB7FE12AD68F74001FFF1C /* Realm in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,10 +213,10 @@
 		D1B52F062ACFEF9C00477A14 /* Record */ = {
 			isa = PBXGroup;
 			children = (
-				D1B52F0D2AD002A800477A14 /* WeightRecordViewController.swift */,
-				D1B52F0F2AD01F8400477A14 /* FeedViewController.swift */,
-				D1B52F122AD0299600477A14 /* PooViewController.swift */,
-				D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */,
+				D1BB7FD62AD68D8F001FFF1C /* Weight */,
+				D1BB7FD72AD68D97001FFF1C /* Feed */,
+				D1BB7FD82AD68D9B001FFF1C /* PooPee */,
+				D1BB7FD92AD68DA6001FFF1C /* AbnormalSymptoms */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -415,6 +419,39 @@
 			path = WithViewController;
 			sourceTree = "<group>";
 		};
+		D1BB7FD62AD68D8F001FFF1C /* Weight */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52F0D2AD002A800477A14 /* WeightRecordViewController.swift */,
+			);
+			path = Weight;
+			sourceTree = "<group>";
+		};
+		D1BB7FD72AD68D97001FFF1C /* Feed */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52F0F2AD01F8400477A14 /* FeedViewController.swift */,
+			);
+			path = Feed;
+			sourceTree = "<group>";
+		};
+		D1BB7FD82AD68D9B001FFF1C /* PooPee */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52F122AD0299600477A14 /* PooViewController.swift */,
+			);
+			path = PooPee;
+			sourceTree = "<group>";
+		};
+		D1BB7FD92AD68DA6001FFF1C /* AbnormalSymptoms */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */,
+				D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */,
+			);
+			path = AbnormalSymptoms;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -433,11 +470,12 @@
 			name = Orang;
 			packageProductDependencies = (
 				D1BA59142AC3317B007437F4 /* Alamofire */,
-				D1BA59172AC33185007437F4 /* SnapKit */,
-				D1BA591A2AC331C3007437F4 /* Realm */,
-				D1BA591C2AC331C3007437F4 /* RealmSwift */,
 				D1B52EBF2AC9918000477A14 /* IQKeyboardManagerSwift */,
 				D182730F2AD26F5900F4709B /* FSCalendar */,
+				D1BB7FDD2AD68F65001FFF1C /* SnapKit */,
+				D1BB7FE02AD68F74001FFF1C /* Realm */,
+				D1BB7FE22AD68F74001FFF1C /* RealmSwift */,
+				D1BB7FE62AD693A1001FFF1C /* M13Checkbox */,
 			);
 			productName = Orang;
 			productReference = D1BA58FC2AC330E9007437F4 /* Orang.app */;
@@ -470,10 +508,11 @@
 			mainGroup = D1BA58F32AC330E9007437F4;
 			packageReferences = (
 				D1BA59132AC3317B007437F4 /* XCRemoteSwiftPackageReference "Alamofire" */,
-				D1BA59162AC33185007437F4 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				D1BA59192AC331C3007437F4 /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D1B52EBE2AC9918000477A14 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D182730E2AD26F5900F4709B /* XCRemoteSwiftPackageReference "FSCalendar" */,
+				D1BB7FDC2AD68F65001FFF1C /* XCRemoteSwiftPackageReference "SnapKit" */,
+				D1BB7FDF2AD68F74001FFF1C /* XCRemoteSwiftPackageReference "realm-swift" */,
+				D1BB7FE52AD693A1001FFF1C /* XCRemoteSwiftPackageReference "M13Checkbox" */,
 			);
 			productRefGroup = D1BA58FD2AC330E9007437F4 /* Products */;
 			projectDirPath = "";
@@ -537,6 +576,7 @@
 				D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */,
 				D1BA59372AC6B898007437F4 /* ViewAppearance.swift in Sources */,
 				D1B52F092ACFEFC100477A14 /* MedicalHistoryViewController.swift in Sources */,
+				D1BB7FDB2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift in Sources */,
 				D1BB7FB52AD46451001FFF1C /* AlertAddViewController.swift in Sources */,
 				D1BB7FC22AD51FC2001FFF1C /* RecordTable.swift in Sources */,
 				D1B52EFE2ACDC48E00477A14 /* ViewController+.swift in Sources */,
@@ -784,7 +824,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
 			requirement = {
-				kind = upToNextMinorVersion;
+				kind = upToNextMajorVersion;
 				minimumVersion = 2.8.0;
 			};
 		};
@@ -792,7 +832,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
 			requirement = {
-				kind = upToNextMinorVersion;
+				kind = upToNextMajorVersion;
 				minimumVersion = 6.5.0;
 			};
 		};
@@ -804,20 +844,28 @@
 				minimumVersion = 5.0.0;
 			};
 		};
-		D1BA59162AC33185007437F4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+		D1BB7FDC2AD68F65001FFF1C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 5.6.0;
 			};
 		};
-		D1BA59192AC331C3007437F4 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+		D1BB7FDF2AD68F74001FFF1C /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
 			requirement = {
 				branch = master;
 				kind = branch;
+			};
+		};
+		D1BB7FE52AD693A1001FFF1C /* XCRemoteSwiftPackageReference "M13Checkbox" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Marxon13/M13Checkbox.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 3.4.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
@@ -838,20 +886,25 @@
 			package = D1BA59132AC3317B007437F4 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
 		};
-		D1BA59172AC33185007437F4 /* SnapKit */ = {
+		D1BB7FDD2AD68F65001FFF1C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D1BA59162AC33185007437F4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			package = D1BB7FDC2AD68F65001FFF1C /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		D1BA591A2AC331C3007437F4 /* Realm */ = {
+		D1BB7FE02AD68F74001FFF1C /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D1BA59192AC331C3007437F4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = D1BB7FDF2AD68F74001FFF1C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = Realm;
 		};
-		D1BA591C2AC331C3007437F4 /* RealmSwift */ = {
+		D1BB7FE22AD68F74001FFF1C /* RealmSwift */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = D1BA59192AC331C3007437F4 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			package = D1BB7FDF2AD68F74001FFF1C /* XCRemoteSwiftPackageReference "realm-swift" */;
 			productName = RealmSwift;
+		};
+		D1BB7FE62AD693A1001FFF1C /* M13Checkbox */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1BB7FE52AD693A1001FFF1C /* XCRemoteSwiftPackageReference "M13Checkbox" */;
+			productName = M13Checkbox;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
