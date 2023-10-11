@@ -13,6 +13,9 @@ class ChoosePetCollectionViewCell: BaseCollectionViewCell {
     
     let nameLabel = UILabel.labelBuilder(size: 13, weight: .medium, settingTitle: false)
     
+    var pet: PetTable?
+    var isSelectedPet: Bool?
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
@@ -21,6 +24,9 @@ class ChoosePetCollectionViewCell: BaseCollectionViewCell {
     
     override func configureHierarchy() {
         super.configureHierarchy()
+        
+        imageView.layer.borderWidth = 5
+        nameLabel.textAlignment = .center
         
         self.addSubview(imageView)
         self.addSubview(nameLabel)
@@ -41,9 +47,19 @@ class ChoosePetCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
-        imageView.layer.borderColor = Design.Color.border.cgColor
-        imageView.layer.borderWidth = 5
-        nameLabel.textAlignment = .center
+        guard let pet else { return }
+        guard let isSelectedPet else { return }
+        
+        nameLabel.text = pet.name
+        
+        let image = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
+        imageView.image = image
+        
+        if isSelectedPet {
+            imageView.layer.borderColor = Design.Color.tintColor?.cgColor
+        } else {
+            imageView.layer.borderColor = Design.Color.border.cgColor
+        }
     }
     
 }
