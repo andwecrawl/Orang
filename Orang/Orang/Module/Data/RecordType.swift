@@ -9,10 +9,13 @@ import Foundation
 import RealmSwift
 
 enum RecordType: Int, PersistableEnum {
+    case diary
     case weight
     case snack
     case pooPee
     case abnormalSymptoms
+    case vaccine
+    case medicalHistory
 }
 
 enum PooColor: String, PersistableEnum {
@@ -40,6 +43,7 @@ enum AbnormalSymptomsType: String, CaseIterable, PersistableEnum {
     case weiredSkin // 피부가 이상하다
     case weiredEyes // 눈이 이상하다
     case weiredNose // 코가 이상하다
+    case weiredEear
     case hardToBreath // 호흡을 괴로워한다
     case puke // 구토
     case caught // 기침을 계속 한다
