@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import PhotosUI
 
 class DiaryViewController: BaseViewController {
     
@@ -115,5 +116,41 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         layout.minimumInteritemSpacing = space
         layout.scrollDirection = .horizontal
         return layout
+    }
+}
+
+
+extension DiaryViewController: PHPickerViewControllerDelegate {
+    @objc func profileImageButtonClicked() {
+        // picker 기본 설정!!
+        var configuration = PHPickerConfiguration()
+        configuration.selectionLimit = 5
+        configuration.filter = .images
+        
+        let picker = PHPickerViewController(configuration: configuration)
+        picker.delegate = self
+        self.present(picker, animated: true, completion: nil)
+    }
+    
+    func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        // 이미지 클릭 시 화면 dismiss
+        picker.dismiss(animated: true)
+        
+        for result in results {
+            if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+                let type: NSItemProviderReading.Type = UIImage.self
+                result.itemProvider.loadObject(ofClass: type) { [weak self](image, error) in
+                    if let image = image as? UIImage {
+                        DispatchQueue.main.async {
+                            self?.images?.append(image)
+                        }
+                    } else {
+                        // 다시 시도 Alert
+                        print(error)
+                        self?.sendOneSidedAlert(title: "이미지를 저장할 수 없습니다!", message: "한 번 더 시도해 주세요!")
+                    }
+                }
+            }
+        }
     }
 }
