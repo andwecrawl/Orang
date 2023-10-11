@@ -9,7 +9,7 @@ import UIKit
 
 class AddCollectionViewCell: BaseCollectionViewCell {
     
-    let addButton = UIButton.pictureButtonBuilder(image: "plus", imageSize: 16, radius: 16)
+    let addButton = UIButton.pictureButtonBuilder(image: "camera", imageSize: 16, radius: 16)
     
     override func configureHierarchy() {
         super.configureHierarchy()

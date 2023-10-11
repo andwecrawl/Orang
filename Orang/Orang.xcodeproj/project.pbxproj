@@ -186,9 +186,6 @@
 			children = (
 				D1B52ED02ACBED4900477A14 /* RecordViewController.swift */,
 				D1BB7FD02AD570A3001FFF1C /* WithViewController */,
-				D1B52F052ACFEF8300477A14 /* Diary */,
-				D1B52F062ACFEF9C00477A14 /* Record */,
-				D1B52F072ACFEFAA00477A14 /* Medical */,
 			);
 			path = Record;
 			sourceTree = "<group>";
@@ -226,8 +223,8 @@
 		D1B52F072ACFEFAA00477A14 /* Medical */ = {
 			isa = PBXGroup;
 			children = (
-				D1B52F082ACFEFC100477A14 /* MedicalHistoryViewController.swift */,
 				D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */,
+				D1B52F082ACFEFC100477A14 /* MedicalHistoryViewController.swift */,
 			);
 			path = Medical;
 			sourceTree = "<group>";
@@ -418,6 +415,9 @@
 			children = (
 				D1BB7FCE2AD55BF2001FFF1C /* WithViewController.swift */,
 				D1BB7FCA2AD53F3C001FFF1C /* ChoosePetCollectionViewCell.swift */,
+				D1B52F052ACFEF8300477A14 /* Diary */,
+				D1B52F062ACFEF9C00477A14 /* Record */,
+				D1B52F072ACFEFAA00477A14 /* Medical */,
 			);
 			path = WithViewController;
 			sourceTree = "<group>";

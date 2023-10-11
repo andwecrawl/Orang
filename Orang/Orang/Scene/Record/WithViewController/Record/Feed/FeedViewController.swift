@@ -85,20 +85,24 @@ class FeedViewController: BaseViewController {
     }
     
     override func configureView() {
-        [dateTextField, timeTextField, typeTextField, numberTextField].forEach { element in
+        configureTextField([dateTextField, timeTextField, typeTextField, numberTextField], date: dateTextField, time: timeTextField)
+    }
+}
+
+
+// setup TextField
+extension FeedViewController {
+    func configureTextField(_ textFields: [UITextField], date: UITextField, time: UITextField) {
+        textFields.forEach { element in
             element.textAlignment = .center
             element.delegate = self
         }
-        dateTextField.tag = 1
-        timeTextField.tag = 2
-        setupDatePicker(textField: dateTextField)
-        setupDatePicker(textField: timeTextField)
+        date.tag = 1
+        time.tag = 2
+        setupDatePicker(textField: date)
+        setupDatePicker(textField: time)
     }
     
-    
-}
-
-extension FeedViewController {
     func setupDatePicker(textField: UITextField) {
         // 여기서 datePicker를 weak로 써줘야 하나?
         let datePicker = UIDatePicker()
@@ -134,6 +138,7 @@ extension FeedViewController {
 }
 
 
+// textField Delegate
 extension FeedViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == dateTextField || textField == timeTextField {

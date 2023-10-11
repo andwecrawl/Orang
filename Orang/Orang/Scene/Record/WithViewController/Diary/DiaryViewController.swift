@@ -20,11 +20,23 @@ class DiaryViewController: BaseViewController {
     }()
     
     let titleTextField = UnderLineTextField.textFieldBuilder(placeholder: "제목을 입력해 주세요!")
-    let contentTextView = UITextView()
+    let contentTextView = {
+        let view = UITextView()
+        view.layer.cornerRadius = 16
+        view.layer.borderColor = Design.Color.border.cgColor
+        view.font = .systemFont(ofSize: 14)
+        view.textContainerInset = UIEdgeInsets(top: 10, left: 4, bottom: 10, right: 4)
+        view.layer.borderWidth = 1
+        view.backgroundColor = Design.Color.background
+        return view
+    }()
+    
+    var selectedPet: [PetTable]?
+    var images: [UIImage]?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(selectedPet)
     }
     
     override func setNavigationBar() {
@@ -37,7 +49,11 @@ class DiaryViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
+        guard let title = titleTextField.text else { return }
+        let content = contentTextView.text
         
+        let diary = DiaryTable(title: title, content: content)
+        diary.picArray = [] // 사진이 있으면 등록!!
     }
     
     override func configureHierarchy() {
@@ -51,26 +67,27 @@ class DiaryViewController: BaseViewController {
     }
     
     override func setConstraints() {
-        
+        collectionView.backgroundColor = .black
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(96)
+            make.height.equalTo(86)
         }
         
         titleTextField.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(16)
+            make.top.equalTo(collectionView.snp.bottom).offset(8)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         contentTextView.snp.makeConstraints { make in
             make.top.equalTo(titleTextField.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(titleTextField)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(100)
+            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(30)
         }
     }
     
     override func configureView() {
+        
     }
     
 }
@@ -82,9 +99,9 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return 1
+            return images?.count == 5 ? 0 : 1
         } else {
-            return 10
+            return images?.count ?? 0
         }
     }
     
@@ -93,26 +110,38 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         if section == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddCollectionViewCell.identifier, for: indexPath) as? AddCollectionViewCell else { return UICollectionViewCell() }
             
-            return cell
             
+            return cell
             
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicCollectionViewCell.identifier, for: indexPath) as? PicCollectionViewCell else { return UICollectionViewCell() }
+            guard let images else { return UICollectionViewCell() }
+            
+            let row = indexPath.row
+            cell.imageView.image = images[row]
             cell.imageView.backgroundColor = .black
             cell.completionHandler = {
-                // 해당 imageView 삭제하는 코드 작성
+                guard let image = cell.imageView.image else { return }
+                if let firstIndex = self.images?.firstIndex(of: image) {
+                    self.images?.remove(at: firstIndex)
+                }
             }
             return cell
         }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
     }
     
     func setCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         let space: CGFloat = 8
         
-        layout.itemSize = CGSize(width: 80, height: 80)
+        let width = (UIScreen.main.bounds.width - (space * 6)) / 5
+        layout.itemSize = CGSize(width: width, height: width)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: space, bottom: 0, right: 0)
         
-        layout.minimumLineSpacing = space
         layout.minimumInteritemSpacing = space
         layout.scrollDirection = .horizontal
         return layout
