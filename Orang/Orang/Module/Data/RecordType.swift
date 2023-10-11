@@ -47,7 +47,7 @@ enum AbnormalSymptomsType: String, CaseIterable, PersistableEnum {
     case walkingWeired // 걷는 모습이 이상하다
     case diarrhea // 설사
     case bloodyStool // 혈변
-    case etc
+    case others
     
     var title: String {
         return "\(self.rawValue)Title".localized()
