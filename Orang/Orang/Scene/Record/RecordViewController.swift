@@ -78,10 +78,12 @@ class RecordViewController: BaseViewController {
     
     @objc func diaryButtonClicked() {
         let vc = WithViewController()
+        vc.recordType = .diary
         navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func recordButtonClicked(_ sender: UIButton) {
+        let vc = WithViewController()
         switch sender.tag {
         case 1:
 //            let vc = WeightRecordViewController()
@@ -91,28 +93,27 @@ class RecordViewController: BaseViewController {
 //                }
 //
 //                navigationController?.present(vc, animated: true)
-            let vc = WeightRecordViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            vc.recordType = .weight
         case 2:
-            let vc = FeedViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            vc.recordType = .snack
         case 3:
-            let vc = PooViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            vc.recordType = .pooPee
         case 4:
-            let vc = AbnormalSymptomsViewController()
-            navigationController?.pushViewController(vc, animated: true)
+            vc.recordType = .abnormalSymptoms
         default:
             break
         }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     @objc func medicalButtonClicked(_ sender: UIButton) {
+        let vc = WithViewController()
         if sender.tag == 100 { // medicalVaccineButton
-            print("\(sender.titleLabel?.text)")
+            vc.recordType = .vaccine
         } else if sender.tag == 101 { // medicalHistoryButton
-            print("\(sender.titleLabel?.text)")
+            vc.recordType = .medicalHistory
         }
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
