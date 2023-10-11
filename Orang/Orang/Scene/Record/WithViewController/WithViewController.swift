@@ -18,6 +18,7 @@ class WithViewController: BaseViewController {
     
     var selectedPet: [PetTable] = []
     
+    var recordType: RecordType?
     let repository = PetTableRepository()
     var list: Results<PetTable>!
     
@@ -41,12 +42,40 @@ class WithViewController: BaseViewController {
     }
     
     @objc func nextButtonClicked() {
-        let vc = DiaryViewController()
+        guard let recordType else { return }
         if selectedPet.isEmpty {
             sendOneSidedAlert(title: "함께한 아이를 선택해 주세요!")
         }
-        vc.selectedPet = selectedPet
-        navigationController?.pushViewController(vc, animated: true)
+        switch recordType {
+        case .diary:
+            let vc = DiaryViewController()
+            vc.selectedPet = selectedPet
+            navigationController?.pushViewController(vc, animated: true)
+        case .weight:
+            let vc = WeightRecordViewController()
+            vc.selectedPet = selectedPet
+            navigationController?.pushViewController(vc, animated: true)
+        case .snack:
+            let vc = FeedViewController()
+            vc.selectedPet = selectedPet
+            navigationController?.pushViewController(vc, animated: true)
+        case .pooPee:
+            let vc = PooViewController()
+            vc.selectedPet = selectedPet
+            navigationController?.pushViewController(vc, animated: true)
+        case .abnormalSymptoms:
+            let vc = AbnormalSymptomsViewController()
+            vc.selectedPet = selectedPet
+            navigationController?.pushViewController(vc, animated: true)
+        case .vaccine:
+            let vc = VaccineViewController()
+            vc.selectedPet = selectedPet
+            navigationController?.pushViewController(vc, animated: true)
+        case .medicalHistory:
+            let vc = MedicalHistoryViewController()
+            vc.selectedPet = selectedPet
+            navigationController?.pushViewController(vc, animated: true)
+        }
         
     }
     
@@ -79,24 +108,45 @@ extension WithViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoosePetCollectionViewCell.identifier, for: indexPath) as? ChoosePetCollectionViewCell else { return UICollectionViewCell() }
         let pet = list[indexPath.item]
-        cell.nameLabel.text = pet.name
-        let image = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
-        cell.imageView.image = image
+        cell.pet = pet
+        if selectedPet.contains(pet) {
+            cell.isSelectedPet = true
+        } else {
+            cell.isSelectedPet = false
+        }
+        cell.configureView()
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let item = collectionView.cellForItem(at: indexPath) as? ChoosePetCollectionViewCell else { return }
         let pet = list[indexPath.item]
-        if selectedPet.contains(pet) {
-            if let index = selectedPet.firstIndex(of: pet) {
-                selectedPet.remove(at: index)
+        if recordType == .diary {
+            if selectedPet.contains(pet) {
+                if let index = selectedPet.firstIndex(of: pet) {
+                    selectedPet.remove(at: index)
+                }
+                item.imageView.layer.borderColor = Design.Color.border.cgColor
+            } else {
+                selectedPet.append(pet)
+                item.imageView.layer.borderColor = Design.Color.tintColor?.cgColor
             }
-            item.imageView.layer.borderColor = Design.Color.tintColor?.cgColor
         } else {
-            selectedPet.append(pet)
-            item.imageView.layer.borderColor = Design.Color.border.cgColor
+            if selectedPet.isEmpty {
+                selectedPet.append(pet)
+                collectionView.reloadItems(at: [indexPath])
+            } else {
+                if selectedPet.contains(pet) {
+                    selectedPet.removeAll()
+                    collectionView.reloadItems(at: [indexPath])
+                } else {
+                    selectedPet.removeAll()
+                    selectedPet.append(pet)
+                    collectionView.reloadData()
+                }
+            }
         }
+        print(selectedPet)
     }
     
     
