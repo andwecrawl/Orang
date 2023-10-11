@@ -9,7 +9,7 @@ import UIKit
 
 class WeightRecordViewController: BaseViewController {
     
-    let weightLabel = UILabel.labelBuilder(size: 14, weight: .semibold, settingTitle: true)
+    let weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(),size: 16, weight: .semibold, settingTitle: true)
     let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "숫자만 적어 주세요!")
     let weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
         UIAction(title: Unit.g.rawValue, handler: { _ in }),
@@ -18,8 +18,9 @@ class WeightRecordViewController: BaseViewController {
     ])
     let weightStackView = UIStackView.stackViewBuilder()
     
+    let dateLabel = UILabel.labelBuilder(text: "날짜", size: 16, weight: .bold, settingTitle: true)
     let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "날짜를 입력해 주세요!")
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "시간을 입력해 주세요!")
+    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "시간을 입력해 주세요!", isTimeTextfield: true)
     let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     override func viewDidLoad() {
@@ -52,18 +53,18 @@ class WeightRecordViewController: BaseViewController {
             .forEach { view.addSubview($0) }
         
         weightStackView.AddArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
-        dateStackView.AddArrangedSubviews([dateTextField, timeTextField])
+        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func setConstraints() {
-        dateStackView.snp.makeConstraints { make in
+        
+        weightStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        
-        weightStackView.snp.makeConstraints { make in
-            make.top.equalTo(dateStackView.snp.bottom).offset(16)
+        dateStackView.snp.makeConstraints { make in
+            make.top.equalTo(weightStackView.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }

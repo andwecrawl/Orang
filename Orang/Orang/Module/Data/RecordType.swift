@@ -36,7 +36,7 @@ enum PeeColor: String, PersistableEnum {
     case yello, orange, yellow, brown, lightYellow
 }
 
-enum AbnormalSymptoms: String, PersistableEnum {
+enum AbnormalSymptomsType: String, CaseIterable, PersistableEnum {
     case weiredSkin // 피부가 이상하다
     case weiredEyes // 눈이 이상하다
     case weiredNose // 코가 이상하다

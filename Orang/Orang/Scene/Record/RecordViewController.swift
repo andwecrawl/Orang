@@ -84,6 +84,13 @@ class RecordViewController: BaseViewController {
     @objc func recordButtonClicked(_ sender: UIButton) {
         switch sender.tag {
         case 1:
+//            let vc = WeightRecordViewController()
+//
+//                if let presentationController = vc.presentationController as? UISheetPresentationController {
+//                    presentationController.detents = [.custom(resolver: 23)]
+//                }
+//
+//                navigationController?.present(vc, animated: true)
             let vc = WeightRecordViewController()
             navigationController?.pushViewController(vc, animated: true)
         case 2:
