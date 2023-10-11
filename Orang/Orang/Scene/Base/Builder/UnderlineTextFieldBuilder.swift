@@ -79,7 +79,7 @@ extension UnderLineTextField {
 }
 
 extension UnderLineTextField {
-    static func textFieldBuilder(placeholder: String) -> UnderLineTextField {
+    static func textFieldBuilder(placeholder: String, isTimeTextfield: Bool = false) -> UnderLineTextField {
         let textField = UnderLineTextField()
         textField.borderStyle = .none
         textField.tintColor = Design.Color.tintColor
@@ -88,6 +88,11 @@ extension UnderLineTextField {
             placeholder: placeholder,
             color: .lightGray
         )
+        if isTimeTextfield {
+            textField.snp.makeConstraints { make in
+                make.width.equalTo(100)
+            }
+        }
         textField.font = .systemFont(ofSize: 15)
         textField.snp.makeConstraints { make in
             make.height.equalTo(50)
