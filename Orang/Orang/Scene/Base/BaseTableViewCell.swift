@@ -14,6 +14,7 @@ class BaseTableViewCell: UITableViewCell {
         
         configureHierarchy()
         setConstraints()
+        configureView()
     }
     
     @available(*, unavailable)
@@ -27,11 +28,14 @@ class BaseTableViewCell: UITableViewCell {
     }
     
     func configureHierarchy() {
-        
+        self.backgroundColor = Design.Color.background
     }
     
     func setConstraints() {
         
     }
     
+    func configureView() {
+        
+    }
 }
