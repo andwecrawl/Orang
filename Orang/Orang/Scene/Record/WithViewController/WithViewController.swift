@@ -42,6 +42,9 @@ class WithViewController: BaseViewController {
     
     @objc func nextButtonClicked() {
         let vc = DiaryViewController()
+        if selectedPet.isEmpty {
+            sendOneSidedAlert(title: "함께한 아이를 선택해 주세요!")
+        }
         vc.selectedPet = selectedPet
         navigationController?.pushViewController(vc, animated: true)
         
