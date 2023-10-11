@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIButton.appearance().setTitleColor(Design.Color.content, for: .normal)
         UIButton.appearance().tintColor = Design.Color.tintColor
         UICollectionView.appearance().backgroundColor = Design.Color.background
+        UITableView.appearance().backgroundColor = Design.Color.background
         return true
     }
 
