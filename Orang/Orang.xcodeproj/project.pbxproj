@@ -51,7 +51,7 @@
 		D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB62AD465DE001FFF1C /* AlertCollectionViewCell.swift */; };
 		D1BB7FB92AD467E9001FFF1C /* AlertSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB82AD467E9001FFF1C /* AlertSetting.swift */; };
 		D1BB7FBC2AD4683B001FFF1C /* DailyTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */; };
-		D1BB7FBE2AD51ABF001FFF1C /* DiaryTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBD2AD51ABF001FFF1C /* DiaryTableRepository.swift */; };
+		D1BB7FBE2AD51ABF001FFF1C /* RecordTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBD2AD51ABF001FFF1C /* RecordTableRepository.swift */; };
 		D1BB7FC02AD51F62001FFF1C /* DiaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */; };
 		D1BB7FC22AD51FC2001FFF1C /* RecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */; };
 		D1BB7FC42AD52082001FFF1C /* MedicalRecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */; };
@@ -68,6 +68,7 @@
 		D1BB7FE72AD693A1001FFF1C /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE62AD693A1001FFF1C /* M13Checkbox */; };
 		D1BB7FE92AD6B581001FFF1C /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */; };
 		D1BB7FFF2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FFE2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift */; };
+		D1BB80012AD85694001FFF1C /* UnderlineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80002AD85694001FFF1C /* UnderlineSegmentedControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -115,7 +116,7 @@
 		D1BB7FB62AD465DE001FFF1C /* AlertCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB7FB82AD467E9001FFF1C /* AlertSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSetting.swift; sourceTree = "<group>"; };
 		D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTodo.swift; sourceTree = "<group>"; };
-		D1BB7FBD2AD51ABF001FFF1C /* DiaryTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTableRepository.swift; sourceTree = "<group>"; };
+		D1BB7FBD2AD51ABF001FFF1C /* RecordTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableRepository.swift; sourceTree = "<group>"; };
 		D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTable.swift; sourceTree = "<group>"; };
 		D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTable.swift; sourceTree = "<group>"; };
 		D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordTable.swift; sourceTree = "<group>"; };
@@ -128,6 +129,7 @@
 		D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptomsTableViewCell.swift; sourceTree = "<group>"; };
 		D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
 		D1BB7FFE2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDelegateProtocol.swift; sourceTree = "<group>"; };
+		D1BB80002AD85694001FFF1C /* UnderlineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSegmentedControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -336,6 +338,7 @@
 				D1BA593F2AC71147007437F4 /* ImageViewBuilder.swift */,
 				D1BA593D2AC6FC2F007437F4 /* StackViewBuilder.swift */,
 				D1BA59362AC6B898007437F4 /* ViewAppearance.swift */,
+				D1BB80002AD85694001FFF1C /* UnderlineSegmentedControl.swift */,
 				D1B52EC32ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift */,
 				D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */,
 			);
@@ -353,10 +356,10 @@
 			isa = PBXGroup;
 			children = (
 				D1BA59422AC7364D007437F4 /* PetTable.swift */,
-				D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */,
+				D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */,
 				D1BB7FC52AD5296E001FFF1C /* Later */,
 				D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */,
-				D1BB7FBD2AD51ABF001FFF1C /* DiaryTableRepository.swift */,
+				D1BB7FBD2AD51ABF001FFF1C /* RecordTableRepository.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -407,7 +410,7 @@
 		D1BB7FC52AD5296E001FFF1C /* Later */ = {
 			isa = PBXGroup;
 			children = (
-				D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */,
+				D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */,
 				D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */,
 			);
 			path = Later;
@@ -584,6 +587,7 @@
 				D1B52F0E2AD002A800477A14 /* WeightRecordViewController.swift in Sources */,
 				D1BB7FD42AD679DF001FFF1C /* AbnormalSymptoms.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
+				D1BB80012AD85694001FFF1C /* UnderlineSegmentedControl.swift in Sources */,
 				D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */,
 				D1B52F102AD01F8400477A14 /* FeedViewController.swift in Sources */,
 				D1B52F172AD0383A00477A14 /* Species.swift in Sources */,
@@ -604,7 +608,7 @@
 				D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */,
 				D1BB7FC72AD5314F001FFF1C /* AbnormalSymptomsViewController.swift in Sources */,
 				D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */,
-				D1BB7FBE2AD51ABF001FFF1C /* DiaryTableRepository.swift in Sources */,
+				D1BB7FBE2AD51ABF001FFF1C /* RecordTableRepository.swift in Sources */,
 				D1BB7FCB2AD53F3C001FFF1C /* ChoosePetCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
