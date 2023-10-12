@@ -67,6 +67,7 @@
 		D1BB7FE32AD68F74001FFF1C /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE22AD68F74001FFF1C /* RealmSwift */; };
 		D1BB7FE72AD693A1001FFF1C /* M13Checkbox in Frameworks */ = {isa = PBXBuildFile; productRef = D1BB7FE62AD693A1001FFF1C /* M13Checkbox */; };
 		D1BB7FE92AD6B581001FFF1C /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */; };
+		D1BB7FFF2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FFE2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +127,7 @@
 		D1BB7FD32AD679DF001FFF1C /* AbnormalSymptoms.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptoms.swift; sourceTree = "<group>"; };
 		D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptomsTableViewCell.swift; sourceTree = "<group>"; };
 		D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
+		D1BB7FFE2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDelegateProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,6 +206,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B52F0B2ACFF0FB00477A14 /* DiaryViewController.swift */,
+				D1BB7FFE2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift */,
 				D1BB7FB32AD45153001FFF1C /* PicCell */,
 			);
 			path = Diary;
@@ -386,8 +389,8 @@
 		D1BB7FB32AD45153001FFF1C /* PicCell */ = {
 			isa = PBXGroup;
 			children = (
-				D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */,
 				D1BB7FAE2AD3D00F001FFF1C /* AddCollectionViewCell.swift */,
+				D1BB7FAC2AD3D009001FFF1C /* PicCollectionViewCell.swift */,
 			);
 			path = PicCell;
 			sourceTree = "<group>";
@@ -451,8 +454,16 @@
 			children = (
 				D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */,
 				D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */,
+				D1BB7FFD2AD7E712001FFF1C /* DetailVC */,
 			);
 			path = AbnormalSymptoms;
+			sourceTree = "<group>";
+		};
+		D1BB7FFD2AD7E712001FFF1C /* DetailVC */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = DetailVC;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -569,6 +580,7 @@
 				D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */,
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
 				D1BB7FC02AD51F62001FFF1C /* DiaryTable.swift in Sources */,
+				D1BB7FFF2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift in Sources */,
 				D1B52F0E2AD002A800477A14 /* WeightRecordViewController.swift in Sources */,
 				D1BB7FD42AD679DF001FFF1C /* AbnormalSymptoms.swift in Sources */,
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
