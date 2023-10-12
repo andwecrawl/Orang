@@ -5,7 +5,7 @@
 //  Created by yeoni on 2023/10/10.
 //
 
-import Foundation
+import UIKit
 import RealmSwift
 
 enum RecordType: Int, PersistableEnum {
@@ -32,7 +32,7 @@ enum PooColor: String, PersistableEnum {
 
 
 enum PooForm: String, PersistableEnum {
-    case normal, hard, mud, water, mucus
+    case normal, hard, mud, water, mucus // 점액
 }
 
 enum PeeColor: String, PersistableEnum {
@@ -70,4 +70,28 @@ enum pukeColor: String, PersistableEnum {
     case black // 검정색 구토
     case pink // 분홍색 구토
     case red // 빨간 구토
+    case etc
+    
+    var color: UIColor {
+        switch self {
+        case .clear:
+            return .white
+        case .withBubble:
+            return .white
+        case .yellow:
+            return .systemYellow
+        case .green:
+            return .systemGreen
+        case .gray:
+            return .systemGray
+        case .black:
+            return .black
+        case .pink:
+            return .systemPink
+        case .red:
+            return .systemRed
+        case .etc:
+            return .white
+        }
+    }
 }
