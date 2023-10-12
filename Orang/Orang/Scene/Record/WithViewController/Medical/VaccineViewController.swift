@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VaccineViewController: BaseViewController {
+final class VaccineViewController: BaseViewController {
     
     let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
     let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized(), textAlignment: .center)

@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-class AddCollectionViewCell: BaseCollectionViewCell {
+final class AddCollectionViewCell: BaseCollectionViewCell {
     
     let addButton = UIButton.pictureButtonBuilder(image: "camera", imageSize: 16, radius: 16)
     lazy var camera = {

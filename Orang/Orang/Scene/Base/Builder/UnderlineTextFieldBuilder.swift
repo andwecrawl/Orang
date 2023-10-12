@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 
 //underLine을 가진 TextField
-class UnderLineTextField: UITextField {
+final class UnderLineTextField: UITextField {
 
     //placeHolder 컬러값
     lazy var placeholderColor: UIColor = self.tintColor

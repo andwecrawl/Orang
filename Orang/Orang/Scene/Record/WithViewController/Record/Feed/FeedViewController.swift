@@ -7,7 +7,7 @@
 
 import UIKit
 
-class FeedViewController: BaseViewController {
+final class FeedViewController: BaseViewController {
     
     let typeLabel = UILabel.labelBuilder(text: "snackVariation".localized(), size: 16, weight: .bold, settingTitle: true)
     let typeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputSnackType".localized())

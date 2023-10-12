@@ -7,7 +7,7 @@
 
 import UIKit
 
-class MedicalHistoryViewController: BaseViewController {
+final class MedicalHistoryViewController: BaseViewController {
     
     let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
     let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized())

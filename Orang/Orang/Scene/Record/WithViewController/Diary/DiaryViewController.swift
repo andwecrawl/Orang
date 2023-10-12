@@ -9,7 +9,7 @@ import UIKit
 import PhotosUI
 
 
-class DiaryViewController: BaseViewController {
+final class DiaryViewController: BaseViewController {
     
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())

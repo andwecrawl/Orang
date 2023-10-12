@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-class WithViewController: BaseViewController {
+final class WithViewController: BaseViewController {
     
     let collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PicCollectionViewCell: BaseCollectionViewCell {
+final class PicCollectionViewCell: BaseCollectionViewCell {
     
     let imageView = {
         let view = UIImageView()

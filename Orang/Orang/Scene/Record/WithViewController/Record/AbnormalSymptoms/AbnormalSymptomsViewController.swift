@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AbnormalSymptomsViewController: BaseViewController {
+final class AbnormalSymptomsViewController: BaseViewController {
     
     lazy var tableView = {
         let view = UITableView(frame: .zero, style: .plain)

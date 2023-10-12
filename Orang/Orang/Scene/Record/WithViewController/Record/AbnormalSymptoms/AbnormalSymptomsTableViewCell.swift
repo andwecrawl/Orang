@@ -8,7 +8,7 @@
 import UIKit
 import M13Checkbox
 
-class AbnormalSymptomsTableViewCell: BaseTableViewCell {
+final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
     
     let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 16, weight: .bold)
     let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 14, weight: .regular)

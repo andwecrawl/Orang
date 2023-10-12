@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WeightRecordViewController: BaseViewController {
+final class WeightRecordViewController: BaseViewController {
     
     let weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(),size: 16, weight: .semibold, settingTitle: true)
     let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputNumber".localized())

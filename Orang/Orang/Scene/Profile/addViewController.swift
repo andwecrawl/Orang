@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddViewController: BaseViewController {
+final class AddViewController: BaseViewController {
     
     lazy var profileImageView = UIImageView.imageViewBuilder(size: 130)
     private lazy var profileImageButton = UIButton.profileButtonBuilder(size: 130)

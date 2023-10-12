@@ -7,7 +7,7 @@
 
 import UIKit
 
-class PooViewController: BaseViewController {
+final class PooViewController: BaseViewController {
     
     let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
     let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())

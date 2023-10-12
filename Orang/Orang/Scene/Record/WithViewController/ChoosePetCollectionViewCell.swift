@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ChoosePetCollectionViewCell: BaseCollectionViewCell {
+final class ChoosePetCollectionViewCell: BaseCollectionViewCell {
     
     let imageView = UIImageView.imageViewBuilder(size: 100)
     

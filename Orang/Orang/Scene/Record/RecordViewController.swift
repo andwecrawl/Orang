@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RecordViewController: BaseViewController {
+final class RecordViewController: BaseViewController {
     
     let introduceLabel = UILabel.labelBuilder(text: "매일 기록하고 변화를 관찰해 보세요!",size: 19, weight: .bold, settingTitle: false)
     
