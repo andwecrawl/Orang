@@ -6,16 +6,29 @@
 //
 
 import UIKit
+import PhotosUI
 
 class AddCollectionViewCell: BaseCollectionViewCell {
     
     let addButton = UIButton.pictureButtonBuilder(image: "camera", imageSize: 16, radius: 16)
+    lazy var camera = {
+        let view = UIImagePickerController()
+        view.sourceType = .camera
+        view.allowsEditing = true
+        view.cameraDevice = .rear
+        view.cameraCaptureMode = .photo
+        return view
+    }()
+    
+    var selectedAssetIdentifiers: [String]?
     
     override func configureHierarchy() {
         super.configureHierarchy()
         
         self.addSubview(addButton)
     }
+    
+    var delegate: AddDelegate?
     
     override func setConstraints() {
         addButton.snp.makeConstraints { make in
@@ -24,24 +37,19 @@ class AddCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
-        addButton.addTarget(self, action: #selector(addButtonClicked), for: .touchUpInside)
-        
         let menuElement: [UIMenuElement] = [
             UIAction(title: "사진 보관함", image: UIImage(systemName: "photo.on.rectangle"), handler: { _ in
-                
+                self.delegate?.openPhotoAlbum()
             }),
             UIAction(title: "사진 찍기", image: UIImage(systemName: "camera"), handler: { _ in
-                
+                self.delegate?.takePhoto(self.camera)
             }),
             UIAction(title: "파일 선택", image: UIImage(systemName: "folder"), handler: { _ in
-                
+                self.delegate?.selectFile()
             })
         ]
         addButton.menu = UIMenu(children: menuElement)
         addButton.showsMenuAsPrimaryAction = true
     }
     
-    @objc func addButtonClicked() {
-        print("selected!!")
-    }
 }
