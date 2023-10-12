@@ -8,12 +8,14 @@
 import UIKit
 import PhotosUI
 
+
 class DiaryViewController: BaseViewController {
     
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
         view.register(PicCollectionViewCell.self, forCellWithReuseIdentifier: PicCollectionViewCell.identifier)
         view.register(AddCollectionViewCell.self, forCellWithReuseIdentifier: AddCollectionViewCell.identifier)
+        view.showsHorizontalScrollIndicator = false
         view.delegate = self
         view.dataSource = self
         return view
@@ -32,11 +34,16 @@ class DiaryViewController: BaseViewController {
     }()
     
     var selectedPet: [PetTable]?
-    var images: [UIImage]?
+    var picCount: Int = 0
+    
+    private var images: [UIImage] = [] {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(selectedPet)
     }
     
     override func setNavigationBar() {
@@ -67,22 +74,21 @@ class DiaryViewController: BaseViewController {
     }
     
     override func setConstraints() {
-        collectionView.backgroundColor = .black
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
             make.height.equalTo(86)
         }
         
         titleTextField.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(8)
+            make.top.equalTo(collectionView.snp.bottom).offset(4)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         contentTextView.snp.makeConstraints { make in
             make.top.equalTo(titleTextField.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(titleTextField)
-            make.bottom.equalTo(view.safeAreaLayoutGuide).inset(30)
+            make.height.equalTo(300)
         }
     }
     
@@ -99,9 +105,9 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if section == 0 {
-            return images?.count == 5 ? 0 : 1
+            return images.count >= 5 ? 0 : 1
         } else {
-            return images?.count ?? 0
+            return images.count < 6 ? images.count : 5
         }
     }
     
@@ -109,23 +115,17 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let section = indexPath.section
         if section == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddCollectionViewCell.identifier, for: indexPath) as? AddCollectionViewCell else { return UICollectionViewCell() }
-            
-            
+            cell.delegate = self
+            cell.camera.delegate = self
             return cell
             
         } else {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicCollectionViewCell.identifier, for: indexPath) as? PicCollectionViewCell else { return UICollectionViewCell() }
-            guard let images else { return UICollectionViewCell() }
             
             let row = indexPath.row
             cell.imageView.image = images[row]
-            cell.imageView.backgroundColor = .black
-            cell.completionHandler = {
-                guard let image = cell.imageView.image else { return }
-                if let firstIndex = self.images?.firstIndex(of: image) {
-                    self.images?.remove(at: firstIndex)
-                }
-            }
+            cell.delegate = self
+            cell.configureView()
             return cell
         }
     }
@@ -136,11 +136,11 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
     
     func setCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
-        let space: CGFloat = 8
+        let space: CGFloat = 4
         
         let width = (UIScreen.main.bounds.width - (space * 6)) / 5
         layout.itemSize = CGSize(width: width, height: width)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: space, bottom: 0, right: 0)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: space * 2 , bottom: 0, right: space * 2)
         
         layout.minimumInteritemSpacing = space
         layout.scrollDirection = .horizontal
@@ -149,37 +149,96 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
 }
 
 
-extension DiaryViewController: PHPickerViewControllerDelegate {
-    @objc func profileImageButtonClicked() {
-        // picker 기본 설정!!
-        var configuration = PHPickerConfiguration()
-        configuration.selectionLimit = 5
-        configuration.filter = .images
+extension DiaryViewController: PHPickerViewControllerDelegate, AddDelegate {
+    func openPhotoAlbum() {
         
-        let picker = PHPickerViewController(configuration: configuration)
-        picker.delegate = self
-        self.present(picker, animated: true, completion: nil)
+        if 5 - picCount < 1 {
+            self.sendOneSidedAlert(title: "사진은 5장까지 추가할 수 있습니다!")
+        }
+        var config = PHPickerConfiguration()
+        
+        config.filter = .images
+        config.selectionLimit = 5 - picCount
+        config.selection = .ordered
+        
+        let imagePicker = PHPickerViewController(configuration: config)
+        imagePicker.delegate = self
+        
+        self.present(imagePicker, animated: true)
     }
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
-        // 이미지 클릭 시 화면 dismiss
         picker.dismiss(animated: true)
         
+        let dispatchGroup = DispatchGroup()
+        
+        var images = [UIImage]()
+        
         for result in results {
-            if result.itemProvider.canLoadObject(ofClass: UIImage.self) {
+            dispatchGroup.enter()
+            let itemProvider = result.itemProvider
+            if itemProvider.canLoadObject(ofClass: UIImage.self) {
                 let type: NSItemProviderReading.Type = UIImage.self
-                result.itemProvider.loadObject(ofClass: type) { [weak self](image, error) in
+                itemProvider.loadObject(ofClass: type) { [weak self](image, error) in
+                    guard let self = self else { return }
                     if let image = image as? UIImage {
-                        DispatchQueue.main.async {
-                            self?.images?.append(image)
-                        }
+                        images.append(image)
+                        dispatchGroup.leave()
                     } else {
                         // 다시 시도 Alert
-                        print(error)
-                        self?.sendOneSidedAlert(title: "이미지를 저장할 수 없습니다!", message: "한 번 더 시도해 주세요!")
+                        print(error?.localizedDescription)
+                        self.sendOneSidedAlert(title: "이미지를 저장할 수 없습니다!", message: "한 번 더 시도해 주세요!")
                     }
                 }
             }
+        }
+        
+        dispatchGroup.notify(queue: DispatchQueue.main) { [weak self] in
+            guard let self = self else { return }
+            if self.images.count + images.count > 5 {
+                self.sendOneSidedAlert(title: "사진은 5장까지 추가할 수 있어요!")
+                return
+            } else {
+                picCount += images.count
+                self.images.append(contentsOf: images)
+            }
+        }
+    }
+    
+}
+
+
+extension DiaryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func takePhoto(_ sender: UIImagePickerController) {
+        present(sender, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            self.images.append(image)
+            picCount += 1
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func selectFile() {
+        
+    }
+    
+}
+
+
+extension DiaryViewController: DeleteDelegate {
+    func deleteImages(image: UIImage) {
+        if let firstIndex = self.images.firstIndex(of: image) {
+            self.images.remove(at: firstIndex)
+            self.picCount -= 1
         }
     }
 }
