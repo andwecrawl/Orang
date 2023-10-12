@@ -74,14 +74,8 @@ final class DiaryViewController: BaseViewController {
     }
     
     override func setConstraints() {
-        collectionView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(86)
-        }
-        
         titleTextField.snp.makeConstraints { make in
-            make.top.equalTo(collectionView.snp.bottom).offset(4)
+            make.top.equalTo(view.safeAreaLayoutGuide)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
@@ -89,6 +83,12 @@ final class DiaryViewController: BaseViewController {
             make.top.equalTo(titleTextField.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(titleTextField)
             make.height.equalTo(300)
+        }
+        
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(contentTextView.snp.bottom).offset(16)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.height.equalTo(86)
         }
     }
     
@@ -100,33 +100,34 @@ final class DiaryViewController: BaseViewController {
 
 extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 2
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        if section == 0 {
-            return images.count >= 5 ? 0 : 1
-        } else {
-            return images.count < 6 ? images.count : 5
-        }
+        let add = images.count >= 5 ? 0 : 1
+        let images = images.count < 6 ? images.count : 5
+        return add + images
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let section = indexPath.section
-        if section == 0 {
+        let add = images.count >= 5 ? 0 : 1
+        let images = images.count < 6 ? images.count : 5
+        if add == 1 && indexPath.item == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddCollectionViewCell.identifier, for: indexPath) as? AddCollectionViewCell else { return UICollectionViewCell() }
+            cell.configureAddButton(imagesCount: images)
             cell.delegate = self
             cell.camera.delegate = self
             return cell
-            
         } else {
+            guard images != 0 else { return UICollectionViewCell() }
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PicCollectionViewCell.identifier, for: indexPath) as? PicCollectionViewCell else { return UICollectionViewCell() }
             
-            let row = indexPath.row
-            cell.imageView.image = images[row]
+            let row = indexPath.item - add
+            cell.imageView.image = self.images[row]
             cell.delegate = self
             cell.configureView()
             return cell
+            
         }
     }
     
@@ -138,16 +139,15 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
         let layout = UICollectionViewFlowLayout()
         let space: CGFloat = 4
         
-        let width = (UIScreen.main.bounds.width - (space * 6)) / 5
+        let width = (UIScreen.main.bounds.width - (space * 20)) / 5
         layout.itemSize = CGSize(width: width, height: width)
-        layout.sectionInset = UIEdgeInsets(top: 0, left: space * 2 , bottom: 0, right: space * 2)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: space * 4 , bottom: 0, right: space * 4)
         
         layout.minimumInteritemSpacing = space
         layout.scrollDirection = .horizontal
         return layout
     }
 }
-
 
 extension DiaryViewController: PHPickerViewControllerDelegate, AddDelegate {
     func openPhotoAlbum() {
