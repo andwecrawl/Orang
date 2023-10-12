@@ -79,9 +79,10 @@ extension UnderLineTextField {
 }
 
 extension UnderLineTextField {
-    static func textFieldBuilder(placeholder: String, isTimeTextfield: Bool = false) -> UnderLineTextField {
+    static func textFieldBuilder(placeholder: String, isTimeTextfield: Bool = false, textAlignment: NSTextAlignment = .left) -> UnderLineTextField {
         let textField = UnderLineTextField()
         textField.borderStyle = .none
+        textField.textAlignment = textAlignment
         textField.tintColor = Design.Color.tintColor
         textField.textColor = Design.Color.content
         textField.setPlaceholder(

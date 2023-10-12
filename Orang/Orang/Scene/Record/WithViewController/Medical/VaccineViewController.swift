@@ -10,7 +10,7 @@ import UIKit
 class VaccineViewController: BaseViewController {
     
     let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
-    let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized())
+    let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized(), textAlignment: .center)
     let hospitalStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
