@@ -19,7 +19,7 @@ class PicCollectionViewCell: BaseCollectionViewCell {
     
     let deleteButton = UIButton.pictureButtonBuilder(image: "xmark", imageSize: 9, radius: 10)
     
-    @objc var completionHandler: (() -> ())?
+    var delegate: DeleteDelegate?
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -31,7 +31,7 @@ class PicCollectionViewCell: BaseCollectionViewCell {
             .forEach { self.addSubview($0) }
         
         imageView.layer.cornerRadius = 16
-        deleteButton.addTarget(self, action: #selector(getter: completionHandler), for: .touchUpInside)
+        deleteButton.addTarget(self, action: #selector(deleteButtonClicked), for: .touchUpInside)
     }
     
     override func setConstraints() {
@@ -48,5 +48,10 @@ class PicCollectionViewCell: BaseCollectionViewCell {
     
     override func configureView() {
         
+    }
+    
+    @objc func deleteButtonClicked() {
+        guard let image = imageView.image else { return }
+        delegate?.deleteImages(image: image)
     }
 }

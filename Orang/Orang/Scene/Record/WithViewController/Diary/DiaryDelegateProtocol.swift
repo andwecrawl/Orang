@@ -9,7 +9,7 @@ import Foundation
 import PhotosUI
 
 protocol AddDelegate {
-    func openPhotoAlbum(_ sender: PHPickerViewController)
+    func openPhotoAlbum()
     func takePhoto(_ sender: UIImagePickerController)
     func selectFile()
 }
