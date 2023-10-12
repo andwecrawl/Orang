@@ -69,6 +69,7 @@
 		D1BB7FE92AD6B581001FFF1C /* TextViewBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */; };
 		D1BB7FFF2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FFE2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift */; };
 		D1BB80012AD85694001FFF1C /* UnderlineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80002AD85694001FFF1C /* UnderlineSegmentedControl.swift */; };
+		D1BB80052AD85ACB001FFF1C /* PeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -130,6 +131,7 @@
 		D1BB7FE82AD6B581001FFF1C /* TextViewBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextViewBuilder.swift; sourceTree = "<group>"; };
 		D1BB7FFE2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDelegateProtocol.swift; sourceTree = "<group>"; };
 		D1BB80002AD85694001FFF1C /* UnderlineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSegmentedControl.swift; sourceTree = "<group>"; };
+		D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -448,6 +450,7 @@
 			isa = PBXGroup;
 			children = (
 				D1B52F122AD0299600477A14 /* PooViewController.swift */,
+				D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */,
 			);
 			path = PooPee;
 			sourceTree = "<group>";
@@ -560,6 +563,7 @@
 			files = (
 				D182730A2AD0F31200F4709B /* Date+.swift in Sources */,
 				D1BA59472AC73CEB007437F4 /* AddViewController.swift in Sources */,
+				D1BB80052AD85ACB001FFF1C /* PeeViewController.swift in Sources */,
 				D1BA59322AC3F1FF007437F4 /* ProfileCollectionViewCell.swift in Sources */,
 				D1BA593E2AC6FC2F007437F4 /* StackViewBuilder.swift in Sources */,
 				D1B52F132AD0299700477A14 /* PooViewController.swift in Sources */,
