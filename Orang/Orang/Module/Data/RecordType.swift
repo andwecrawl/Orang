@@ -28,6 +28,29 @@ enum PooColor: String, PersistableEnum {
     case green
     case dotted
     case none
+    
+    var color: UIColor {
+        switch self {
+        case .brown:
+            return .systemBrown
+        case .black:
+            return .black
+        case .red:
+            return .systemRed
+        case .orange:
+            return .systemOrange
+        case .gray:
+            return .systemGray
+        case .yellow:
+            return .systemYellow
+        case .green:
+            return .systemGreen
+        case .dotted:
+            return .white
+        case .none:
+            return .white
+        }
+    }
 }
 
 
