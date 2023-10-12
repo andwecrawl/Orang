@@ -52,4 +52,16 @@ final class AddCollectionViewCell: BaseCollectionViewCell {
         addButton.showsMenuAsPrimaryAction = true
     }
     
+    func configureAddButton(imagesCount: Int) {
+        var config = UIButton.Configuration.plain()
+        let imageConfig = UIImage.SymbolConfiguration(pointSize: 16)
+        config.image = UIImage(systemName: "camera", withConfiguration: imageConfig)
+        config.imagePlacement = .top
+        config.imagePadding = 6
+        var titleContainer = AttributeContainer()
+        titleContainer.font = .systemFont(ofSize: 13, weight: .light)
+        titleContainer.foregroundColor = .darkGray
+        config.attributedTitle = AttributedString("\(imagesCount)/5", attributes: titleContainer)
+        addButton.configuration = config
+    }
 }
