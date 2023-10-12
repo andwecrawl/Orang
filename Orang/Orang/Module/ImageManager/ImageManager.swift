@@ -52,7 +52,7 @@ class ImageManager {
     }
     
     func saveImageToDirectory(directoryName: DirectoryName, identifier: String, image: UIImage?) -> Bool {
-        let (fileURL, imageName) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
+        let (fileURL, _) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
         guard let image else { return false }
         
         do {
