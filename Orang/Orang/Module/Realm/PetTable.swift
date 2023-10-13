@@ -21,7 +21,10 @@ class PetTable: Object {
     @Persisted var weightUnit: Unit
     @Persisted var registrationNum: String?
     @Persisted var profileImage: String
-//    @Persisted var notes: 추후 만들 특이 사항 table!!
+    
+    @Persisted var records: List<RecordTable>
+//    @Persisted var records: List<RecordTable>
+//    @Persisted var medicalRecords: List<MedicalRecordTable>
     
     convenience init(species: Species, detailSpecies: String?, name: String, birthday: Date?, belongDate: Date, weight: Float, weightUnit: Unit, RegistrationNum: String?) {
         self.init()
@@ -38,3 +41,5 @@ class PetTable: Object {
         self.profileImage = "\(createdDate.toString())"
     }
 }
+
+
