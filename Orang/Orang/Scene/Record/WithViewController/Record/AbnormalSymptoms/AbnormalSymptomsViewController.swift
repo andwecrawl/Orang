@@ -12,8 +12,7 @@ final class AbnormalSymptomsViewController: BaseViewController {
     lazy var tableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.register(AbnormalSymptomsTableViewCell.self, forCellReuseIdentifier: AbnormalSymptomsTableViewCell.identifier)
-//        view.rowHeight = UITableView.automaticDimension
-        view.estimatedRowHeight = 60
+        view.rowHeight = UITableView.automaticDimension
         view.delegate = self
         view.dataSource = self
         return view
@@ -33,14 +32,16 @@ final class AbnormalSymptomsViewController: BaseViewController {
         
         title = "이상 증상 기록하기"
         
-        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
+        let saveButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
         
 
     }
     
     @objc func saveButtonClicked() {
-        
+        let vc = AdditionalInfoViewController()
+        vc.title = "추가적인 증상이 있나요?"
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     override func configureHierarchy() {

@@ -22,35 +22,33 @@ final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
         return button
     }()
     
-    let labelStackView = UIStackView.stackViewBuilder(space: 4, axis: .vertical)
-    let horizontalStackView = UIStackView.stackViewBuilder(axis: .horizontal)
+    let labelStackView = UIStackView.stackViewBuilder(space: 2, axis: .vertical)
     var symptom: AbnormalSymptoms?
     
     
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        self.addSubview(horizontalStackView)
+        self.addSubview(labelStackView)
+        self.addSubview(checkbox)
         
         labelStackView.AddArrangedSubviews([titleLabel, subtitleLabel])
-        horizontalStackView.AddArrangedSubviews([labelStackView, checkbox])
     }
     
     override func setConstraints() {
+        labelStackView.distribution = .fillProportionally
         
         labelStackView.snp.makeConstraints { make in
             make.centerY.equalTo(self.safeAreaLayoutGuide)
+            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).inset(30)
+            make.trailing.equalTo(checkbox.snp.leading).offset(10)
         }
         
         checkbox.snp.makeConstraints { make in
             make.centerY.equalTo(self.safeAreaLayoutGuide)
             make.height.equalTo(checkbox.snp.width)
-            make.width.equalTo(30)
-        }
-        
-        horizontalStackView.snp.makeConstraints { make in
-            make.centerY.equalTo(self.safeAreaLayoutGuide)
-            make.horizontalEdges.equalTo(self.safeAreaLayoutGuide).inset(30)
+            make.width.equalTo(25)
+            make.trailing.equalTo(self.safeAreaLayoutGuide).inset(30)
         }
     }
     
