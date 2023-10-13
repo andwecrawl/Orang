@@ -59,7 +59,7 @@ enum PooForm: String, PersistableEnum {
 }
 
 enum PeeColor: String, PersistableEnum {
-    case yello, orange, yellow, brown, lightYellow
+    case orange, yellow, brown, lightYellow
 }
 
 enum AbnormalSymptomsType: String, CaseIterable, PersistableEnum {
