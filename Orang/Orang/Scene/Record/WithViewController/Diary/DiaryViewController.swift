@@ -22,16 +22,7 @@ final class DiaryViewController: BaseViewController {
     }()
     
     let titleTextField = UnderLineTextField.textFieldBuilder(placeholder: "제목을 입력해 주세요!")
-    let contentTextView = {
-        let view = UITextView()
-        view.layer.cornerRadius = 16
-        view.layer.borderColor = Design.Color.border.cgColor
-        view.font = .systemFont(ofSize: 14)
-        view.textContainerInset = UIEdgeInsets(top: 10, left: 4, bottom: 10, right: 4)
-        view.layer.borderWidth = 1
-        view.backgroundColor = Design.Color.background
-        return view
-    }()
+    let contentTextView = UITextView.TextViewBuilder()
     
     var selectedPet: [PetTable]?
     var picCount: Int = 0
