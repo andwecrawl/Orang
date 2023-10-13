@@ -60,7 +60,7 @@ final class WithViewController: BaseViewController {
             vc.selectedPet = selectedPet
             navigationController?.pushViewController(vc, animated: true)
         case .pooPee:
-            let vc = PooViewController()
+            let vc = PooPeeViewController()
             vc.selectedPet = selectedPet
             navigationController?.pushViewController(vc, animated: true)
         case .abnormalSymptoms:
