@@ -67,7 +67,16 @@ class PooPeeViewController: BaseViewController {
     override func setNavigationBar() {
         
         title = "대소변 기록하기"
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
+        navigationItem.rightBarButtonItem = saveButton
+        
+
     }
+    
+    @objc func saveButtonClicked() {
+        
+    }
+    
     
     override func configureHierarchy() {
         super.configureHierarchy()

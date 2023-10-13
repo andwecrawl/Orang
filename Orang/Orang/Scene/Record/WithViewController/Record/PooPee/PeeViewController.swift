@@ -26,7 +26,7 @@ final class PeeViewController: BaseViewController {
         
         title = "pooPeeTitle".localized()
         
-        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
+        let saveButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
         
 
