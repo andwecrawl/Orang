@@ -72,6 +72,11 @@ enum AbnormalSymptomsType: String, CaseIterable, PersistableEnum {
     case caught // 기침을 계속 한다
     case convulsion // 경련
     case walkingWeired // 걷는 모습이 이상하다
+    case decreaseInActivity // 활동량이 줄다
+    case loseWeight // 체중이 줄다
+    case haveAFever // 열이 있어요
+    case abdominalDistention // 복부 팽만
+    case lossHair // 탈모
     case diarrhea // 설사
     case bloodyStool // 혈변
     case others
