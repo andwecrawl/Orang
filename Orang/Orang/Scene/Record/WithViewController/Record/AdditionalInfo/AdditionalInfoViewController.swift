@@ -22,8 +22,7 @@ final class AdditionalInfoViewController: BaseViewController {
     let upperLine = UIView()
     let lowerLine = UIView()
     
-    let descriptionLabel = UILabel.labelBuilder(text: "증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명증상설명",size: 14, weight: .regular)
-
+    let descriptionLabel = UILabel.labelBuilder(text: "증상을 설명해 주는 라벨이에용",size: 15, weight: .light)
     let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
     
     lazy var collectionView = {
@@ -39,6 +38,8 @@ final class AdditionalInfoViewController: BaseViewController {
     let contentTextView = UITextView.TextViewBuilder()
     
     var selectedPet: [PetTable]?
+    var selectedSymptoms: [Any]?
+    
     var picCount: Int = 0
     
     private var images: [UIImage] = [] {
@@ -54,7 +55,7 @@ final class AdditionalInfoViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
     }
     
@@ -92,7 +93,7 @@ final class AdditionalInfoViewController: BaseViewController {
         upperView.snp.makeConstraints { make in
             make.top.equalTo(selectedLabel.snp.bottom).inset(4)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(100)
+            make.bottom.equalTo(descriptionLabel.snp.bottom).offset(16)
         }
         
         upperLine.snp.makeConstraints { make in
@@ -104,11 +105,12 @@ final class AdditionalInfoViewController: BaseViewController {
         descriptionLabel.snp.makeConstraints { make in
             make.top.equalTo(upperLine.snp.bottom).offset(8)
             make.bottom.equalTo(lowerLine).inset(8)
+            make.height.greaterThanOrEqualTo(40)
             make.horizontalEdges.equalTo(upperLine).inset(8)
         }
         
         lowerLine.snp.makeConstraints { make in
-            make.bottom.equalTo(upperView).inset(4)
+            make.bottom.equalTo(upperView).inset(8)
             make.horizontalEdges.equalTo(upperView).inset(20)
             make.height.equalTo(1)
         }
@@ -133,6 +135,7 @@ final class AdditionalInfoViewController: BaseViewController {
     
     override func configureView() {
         descriptionLabel.numberOfLines = 0
+        descriptionLabel.textAlignment = .center
         descriptionLabel.textColor = Design.Color.border.withAlphaComponent(0.9)
     }
     

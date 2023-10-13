@@ -26,13 +26,13 @@ final class PeeViewController: BaseViewController {
         
         title = "pooPeeTitle".localized()
         
-        let saveButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
-        navigationItem.rightBarButtonItem = saveButton
+        let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
+        navigationItem.rightBarButtonItem = nextButton
         
 
     }
     
-    @objc func saveButtonClicked() {
+    @objc func nextButtonClicked() {
         
     }
     

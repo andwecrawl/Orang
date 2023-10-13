@@ -32,13 +32,13 @@ final class AbnormalSymptomsViewController: BaseViewController {
         
         title = "이상 증상 기록하기"
         
-        let saveButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
-        navigationItem.rightBarButtonItem = saveButton
+        let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
+        navigationItem.rightBarButtonItem = nextButton
         
 
     }
     
-    @objc func saveButtonClicked() {
+    @objc func nextButtonClicked() {
         let vc = AdditionalInfoViewController()
         vc.title = "추가적인 증상이 있나요?"
         navigationController?.pushViewController(vc, animated: true)
