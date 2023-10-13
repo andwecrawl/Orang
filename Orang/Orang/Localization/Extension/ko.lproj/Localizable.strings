@@ -39,7 +39,6 @@
 "pooPeeTitle" = "대소변 기록 추가하기";
 
 
-
 // 이상 증상
 // title
 "weiredSkinTitle" = "피부가 이상해요."; // 피부가 이상하다
@@ -51,6 +50,11 @@
 "caughtTitle" = "기침을 계속 해요."; // 기침을 계속 한다
 "convulsionTitle" = "경련을 해요."; // 경련
 "walkingWeiredTitle" = "걷는 모습이 이상해요."; // 걷는 모습이 이상하다
+"decreaseInActivityTitle" = "활동량이 과하게 줄었어요."; // 활동량이 줄다
+"loseWeightTitle" = "체중이 급격하게 줄었어요."; // 체중이 줄다
+"haveAFeverTitle" = "열이 있어요."; // 열이 있어요
+"abdominalDistentionTitle" = "배가 부어올라있어요."; // 복부 팽만
+"lossHairTitle" = "털이 과하게 빠져요."; // 탈모
 "diarrheaTitle" = "설사를 했어요.";// 설사
 "bloodyStoolTitle" = "혈변을 눴어요."; // 혈변
 "othersTitle" = "그 외에 다른 증상이 있어요.";
@@ -65,11 +69,19 @@
 "caught" = "기침을 심하게 해요."; // 기침을 계속 한다
 "convulsion" = "경련이 몇 분 이상 지속됐어요."; // 경련
 "walkingWeired" = "다리를 든 채 바닥을 밟지 않으려고 해요."; // 걷는 모습이 이상하다
+"decreaseInActivity" = "전보다 눈에 띄게 움직이지 않아요."; // 활동량이 줄다
+"loseWeight" = "갑자기 살이 빠졌어요."; // 체중이 줄다
+"haveAFever" = "평소 체온보다 높아요."; // 열이 있어요
+"abdominalDistention" = "배가 급격하게 부어올라 있어요."; // 복부 팽만
+"lossHair" = "평소보다 털이 너무 많이 빠져요.";
 "diarrhea" = "심한 설사를 했어요.";// 설사
 "bloodyStool" = "변에 피가 많이 묻어나와요."; // 혈변
 "others" = "";
 
 
+// Medical
+"hospitalName" = "병원 이름";
+"inputHospitalName" = "병원 이름을 입력해 주세요.";
 
 // tabBar
 "Profile" = "프로필";
@@ -119,3 +131,4 @@
 
 // navigationBar Button
 "save" = "저장";
+"next" = "다음";
