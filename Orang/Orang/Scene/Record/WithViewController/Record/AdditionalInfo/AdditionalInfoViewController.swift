@@ -102,9 +102,9 @@ final class AdditionalInfoViewController: BaseViewController {
         guard let recordType else { return }
         guard let selectedSymptoms else { return}
         
-        if recordType == .abnormalSymptoms {
-            guard let selectedAbnormalSymptoms = selectedSymptoms as? [AbnormalSymptoms] else { return }
-        }
+//        if recordType == .abnormalSymptoms {
+//            guard let selectedAbnormalSymptoms = selectedSymptoms as? [AbnormalSymptoms] else { return }
+//        }
         
         configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
     }
@@ -129,7 +129,6 @@ extension AdditionalInfoViewController: UICollectionViewDataSource, UICollection
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddCollectionViewCell.identifier, for: indexPath) as? AddCollectionViewCell else { return UICollectionViewCell() }
             cell.configureAddButton(imagesCount: images)
             cell.delegate = self
-            cell.camera.delegate = self
             return cell
         } else {
             guard images != 0 else { return UICollectionViewCell() }
@@ -222,8 +221,14 @@ extension AdditionalInfoViewController: PHPickerViewControllerDelegate, AddDeleg
 
 
 extension AdditionalInfoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func takePhoto(_ sender: UIImagePickerController) {
-        present(sender, animated: true, completion: nil)
+    func takePhoto() {
+        let camera = UIImagePickerController()
+        camera.sourceType = .camera
+        camera.allowsEditing = false
+        camera.cameraDevice = .rear
+        camera.cameraCaptureMode = .photo
+        camera.delegate = self
+        present(camera, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

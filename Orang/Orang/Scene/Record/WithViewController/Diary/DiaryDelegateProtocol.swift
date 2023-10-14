@@ -10,7 +10,7 @@ import PhotosUI
 
 protocol AddDelegate {
     func openPhotoAlbum()
-    func takePhoto(_ sender: UIImagePickerController)
+    func takePhoto()
     func selectFile()
 }
 

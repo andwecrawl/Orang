@@ -107,7 +107,6 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddCollectionViewCell.identifier, for: indexPath) as? AddCollectionViewCell else { return UICollectionViewCell() }
             cell.configureAddButton(imagesCount: images)
             cell.delegate = self
-            cell.camera.delegate = self
             return cell
         } else {
             guard images != 0 else { return UICollectionViewCell() }
@@ -200,8 +199,14 @@ extension DiaryViewController: PHPickerViewControllerDelegate, AddDelegate {
 
 
 extension DiaryViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    func takePhoto(_ sender: UIImagePickerController) {
-        present(sender, animated: true, completion: nil)
+    func takePhoto() {
+        let camera = UIImagePickerController()
+        camera.sourceType = .camera
+        camera.allowsEditing = false
+        camera.cameraDevice = .rear
+        camera.cameraCaptureMode = .photo
+        camera.delegate = self
+        present(camera, animated: true, completion: nil)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

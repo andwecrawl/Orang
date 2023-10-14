@@ -11,14 +11,6 @@ import PhotosUI
 final class AddCollectionViewCell: BaseCollectionViewCell {
     
     let addButton = UIButton.pictureButtonBuilder(image: "camera", imageSize: 16, radius: 16)
-    lazy var camera = {
-        let view = UIImagePickerController()
-        view.sourceType = .camera
-        view.allowsEditing = true
-        view.cameraDevice = .rear
-        view.cameraCaptureMode = .photo
-        return view
-    }()
     
     var selectedAssetIdentifiers: [String]?
     
@@ -42,7 +34,7 @@ final class AddCollectionViewCell: BaseCollectionViewCell {
                 self.delegate?.openPhotoAlbum()
             }),
             UIAction(title: "사진 찍기", image: UIImage(systemName: "camera"), handler: { _ in
-                self.delegate?.takePhoto(self.camera)
+                self.delegate?.takePhoto()
             }),
             UIAction(title: "파일 선택", image: UIImage(systemName: "folder"), handler: { _ in
                 self.delegate?.selectFile()
