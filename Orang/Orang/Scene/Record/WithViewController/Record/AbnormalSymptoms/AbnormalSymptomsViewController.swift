@@ -41,6 +41,15 @@ final class AbnormalSymptomsViewController: BaseViewController {
     @objc func nextButtonClicked() {
         let vc = AdditionalInfoViewController()
         vc.title = "추가적인 증상이 있나요?"
+        var selectedSymptoms: [AbnormalSymptoms] = []
+        list.forEach{
+            if $0.ischecked {
+                selectedSymptoms.append($0)
+            }
+        }
+        if selectedSymptoms.isEmpty { sendOneSidedAlert(title: "이상 증상을 선택해 주세요!") }
+        vc.recordType = .abnormalSymptoms
+        vc.selectedSymptoms = selectedSymptoms
         navigationController?.pushViewController(vc, animated: true)
     }
     
