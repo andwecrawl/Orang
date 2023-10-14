@@ -55,9 +55,9 @@ enum PooForm: String, CheckProtocol, PersistableEnum {
     case normal, hard, mud, water, mucus // 점액
     
     var title: String {
-        return "\(self.rawValue)Title".localized()
+        return "\(self.rawValue)TitlePoo".localized()
     }
     var subtitle: String {
-        return self.rawValue.localized()
+        return "\(self.rawValue)Poo".localized()
     }
 }

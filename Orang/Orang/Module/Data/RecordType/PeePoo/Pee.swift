@@ -31,9 +31,9 @@ enum PeeColor: String, CheckProtocol, PersistableEnum {
     }
     
     var title: String {
-        return "\(self.rawValue)Title".localized()
+        return "\(self.rawValue)TitlePee".localized()
     }
     var subtitle: String {
-        return self.rawValue.localized()
+        return "\(self.rawValue)Pee".localized()
     }
 }
