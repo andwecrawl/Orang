@@ -11,18 +11,11 @@ import PhotosUI
 
 final class AdditionalInfoViewController: BaseViewController {
     
-    let selectedLabel = UILabel.labelBuilder(text: "선택한 증상은 다음과 같아요!", size: 16, weight: .semibold)
+    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
+    let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
-    let upperView = {
-        let view = UIView()
-        view.backgroundColor = Design.Color.background
-        return view
-    }()
-    
-    let upperLine = UIView()
-    let lowerLine = UIView()
-    
-    let descriptionLabel = UILabel.labelBuilder(text: "증상을 설명해 주는 라벨이에용",size: 15, weight: .light)
     let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
     
     lazy var collectionView = {
@@ -38,6 +31,7 @@ final class AdditionalInfoViewController: BaseViewController {
     let contentTextView = UITextView.TextViewBuilder()
     
     var selectedPet: [PetTable]?
+    var recordType: RecordType?
     var selectedSymptoms: [Any]?
     
     var picCount: Int = 0
@@ -69,54 +63,25 @@ final class AdditionalInfoViewController: BaseViewController {
     override func configureHierarchy() {
         super.configureHierarchy()
         [
-            selectedLabel,
-            upperView,
-            descriptionLabel,
+            dateStackView,
             informationLabel,
             collectionView,
             contentTextView
         ]
             .forEach { view.addSubview($0) }
         
-        [upperLine, lowerLine].forEach{
-            upperView.addSubview($0)
-            $0.backgroundColor = Design.Color.border
-        }
+        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func setConstraints() {
-        selectedLabel.snp.makeConstraints { make in
+        
+        dateStackView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.height.equalTo(30)
-        }
-        upperView.snp.makeConstraints { make in
-            make.top.equalTo(selectedLabel.snp.bottom).inset(4)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(descriptionLabel.snp.bottom).offset(16)
-        }
-        
-        upperLine.snp.makeConstraints { make in
-            make.top.equalTo(upperView).inset(8)
-            make.horizontalEdges.equalTo(upperView).inset(20)
-            make.height.equalTo(1)
-        }
-        
-        descriptionLabel.snp.makeConstraints { make in
-            make.top.equalTo(upperLine.snp.bottom).offset(8)
-            make.bottom.equalTo(lowerLine).inset(8)
-            make.height.greaterThanOrEqualTo(40)
-            make.horizontalEdges.equalTo(upperLine).inset(8)
-        }
-        
-        lowerLine.snp.makeConstraints { make in
-            make.bottom.equalTo(upperView).inset(8)
-            make.horizontalEdges.equalTo(upperView).inset(20)
-            make.height.equalTo(1)
         }
         
         informationLabel.snp.makeConstraints { make in
-            make.top.equalTo(upperView.snp.bottom).offset(20)
+            make.top.equalTo(dateStackView.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
@@ -134,9 +99,14 @@ final class AdditionalInfoViewController: BaseViewController {
     }
     
     override func configureView() {
-        descriptionLabel.numberOfLines = 0
-        descriptionLabel.textAlignment = .center
-        descriptionLabel.textColor = Design.Color.border.withAlphaComponent(0.9)
+        guard let recordType else { return }
+        guard let selectedSymptoms else { return}
+        
+        if recordType == .abnormalSymptoms {
+            guard let selectedAbnormalSymptoms = selectedSymptoms as? [AbnormalSymptoms] else { return }
+        }
+        
+        configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
     }
     
 }
