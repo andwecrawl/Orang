@@ -8,27 +8,15 @@
 import UIKit
 
 class PooPeeViewController: BaseViewController {
-    private let segmentedControl: UISegmentedControl = {
-        let segmentedControl = UnderlineSegmentedControl(items: ["전체", "웹툰"])
+    private let segmentedControl = {
+        let segmentedControl = UnderlineSegmentedControl(items: ["대변", "소변"])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         return segmentedControl
     }()
     
-    private let childView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+    private let pooVC = PooViewController()
     
-    private let vc1: UIViewController = {
-        let vc = PooViewController()
-        return vc
-    }()
-    
-    private let vc2: UIViewController = {
-        let vc = PeeViewController()
-        return vc
-    }()
+    private let peeVC = PeeViewController()
     
     private lazy var pageViewController: UIPageViewController = {
         let vc = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -40,13 +28,11 @@ class PooPeeViewController: BaseViewController {
     }()
     
     var dataViewControllers: [UIViewController] {
-        [self.vc1, self.vc2]
+        [self.pooVC, self.peeVC]
     }
     
     var currentPage: Int = 0 {
         didSet {
-            // from segmentedControl -> pageViewController 업데이트
-            print(oldValue, self.currentPage)
             let direction: UIPageViewController.NavigationDirection = oldValue <= self.currentPage ? .forward : .reverse
             self.pageViewController.setViewControllers(
                 [dataViewControllers[self.currentPage]],
@@ -97,14 +83,6 @@ class PooPeeViewController: BaseViewController {
     }
     
     override func configureView() {
-        self.segmentedControl.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
-        self.segmentedControl.setTitleTextAttributes(
-            [
-                NSAttributedString.Key.foregroundColor: Design.Color.tintColor,
-                .font: UIFont.systemFont(ofSize: 14, weight: .semibold)
-            ],
-            for: .selected
-        )
         self.segmentedControl.addTarget(self, action: #selector(changeValue(control:)), for: .valueChanged)
         self.segmentedControl.selectedSegmentIndex = 0
         self.changeValue(control: self.segmentedControl)

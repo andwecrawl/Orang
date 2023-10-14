@@ -23,10 +23,12 @@ final class UnderlineSegmentedControl: UISegmentedControl {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.removeBackgroundAndDivider()
+        self.configureText()
     }
     override init(items: [Any]?) {
         super.init(items: items)
         self.removeBackgroundAndDivider()
+        self.configureText()
     }
     required init?(coder: NSCoder) {
         fatalError()
@@ -39,6 +41,17 @@ final class UnderlineSegmentedControl: UISegmentedControl {
         self.setBackgroundImage(image, for: .highlighted, barMetrics: .default)
         
         self.setDividerImage(image, forLeftSegmentState: .selected, rightSegmentState: .normal, barMetrics: .default)
+    }
+    
+    private func configureText() {
+        self.setTitleTextAttributes([NSAttributedString.Key.foregroundColor: UIColor.gray], for: .normal)
+        self.setTitleTextAttributes(
+            [
+                NSAttributedString.Key.foregroundColor: Design.Color.tintColor,
+                .font: UIFont.systemFont(ofSize: 14, weight: .semibold)
+            ],
+            for: .selected
+        )
     }
     
     override func layoutSubviews() {
