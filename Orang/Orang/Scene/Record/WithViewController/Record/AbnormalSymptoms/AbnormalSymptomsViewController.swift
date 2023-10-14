@@ -56,7 +56,7 @@ final class AbnormalSymptomsViewController: BaseViewController {
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        AbnormalSymptomsType.allCases.forEach{ self.list.append(AbnormalSymptoms(type: $0)) }
+        AbnormalSymptomsType.allCases.forEach{ self.list.append(CheckRecord(type: $0)) }
         
         [
             tableView

@@ -34,17 +34,3 @@ enum AbnormalSymptomsType: String, CheckProtocol, CaseIterable, PersistableEnum 
         return self.rawValue.localized()
     }
 }
-
-struct AbnormalSymptoms {
-    var type: AbnormalSymptomsType
-    var title: String
-    var subtitle: String
-    var ischecked: Bool
-    
-    init(type: AbnormalSymptomsType) {
-        self.type = type
-        self.title = type.title
-        self.subtitle = type.subtitle
-        self.ischecked = false
-    }
-}

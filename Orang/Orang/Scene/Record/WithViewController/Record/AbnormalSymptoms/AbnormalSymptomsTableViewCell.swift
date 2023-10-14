@@ -23,7 +23,7 @@ final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
     }()
     
     let labelStackView = UIStackView.stackViewBuilder(space: 2, axis: .vertical)
-    var symptom: AbnormalSymptoms?
+    var symptom: CheckRecord<AbnormalSymptomsType>?
     
     
     override func configureHierarchy() {
