@@ -71,7 +71,7 @@
 		D1BB80012AD85694001FFF1C /* UnderlineSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80002AD85694001FFF1C /* UnderlineSegmentedControl.swift */; };
 		D1BB80032AD85A43001FFF1C /* PooPeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80022AD85A43001FFF1C /* PooPeeViewController.swift */; };
 		D1BB80052AD85ACB001FFF1C /* PeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */; };
-		D1BB80072AD86711001FFF1C /* RadiusButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80062AD86711001FFF1C /* RadiusButtonCollectionViewCell.swift */; };
+		D1BB80072AD86711001FFF1C /* PooPeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80062AD86711001FFF1C /* PooPeeCollectionViewCell.swift */; };
 		D1BB800A2AD93994001FFF1C /* AdditionalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80092AD93994001FFF1C /* AdditionalInfoViewController.swift */; };
 		D1BB800C2ADA640D001FFF1C /* AdditionalInfoViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB800B2ADA640D001FFF1C /* AdditionalInfoViewController+.swift */; };
 /* End PBXBuildFile section */
@@ -137,7 +137,7 @@
 		D1BB80002AD85694001FFF1C /* UnderlineSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnderlineSegmentedControl.swift; sourceTree = "<group>"; };
 		D1BB80022AD85A43001FFF1C /* PooPeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooPeeViewController.swift; sourceTree = "<group>"; };
 		D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeeViewController.swift; sourceTree = "<group>"; };
-		D1BB80062AD86711001FFF1C /* RadiusButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusButtonCollectionViewCell.swift; sourceTree = "<group>"; };
+		D1BB80062AD86711001FFF1C /* PooPeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooPeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB80092AD93994001FFF1C /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
 		D1BB800B2ADA640D001FFF1C /* AdditionalInfoViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdditionalInfoViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -604,7 +604,7 @@
 				D1BB80052AD85ACB001FFF1C /* PeeViewController.swift in Sources */,
 				D1BA59322AC3F1FF007437F4 /* ProfileCollectionViewCell.swift in Sources */,
 				D1BA593E2AC6FC2F007437F4 /* StackViewBuilder.swift in Sources */,
-				D1BB80072AD86711001FFF1C /* RadiusButtonCollectionViewCell.swift in Sources */,
+				D1BB80072AD86711001FFF1C /* PooPeeCollectionViewCell.swift in Sources */,
 				D1B52F132AD0299700477A14 /* PooViewController.swift in Sources */,
 				D1BB7FE92AD6B581001FFF1C /* TextViewBuilder.swift in Sources */,
 				D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */,
