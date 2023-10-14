@@ -74,6 +74,10 @@
 		D1BB80072AD86711001FFF1C /* PooPeeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80062AD86711001FFF1C /* PooPeeCollectionViewCell.swift */; };
 		D1BB800A2AD93994001FFF1C /* AdditionalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80092AD93994001FFF1C /* AdditionalInfoViewController.swift */; };
 		D1BB800C2ADA640D001FFF1C /* AdditionalInfoViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB800B2ADA640D001FFF1C /* AdditionalInfoViewController+.swift */; };
+		D1BB80122ADA6C75001FFF1C /* Pee.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80112ADA6C75001FFF1C /* Pee.swift */; };
+		D1BB80142ADA6C79001FFF1C /* Poo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80132ADA6C79001FFF1C /* Poo.swift */; };
+		D1BB80162ADA7123001FFF1C /* CheckRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80152ADA7123001FFF1C /* CheckRecord.swift */; };
+		D1BB80182ADA714C001FFF1C /* CheckProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80172ADA714C001FFF1C /* CheckProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -140,6 +144,10 @@
 		D1BB80062AD86711001FFF1C /* PooPeeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooPeeCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB80092AD93994001FFF1C /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
 		D1BB800B2ADA640D001FFF1C /* AdditionalInfoViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdditionalInfoViewController+.swift"; sourceTree = "<group>"; };
+		D1BB80112ADA6C75001FFF1C /* Pee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pee.swift; sourceTree = "<group>"; };
+		D1BB80132ADA6C79001FFF1C /* Poo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Poo.swift; sourceTree = "<group>"; };
+		D1BB80152ADA7123001FFF1C /* CheckRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckRecord.swift; sourceTree = "<group>"; };
+		D1BB80172ADA714C001FFF1C /* CheckProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -333,9 +341,8 @@
 			isa = PBXGroup;
 			children = (
 				D1B52F162AD0383A00477A14 /* Species.swift */,
-				D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */,
+				D1BB800F2ADA6C31001FFF1C /* RecordType */,
 				D18273132AD2CEA200F4709B /* Unit.swift */,
-				D1BB7FD32AD679DF001FFF1C /* AbnormalSymptoms.swift */,
 				D1BB7FBA2AD4680D001FFF1C /* AlertSetting */,
 			);
 			path = Data;
@@ -359,6 +366,7 @@
 		D1BA593C2AC6F8F4007437F4 /* Protocol */ = {
 			isa = PBXGroup;
 			children = (
+				D1BB80172ADA714C001FFF1C /* CheckProtocol.swift */,
 			);
 			path = Protocol;
 			sourceTree = "<group>";
@@ -508,6 +516,42 @@
 			path = Pee;
 			sourceTree = "<group>";
 		};
+		D1BB800F2ADA6C31001FFF1C /* RecordType */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */,
+				D1BB80192ADA715D001FFF1C /* CheckRecord */,
+				D1BB80102ADA6C6D001FFF1C /* PeePoo */,
+				D1BB801A2ADA7165001FFF1C /* AbnormalSymptoms */,
+			);
+			path = RecordType;
+			sourceTree = "<group>";
+		};
+		D1BB80102ADA6C6D001FFF1C /* PeePoo */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB80112ADA6C75001FFF1C /* Pee.swift */,
+				D1BB80132ADA6C79001FFF1C /* Poo.swift */,
+			);
+			path = PeePoo;
+			sourceTree = "<group>";
+		};
+		D1BB80192ADA715D001FFF1C /* CheckRecord */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB80152ADA7123001FFF1C /* CheckRecord.swift */,
+			);
+			path = CheckRecord;
+			sourceTree = "<group>";
+		};
+		D1BB801A2ADA7165001FFF1C /* AbnormalSymptoms */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FD32AD679DF001FFF1C /* AbnormalSymptoms.swift */,
+			);
+			path = AbnormalSymptoms;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -601,6 +645,7 @@
 				D1BB80032AD85A43001FFF1C /* PooPeeViewController.swift in Sources */,
 				D1BB800A2AD93994001FFF1C /* AdditionalInfoViewController.swift in Sources */,
 				D1BA59472AC73CEB007437F4 /* AddViewController.swift in Sources */,
+				D1BB80142ADA6C79001FFF1C /* Poo.swift in Sources */,
 				D1BB80052AD85ACB001FFF1C /* PeeViewController.swift in Sources */,
 				D1BA59322AC3F1FF007437F4 /* ProfileCollectionViewCell.swift in Sources */,
 				D1BA593E2AC6FC2F007437F4 /* StackViewBuilder.swift in Sources */,
@@ -615,6 +660,7 @@
 				D1B52ED12ACBED4900477A14 /* RecordViewController.swift in Sources */,
 				D1BA594C2AC82901007437F4 /* ColorSet.swift in Sources */,
 				D1BB7FCD2AD544CA001FFF1C /* RecordType.swift in Sources */,
+				D1BB80122ADA6C75001FFF1C /* Pee.swift in Sources */,
 				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
 				D1BB7FC42AD52082001FFF1C /* MedicalRecordTable.swift in Sources */,
 				D1BA59402AC71147007437F4 /* ImageViewBuilder.swift in Sources */,
@@ -632,6 +678,7 @@
 				D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */,
 				D1BB80012AD85694001FFF1C /* UnderlineSegmentedControl.swift in Sources */,
 				D1B52EC92ACAFC3700477A14 /* ImageManager.swift in Sources */,
+				D1BB80162ADA7123001FFF1C /* CheckRecord.swift in Sources */,
 				D1B52F102AD01F8400477A14 /* FeedViewController.swift in Sources */,
 				D1B52F172AD0383A00477A14 /* Species.swift in Sources */,
 				D1B52F002ACE79CF00477A14 /* BaseCollectionViewCell.swift in Sources */,
@@ -645,6 +692,7 @@
 				D1B52EFE2ACDC48E00477A14 /* ViewController+.swift in Sources */,
 				D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */,
 				D1BB7FAD2AD3D009001FFF1C /* PicCollectionViewCell.swift in Sources */,
+				D1BB80182ADA714C001FFF1C /* CheckProtocol.swift in Sources */,
 				D1BB7FCF2AD55BF2001FFF1C /* WithViewController.swift in Sources */,
 				D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */,
 				D1BA59572AC82D08007437F4 /* String+.swift in Sources */,
