@@ -8,9 +8,11 @@
 import UIKit
 import M13Checkbox
 
-final class PooPeeCollectionViewCell: BaseCollectionViewCell {
-    
-    let imageView = UIImageView.imageViewBuilder(size: 20)
+final class PooPeeTableViewCell: BaseTableViewCell {
+    let dropImageView = {
+        let view = UIImageView(image: UIImage(systemName: "drop.fill")?.withTintColor(.gray, renderingMode: .alwaysTemplate))
+        return view
+    }()
     let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 16, weight: .bold)
     let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 14, weight: .regular)
     
@@ -25,30 +27,33 @@ final class PooPeeCollectionViewCell: BaseCollectionViewCell {
     
     let labelStackView = UIStackView.stackViewBuilder(space: 2, axis: .vertical)
     
+    var peeColor: CheckRecord<PeeColor>?
+    
     override func configureHierarchy() {
         super.configureHierarchy()
         
         [
-            imageView,
+            dropImageView,
             labelStackView,
             checkbox
         ]
             .forEach { self.addSubview($0) }
         
         labelStackView.AddArrangedSubviews([titleLabel, subtitleLabel])
+        subtitleLabel.numberOfLines = 0
     }
     
     override func setConstraints() {
         labelStackView.distribution = .fillProportionally
         
-        imageView.snp.makeConstraints { make in
-            make.centerY.equalTo(self.safeAreaLayoutGuide)
-            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).inset(10)
+        dropImageView.snp.makeConstraints { make in
+            make.top.equalTo(self.safeAreaLayoutGuide).inset(25)
+            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).inset(20)
         }
         
         labelStackView.snp.makeConstraints { make in
-            make.centerY.equalTo(self.safeAreaLayoutGuide)
-            make.leading.equalTo(imageView.snp.trailing).inset(20)
+            make.verticalEdges.equalTo(self.safeAreaLayoutGuide).inset(12)
+            make.leading.equalTo(dropImageView.snp.trailing).offset(20)
             make.trailing.equalTo(checkbox.snp.leading).offset(10)
         }
         
@@ -61,14 +66,14 @@ final class PooPeeCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
-        imageView.image = UIImage(systemName: "drop.fill")?.withTintColor(.red)
-//        guard let symptom else { return }
-//        if symptom.ischecked {
-//            checkbox.setCheckState(.checked, animated: true)
-//        } else {
-//            checkbox.setCheckState(.unchecked, animated: true)
-//        }
-//        titleLabel.text = symptom.title
-//        subtitleLabel.text = symptom.subtitle
+        guard let peeColor else { return }
+        dropImageView.tintColor = peeColor.type.color
+        titleLabel.text = peeColor.title
+        subtitleLabel.text = peeColor.subtitle
+        if peeColor.ischecked {
+            checkbox.setCheckState(.checked, animated: true)
+        } else {
+            checkbox.setCheckState(.unchecked, animated: true)
+        }
     }
 }
