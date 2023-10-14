@@ -39,7 +39,7 @@ final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
         labelStackView.distribution = .fillProportionally
         
         labelStackView.snp.makeConstraints { make in
-            make.centerY.equalTo(self.safeAreaLayoutGuide)
+            make.verticalEdges.equalTo(self.safeAreaLayoutGuide).inset(12)
             make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).inset(30)
             make.trailing.equalTo(checkbox.snp.leading).offset(10)
         }

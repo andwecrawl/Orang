@@ -97,9 +97,4 @@ extension AbnormalSymptomsViewController: UITableViewDelegate, UITableViewDataSo
         list[indexPath.row].ischecked.toggle()
         tableView.reloadRows(at: [indexPath], with: .automatic)
     }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
-    }
-    
 }
