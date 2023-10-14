@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 
 enum PeeColor: String, CheckProtocol, PersistableEnum {
-    case yellow, lightYellow, orange, brown, red, tooMuch, crystal, none
+    case yellow, lightYellow, orange, brown, red, crystal, none
     
     var color: UIColor {
         switch self {
@@ -23,8 +23,6 @@ enum PeeColor: String, CheckProtocol, PersistableEnum {
             return .systemYellow.withAlphaComponent(0.3)
         case .red:
             return .systemRed
-        case .tooMuch:
-            return .white
         case .crystal:
             return .white
         case .none:
