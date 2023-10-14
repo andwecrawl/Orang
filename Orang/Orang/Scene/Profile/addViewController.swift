@@ -64,7 +64,7 @@ final class AddViewController: BaseViewController {
     override func setNavigationBar() {
         navigationItem.largeTitleDisplayMode = .never
         
-        let saveButton = UIBarButtonItem(title: "저장", style: .done, target: self, action: #selector(nextButtonClicked))
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .done, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
     }
     
