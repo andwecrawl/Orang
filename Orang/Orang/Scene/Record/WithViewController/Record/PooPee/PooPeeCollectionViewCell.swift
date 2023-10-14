@@ -10,6 +10,7 @@ import M13Checkbox
 
 final class PooPeeCollectionViewCell: BaseCollectionViewCell {
     
+    let imageView = UIImageView.imageViewBuilder(size: 20)
     let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 16, weight: .bold)
     let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 14, weight: .regular)
     
@@ -27,8 +28,12 @@ final class PooPeeCollectionViewCell: BaseCollectionViewCell {
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        self.addSubview(labelStackView)
-        self.addSubview(checkbox)
+        [
+            imageView,
+            labelStackView,
+            checkbox
+        ]
+            .forEach { self.addSubview($0) }
         
         labelStackView.AddArrangedSubviews([titleLabel, subtitleLabel])
     }
@@ -36,9 +41,14 @@ final class PooPeeCollectionViewCell: BaseCollectionViewCell {
     override func setConstraints() {
         labelStackView.distribution = .fillProportionally
         
+        imageView.snp.makeConstraints { make in
+            make.centerY.equalTo(self.safeAreaLayoutGuide)
+            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).inset(10)
+        }
+        
         labelStackView.snp.makeConstraints { make in
             make.centerY.equalTo(self.safeAreaLayoutGuide)
-            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).inset(30)
+            make.leading.equalTo(imageView.snp.trailing).inset(20)
             make.trailing.equalTo(checkbox.snp.leading).offset(10)
         }
         
@@ -51,6 +61,7 @@ final class PooPeeCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
+        imageView.image = UIImage(systemName: "drop.fill")?.withTintColor(.red)
 //        guard let symptom else { return }
 //        if symptom.ischecked {
 //            checkbox.setCheckState(.checked, animated: true)
