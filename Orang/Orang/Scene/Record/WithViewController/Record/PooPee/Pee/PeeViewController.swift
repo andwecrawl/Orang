@@ -9,11 +9,15 @@ import UIKit
 
 final class PeeViewController: BaseViewController {
     
-    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
-    let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
+    lazy var tableView = {
+        let view = UITableView(frame: .zero)
+        view.register(PooPeeTableViewCell.self, forCellReuseIdentifier: PooPeeTableViewCell.identifier)
+        view.delegate = self
+        view.dataSource = self
+        return view
+    }()
     
+    var list: [CheckRecord<PeeColor>] = []
     var selectedPet: [PetTable]?
     
     override func viewDidLoad() {
@@ -40,90 +44,45 @@ final class PeeViewController: BaseViewController {
         super.configureHierarchy()
         
         [
-            dateStackView
+            tableView
         ]
             .forEach { view.addSubview($0) }
         
-        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func setConstraints() {
-        dateStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(30)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     override func configureView() {
-        configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
+        
+        PeeColor.allCases.forEach{ self.list.append(CheckRecord(type: $0)) }
     }
 }
 
-// setup TextField
-extension PeeViewController {
-    func configureTextField(_ textFields: [UITextField], date: UITextField, time: UITextField) {
-        textFields.forEach { element in
-            element.textAlignment = .center
-            element.delegate = self
-        }
-        date.tag = 1
-        time.tag = 2
-        setupDatePicker(textField: date)
-        setupDatePicker(textField: time)
+extension PeeViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return list.count
     }
     
-    func setupDatePicker(textField: UITextField) {
-        // 여기서 datePicker를 weak로 써줘야 하나?
-        let datePicker = UIDatePicker()
-        datePicker.tag = textField.tag
-        
-        // 원하는 언어로 지역 설정
-        datePicker.locale = Locale(identifier: "ko-KR")
-        datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
-        
-        textField.inputView = datePicker
-        if textField == dateTextField {
-            datePicker.preferredDatePickerStyle = .inline
-            datePicker.datePickerMode = .date
-            dateTextField.text = datePicker.date.toFormattedString()
-        } else {
-            datePicker.datePickerMode = .time
-            datePicker.preferredDatePickerStyle = .wheels
-            timeTextField.text = datePicker.date.toFormattedStringTime()
-        }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PooPeeTableViewCell.identifier, for: indexPath) as? PooPeeTableViewCell else { return UITableViewCell() }
+        let row = indexPath.row
+        cell.peeColor = list[row]
+        cell.configureView()
+        return cell
     }
     
-    // 값이 변할 때 마다 동작
-    @objc func dateChange(_ sender: UIDatePicker) {
-        if sender.tag == 1 {
-            dateTextField.text = sender.date.toFormattedString()
-        } else {
-            timeTextField.text = sender.date.toFormattedStringTime()
-        }
-    }
-}
-
-
-// textField Delegate
-extension PeeViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == dateTextField || textField == timeTextField {
-            return false
-        }
-//        else if textField == numberTextField {
-//            let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
-//            let withDecimal = (
-//                string == NumberFormatter().decimalSeparator &&
-//                textField.text?.contains(string) == false
-//            )
-//            return isNumber || withDecimal
-//        }
-        else {
-            return true
-        }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let row = indexPath.row
+        list[row].ischecked.toggle()
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
     }
+    
 }
