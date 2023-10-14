@@ -459,9 +459,9 @@
 			isa = PBXGroup;
 			children = (
 				D1BB80022AD85A43001FFF1C /* PooPeeViewController.swift */,
-				D1B52F122AD0299600477A14 /* PooViewController.swift */,
-				D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */,
-				D1BB80062AD86711001FFF1C /* RadiusButtonCollectionViewCell.swift */,
+				D1BB800D2ADA656F001FFF1C /* Poo */,
+				D1BB800E2ADA6575001FFF1C /* Pee */,
+				D1BB80062AD86711001FFF1C /* PooPeeCollectionViewCell.swift */,
 			);
 			path = PooPee;
 			sourceTree = "<group>";
@@ -490,6 +490,22 @@
 				D1BB800B2ADA640D001FFF1C /* AdditionalInfoViewController+.swift */,
 			);
 			path = AdditionalInfo;
+			sourceTree = "<group>";
+		};
+		D1BB800D2ADA656F001FFF1C /* Poo */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52F122AD0299600477A14 /* PooViewController.swift */,
+			);
+			path = Poo;
+			sourceTree = "<group>";
+		};
+		D1BB800E2ADA6575001FFF1C /* Pee */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */,
+			);
+			path = Pee;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -9,6 +9,14 @@ import UIKit
 
 final class PooViewController: BaseViewController {
     
+//    lazy var pooColorCollectionView = {
+//        let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
+//        view.register(RadiusButtonCollectionViewCell.self, forCellWithReuseIdentifier: RadiusButtonCollectionViewCell.identifier)
+//        view.delegate = self
+//        view.dataSource = self
+//        return view
+//    }()
+    
     let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
     let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
     let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
@@ -29,7 +37,6 @@ final class PooViewController: BaseViewController {
         let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
         navigationItem.rightBarButtonItem = nextButton
         
-
     }
     
     @objc func nextButtonClicked() {
@@ -58,6 +65,35 @@ final class PooViewController: BaseViewController {
         configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
     }
 }
+
+
+//extension PooViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//
+//    }
+//
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//
+//    }
+//
+//    func configureCollectionViewLayout() -> UICollectionViewFlowLayout {
+//        let layout = UICollectionViewFlowLayout()
+//        let space: CGFloat = 10
+//
+//        let width = UIScreen.main.bounds.width
+//        layout.itemSize = CGSize(width: (width - 120) / 3, height: width * 0.8)
+//        layout.sectionInset = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
+//
+//        layout.minimumLineSpacing = space
+//        layout.minimumInteritemSpacing = space
+//        layout.scrollDirection = .vertical
+//
+//        return layout
+//    }
+//}
+
+
+
 
 // setup TextField
 extension PooViewController {
