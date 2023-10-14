@@ -73,6 +73,7 @@
 		D1BB80052AD85ACB001FFF1C /* PeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */; };
 		D1BB80072AD86711001FFF1C /* RadiusButtonCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80062AD86711001FFF1C /* RadiusButtonCollectionViewCell.swift */; };
 		D1BB800A2AD93994001FFF1C /* AdditionalInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80092AD93994001FFF1C /* AdditionalInfoViewController.swift */; };
+		D1BB800C2ADA640D001FFF1C /* AdditionalInfoViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB800B2ADA640D001FFF1C /* AdditionalInfoViewController+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -138,6 +139,7 @@
 		D1BB80042AD85ACB001FFF1C /* PeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PeeViewController.swift; sourceTree = "<group>"; };
 		D1BB80062AD86711001FFF1C /* RadiusButtonCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadiusButtonCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1BB80092AD93994001FFF1C /* AdditionalInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalInfoViewController.swift; sourceTree = "<group>"; };
+		D1BB800B2ADA640D001FFF1C /* AdditionalInfoViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AdditionalInfoViewController+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -485,6 +487,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BB80092AD93994001FFF1C /* AdditionalInfoViewController.swift */,
+				D1BB800B2ADA640D001FFF1C /* AdditionalInfoViewController+.swift */,
 			);
 			path = AdditionalInfo;
 			sourceTree = "<group>";
@@ -630,6 +633,7 @@
 				D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */,
 				D1BA59572AC82D08007437F4 /* String+.swift in Sources */,
 				D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */,
+				D1BB800C2ADA640D001FFF1C /* AdditionalInfoViewController+.swift in Sources */,
 				D1BB7FC72AD5314F001FFF1C /* AbnormalSymptomsViewController.swift in Sources */,
 				D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */,
 				D1BB7FBE2AD51ABF001FFF1C /* RecordTableRepository.swift in Sources */,
