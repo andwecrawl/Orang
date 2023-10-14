@@ -19,7 +19,7 @@ final class AbnormalSymptomsViewController: BaseViewController {
     }()
     
     var selectedPet: [PetTable]?
-    var list: [AbnormalSymptoms] = []
+    var list: [CheckRecord<AbnormalSymptomsType>] = []
     
     
     override func viewDidLoad() {
@@ -41,10 +41,10 @@ final class AbnormalSymptomsViewController: BaseViewController {
     @objc func nextButtonClicked() {
         let vc = AdditionalInfoViewController()
         vc.title = "추가적인 증상이 있나요?"
-        var selectedSymptoms: [AbnormalSymptoms] = []
+        var selectedSymptoms: [AbnormalSymptomsType] = []
         list.forEach{
             if $0.ischecked {
-                selectedSymptoms.append($0)
+                selectedSymptoms.append($0.type)
             }
         }
         if selectedSymptoms.isEmpty { sendOneSidedAlert(title: "이상 증상을 선택해 주세요!") }
