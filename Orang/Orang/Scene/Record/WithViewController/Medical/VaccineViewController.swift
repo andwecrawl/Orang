@@ -51,7 +51,7 @@ final class VaccineViewController: BaseViewController {
         }
         
         dateStackView.snp.makeConstraints { make in
-            make.top.equalTo(hospitalStackView.snp.bottom).offset(16)
+            make.top.equalTo(hospitalStackView.snp.bottom).offset(12)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
     }
