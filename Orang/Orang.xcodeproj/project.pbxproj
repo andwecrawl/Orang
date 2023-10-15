@@ -190,6 +190,22 @@
 			path = Memo;
 			sourceTree = "<group>";
 		};
+		D1370A632ADC55AA00FCBD67 /* Vaccine */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */,
+			);
+			path = Vaccine;
+			sourceTree = "<group>";
+		};
+		D1370A642ADC55B300FCBD67 /* MedicalHistory */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52F082ACFEFC100477A14 /* MedicalHistoryViewController.swift */,
+			);
+			path = MedicalHistory;
+			sourceTree = "<group>";
+		};
 		D18273082AD0950100F4709B /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -269,8 +285,8 @@
 		D1B52F072ACFEFAA00477A14 /* Medical */ = {
 			isa = PBXGroup;
 			children = (
-				D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */,
-				D1B52F082ACFEFC100477A14 /* MedicalHistoryViewController.swift */,
+				D1370A632ADC55AA00FCBD67 /* Vaccine */,
+				D1370A642ADC55B300FCBD67 /* MedicalHistory */,
 				D1370A622ADC557E00FCBD67 /* Memo */,
 				D1370A5F2ADC556400FCBD67 /* VaccineType */,
 			);
