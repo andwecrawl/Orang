@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CheckRecord<T: CheckProtocol> {
+struct CheckRecord<T: CheckProtocol>: Equatable {
     var type: T
     var title: String
     var subtitle: String
@@ -19,4 +19,14 @@ struct CheckRecord<T: CheckProtocol> {
         self.subtitle = type.subtitle
         self.ischecked = false
     }
+    
+    static func == (lhs: CheckRecord<T>, rhs: CheckRecord<T>) -> Bool {
+        if lhs.title == rhs.title && lhs.subtitle == rhs.subtitle &&
+            lhs.ischecked && rhs.ischecked {
+            return true
+        } else {
+            return false
+        }
+    }
+    
 }
