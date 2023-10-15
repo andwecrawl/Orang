@@ -37,6 +37,9 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // 말 그대로 타이틀 지정해 주기!!
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        if row == 0 {
+            speciesTextField.text = "\(Species.allCases[row].toString)"
+        }
         return "\(Species.allCases[row].toString)"
     }
 }
