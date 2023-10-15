@@ -8,6 +8,10 @@
 import UIKit
 
 class Design {
+    enum image {
+        static let poo = "poo"
+    }
+    
     enum Color {
         static let background = UIColor(named: "background")
         static let border = UIColor.systemGray
