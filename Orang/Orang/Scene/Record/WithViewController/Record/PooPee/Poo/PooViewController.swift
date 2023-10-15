@@ -2,31 +2,35 @@
 //  PooViewController.swift
 //  Orang
 //
-//  Created by yeoni on 2023/10/06.
+//  Created by yeoni on 2023/10/13.
 //
 
 import UIKit
 
 final class PooViewController: BaseViewController {
     
-//    lazy var pooColorCollectionView = {
-//        let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
-//        view.register(RadiusButtonCollectionViewCell.self, forCellWithReuseIdentifier: RadiusButtonCollectionViewCell.identifier)
-//        view.delegate = self
-//        view.dataSource = self
-//        return view
-//    }()
+    lazy var tableView = {
+        let view = UITableView(frame: .zero, style: .grouped)
+        view.register(PooPeeTableViewCell.self, forCellReuseIdentifier: PooPeeTableViewCell.identifier)
+        view.delegate = self
+        view.dataSource = self
+        return view
+    }()
     
-    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
-    let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
-    
+    var colorList: [CheckRecord<PooColor>] = []
+    var formList: [CheckRecord<PooForm>] = []
     var selectedPet: [PetTable]?
+    var selectedPoo: CheckRecord<PooColor>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("poo")
+        tableView.reloadData()
     }
     
     override func setNavigationBar() {
@@ -36,7 +40,6 @@ final class PooViewController: BaseViewController {
         
         let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
         navigationItem.rightBarButtonItem = nextButton
-        
     }
     
     @objc func nextButtonClicked() {
@@ -46,120 +49,102 @@ final class PooViewController: BaseViewController {
     override func configureHierarchy() {
         super.configureHierarchy()
         
+        
         [
-            dateStackView
+            tableView
         ]
             .forEach { view.addSubview($0) }
         
-        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func setConstraints() {
-        dateStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).inset(30)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+        tableView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     override func configureView() {
-        configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
+        PooColor.allCases.forEach{ self.colorList.append(CheckRecord(type: $0)) }
+        PooForm.allCases.forEach{ self.formList.append(CheckRecord(type: $0)) }
+        print(formList)
     }
 }
 
-
-//extension PooViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//
-//    }
-//
-//    func configureCollectionViewLayout() -> UICollectionViewFlowLayout {
-//        let layout = UICollectionViewFlowLayout()
-//        let space: CGFloat = 10
-//
-//        let width = UIScreen.main.bounds.width
-//        layout.itemSize = CGSize(width: (width - 120) / 3, height: width * 0.8)
-//        layout.sectionInset = UIEdgeInsets(top: space, left: space, bottom: space, right: space)
-//
-//        layout.minimumLineSpacing = space
-//        layout.minimumInteritemSpacing = space
-//        layout.scrollDirection = .vertical
-//
-//        return layout
-//    }
-//}
-
-
-
-
-// setup TextField
-extension PooViewController {
-    func configureTextField(_ textFields: [UITextField], date: UITextField, time: UITextField) {
-        textFields.forEach { element in
-            element.textAlignment = .center
-            element.delegate = self
-        }
-        date.tag = 1
-        time.tag = 2
-        setupDatePicker(textField: date)
-        setupDatePicker(textField: time)
+extension PooViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return 20
     }
     
-    func setupDatePicker(textField: UITextField) {
-        // 여기서 datePicker를 weak로 써줘야 하나?
-        let datePicker = UIDatePicker()
-        datePicker.tag = textField.tag
-        
-        // 원하는 언어로 지역 설정
-        datePicker.locale = Locale(identifier: "ko-KR")
-        datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
-        
-        textField.inputView = datePicker
-        if textField == dateTextField {
-            datePicker.preferredDatePickerStyle = .inline
-            datePicker.datePickerMode = .date
-            dateTextField.text = datePicker.date.toFormattedString()
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "대변 색깔"
         } else {
-            datePicker.datePickerMode = .time
-            datePicker.preferredDatePickerStyle = .wheels
-            timeTextField.text = datePicker.date.toFormattedStringTime()
+            return "대변 형태"
         }
     }
-    
-    // 값이 변할 때 마다 동작
-    @objc func dateChange(_ sender: UIDatePicker) {
-        if sender.tag == 1 {
-            dateTextField.text = sender.date.toFormattedString()
+    func numberOfSections(in tableView: UITableView) -> Int {
+        if selectedPoo?.type == PooColor.none {
+            return 1
         } else {
-            timeTextField.text = sender.date.toFormattedStringTime()
-        }
-    }
-}
-
-
-// textField Delegate
-extension PooViewController: UITextFieldDelegate {
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == dateTextField || textField == timeTextField {
-            return false
-        }
-//        else if textField == numberTextField {
-//            let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
-//            let withDecimal = (
-//                string == NumberFormatter().decimalSeparator &&
-//                textField.text?.contains(string) == false
-//            )
-//            return isNumber || withDecimal
-//        }
-        else {
-            return true
+            return 2
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 0 {
+            return colorList.count
+        } else {
+            return formList.count
+        }
     }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let section = indexPath.section
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PooPeeTableViewCell.identifier, for: indexPath) as? PooPeeTableViewCell else { return UITableViewCell() }
+        let row = indexPath.row
+        if section == 0 {
+            cell.pooForm = nil
+            cell.pooColor = colorList[row]
+        } else {
+            cell.pooColor = nil
+            cell.pooForm = formList[row]
+        }
+        cell.configureView()
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let section = indexPath.section
+        let row = indexPath.row
+        
+        if section == 0 {
+            if colorList[row].ischecked == true {
+                colorList[row].ischecked.toggle()
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            } else {
+                for index in colorList.indices {
+                    colorList[index].ischecked = false
+                }
+                selectedPoo = colorList[row]
+                colorList[row].ischecked.toggle()
+                tableView.reloadData()
+            }
+        } else {
+            if formList[row].ischecked == true {
+                formList[row].ischecked.toggle()
+                tableView.reloadRows(at: [indexPath], with: .automatic)
+            } else {
+                for index in formList.indices {
+                    formList[index].ischecked = false
+                }
+                formList[row].ischecked.toggle()
+                tableView.reloadData()
+            }
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    
 }
