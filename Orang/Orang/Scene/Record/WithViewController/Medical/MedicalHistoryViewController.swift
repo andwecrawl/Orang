@@ -10,13 +10,19 @@ import UIKit
 final class MedicalHistoryViewController: BaseViewController {
     
     let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
-    let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized())
-    let hospitalStackView = UIStackView.stackViewBuilder(axis: .horizontal)
+    let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized(), textAlignment: .center)
+    let hospitalStackView = UIStackView.stackViewBuilder()
     
     let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
     let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
     let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
-    let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
+    let dateStackView = UIStackView.stackViewBuilder()
+    
+    let whyLabel = UILabel.labelBuilder(text: "내원 사유".localized(), size: 16, weight: .bold, settingTitle: true)
+    let whyTextField = UnderLineTextField.textFieldBuilder(placeholder: "아이의 증상을 작성해 주세요!", textAlignment: .center)
+    let whyStackView = UIStackView.stackViewBuilder()
+    
+    let additionalMemo = AdditionalMemoViewController()
     
     var selectedPet: [PetTable]?
     
@@ -35,31 +41,53 @@ final class MedicalHistoryViewController: BaseViewController {
         
         [
             hospitalStackView,
-            dateStackView
+            dateStackView,
+            whyStackView
         ]
             .forEach{ view.addSubview($0) }
         
         hospitalStackView.AddArrangedSubviews([hospitalLabel, hospitalTextField])
         dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
+        whyStackView.AddArrangedSubviews([whyLabel, whyTextField])
+        addMemoVC()
     }
     
     override func setConstraints() {
         
         hospitalStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(20)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(8)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         dateStackView.snp.makeConstraints { make in
-            make.top.equalTo(hospitalStackView.snp.bottom).offset(16)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.top.equalTo(hospitalStackView.snp.bottom).offset(12)
+            make.horizontalEdges.equalTo(hospitalStackView)
         }
+        
+        whyStackView.snp.makeConstraints { make in
+            make.top.equalTo(dateStackView.snp.bottom).offset(12)
+            make.horizontalEdges.equalTo(hospitalStackView)
+        }
+        
+        additionalMemo.view.snp.makeConstraints { make in
+            make.top.equalTo(whyStackView.snp.bottom).offset(12)
+            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
+        }
+        
     }
     
     override func configureView() {
         configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
     }
     
+    
+    func addMemoVC() {
+        additionalMemo.willMove(toParent: self)
+        self.addChild(additionalMemo)
+        view.addSubview(additionalMemo.view)
+        additionalMemo.didMove(toParent: self)
+    }
 
 }
 
