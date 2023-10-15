@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D1370A542ADBB81A00FCBD67 /* PooColorCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A532ADBB81A00FCBD67 /* PooColorCollectionViewCell.swift */; };
 		D1370A562ADBC32600FCBD67 /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A552ADBC32600FCBD67 /* ChooseViewController.swift */; };
 		D1370A5C2ADC017900FCBD67 /* AdditionalMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */; };
 		D182730A2AD0F31200F4709B /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273092AD0F31200F4709B /* Date+.swift */; };
@@ -84,7 +83,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D1370A532ADBB81A00FCBD67 /* PooColorCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PooColorCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1370A552ADBC32600FCBD67 /* ChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
 		D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalMemoViewController.swift; sourceTree = "<group>"; };
 		D18273092AD0F31200F4709B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
@@ -512,7 +510,6 @@
 			isa = PBXGroup;
 			children = (
 				D1B52F122AD0299600477A14 /* PooViewController.swift */,
-				D1370A532ADBB81A00FCBD67 /* PooColorCollectionViewCell.swift */,
 			);
 			path = Poo;
 			sourceTree = "<group>";
@@ -710,7 +707,6 @@
 				D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */,
 				D1BB800C2ADA640D001FFF1C /* AdditionalInfoViewController+.swift in Sources */,
 				D1BB7FC72AD5314F001FFF1C /* AbnormalSymptomsViewController.swift in Sources */,
-				D1370A542ADBB81A00FCBD67 /* PooColorCollectionViewCell.swift in Sources */,
 				D1BB7FB72AD465DE001FFF1C /* AlertCollectionViewCell.swift in Sources */,
 				D1BB7FBE2AD51ABF001FFF1C /* RecordTableRepository.swift in Sources */,
 				D1BB7FCB2AD53F3C001FFF1C /* ChoosePetCollectionViewCell.swift in Sources */,
