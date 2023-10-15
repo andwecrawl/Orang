@@ -174,6 +174,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D1370A5F2ADC556400FCBD67 /* VaccineType */ = {
+			isa = PBXGroup;
+			children = (
+				D1370A5D2ADC103300FCBD67 /* VaccineTypeViewController.swift */,
+			);
+			path = VaccineType;
+			sourceTree = "<group>";
+		};
+		D1370A622ADC557E00FCBD67 /* Memo */ = {
+			isa = PBXGroup;
+			children = (
+				D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */,
+			);
+			path = Memo;
+			sourceTree = "<group>";
+		};
 		D18273082AD0950100F4709B /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -255,8 +271,8 @@
 			children = (
 				D1BB7FC82AD531AC001FFF1C /* VaccineViewController.swift */,
 				D1B52F082ACFEFC100477A14 /* MedicalHistoryViewController.swift */,
-				D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */,
-				D1370A5D2ADC103300FCBD67 /* VaccineTypeViewController.swift */,
+				D1370A622ADC557E00FCBD67 /* Memo */,
+				D1370A5F2ADC556400FCBD67 /* VaccineType */,
 			);
 			path = Medical;
 			sourceTree = "<group>";
