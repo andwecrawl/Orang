@@ -44,14 +44,7 @@ final class AdditionalMemoViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-//        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
-//        navigationItem.rightBarButtonItem = saveButton
     }
-    
-//    @objc func saveButtonClicked() {
-//        let content = contentTextView.text
-//        
-//    }
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -84,9 +77,6 @@ final class AdditionalMemoViewController: BaseViewController {
     }
     
     override func configureView() {
-        guard let recordType else { return }
-        guard let selectedSymptoms else { return}
-        
     }
     
 }
