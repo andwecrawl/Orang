@@ -30,6 +30,12 @@ final class MedicalHistoryViewController: BaseViewController {
         super.viewDidLoad()
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        additionalMemo.removeFromParent()
+    }
+    
     override func setNavigationBar() {
         super.setNavigationBar()
         
@@ -70,9 +76,8 @@ final class MedicalHistoryViewController: BaseViewController {
         }
         
         additionalMemo.view.snp.makeConstraints { make in
-            make.top.equalTo(whyStackView.snp.bottom).offset(12)
+            make.top.equalTo(whyStackView.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
-            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
     }
