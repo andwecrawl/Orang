@@ -112,8 +112,7 @@ extension PooPeeViewController: UIPageViewControllerDataSource, UIPageViewContro
         _ pageViewController: UIPageViewController,
         viewControllerAfter viewController: UIViewController
     ) -> UIViewController? {
-        guard
-            let index = self.dataViewControllers.firstIndex(of: viewController),
+        guard let index = self.dataViewControllers.firstIndex(of: viewController),
             index + 1 < self.dataViewControllers.count
         else { return nil }
         return self.dataViewControllers[index + 1]
