@@ -100,19 +100,18 @@ final class VaccineViewController: BaseViewController {
     }
     
     override func setConstraints() {
-        
         hospitalStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(6)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         dateStackView.snp.makeConstraints { make in
-            make.top.equalTo(hospitalStackView.snp.bottom).offset(10)
+            make.top.equalTo(hospitalStackView.snp.bottom).offset(12)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         vaccineTypeLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateStackView.snp.bottom).offset(10)
+            make.top.equalTo(dateStackView.snp.bottom).offset(12)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
@@ -128,7 +127,7 @@ final class VaccineViewController: BaseViewController {
         
         inputVaccineTextField.snp.makeConstraints { make in
             make.verticalEdges.equalTo(vaccineTypeStackView)
-            make.leading.equalTo(hospitalLabel.snp.trailing).offset(10)
+            make.leading.equalTo(hospitalLabel.snp.trailing).offset(12)
             make.trailing.equalTo(hospitalStackView.snp.trailing)
         }
         
@@ -149,6 +148,7 @@ final class VaccineViewController: BaseViewController {
         [vaccineTypeTextField, vaccineDetailTextField].forEach { $0.isUserInteractionEnabled = false }
         
         inputVaccineTextField.isHidden = true
+        
     }
     
 
@@ -205,16 +205,7 @@ extension VaccineViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == dateTextField || textField == timeTextField {
             return false
-        }
-//        else if textField == numberTextField {
-//            let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
-//            let withDecimal = (
-//                string == NumberFormatter().decimalSeparator &&
-//                textField.text?.contains(string) == false
-//            )
-//            return isNumber || withDecimal
-//        }
-        else {
+        } else {
             return true
         }
     }
