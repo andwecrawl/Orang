@@ -54,6 +54,10 @@ enum PooColor: String, CheckProtocol, PersistableEnum {
 enum PooForm: String, CheckProtocol, PersistableEnum {
     case normal, hard, mud, water, mucus // 점액
     
+    var color: UIColor {
+        return .brown
+    }
+    
     var title: String {
         return "\(self.rawValue)TitlePoo".localized()
     }
