@@ -25,6 +25,10 @@ final class PeeViewController: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
     override func setNavigationBar() {
         super.setNavigationBar()
         
@@ -76,9 +80,28 @@ extension PeeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
+    // tableView 오류 있음
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: PooPeeTableViewCell.identifier, for: indexPath) as? PooPeeTableViewCell else { return }
         let row = indexPath.row
-        list[row].ischecked.toggle()
+        if list.filter({ $0.ischecked == true }).isEmpty { // 하나도 체크 X
+            cell.peeColor?.ischecked.toggle()
+            list[row].ischecked.toggle()
+            tableView.reloadData()
+        } else { // 체크된 게 있을 때
+            if list[row].ischecked == true { // 같은 걸 다시 선택했을 때 => 취소
+                cell.peeColor?.ischecked.toggle()
+                list[row].ischecked.toggle()
+                tableView.reloadData()
+            } else {
+                for index in list.indices {
+                    list[index].ischecked = false
+                }
+                cell.peeColor?.ischecked = true
+                list[row].ischecked = true
+                tableView.reloadData()
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
