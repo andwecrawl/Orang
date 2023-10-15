@@ -56,8 +56,6 @@ final class AdditionalInfoViewController: BaseViewController {
     @objc func saveButtonClicked() {
         let content = contentTextView.text
         
-    
-        // 아무튼 저장
     }
     
     override func configureHierarchy() {
@@ -244,11 +242,6 @@ extension AdditionalInfoViewController: UIImagePickerControllerDelegate, UINavig
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
-    func selectFile() {
-        
-    }
-    
 }
 
 
@@ -258,5 +251,28 @@ extension AdditionalInfoViewController: DeleteDelegate {
             self.images.remove(at: firstIndex)
             self.picCount -= 1
         }
+    }
+}
+
+extension AdditionalInfoViewController: UIDocumentPickerDelegate {
+    // 왠지는 모르겟지만 안돌아감......
+    func selectFile() {
+        print("hello?")
+        let controller = UIDocumentPickerViewController(forOpeningContentTypes: [.png, .jpeg, .webP, .rawImage], asCopy: true)
+        controller.delegate = self
+        controller.allowsMultipleSelection = true
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        var images: [UIImage] = []
+        if urls.count > 5 {
+            self.sendOneSidedAlert(title: "이미지를 5개 이상 첨부할 수 없습니다!")
+        }
+        for url in urls {
+            guard let image = UIImage(contentsOfFile: url.path) else { return }
+            images.append(image)
+        }
+        self.images = images
     }
 }
