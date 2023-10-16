@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D1370A562ADBC32600FCBD67 /* ChooseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A552ADBC32600FCBD67 /* ChooseViewController.swift */; };
 		D1370A5C2ADC017900FCBD67 /* AdditionalMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */; };
 		D1370A5E2ADC103300FCBD67 /* VaccineTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5D2ADC103300FCBD67 /* VaccineTypeViewController.swift */; };
 		D1370A662ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */; };
@@ -86,7 +85,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D1370A552ADBC32600FCBD67 /* ChooseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChooseViewController.swift; sourceTree = "<group>"; };
 		D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalMemoViewController.swift; sourceTree = "<group>"; };
 		D1370A5D2ADC103300FCBD67 /* VaccineTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTypeViewController.swift; sourceTree = "<group>"; };
 		D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -520,7 +518,6 @@
 		D1BB7FD82AD68D9B001FFF1C /* PooPee */ = {
 			isa = PBXGroup;
 			children = (
-				D1370A552ADBC32600FCBD67 /* ChooseViewController.swift */,
 				D1BB80022AD85A43001FFF1C /* PooPeeViewController.swift */,
 				D1BB800D2ADA656F001FFF1C /* Poo */,
 				D1BB800E2ADA6575001FFF1C /* Pee */,
@@ -746,7 +743,6 @@
 				D1B52F092ACFEFC100477A14 /* MedicalHistoryViewController.swift in Sources */,
 				D1BB7FDB2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift in Sources */,
 				D1BB7FB52AD46451001FFF1C /* AlertAddViewController.swift in Sources */,
-				D1370A562ADBC32600FCBD67 /* ChooseViewController.swift in Sources */,
 				D1BB7FC22AD51FC2001FFF1C /* RecordTable.swift in Sources */,
 				D1B52EFE2ACDC48E00477A14 /* ViewController+.swift in Sources */,
 				D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */,
