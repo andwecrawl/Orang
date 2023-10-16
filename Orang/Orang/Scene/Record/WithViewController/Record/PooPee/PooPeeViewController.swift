@@ -53,14 +53,43 @@ class PooPeeViewController: BaseViewController {
     override func setNavigationBar() {
         
         title = "대소변 기록하기"
-        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
-        navigationItem.rightBarButtonItem = saveButton
+        let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
+        navigationItem.rightBarButtonItem = nextButton
         
 
     }
     
-    @objc func saveButtonClicked() {
+    @objc func nextButtonClicked() {
+        let vc = AdditionalInfoViewController()
+        vc.title = "추가적인 증상이 있나요?"
         
+        if currentPage == 0 { // Poo
+            
+            guard let pooColor = pooVC.selectedPoo?.type else {
+                sendOneSidedAlert(title: "해당하는 요소를 선택해 주세요!")
+                return
+            }
+            
+            if pooColor != PooColor.none {
+                guard let pooForm = pooVC.selectedForm?.type else {
+                    sendOneSidedAlert(title: "해당하는 요소를 선택해 주세요!")
+                    return
+                }
+                vc.selectedPooForm = pooForm
+            }
+            vc.selectedPooColor = pooColor
+            
+        } else { // Pee
+            
+            guard let peeColor = peeVC.selectedPeeColor?.type else {
+                sendOneSidedAlert(title: "해당하는 요소를 선택해 주세요!")
+                return
+            }
+            vc.selectedPeeColor = peeColor
+        }
+        
+        vc.recordType = .pooPee
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     
