@@ -29,26 +29,12 @@ final class PooViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        print("poo")
         tableView.reloadData()
     }
     
-    override func setNavigationBar() {
-        super.setNavigationBar()
-        
-        title = "pooPeeTitle".localized()
-        
-        let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
-        navigationItem.rightBarButtonItem = nextButton
-    }
-    
-    @objc func nextButtonClicked() {
-        
-    }
     
     override func configureHierarchy() {
         super.configureHierarchy()
-        
         
         [
             tableView
@@ -128,6 +114,7 @@ extension PooViewController: UITableViewDelegate, UITableViewDataSource {
                 selectedPoo = colorList[row]
                 colorList[row].ischecked.toggle()
                 tableView.reloadData()
+                tableView.scrollToRow(at: [1, 0], at: .top, animated: true)
             }
         } else {
             if formList[row].ischecked == true {

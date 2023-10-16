@@ -29,21 +29,6 @@ final class PeeViewController: BaseViewController {
         super.viewWillAppear(animated)
     }
     
-    override func setNavigationBar() {
-        super.setNavigationBar()
-        
-        title = "pooPeeTitle".localized()
-        
-        let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
-        navigationItem.rightBarButtonItem = nextButton
-        
-
-    }
-    
-    @objc func nextButtonClicked() {
-        
-    }
-    
     override func configureHierarchy() {
         super.configureHierarchy()
         
@@ -80,7 +65,6 @@ extension PeeViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     
-    // tableView 오류 있음
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PooPeeTableViewCell.identifier, for: indexPath) as? PooPeeTableViewCell else { return }
         let row = indexPath.row
