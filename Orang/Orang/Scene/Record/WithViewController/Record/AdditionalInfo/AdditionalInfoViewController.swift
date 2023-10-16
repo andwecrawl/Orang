@@ -32,6 +32,9 @@ final class AdditionalInfoViewController: BaseViewController {
     
     var selectedPet: [PetTable]?
     var recordType: RecordType?
+    var selectedPooColor: PooColor?
+    var selectedPooForm: PooForm?
+    var selectedPeeColor: PeeColor?
     var selectedSymptoms: [Any]?
     
     var picCount: Int = 0
@@ -98,11 +101,6 @@ final class AdditionalInfoViewController: BaseViewController {
     
     override func configureView() {
         guard let recordType else { return }
-        guard let selectedSymptoms else { return}
-        
-//        if recordType == .abnormalSymptoms {
-//            guard let selectedAbnormalSymptoms = selectedSymptoms as? [AbnormalSymptoms] else { return }
-//        }
         
         configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
     }
