@@ -108,6 +108,7 @@ extension WithViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChoosePetCollectionViewCell.identifier, for: indexPath) as? ChoosePetCollectionViewCell else { return UICollectionViewCell() }
         let pet = list[indexPath.item]
+        cell.recordType = recordType
         cell.pet = pet
         if selectedPet.contains(pet) {
             cell.isSelectedPet = true
