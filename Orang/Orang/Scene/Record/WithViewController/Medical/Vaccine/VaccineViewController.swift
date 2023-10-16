@@ -40,8 +40,21 @@ final class VaccineViewController: BaseViewController {
     }
     
     override func setNavigationBar() {
+        title = "예방 접종 내역 기록하기"
         
+        let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
+        navigationItem.rightBarButtonItem = nextButton
     }
+    
+    @objc func nextButtonClicked() {
+        // 병원 이름 / 날짜, 시간 / 접종 항목 / 접종 비용 넘겨야 함
+        let vc = AdditionalMemoViewController()
+        vc.title = "추가로 기록하기"
+        vc.selectedPet = selectedPet
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    
     
     override func configureHierarchy() {
         super.configureHierarchy()
