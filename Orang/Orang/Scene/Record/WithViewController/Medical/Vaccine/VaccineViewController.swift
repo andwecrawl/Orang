@@ -7,36 +7,48 @@
 
 import UIKit
 
+protocol VaccineProtocol {
+    func addButtonHandler()
+    func deleteButtonHandler()
+    func presentVaccineVC(vc: VaccineTypeViewController)
+}
+
+
 final class VaccineViewController: BaseViewController {
     
-    let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
-    let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized(), textAlignment: .center)
-    let hospitalStackView = UIStackView.stackViewBuilder()
+    private let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized(), textAlignment: .center)
+    private let hospitalStackView = UIStackView.stackViewBuilder()
     
-    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
-    let dateStackView = UIStackView.stackViewBuilder()
+    private let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    private let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
+    private let dateStackView = UIStackView.stackViewBuilder()
 
-    let vaccineTypeLabel = UILabel.labelBuilder(text: "접종 항목".localized(), size: 16, weight: .bold, settingTitle: true)
-    let vaccineTypeTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종 항목을".localized(), textAlignment: .center)
-    let vaccineTypeStackView = UIStackView.stackViewBuilder()
-    let vaccineDetailTextField = UnderLineTextField.textFieldBuilder(placeholder: "선택해 주세요.".localized(), isTimeTextfield: true, textAlignment: .center)
-    let vaccineButton = UIButton()
+    private let vaccineTypeLabel = UILabel.labelBuilder(text: "접종 항목".localized(), size: 16, weight: .bold, settingTitle: true)
+    lazy var vaccineCollectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
+        view.register(VaccineCategoryCollectionViewCell.self, forCellWithReuseIdentifier: VaccineCategoryCollectionViewCell.identifier)
+        view.register(VaccineAddCollectionViewCell.self, forCellWithReuseIdentifier: VaccineAddCollectionViewCell.identifier)
+        view.dataSource = self
+        view.delegate = self
+        return view
+    }()
     
-    let inputVaccineTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종한 백신을 입력해 주세요!", textAlignment: .center)
-    let noVaccineButton = UIButton.idkButtonBuilder(title: "접종한 백신이 표에 없어요.")
+    private let vaccineTypeTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종 항목을".localized(), textAlignment: .center)
+    private let vaccineTypeStackView = UIStackView.stackViewBuilder()
+    private let vaccineDetailTextField = UnderLineTextField.textFieldBuilder(placeholder: "선택해 주세요.".localized(), isTimeTextfield: true, textAlignment: .center)
+    private let vaccineButton = UIButton()
     
-    let priceLabel = UILabel.labelBuilder(text: "비용(원)", size: 16, weight: .bold, settingTitle: true)
-    let priceTextField = UnderLineTextField.textFieldBuilder(placeholder: "비용을 입력해 주세요.".localized(), textAlignment: .center)
-    let priceStackView = UIStackView.stackViewBuilder()
+    private let inputVaccineTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종한 백신을 입력해 주세요!", textAlignment: .center)
+    private let noVaccineButton = UIButton.idkButtonBuilder(title: "접종한 백신이 표에 없어요.")
     
     var selectedPet: [PetTable]?
+    var vaccineCategoryCount: Int = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        title = "예방 접종 내역 기록하기"
     }
     
     override func setNavigationBar() {
@@ -63,58 +75,18 @@ final class VaccineViewController: BaseViewController {
             hospitalStackView,
             dateStackView,
             vaccineTypeLabel,
-            vaccineTypeStackView,
-            vaccineButton,
-            inputVaccineTextField,
-            noVaccineButton,
-            priceStackView
+            vaccineCollectionView
         ]
             .forEach{ view.addSubview($0) }
         
         hospitalStackView.AddArrangedSubviews([hospitalLabel, hospitalTextField])
         dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
-        vaccineTypeStackView.AddArrangedSubviews([vaccineTypeTextField, vaccineDetailTextField])
-        priceStackView.AddArrangedSubviews([priceLabel, priceTextField])
         
-        vaccineButton.addTarget(self, action: #selector(vaccineButtonClicked), for: .touchUpInside)
-        noVaccineButton.addTarget(self, action: #selector(noVaccineButtonClicked), for: .touchUpInside)
-    }
-    
-    @objc func noVaccineButtonClicked(_ sender: UIButton) {
-        print("clicked!!")
-        sender.isSelected.toggle()
-        if sender.isSelected {
-            [vaccineTypeTextField, vaccineDetailTextField, vaccineButton].forEach { element in
-                element.isHidden = true
-            }
-            inputVaccineTextField.isHidden = false
-            inputVaccineTextField.isEnabled = true
-        } else {
-            [vaccineTypeTextField, vaccineDetailTextField, vaccineButton].forEach { element in
-                element.isHidden = false
-            }
-            inputVaccineTextField.isHidden = true
-            inputVaccineTextField.isEnabled = false
-        }
-    }
-    
-    @objc func vaccineButtonClicked() {
-        guard let selectedPet else { return }
-        let vc = VaccineTypeViewController()
-        vc.selectedPet = selectedPet.first!
-        vc.modalPresentationStyle = .formSheet
-        vc.completionHandler = { (title, variation) in
-            self.vaccineTypeTextField.text = variation
-            self.vaccineDetailTextField.text = title
-            
-        }
-        let navVC = UINavigationController(rootViewController: vc)
-        present(navVC, animated: true)
     }
     
     override func setConstraints() {
         hospitalStackView.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide).offset(6)
+            make.top.equalTo(view.safeAreaLayoutGuide).offset(10)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
@@ -128,44 +100,19 @@ final class VaccineViewController: BaseViewController {
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
-        vaccineTypeStackView.snp.makeConstraints { make in
+        vaccineCollectionView.snp.makeConstraints { make in
             make.top.equalTo(vaccineTypeLabel)
             make.leading.equalTo(vaccineTypeLabel.snp.trailing).offset(10)
             make.trailing.equalTo(view.safeAreaLayoutGuide).inset(20)
-        }
-        
-        vaccineButton.snp.makeConstraints { make in
-            make.edges.equalTo(vaccineTypeStackView)
-        }
-        
-        inputVaccineTextField.snp.makeConstraints { make in
-            make.verticalEdges.equalTo(vaccineTypeStackView)
-            make.leading.equalTo(hospitalLabel.snp.trailing).offset(12)
-            make.trailing.equalTo(hospitalStackView.snp.trailing)
-        }
-        
-        noVaccineButton.snp.makeConstraints { make in
-            make.top.equalTo(vaccineTypeStackView.snp.bottom)
-            make.leading.equalTo(hospitalLabel.snp.trailing)
-            make.trailing.equalTo(vaccineButton.snp.trailing)
-        }
-        
-        priceStackView.snp.makeConstraints { make in
-            make.top.equalTo(noVaccineButton.snp.bottom).offset(8)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
     }
     
     override func configureView() {
         configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
-        [vaccineTypeTextField, vaccineDetailTextField].forEach { $0.isUserInteractionEnabled = false }
-        
-        inputVaccineTextField.isHidden = true
-        
     }
-    
-
 }
+
 
 
 // setup TextField
@@ -226,4 +173,70 @@ extension VaccineViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
+}
+
+
+// collectionView
+extension VaccineViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if vaccineCategoryCount < 3 {
+            return vaccineCategoryCount + 1 // AddButton까지
+        } else {
+            return vaccineCategoryCount
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let item = indexPath.item
+        let row = indexPath.row
+        print(indexPath)
+        if vaccineCategoryCount < 3 { // AddButton 있음
+            if item == vaccineCategoryCount { // 마지막 Cell이라면
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VaccineAddCollectionViewCell.identifier, for: indexPath) as? VaccineAddCollectionViewCell else { return UICollectionViewCell() }
+                cell.delegate = self
+                return cell
+            } else { // 추가하는 Cell이라면
+                guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VaccineCategoryCollectionViewCell.identifier, for: indexPath) as? VaccineCategoryCollectionViewCell else { return UICollectionViewCell() }
+                cell.delegate = self
+                return cell
+            }
+        } else { // AddButton 없음
+            guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VaccineCategoryCollectionViewCell.identifier, for: indexPath) as? VaccineCategoryCollectionViewCell else { return UICollectionViewCell() }
+            cell.delegate = self
+            return cell
+        }
+    }
+    
+    private func setCollectionViewLayout() -> UICollectionViewFlowLayout {
+        
+        let layout = UICollectionViewFlowLayout()
+        
+        let width = UIScreen.main.bounds.width - 130
+        layout.itemSize = CGSize(width: width, height: 70)
+        
+        return layout
+    }
+}
+
+
+extension VaccineViewController: VaccineProtocol {
+    func addButtonHandler() {
+        vaccineCategoryCount += 1
+        vaccineCollectionView.reloadData()
+    }
+    
+    func deleteButtonHandler() {
+        vaccineCategoryCount -= 1
+        vaccineCollectionView.reloadData()
+    }
+    
+    func presentVaccineVC(vc: VaccineTypeViewController) {
+        
+        guard let selectedPet else { return }
+        vc.selectedPet = selectedPet.first!
+        let navVC = UINavigationController(rootViewController: vc)
+        present(navVC, animated: true)
+    }
+    
+    
 }
