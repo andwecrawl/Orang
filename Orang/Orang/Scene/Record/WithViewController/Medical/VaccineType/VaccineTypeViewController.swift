@@ -34,7 +34,15 @@ class VaccineTypeViewController: BaseViewController {
     }
     
     var dataSource: UICollectionViewDiffableDataSource<Section, Vaccine>! = nil
-    var outlineCollectionView: UICollectionView! = nil
+    lazy var outlineCollectionView = {
+        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: generateLayout())
+        view.addSubview(collectionView)
+        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
+        collectionView.backgroundColor = Design.Color.background
+        collectionView.delegate = self
+        return collectionView
+    }()
+    
     
     var completionHandler: ((String, String) -> ())?
     var selectedPet: PetTable?
@@ -43,7 +51,6 @@ class VaccineTypeViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         selectedPet = PetTable(species: .dog, detailSpecies: "", name: "웅냠", birthday: Date(), belongDate: Date(), weight: 23, weightUnit: .g, RegistrationNum: "")
-        configureCollectionView()
         configureDataSource()
     }
     
@@ -52,7 +59,7 @@ class VaccineTypeViewController: BaseViewController {
     }
     
     override func configureHierarchy() {
-        
+        super.configureHierarchy()
     }
     
     override func setConstraints() {
@@ -60,7 +67,6 @@ class VaccineTypeViewController: BaseViewController {
     }
     
     override func configureView() {
-        
     }
     
     private lazy var menuItems: [Vaccine] = {
@@ -154,15 +160,6 @@ class VaccineTypeViewController: BaseViewController {
 
 extension VaccineTypeViewController {
     
-    func configureCollectionView() {
-        let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: generateLayout())
-        view.addSubview(collectionView)
-        collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
-        collectionView.backgroundColor = .systemGroupedBackground
-        self.outlineCollectionView = collectionView
-        collectionView.delegate = self
-    }
-    
     func configureDataSource() {
         
         let containerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Vaccine> { (cell, indexPath, menuItem) in
@@ -172,13 +169,13 @@ extension VaccineTypeViewController {
             contentConfiguration.textProperties.font = .boldSystemFont(ofSize: 15)
             cell.contentConfiguration = contentConfiguration
             
-            let disclosureOptions = UICellAccessory.OutlineDisclosureOptions(style: .header)
+            var disclosureOptions = UICellAccessory.OutlineDisclosureOptions(style: .header)
+            disclosureOptions.tintColor = Design.Color.tintColor
             cell.accessories = [.outlineDisclosure(options: disclosureOptions)]
             cell.backgroundConfiguration = UIBackgroundConfiguration.clear()
         }
         
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Vaccine> { cell, indexPath, menuItem in
-            // Populate the cell with our item description.
             var contentConfiguration = cell.defaultContentConfiguration()
             contentConfiguration.text = menuItem.title
             contentConfiguration.textProperties.font = .systemFont(ofSize: 15)
@@ -188,7 +185,6 @@ extension VaccineTypeViewController {
         
         dataSource = UICollectionViewDiffableDataSource<Section, Vaccine>(collectionView: outlineCollectionView) {
             (collectionView: UICollectionView, indexPath: IndexPath, item: Vaccine) -> UICollectionViewCell? in
-            // Return the cell.
             if item.subitems.isEmpty {
                 return collectionView.dequeueConfiguredReusableCell(using: cellRegistration, for: indexPath, item: item)
             } else {
@@ -196,7 +192,6 @@ extension VaccineTypeViewController {
             }
         }
         
-        // load our initial data
         let snapshot = initialSnapshot()
         self.dataSource.apply(snapshot, to: .main, animatingDifferences: false)
     }
