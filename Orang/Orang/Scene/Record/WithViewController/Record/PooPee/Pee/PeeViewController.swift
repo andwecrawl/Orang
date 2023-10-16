@@ -19,6 +19,7 @@ final class PeeViewController: BaseViewController {
     
     var list: [CheckRecord<PeeColor>] = []
     var selectedPet: [PetTable]?
+    var selectedPeeColor: CheckRecord<PeeColor>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,11 +72,13 @@ extension PeeViewController: UITableViewDelegate, UITableViewDataSource {
         if list.filter({ $0.ischecked == true }).isEmpty { // 하나도 체크 X
             cell.peeColor?.ischecked.toggle()
             list[row].ischecked.toggle()
+            selectedPeeColor = list[row]
             tableView.reloadData()
         } else { // 체크된 게 있을 때
             if list[row].ischecked == true { // 같은 걸 다시 선택했을 때 => 취소
                 cell.peeColor?.ischecked.toggle()
                 list[row].ischecked.toggle()
+                selectedPeeColor = nil
                 tableView.reloadData()
             } else {
                 for index in list.indices {
@@ -83,6 +86,7 @@ extension PeeViewController: UITableViewDelegate, UITableViewDataSource {
                 }
                 cell.peeColor?.ischecked = true
                 list[row].ischecked = true
+                selectedPeeColor = list[row]
                 tableView.reloadData()
             }
         }
