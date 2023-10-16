@@ -9,27 +9,32 @@ import UIKit
 
 final class ChoosePetCollectionViewCell: BaseCollectionViewCell {
     
-    let imageView = UIImageView.imageViewBuilder(size: 100)
+    let imageView = {
+        let view = UIImageView.imageViewBuilder(size: 100)
+        view.layer.borderWidth = 5
+        return view
+    }()
     
-    let nameLabel = UILabel.labelBuilder(size: 13, weight: .medium, settingTitle: false)
+    let nameLabel = UILabel.labelBuilder(size: 14, weight: .semibold, alignment: .center, settingTitle: false)
     
     var pet: PetTable?
     var isSelectedPet: Bool?
+    var recordType: RecordType?
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-
+        
     }
     
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        imageView.layer.borderWidth = 5
-        nameLabel.textAlignment = .center
-        
-        self.addSubview(imageView)
-        self.addSubview(nameLabel)
+        [
+            imageView,
+            nameLabel
+        ]
+            .forEach { self.addSubview($0) }
     }
     
     override func setConstraints() {
@@ -47,6 +52,7 @@ final class ChoosePetCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func configureView() {
+        guard let recordType else { return }
         guard let pet else { return }
         guard let isSelectedPet else { return }
         
