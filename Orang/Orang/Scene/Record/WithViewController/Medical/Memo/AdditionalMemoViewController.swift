@@ -44,6 +44,13 @@ final class AdditionalMemoViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
+        
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
+        navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc func saveButtonClicked() {
+        // 기록 save
     }
     
     override func configureHierarchy() {
@@ -77,6 +84,7 @@ final class AdditionalMemoViewController: BaseViewController {
     }
     
     override func configureView() {
+        informationLabel.numberOfLines = 0
     }
     
 }
