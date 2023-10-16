@@ -23,7 +23,7 @@ class BaseViewController: UIViewController {
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
         
-        navigationItem.largeTitleDisplayMode = .always
+        navigationItem.largeTitleDisplayMode = .automatic
     }
     
     func configureHierarchy() {
