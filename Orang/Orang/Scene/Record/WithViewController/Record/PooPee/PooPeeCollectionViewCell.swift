@@ -33,6 +33,15 @@ final class PooPeeTableViewCell: BaseTableViewCell {
     var pooColor: CheckRecord<PooColor>?
     var pooForm: CheckRecord<PooForm>?
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        dropImageView.tintColor = .gray
+        checkbox.setCheckState(.unchecked, animated: false)
+        subtitleLabel.isHidden = true
+        subtitleLabel.text = ""
+    }
+    
     override func configureHierarchy() {
         super.configureHierarchy()
         
