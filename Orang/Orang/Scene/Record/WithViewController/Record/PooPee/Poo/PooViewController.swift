@@ -21,6 +21,7 @@ final class PooViewController: BaseViewController {
     var formList: [CheckRecord<PooForm>] = []
     var selectedPet: [PetTable]?
     var selectedPoo: CheckRecord<PooColor>?
+    var selectedForm: CheckRecord<PooForm>?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,8 +90,8 @@ extension PooViewController: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: PooPeeTableViewCell.identifier, for: indexPath) as? PooPeeTableViewCell else { return UITableViewCell() }
         let row = indexPath.row
         if section == 0 {
-            cell.pooForm = nil
             cell.pooColor = colorList[row]
+            cell.pooForm = nil
         } else {
             cell.pooColor = nil
             cell.pooForm = formList[row]
@@ -114,17 +115,21 @@ extension PooViewController: UITableViewDelegate, UITableViewDataSource {
                 selectedPoo = colorList[row]
                 colorList[row].ischecked.toggle()
                 tableView.reloadData()
-                tableView.scrollToRow(at: [1, 0], at: .top, animated: true)
+                if selectedPoo?.type != PooColor.none {
+                    tableView.scrollToRow(at: [1, 0], at: .top, animated: true)
+                }
             }
         } else {
             if formList[row].ischecked == true {
                 formList[row].ischecked.toggle()
+                selectedForm = formList[row]
                 tableView.reloadRows(at: [indexPath], with: .automatic)
             } else {
                 for index in formList.indices {
                     formList[index].ischecked = false
                 }
                 formList[row].ischecked.toggle()
+                selectedForm = formList[row]
                 tableView.reloadData()
             }
         }
