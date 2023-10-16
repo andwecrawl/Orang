@@ -26,14 +26,10 @@ final class MedicalHistoryViewController: BaseViewController {
     
     var selectedPet: [PetTable]?
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
         
-        additionalMemo.removeFromParent()
     }
     
     override func setNavigationBar() {
@@ -48,14 +44,16 @@ final class MedicalHistoryViewController: BaseViewController {
         [
             hospitalStackView,
             dateStackView,
-            whyStackView
+            whyStackView,
+            memoView
         ]
             .forEach{ view.addSubview($0) }
         
         hospitalStackView.AddArrangedSubviews([hospitalLabel, hospitalTextField])
         dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
         whyStackView.AddArrangedSubviews([whyLabel, whyTextField])
-        addMemoVC()
+        
+        addMemo()
     }
     
     override func setConstraints() {
@@ -78,6 +76,7 @@ final class MedicalHistoryViewController: BaseViewController {
         additionalMemo.view.snp.makeConstraints { make in
             make.top.equalTo(whyStackView.snp.bottom).offset(20)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
+            make.bottom.equalTo(view.safeAreaLayoutGuide)
         }
         
     }
@@ -87,11 +86,17 @@ final class MedicalHistoryViewController: BaseViewController {
     }
     
     
-    func addMemoVC() {
+    private func addMemo() {
         additionalMemo.willMove(toParent: self)
         self.addChild(additionalMemo)
         view.addSubview(additionalMemo.view)
         additionalMemo.didMove(toParent: self)
+    }
+    
+    private func removeMemo() {
+        additionalMemo.willMove(toParent: nil)
+        additionalMemo.removeFromParent()
+        additionalMemo.view.removeFromSuperview()
     }
 
 }
@@ -149,16 +154,7 @@ extension MedicalHistoryViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         if textField == dateTextField || textField == timeTextField {
             return false
-        }
-//        else if textField == numberTextField {
-//            let isNumber = CharacterSet.decimalDigits.isSuperset(of: CharacterSet(charactersIn: string))
-//            let withDecimal = (
-//                string == NumberFormatter().decimalSeparator &&
-//                textField.text?.contains(string) == false
-//            )
-//            return isNumber || withDecimal
-//        }
-        else {
+        } else {
             return true
         }
     }
