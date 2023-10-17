@@ -104,7 +104,7 @@ final class AddViewController: BaseViewController {
         }
         
         if let pet {
-            repository.update(id: pet._id, newPet)
+            repository.updatePet(id: pet._id, newPet)
         } else {
             repository.create(newPet)
         }
