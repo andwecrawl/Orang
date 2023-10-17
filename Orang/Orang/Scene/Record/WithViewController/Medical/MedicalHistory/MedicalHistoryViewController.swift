@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class MedicalHistoryViewController: BaseViewController {
+final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
     
     private let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
     private let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized(), textAlignment: .center)
@@ -26,6 +26,7 @@ final class MedicalHistoryViewController: BaseViewController {
     
     var selectedPet: [PetTable]?
     
+    let repository = PetTableRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +43,35 @@ final class MedicalHistoryViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
+        guard let pet = selectedPet?.first else { return }
+        guard let date = dateTextField.text else { return }
+        guard let time = timeTextField.text else { return }
+        guard let treatmentDate = "\(date) \(time)".toDateContainsTime() else { return }
+        guard let hospital = hospitalTextField.text else {
+            self.sendOneSidedAlert(title: "병원명을 입력해 주세요!")
+            return
+        }
+        guard let treatment = whyTextField.text else { return }
+        guard let content = additionalMemo.contentTextView.text else { return }
+        
+        
+        let record = MedicalRecordTable(hospital: hospital, petId: pet._id, treatmentDate: treatmentDate, recordType: .treatmentRecord, treatment: treatment, content: content, imageArray: [])
+        var imageIdentifiers: [String] = []
+        // photo 추가
+        let images = additionalMemo.images
+        for index in images.indices {
+            let identifier = "\(date)\(index)"
+            imageIdentifiers.append(identifier)
+            if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
+                sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                return
+            }
+        }
+        record.imageArray = imageIdentifiers
+        
+        repository.updateMedicalRecords(id: pet._id, record)
+        print("saved!!")
+        moveToFirstScene()
         
     }
 
