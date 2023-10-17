@@ -12,8 +12,8 @@ import PhotosUI
 final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
     
     private let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
-    private let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
-    private let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
+    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
     private let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     private let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
@@ -76,21 +76,41 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, pooColor: selectedPooColor, pooForm: selectedPooForm, content: content, images: [])
             
             
+            var imageIdentifiers: [String] = []
+            // photo 추가
+            for index in images.indices {
+                let identifier = "\(date)\(index)"
+                imageIdentifiers.append(identifier)
+                if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
+                    sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                    return
+                }
+            }
+            record.imageArray = imageIdentifiers
+            
             repository.updateRecords(id: pet._id, record)
-            
             print("saved!!")
-            
             moveToFirstScene()
             
         } else if let selectedPeeColor { // 소변
             let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, peeColor: selectedPeeColor, content: content, images: [])
             
+            var imageIdentifiers: [String] = []
+            // photo 추가
+            for index in images.indices {
+                let identifier = "\(date)\(index)"
+                imageIdentifiers.append(identifier)
+                if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
+                    sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                    return
+                }
+            }
+            record.imageArray = imageIdentifiers
             
             repository.updateRecords(id: pet._id, record)
-            
             print("saved!!")
-            
             moveToFirstScene()
+            
         } else if let selectedSymptoms { // 이상 증상
             
             var symptoms: [AbnormalSymptomsType] = []
@@ -99,11 +119,23 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
                     symptoms.append(symptom)
                 }
             }
+            
             let record = RecordTable(recordType: .abnormalSymptoms, petID: pet._id, recordDate: recordDate, abnormalSymptoms: symptoms, content: content, images: [])
-            // 이미지 저장한 뒤 record에 넣는 로직 필요함
+            
+            var imageIdentifiers: [String] = []
+            // photo 추가
+            for index in images.indices {
+                let identifier = "\(date)\(index)"
+                imageIdentifiers.append(identifier)
+                if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
+                    sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                    return
+                }
+            }
+            record.imageArray = imageIdentifiers
+            
             repository.updateRecords(id: pet._id, record)
             print("saved!!")
-            
             moveToFirstScene()
         }
     }
