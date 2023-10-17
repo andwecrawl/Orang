@@ -12,6 +12,7 @@
 		D1370A662ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */; };
 		D1370A682ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A672ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift */; };
 		D1370A6D2ADE5C3800FCBD67 /* moveToFirstScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A6C2ADE5C3800FCBD67 /* moveToFirstScene.swift */; };
+		D1370A6F2ADE600700FCBD67 /* MedicalRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A6E2ADE600700FCBD67 /* MedicalRecordType.swift */; };
 		D182730A2AD0F31200F4709B /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273092AD0F31200F4709B /* Date+.swift */; };
 		D18273102AD26F5900F4709B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D182730F2AD26F5900F4709B /* FSCalendar */; };
 		D18273142AD2CEA200F4709B /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273132AD2CEA200F4709B /* Unit.swift */; };
@@ -57,7 +58,6 @@
 		D1BB7FB92AD467E9001FFF1C /* AlertSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FB82AD467E9001FFF1C /* AlertSetting.swift */; };
 		D1BB7FBC2AD4683B001FFF1C /* DailyTodo.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */; };
 		D1BB7FBE2AD51ABF001FFF1C /* RecordTableRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBD2AD51ABF001FFF1C /* RecordTableRepository.swift */; };
-		D1BB7FC02AD51F62001FFF1C /* DiaryTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */; };
 		D1BB7FC22AD51FC2001FFF1C /* RecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */; };
 		D1BB7FC42AD52082001FFF1C /* MedicalRecordTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */; };
 		D1BB7FC72AD5314F001FFF1C /* AbnormalSymptomsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */; };
@@ -91,6 +91,7 @@
 		D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1370A672ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1370A6C2ADE5C3800FCBD67 /* moveToFirstScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moveToFirstScene.swift; sourceTree = "<group>"; };
+		D1370A6E2ADE600700FCBD67 /* MedicalRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordType.swift; sourceTree = "<group>"; };
 		D18273092AD0F31200F4709B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		D18273132AD2CEA200F4709B /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
@@ -136,7 +137,6 @@
 		D1BB7FB82AD467E9001FFF1C /* AlertSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertSetting.swift; sourceTree = "<group>"; };
 		D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyTodo.swift; sourceTree = "<group>"; };
 		D1BB7FBD2AD51ABF001FFF1C /* RecordTableRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableRepository.swift; sourceTree = "<group>"; };
-		D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryTable.swift; sourceTree = "<group>"; };
 		D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTable.swift; sourceTree = "<group>"; };
 		D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordTable.swift; sourceTree = "<group>"; };
 		D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AbnormalSymptomsViewController.swift; sourceTree = "<group>"; };
@@ -218,6 +218,41 @@
 				D1370A672ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift */,
 			);
 			path = TypeCell;
+			sourceTree = "<group>";
+		};
+		D1370A702ADE608200FCBD67 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */,
+				D1BB7FBD2AD51ABF001FFF1C /* RecordTableRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		D1370A712ADE608D00FCBD67 /* Table */ = {
+			isa = PBXGroup;
+			children = (
+				D1370A722ADE609100FCBD67 /* Pet */,
+				D1370A732ADE609500FCBD67 /* Record */,
+			);
+			path = Table;
+			sourceTree = "<group>";
+		};
+		D1370A722ADE609100FCBD67 /* Pet */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA59422AC7364D007437F4 /* PetTable.swift */,
+			);
+			path = Pet;
+			sourceTree = "<group>";
+		};
+		D1370A732ADE609500FCBD67 /* Record */ = {
+			isa = PBXGroup;
+			children = (
+				D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */,
+				D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */,
+			);
+			path = Record;
 			sourceTree = "<group>";
 		};
 		D18273082AD0950100F4709B /* Add */ = {
@@ -429,11 +464,8 @@
 		D1BA59412AC73614007437F4 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
-				D1BA59422AC7364D007437F4 /* PetTable.swift */,
-				D1BB7FC12AD51FC2001FFF1C /* RecordTable.swift */,
-				D1BB7FC52AD5296E001FFF1C /* Later */,
-				D1B52EC52ACAE1D000477A14 /* PetTableRepository.swift */,
-				D1BB7FBD2AD51ABF001FFF1C /* RecordTableRepository.swift */,
+				D1370A712ADE608D00FCBD67 /* Table */,
+				D1370A702ADE608200FCBD67 /* Repository */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -479,15 +511,6 @@
 				D1BB7FBB2AD4683B001FFF1C /* DailyTodo.swift */,
 			);
 			path = AlertSetting;
-			sourceTree = "<group>";
-		};
-		D1BB7FC52AD5296E001FFF1C /* Later */ = {
-			isa = PBXGroup;
-			children = (
-				D1BB7FBF2AD51F62001FFF1C /* DiaryTable.swift */,
-				D1BB7FC32AD52082001FFF1C /* MedicalRecordTable.swift */,
-			);
-			path = Later;
 			sourceTree = "<group>";
 		};
 		D1BB7FD02AD570A3001FFF1C /* WithViewController */ = {
@@ -575,6 +598,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */,
+				D1370A6E2ADE600700FCBD67 /* MedicalRecordType.swift */,
 				D1BB80192ADA715D001FFF1C /* CheckRecord */,
 				D1BB80102ADA6C6D001FFF1C /* PeePoo */,
 				D1BB801A2ADA7165001FFF1C /* AbnormalSymptoms */,
@@ -730,7 +754,6 @@
 				D1BA59352AC6B887007437F4 /* LabelBuilder.swift in Sources */,
 				D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */,
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
-				D1BB7FC02AD51F62001FFF1C /* DiaryTable.swift in Sources */,
 				D1BB7FFF2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift in Sources */,
 				D1B52F0E2AD002A800477A14 /* WeightRecordViewController.swift in Sources */,
 				D1BB7FD42AD679DF001FFF1C /* AbnormalSymptoms.swift in Sources */,
@@ -752,6 +775,7 @@
 				D1B52EC62ACAE1D000477A14 /* PetTableRepository.swift in Sources */,
 				D1BB7FAD2AD3D009001FFF1C /* PicCollectionViewCell.swift in Sources */,
 				D1BB80182ADA714C001FFF1C /* CheckProtocol.swift in Sources */,
+				D1370A6F2ADE600700FCBD67 /* MedicalRecordType.swift in Sources */,
 				D1BB7FCF2AD55BF2001FFF1C /* WithViewController.swift in Sources */,
 				D1B52EC22AC9931F00477A14 /* ButtonBuilder.swift in Sources */,
 				D1BA59572AC82D08007437F4 /* String+.swift in Sources */,
