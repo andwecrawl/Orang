@@ -9,7 +9,7 @@ import UIKit
 import PhotosUI
 
 
-final class AdditionalMemoViewController: BaseViewController {
+final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
     
     private let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
     
@@ -23,7 +23,7 @@ final class AdditionalMemoViewController: BaseViewController {
         return view
     }()
     
-    private let contentTextView = UITextView.TextViewBuilder()
+    let contentTextView = UITextView.TextViewBuilder()
     
     var selectedPet: [PetTable]?
     var recordType: RecordType?
@@ -31,7 +31,7 @@ final class AdditionalMemoViewController: BaseViewController {
     
     var picCount: Int = 0
     
-    private var images: [UIImage] = [] {
+    var images: [UIImage] = [] {
         didSet {
             collectionView.reloadData()
         }
