@@ -50,6 +50,7 @@ final class AbnormalSymptomsViewController: BaseViewController {
         if selectedSymptoms.isEmpty { sendOneSidedAlert(title: "이상 증상을 선택해 주세요!") }
         vc.recordType = .abnormalSymptoms
         vc.selectedSymptoms = selectedSymptoms
+        vc.selectedPet = selectedPet
         navigationController?.pushViewController(vc, animated: true)
     }
     
