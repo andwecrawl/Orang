@@ -15,6 +15,9 @@ class ImageManager {
     
     enum DirectoryName: String {
         case profile
+        case diaries
+        case dailyRecords
+        case medicalRecords
     }
     
     let fileManager = FileManager.default
@@ -27,7 +30,7 @@ class ImageManager {
     func createURL(URLCase: FileURLCase, directoryName: DirectoryName, identifier: String) -> (URL, String) {
         let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
-        let imageName = "\(directoryName.rawValue)_\(identifier).jpeg"
+        let imageName = "\(identifier).jpeg"
         let fileURL = directoryURL.appendingPathComponent(imageName)
         switch URLCase {
         case .directory:
@@ -52,7 +55,10 @@ class ImageManager {
     }
     
     func saveImageToDirectory(directoryName: DirectoryName, identifier: String, image: UIImage?) -> Bool {
+        makeDirectory(directoryName: directoryName)
+        
         let (fileURL, _) = createURL(URLCase: .fileURL, directoryName: directoryName, identifier: identifier)
+        
         guard let image else { return false }
         
         do {
