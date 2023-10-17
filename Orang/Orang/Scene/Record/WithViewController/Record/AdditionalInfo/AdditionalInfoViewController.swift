@@ -9,16 +9,16 @@ import UIKit
 import PhotosUI
 
 
-final class AdditionalInfoViewController: BaseViewController {
+final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
     
-    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
-    let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
+    private let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    private let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
+    private let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
-    let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
+    private let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
     
-    lazy var collectionView = {
+    private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
         view.register(PicCollectionViewCell.self, forCellWithReuseIdentifier: PicCollectionViewCell.identifier)
         view.register(AddCollectionViewCell.self, forCellWithReuseIdentifier: AddCollectionViewCell.identifier)
@@ -28,7 +28,7 @@ final class AdditionalInfoViewController: BaseViewController {
         return view
     }()
     
-    let contentTextView = UITextView.TextViewBuilder()
+    private let contentTextView = UITextView.TextViewBuilder()
     
     var selectedPet: [PetTable]?
     var recordType: RecordType?
@@ -36,7 +36,6 @@ final class AdditionalInfoViewController: BaseViewController {
     var selectedPooForm: PooForm?
     var selectedPeeColor: PeeColor?
     var selectedSymptoms: [Any]?
-    var recordDate: (date: Date, time: Date)?
     
     var picCount: Int = 0
     
@@ -71,6 +70,7 @@ final class AdditionalInfoViewController: BaseViewController {
         guard let time = timeTextField.text else { return }
         guard let recordDate = "\(date) \(time)".toDateContainsTime() else { return }
         let content = contentTextView.text
+        
         if let selectedPooColor { // 대변
             
             let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, pooColor: selectedPooColor, pooForm: selectedPooForm, content: content, images: [])
@@ -78,11 +78,19 @@ final class AdditionalInfoViewController: BaseViewController {
             
             repository.updateRecords(id: pet._id, record)
             
+            print("saved!!")
+            
+            moveToFirstScene()
+            
         } else if let selectedPeeColor { // 소변
             let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, peeColor: selectedPeeColor, content: content, images: [])
             
             
             repository.updateRecords(id: pet._id, record)
+            
+            print("saved!!")
+            
+            moveToFirstScene()
         } else if let selectedSymptoms { // 이상 증상
             
             var symptoms: [AbnormalSymptomsType] = []
@@ -95,6 +103,8 @@ final class AdditionalInfoViewController: BaseViewController {
             // 이미지 저장한 뒤 record에 넣는 로직 필요함
             repository.updateRecords(id: pet._id, record)
             print("saved!!")
+            
+            moveToFirstScene()
         }
     }
     
@@ -142,6 +152,8 @@ final class AdditionalInfoViewController: BaseViewController {
     
 }
 
+
+// collectionViewSetting
 extension AdditionalInfoViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
@@ -174,10 +186,6 @@ extension AdditionalInfoViewController: UICollectionViewDataSource, UICollection
         }
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
-    }
-    
     func setCollectionViewLayout() -> UICollectionViewFlowLayout {
         let layout = UICollectionViewFlowLayout()
         let space: CGFloat = 4
@@ -191,6 +199,7 @@ extension AdditionalInfoViewController: UICollectionViewDataSource, UICollection
         return layout
     }
 }
+
 
 extension AdditionalInfoViewController: PHPickerViewControllerDelegate, AddDelegate {
     func openPhotoAlbum() {
