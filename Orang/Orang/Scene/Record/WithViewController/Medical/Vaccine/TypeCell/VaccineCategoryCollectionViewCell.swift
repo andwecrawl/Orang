@@ -69,7 +69,6 @@ class VaccineCategoryCollectionViewCell: BaseCollectionViewCell {
     
     override func setConstraints() {
         
-        
         vaccineTypeTextField.snp.makeConstraints { make in
             make.top.horizontalEdges.equalToSuperview().inset(4)
         }
@@ -96,6 +95,7 @@ class VaccineCategoryCollectionViewCell: BaseCollectionViewCell {
     
     
     override func configureView() {
+        vaccineTypeTextField.isUserInteractionEnabled = false
     }
     
 }
