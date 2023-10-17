@@ -16,7 +16,7 @@ final class RecordViewController: BaseViewController {
     let recordView = UIView.shadowViewBuilder()
     let recordTitleLabel = UILabel.labelBuilder(text: "생활 기록 추가하기", size: 17, weight: .bold, settingTitle: false)
     let firstRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "몸무게")
-    let secondRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "사료/간식")
+    let secondRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "간식")
     let thirdRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "대소변")
     let fourthRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "이상 증상")
     let recordStackView = UIStackView.stackViewBuilder()
