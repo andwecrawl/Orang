@@ -59,7 +59,14 @@ final class VaccineViewController: BaseViewController {
     }
     
     @objc func nextButtonClicked() {
-        // 병원 이름 / 날짜, 시간 / 접종 항목 / 접종 비용 넘겨야 함
+        guard let date = dateTextField.text else { return }
+        guard let time = timeTextField.text else { return }
+        guard let treatmentDate = "\(date) \(time)".toDateContainsTime() else { return }
+        guard let hospital = hospitalTextField.text else {
+            self.sendOneSidedAlert(title: "병원명을 입력해 주세요!")
+            return
+        }
+        
         let vc = AdditionalMemoViewController()
         vc.title = "추가로 기록하기"
         vc.selectedPet = selectedPet
