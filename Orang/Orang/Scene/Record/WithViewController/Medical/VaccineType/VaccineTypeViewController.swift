@@ -9,6 +9,8 @@ import UIKit
 
 class VaccineTypeViewController: BaseViewController {
     
+    let informationLabel = UILabel.labelBuilder(size: 15, weight: .semibold)
+    
     enum Section {
         case main
     }
@@ -61,17 +63,32 @@ class VaccineTypeViewController: BaseViewController {
         super.configureHierarchy()
         
         [
-            
+            informationLabel,
             outlineCollectionView
         ]
             .forEach({ view.addSubview($0) })
     }
     
     override func setConstraints() {
-        
+        informationLabel.snp.makeConstraints { make in
+            make.center.equalTo(view.safeAreaLayoutGuide)
+        }
     }
     
     override func configureView() {
+        guard let selectedPet else { return }
+        let species = selectedPet.species
+        if species == .etc {
+            guard let detail = selectedPet.detailSpecies else { return }
+            outlineCollectionView.isHidden = true
+            informationLabel.text = "\(detail)의 경우 예방 접종 항목을 제공하지 않습니다!"
+        } else if !(species == .cat || species == .dog || species == .rabbit) {
+            outlineCollectionView.isHidden = true
+            informationLabel.text = "\(species.toString)의 경우 예방 접종 항목을 제공하지 않습니다!"
+        } else {
+            outlineCollectionView.isHidden = false
+            informationLabel.isHidden = true
+        }
     }
     
     private lazy var menuItems: [Vaccine] = {
@@ -168,7 +185,6 @@ extension VaccineTypeViewController {
     private func configureDataSource() {
         
         let containerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Vaccine> { (cell, indexPath, menuItem) in
-            // Populate the cell with our item description.
             var contentConfiguration = cell.defaultContentConfiguration()
             contentConfiguration.text = menuItem.title
             contentConfiguration.textProperties.font = .boldSystemFont(ofSize: 15)
@@ -224,7 +240,7 @@ extension VaccineTypeViewController {
 }
 
 extension VaccineTypeViewController: UICollectionViewDelegate {
-    private func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let menuItem = self.dataSource.itemIdentifier(for: indexPath) else { return }
         
         completionHandler?(menuItem.title, menuItem.variation)
