@@ -9,7 +9,7 @@ import UIKit
 
 class VaccineAddCollectionViewCell: BaseCollectionViewCell {
     
-    let addButton = {
+    private let addButton = {
         let button = UIButton()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 15)
         let image = UIImage(systemName: "plus", withConfiguration: imageConfig)

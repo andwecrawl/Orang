@@ -34,7 +34,7 @@ class VaccineTypeViewController: BaseViewController {
     }
     
     var dataSource: UICollectionViewDiffableDataSource<Section, Vaccine>! = nil
-    lazy var outlineCollectionView = {
+    private lazy var outlineCollectionView = {
         let collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: generateLayout())
         view.addSubview(collectionView)
         collectionView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -50,7 +50,6 @@ class VaccineTypeViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        selectedPet = PetTable(species: .dog, detailSpecies: "", name: "웅냠", birthday: Date(), belongDate: Date(), weight: 23, weightUnit: .g, RegistrationNum: "")
         configureDataSource()
     }
     
@@ -60,6 +59,12 @@ class VaccineTypeViewController: BaseViewController {
     
     override func configureHierarchy() {
         super.configureHierarchy()
+        
+        [
+            
+            outlineCollectionView
+        ]
+            .forEach({ view.addSubview($0) })
     }
     
     override func setConstraints() {
@@ -160,7 +165,7 @@ class VaccineTypeViewController: BaseViewController {
 
 extension VaccineTypeViewController {
     
-    func configureDataSource() {
+    private func configureDataSource() {
         
         let containerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Vaccine> { (cell, indexPath, menuItem) in
             // Populate the cell with our item description.
@@ -196,13 +201,13 @@ extension VaccineTypeViewController {
         self.dataSource.apply(snapshot, to: .main, animatingDifferences: false)
     }
     
-    func generateLayout() -> UICollectionViewLayout {
+    private func generateLayout() -> UICollectionViewLayout {
         let listConfiguration = UICollectionLayoutListConfiguration(appearance: .sidebar)
         let layout = UICollectionViewCompositionalLayout.list(using: listConfiguration)
         return layout
     }
     
-    func initialSnapshot() -> NSDiffableDataSourceSectionSnapshot<Vaccine> {
+    private func initialSnapshot() -> NSDiffableDataSourceSectionSnapshot<Vaccine> {
         var snapshot = NSDiffableDataSourceSectionSnapshot<Vaccine>()
         
         func addItems(_ menuItems: [Vaccine], to parent: Vaccine?) {
@@ -219,7 +224,7 @@ extension VaccineTypeViewController {
 }
 
 extension VaccineTypeViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+    private func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let menuItem = self.dataSource.itemIdentifier(for: indexPath) else { return }
         
         completionHandler?(menuItem.title, menuItem.variation)

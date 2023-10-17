@@ -9,19 +9,19 @@ import UIKit
 
 final class WeightRecordViewController: BaseViewController {
     
-    let weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(),size: 16, weight: .semibold, settingTitle: true)
-    let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputNumber".localized())
-    let weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
+    private let weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(),size: 16, weight: .semibold, settingTitle: true)
+    private let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputNumber".localized())
+    private let weightUnitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
         UIAction(title: Unit.g.rawValue, handler: { _ in }),
         UIAction(title: Unit.kg.rawValue, handler: { _ in }),
         UIAction(title: Unit.lb.rawValue, handler: { _ in }),
     ])
-    let weightStackView = UIStackView.stackViewBuilder()
+    private let weightStackView = UIStackView.stackViewBuilder()
     
-    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
-    let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
+    private let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    private let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
+    private let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     var selectedPet: [PetTable]?
     
@@ -37,8 +37,6 @@ final class WeightRecordViewController: BaseViewController {
         
         let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
-        
-        
     }
     
     @objc func saveButtonClicked() {
@@ -110,11 +108,9 @@ extension WeightRecordViewController {
     // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
-            //            birth = sender.date
             dateTextField.text = sender.date.toFormattedString()
             
         } else {
-            //            meetDate = sender.date
             timeTextField.text = sender.date.toFormattedStringTime()
         }
     }

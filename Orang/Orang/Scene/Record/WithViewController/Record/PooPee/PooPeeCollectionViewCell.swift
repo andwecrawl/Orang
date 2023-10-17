@@ -9,16 +9,16 @@ import UIKit
 import M13Checkbox
 
 final class PooPeeTableViewCell: BaseTableViewCell {
-    let outerView = UIView()
-    let dropImageView = {
+    private let outerView = UIView()
+    private let dropImageView = {
         let view = UIImageView(image: UIImage(systemName: "drop.fill")?.withTintColor(.gray, renderingMode: .alwaysTemplate))
         view.contentMode = .scaleAspectFit
         return view
     }()
-    let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 16, weight: .bold)
-    let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 14, weight: .regular)
+    private let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 16, weight: .bold)
+    private let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 14, weight: .regular)
     
-    let checkbox = {
+    private let checkbox = {
         let button = M13Checkbox(frame: .zero)
         button.stateChangeAnimation = .bounce(.fill) // orFlat
         button.markType = .checkmark
@@ -27,7 +27,7 @@ final class PooPeeTableViewCell: BaseTableViewCell {
         return button
     }()
     
-    let labelStackView = UIStackView.stackViewBuilder(space: 4, axis: .vertical)
+    private let labelStackView = UIStackView.stackViewBuilder(space: 4, axis: .vertical)
     
     var peeColor: CheckRecord<PeeColor>?
     var pooColor: CheckRecord<PooColor>?

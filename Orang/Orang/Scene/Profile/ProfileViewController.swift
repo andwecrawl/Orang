@@ -10,7 +10,7 @@ import RealmSwift
 
 final class ProfileViewController: BaseViewController {
 
-    let collectionView = {
+    private let collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: configureCollectionViewLayout())
         view.register(ProfileCollectionViewCell.self, forCellWithReuseIdentifier: ProfileCollectionViewCell.identifier)
         view.keyboardDismissMode = .onDrag

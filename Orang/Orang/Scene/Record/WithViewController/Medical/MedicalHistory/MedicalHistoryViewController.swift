@@ -9,20 +9,20 @@ import UIKit
 
 final class MedicalHistoryViewController: BaseViewController {
     
-    let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
-    let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized(), textAlignment: .center)
-    let hospitalStackView = UIStackView.stackViewBuilder()
+    private let hospitalLabel = UILabel.labelBuilder(text: "hospitalName".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let hospitalTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputHospitalName".localized(), textAlignment: .center)
+    private let hospitalStackView = UIStackView.stackViewBuilder()
     
-    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
-    let dateStackView = UIStackView.stackViewBuilder()
+    private let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    private let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
+    private let dateStackView = UIStackView.stackViewBuilder()
     
-    let whyLabel = UILabel.labelBuilder(text: "내원 사유".localized(), size: 16, weight: .bold, settingTitle: true)
-    let whyTextField = UnderLineTextField.textFieldBuilder(placeholder: "아이의 증상을 작성해 주세요!", textAlignment: .center)
-    let whyStackView = UIStackView.stackViewBuilder()
+    private let whyLabel = UILabel.labelBuilder(text: "내원 사유".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let whyTextField = UnderLineTextField.textFieldBuilder(placeholder: "아이의 증상을 작성해 주세요!", textAlignment: .center)
+    private let whyStackView = UIStackView.stackViewBuilder()
     
-    let additionalMemo = AdditionalMemoViewController()
+    private let additionalMemo = AdditionalMemoViewController()
     
     var selectedPet: [PetTable]?
     
@@ -36,7 +36,15 @@ final class MedicalHistoryViewController: BaseViewController {
         super.setNavigationBar()
         
         title = "진료 내역 기록하기"
+        
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
+        navigationItem.rightBarButtonItem = saveButton
     }
+    
+    @objc func saveButtonClicked() {
+        
+    }
+
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -44,8 +52,7 @@ final class MedicalHistoryViewController: BaseViewController {
         [
             hospitalStackView,
             dateStackView,
-            whyStackView,
-            memoView
+            whyStackView
         ]
             .forEach{ view.addSubview($0) }
         

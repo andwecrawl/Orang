@@ -9,30 +9,30 @@ import UIKit
 
 class ProfileCollectionViewCell: BaseCollectionViewCell {
     
-    let innerView = UIView()
-    let outerView = UIView()
+    private let innerView = UIView()
+    private let outerView = UIView()
     
-    let profileImageView = UIImageView.imageViewBuilder(size: 130)
+    private let profileImageView = UIImageView.imageViewBuilder(size: 130)
     
-    let dateLabel = UILabel.labelBuilder(size: 13, weight: .light, color: .lightGray, alignment: .right, settingTitle: false)
-    let belongLabel = UILabel.labelBuilder(size: 16, weight: .bold, color: .black, alignment: .right, settingTitle: false)
+    private let dateLabel = UILabel.labelBuilder(size: 13, weight: .light, color: .lightGray, alignment: .right, settingTitle: false)
+    private let belongLabel = UILabel.labelBuilder(size: 16, weight: .bold, color: .black, alignment: .right, settingTitle: false)
     
-    let speciesSettingLabel = UILabel.labelBuilder(text: "speciesSetting".localized(),size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
-    let nameSettingLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
-    let birthSettingLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
-    let weightSettingLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
+    private let speciesSettingLabel = UILabel.labelBuilder(text: "speciesSetting".localized(),size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
+    private let nameSettingLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
+    private let birthSettingLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
+    private let weightSettingLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
     
-    let speciesLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
-    let nameLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
-    let birthLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
-    let weightLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
+    private let speciesLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
+    private let nameLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
+    private let birthLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
+    private let weightLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
     
-    let speciesStackView = UIStackView.stackViewBuilder()
-    let nameStackView = UIStackView.stackViewBuilder()
-    let birthStackView = UIStackView.stackViewBuilder()
-    let weightStackView = UIStackView.stackViewBuilder()
+    private let speciesStackView = UIStackView.stackViewBuilder()
+    private let nameStackView = UIStackView.stackViewBuilder()
+    private let birthStackView = UIStackView.stackViewBuilder()
+    private let weightStackView = UIStackView.stackViewBuilder()
     
-    let profileStackView = UIStackView.stackViewBuilder(space: 8)
+    private let profileStackView = UIStackView.stackViewBuilder(space: 8)
     
     var pet: PetTable?
     

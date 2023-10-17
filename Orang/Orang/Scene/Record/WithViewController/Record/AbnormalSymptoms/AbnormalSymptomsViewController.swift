@@ -9,7 +9,7 @@ import UIKit
 
 final class AbnormalSymptomsViewController: BaseViewController {
     
-    lazy var tableView = {
+    private lazy var tableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.register(AbnormalSymptomsTableViewCell.self, forCellReuseIdentifier: AbnormalSymptomsTableViewCell.identifier)
         view.rowHeight = UITableView.automaticDimension

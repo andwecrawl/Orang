@@ -9,7 +9,7 @@ import UIKit
 
 final class PooViewController: BaseViewController {
     
-    lazy var tableView = {
+    private lazy var tableView = {
         let view = UITableView(frame: .zero, style: .grouped)
         view.register(PooPeeTableViewCell.self, forCellReuseIdentifier: PooPeeTableViewCell.identifier)
         view.delegate = self

@@ -11,9 +11,9 @@ import PhotosUI
 
 final class AdditionalMemoViewController: BaseViewController {
     
-    let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
+    private let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
     
-    lazy var collectionView = {
+    private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
         view.register(PicCollectionViewCell.self, forCellWithReuseIdentifier: PicCollectionViewCell.identifier)
         view.register(AddCollectionViewCell.self, forCellWithReuseIdentifier: AddCollectionViewCell.identifier)
@@ -23,7 +23,7 @@ final class AdditionalMemoViewController: BaseViewController {
         return view
     }()
     
-    let contentTextView = UITextView.TextViewBuilder()
+    private let contentTextView = UITextView.TextViewBuilder()
     
     var selectedPet: [PetTable]?
     var recordType: RecordType?

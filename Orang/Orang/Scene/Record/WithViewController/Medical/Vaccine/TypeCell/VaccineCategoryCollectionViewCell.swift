@@ -9,13 +9,13 @@ import UIKit
 
 class VaccineCategoryCollectionViewCell: BaseCollectionViewCell {
     
-    let deleteButton = UIButton.pictureButtonBuilder(image: "xmark", imageSize: 10, radius: 10)
+    private let deleteButton = UIButton.pictureButtonBuilder(image: "xmark", imageSize: 10, radius: 10)
     
-    let vaccineTypeTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종 항목을 선택해 주세요.".localized(), textAlignment: .center)
-    let vaccineButton = UIButton()
+    private let vaccineTypeTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종 항목을 선택해 주세요.".localized(), textAlignment: .center)
+    private let vaccineButton = UIButton()
     
-    let inputVaccineTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종한 백신을 입력해 주세요!", textAlignment: .center)
-    let noVaccineButton = UIButton.idkButtonBuilder(title: "접종한 백신이 표에 없어요.")
+    private let inputVaccineTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종한 백신을 입력해 주세요!", textAlignment: .center)
+    private let noVaccineButton = UIButton.idkButtonBuilder(title: "접종한 백신이 표에 없어요.")
     
     
     var delegate: VaccineProtocol?

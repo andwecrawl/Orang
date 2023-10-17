@@ -10,10 +10,10 @@ import M13Checkbox
 
 final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
     
-    let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 16, weight: .bold)
-    let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 14, weight: .regular)
+    private let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 16, weight: .bold)
+    private let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 14, weight: .regular)
     
-    let checkbox = {
+    private let checkbox = {
         let button = M13Checkbox(frame: .zero)
         button.stateChangeAnimation = .bounce(.fill) // orFlat
         button.markType = .checkmark
@@ -22,7 +22,7 @@ final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
         return button
     }()
     
-    let labelStackView = UIStackView.stackViewBuilder(space: 2, axis: .vertical)
+    private let labelStackView = UIStackView.stackViewBuilder(space: 2, axis: .vertical)
     var symptom: CheckRecord<AbnormalSymptomsType>?
     
     override func prepareForReuse() {

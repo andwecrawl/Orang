@@ -9,26 +9,28 @@ import UIKit
 
 final class FeedViewController: BaseViewController {
     
-    let typeLabel = UILabel.labelBuilder(text: "snackVariation".localized(), size: 16, weight: .bold, settingTitle: true)
-    let typeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputSnackType".localized())
-    let typeStackView = UIStackView.stackViewBuilder()
+    private let typeLabel = UILabel.labelBuilder(text: "snackVariation".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let typeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputSnackType".localized())
+    private let typeStackView = UIStackView.stackViewBuilder()
     
-    let numberLabel = UILabel.labelBuilder(text: "amount".localized(),size: 16, weight: .semibold, settingTitle: true)
-    let numberTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputNumber".localized())
-    let unitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
-        UIAction(title: Unit.g.rawValue, handler: { _ in }),
-        UIAction(title: Unit.kg.rawValue, handler: { _ in }),
-        UIAction(title: Unit.lb.rawValue, handler: { _ in }),
-        UIAction(title: "count".localized(), handler: { _ in })
+    private let numberLabel = UILabel.labelBuilder(text: "amount".localized(),size: 16, weight: .semibold, settingTitle: true)
+    private let numberTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputNumber".localized())
+    private let unitButton = UIButton.unitPopUpButtonBuilder(menuElement: [
+        UIAction(title: Unit.g.toString, handler: { _ in }),
+        UIAction(title: Unit.kg.toString, handler: { _ in }),
+        UIAction(title: Unit.lb.toString, handler: { _ in }),
+        UIAction(title: Unit.count.toString, handler: { _ in })
     ])
-    let numberStackView = UIStackView.stackViewBuilder()
+    private let numberStackView = UIStackView.stackViewBuilder()
     
-    let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
-    let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
-    let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
-    let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
+    private let dateLabel = UILabel.labelBuilder(text: "date".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let dateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputDate".localized())
+    private let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
+    private let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     var selectedPet: [PetTable]?
+    
+    let repository = PetTableRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
