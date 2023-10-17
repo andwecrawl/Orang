@@ -12,7 +12,7 @@ protocol PetTableRepositoryType: AnyObject {
     func fetch() -> Results<PetTable>
     func create(_ item: PetTable)
     func delete(_ item: PetTable)
-    func update(id: ObjectId, _ item: PetTable)
+    func updatePet(id: ObjectId, _ item: PetTable)
 }
 
 class PetTableRepository: PetTableRepositoryType {
@@ -35,10 +35,15 @@ class PetTableRepository: PetTableRepositoryType {
     }
     
     func delete(_ item: PetTable) {
-        let task = realm.objects(PetTable.self)
-        guard let product = task.where({ $0._id == item._id }).first else { return }
+        let pet = realm.objects(PetTable.self)
+        let records = realm.objects(RecordTable.self).where({ $0.petId == item._id })
+        let medicalRecords = realm.objects(MedicalRecordTable.self).where({ $0.petId == item._id })
+        
+        guard let product = pet.where({ $0._id == item._id }).first else { return }
         do {
             try realm.write {
+                realm.delete(records)
+                realm.delete(medicalRecords)
                 realm.delete(product)
             }
         } catch {
@@ -46,7 +51,7 @@ class PetTableRepository: PetTableRepositoryType {
         }
     }
     
-    func update(id: RealmSwift.ObjectId, _ item: PetTable) {
+    func updatePet(id: RealmSwift.ObjectId, _ item: PetTable) {
         let updateValue: [String: Any] = [
             "_id": id,
             "species": item.species,
@@ -65,6 +70,28 @@ class PetTableRepository: PetTableRepositoryType {
             }
         } catch {
             print("update Error: \(error)")
+        }
+    }
+    
+    func updateRecords(id: RealmSwift.ObjectId, _ item: RecordTable) {
+        guard let pet = realm.object(ofType: PetTable.self, forPrimaryKey: id) else {
+            print("Pet \(id) not found")
+            return
+        }
+        try! realm.write {
+            pet.records.append(item)
+            print("Updated: \(pet)")
+        }
+    }
+    
+    func updateMedicalRecords(id: RealmSwift.ObjectId, _ item: MedicalRecordTable) {
+        guard let pet = realm.object(ofType: PetTable.self, forPrimaryKey: id) else {
+            print("Pet \(id) not found")
+            return
+        }
+        try! realm.write {
+            pet.medicalRecords.append(item)
+            print("Updated: \(pet)")
         }
     }
     
