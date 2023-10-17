@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WeightRecordViewController: BaseViewController {
+final class WeightRecordViewController: BaseViewController, MoveToFirstScene {
     
     private let weightLabel = UILabel.labelBuilder(text: "weightSetting".localized(),size: 16, weight: .semibold, settingTitle: true)
     private let weightTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputNumber".localized())
@@ -24,6 +24,7 @@ final class WeightRecordViewController: BaseViewController {
     private let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
     var selectedPet: [PetTable]?
+    let repository = PetTableRepository()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,22 @@ final class WeightRecordViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
+        guard let pet = selectedPet?.first else { return }
+        guard let weight = Float(weightTextField.text ?? "0") else { return }
+        if weight == 0 || weight < 0 {
+            self.sendOneSidedAlert(title: "몸무게를 입력해 주세요!")
+        }
+        guard let unitStr = weightUnitButton.titleLabel?.text else { return }
+        guard let unit = Unit(rawValue: unitStr) else { return }
+        guard let date = dateTextField.text else { return }
+        guard let time = timeTextField.text else { return }
+        guard let recordDate = "\(date) \(time)".toDateContainsTime() else { return }
         
+        let record = RecordTable(recordType: .weight, petID: pet._id, recordDate: recordDate, weight: weight , weightUnit: unit)
+        
+        repository.updateRecords(id: pet._id, record)
+        print("saved!!")
+        moveToFirstScene()
     }
     
     override func configureHierarchy() {
