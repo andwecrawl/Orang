@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class FeedViewController: BaseViewController {
+final class FeedViewController: BaseViewController, MoveToFirstScene {
     
     private let typeLabel = UILabel.labelBuilder(text: "snackVariation".localized(), size: 16, weight: .bold, settingTitle: true)
     private let typeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputSnackType".localized())
@@ -49,7 +49,34 @@ final class FeedViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
+        guard let pet = selectedPet?.first else { return }
+        guard let snackType = typeTextField.text else { return }
+        guard let number = Int(numberTextField.text ?? "0") else { return }
+        if number == 0 || number < 0 {
+            self.sendOneSidedAlert(title: "간식 양을 입력해 주세요!")
+        }
+        guard let unitStr = unitButton.titleLabel?.text else { return }
+        guard let date = dateTextField.text else { return }
+        guard let time = timeTextField.text else { return }
+        guard let recordDate = "\(date) \(time)".toDateContainsTime() else { return }
         
+        if unitStr == "count".localized() {
+            let unit = Unit.count
+            
+            let record = RecordTable(recordType: .snack, petID: pet._id, recordDate: recordDate, snackSpecies: snackType, snackAmount: number)
+            
+            repository.updateRecords(id: pet._id, record)
+        } else {
+            guard let unit = Unit(rawValue: unitStr) else { return }
+            
+            let record = RecordTable(recordType: .snack, petID: pet._id, recordDate: recordDate, snackSpecies: snackType, snackAmount: number)
+            
+            repository.updateRecords(id: pet._id, record)
+            
+            print("saved!!")
+            
+            moveToFirstScene()
+        }
     }
     
     override func configureHierarchy() {
