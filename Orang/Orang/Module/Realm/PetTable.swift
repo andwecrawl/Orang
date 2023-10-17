@@ -23,8 +23,7 @@ class PetTable: Object {
     @Persisted var profileImage: String
     
     @Persisted var records: List<RecordTable>
-//    @Persisted var records: List<RecordTable>
-//    @Persisted var medicalRecords: List<MedicalRecordTable>
+    @Persisted var medicalRecords: List<MedicalRecordTable>
     
     convenience init(species: Species, detailSpecies: String?, name: String, birthday: Date?, belongDate: Date, weight: Float, weightUnit: Unit, RegistrationNum: String?) {
         self.init()
