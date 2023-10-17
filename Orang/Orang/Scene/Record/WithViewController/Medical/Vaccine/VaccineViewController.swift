@@ -233,8 +233,13 @@ extension VaccineViewController: VaccineProtocol {
     func presentVaccineVC(vc: VaccineTypeViewController) {
         
         guard let selectedPet else { return }
-        vc.selectedPet = selectedPet.first!
+        vc.selectedPet = selectedPet.first
         let navVC = UINavigationController(rootViewController: vc)
+        
+        if let presentationController = navVC.presentationController as? UISheetPresentationController {
+            presentationController.detents = [.medium(), .large()]
+        }
+    
         present(navVC, animated: true)
     }
     
