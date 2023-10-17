@@ -25,6 +25,9 @@ final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
     let labelStackView = UIStackView.stackViewBuilder(space: 2, axis: .vertical)
     var symptom: CheckRecord<AbnormalSymptomsType>?
     
+    override func prepareForReuse() {
+        checkbox.setCheckState(.unchecked, animated: false)
+    }
     
     override func configureHierarchy() {
         super.configureHierarchy()
