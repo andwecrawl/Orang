@@ -81,7 +81,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             for index in images.indices {
                 let identifier = "\(date)\(index)"
                 imageIdentifiers.append(identifier)
-                if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
+                if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
                     sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
                     return
                 }
@@ -100,7 +100,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             for index in images.indices {
                 let identifier = "\(date)\(index)"
                 imageIdentifiers.append(identifier)
-                if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
+                if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
                     sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
                     return
                 }
@@ -127,7 +127,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             for index in images.indices {
                 let identifier = "\(date)\(index)"
                 imageIdentifiers.append(identifier)
-                if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
+                if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
                     sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
                     return
                 }
