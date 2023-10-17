@@ -9,7 +9,7 @@ import UIKit
 import PhotosUI
 
 
-final class DiaryViewController: BaseViewController {
+final class DiaryViewController: BaseViewController, MoveToFirstScene {
     
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
@@ -26,6 +26,7 @@ final class DiaryViewController: BaseViewController {
     
     var selectedPet: [PetTable]?
     var picCount: Int = 0
+    let repository = PetTableRepository()
     
     private var images: [UIImage] = [] {
         didSet {
@@ -35,6 +36,8 @@ final class DiaryViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        repository.loadFileURL()
     }
     
     override func setNavigationBar() {
@@ -47,11 +50,35 @@ final class DiaryViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
-        guard let title = titleTextField.text else { return }
+        guard let pet = selectedPet?.first else { return }
+        guard let title = titleTextField.text else {
+            titleTextField.setError()
+            sendOneSidedAlert(title: "제목을 입력해 주세요!")
+            return
+        }
+        if images.isEmpty {
+            sendOneSidedAlert(title: "이미지를 하나 이상 등록해 주세요!")
+            return
+        }
         let content = contentTextView.text
+        let date = Date()
         
-        let diary = DiaryTable(title: title, content: content)
-        diary.picArray = [] // 사진이 있으면 등록!!
+        let record = RecordTable(recordType: .diary, petID: pet._id, recordDate: date, title: title, content: content, images: [])
+        
+        var imageIdentifiers: [String] = []
+        // photo 추가
+        for index in images.indices {
+            let identifier = "\(date)\(index)"
+            imageIdentifiers.append(identifier)
+            if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
+                sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                return
+            }
+        }
+        record.imageArray = imageIdentifiers
+        
+        repository.updateRecords(id: pet._id, record)
+        moveToFirstScene()
     }
     
     override func configureHierarchy() {
