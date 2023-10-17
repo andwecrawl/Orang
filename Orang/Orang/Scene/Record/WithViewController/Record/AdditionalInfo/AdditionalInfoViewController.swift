@@ -36,6 +36,7 @@ final class AdditionalInfoViewController: BaseViewController {
     var selectedPooForm: PooForm?
     var selectedPeeColor: PeeColor?
     var selectedSymptoms: [Any]?
+    var recordDate: (date: Date, time: Date)?
     
     var picCount: Int = 0
     
@@ -45,8 +46,12 @@ final class AdditionalInfoViewController: BaseViewController {
         }
     }
     
+    let repository = PetTableRepository()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        repository.loadFileURL()
     }
     
     override func setNavigationBar() {
@@ -57,8 +62,40 @@ final class AdditionalInfoViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
+        guard let selectedPet else {
+            self.sendOneSidedAlert(title: "친구를 찾을 수 없어요!", message: "친구의 기록을 저장할 수 없어요. 프로필창을 확인해 주세요!")
+            return
+        }
+        guard let pet = selectedPet.first else { return }
+        guard let date = dateTextField.text else { return }
+        guard let time = timeTextField.text else { return }
+        guard let recordDate = "\(date) \(time)".toDateContainsTime() else { return }
         let content = contentTextView.text
-        
+        if let selectedPooColor { // 대변
+            
+            let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, pooColor: selectedPooColor, pooForm: selectedPooForm, content: content, images: [])
+            
+            
+            repository.updateRecords(id: pet._id, record)
+            
+        } else if let selectedPeeColor { // 소변
+            let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, peeColor: selectedPeeColor, content: content, images: [])
+            
+            
+            repository.updateRecords(id: pet._id, record)
+        } else if let selectedSymptoms { // 이상 증상
+            
+            var symptoms: [AbnormalSymptomsType] = []
+            for element in selectedSymptoms {
+                if let symptom = element as? AbnormalSymptomsType {
+                    symptoms.append(symptom)
+                }
+            }
+            let record = RecordTable(recordType: .abnormalSymptoms, petID: pet._id, recordDate: recordDate, abnormalSymptoms: symptoms, content: content, images: [])
+            // 이미지 저장한 뒤 record에 넣는 로직 필요함
+            repository.updateRecords(id: pet._id, record)
+            print("saved!!")
+        }
     }
     
     override func configureHierarchy() {
@@ -100,8 +137,6 @@ final class AdditionalInfoViewController: BaseViewController {
     }
     
     override func configureView() {
-        guard let recordType else { return }
-        
         configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
     }
     
