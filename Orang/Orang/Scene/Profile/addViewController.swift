@@ -97,7 +97,7 @@ final class AddViewController: BaseViewController {
         let weightUnit = Unit(rawValue: weightUnitStr) ?? .g
         
         let newPet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate, weight: weight, weightUnit: weightUnit, RegistrationNum: registrationNum)
-        ImageManager.shared.makeDirectory(directoryName: .profile)
+        
         if !ImageManager.shared.saveImageToDirectory(directoryName: .profile, identifier: newPet.createdDate.toString(), image: image) {
             sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
             return
