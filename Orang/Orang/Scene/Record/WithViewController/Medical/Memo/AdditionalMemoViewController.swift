@@ -28,6 +28,9 @@ final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
     var selectedPet: [PetTable]?
     var recordType: RecordType?
     var selectedSymptoms: [Any]?
+    var hospital: String?
+    var treatmentDate: Date?
+    var vaccineTypes: [String]?
     
     var picCount: Int = 0
     
@@ -37,8 +40,11 @@ final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
         }
     }
     
+    let repository = PetTableRepository()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(vaccineTypes)
     }
     
     override func setNavigationBar() {
@@ -49,8 +55,32 @@ final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
         navigationItem.rightBarButtonItem = saveButton
     }
     
+    
     @objc func saveButtonClicked() {
-        // 기록 save
+        guard let pet = selectedPet?.first else { return }
+        guard let hospital else { return }
+        guard let treatmentDate else { return }
+        guard let vaccineTypes else { return }
+        let content = contentTextView.text
+        
+        let record = MedicalRecordTable(hospital: hospital, petId: pet._id, treatmentDate: treatmentDate, recordType: .vaccine, vaccineType: vaccineTypes, content: content, imageArray: [])
+        var imageIdentifiers: [String] = []
+        // photo 추가
+        let date = record.createdDate
+        for index in images.indices {
+            let identifier = "\(date)\(index)"
+            imageIdentifiers.append(identifier)
+            if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
+                sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                return
+            }
+        }
+        record.imageArray = imageIdentifiers
+        
+        repository.updateMedicalRecords(id: pet._id, record)
+        
+        print("saved!!")
+        moveToFirstScene()
     }
     
     override func configureHierarchy() {
