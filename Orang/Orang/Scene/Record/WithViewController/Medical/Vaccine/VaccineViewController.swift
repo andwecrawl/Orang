@@ -38,6 +38,7 @@ final class VaccineViewController: BaseViewController {
     
     var selectedPet: [PetTable]?
     var vaccineCategoryCount: Int = 0
+    var vaccineTypes: [String] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,6 +53,7 @@ final class VaccineViewController: BaseViewController {
     }
     
     @objc func nextButtonClicked() {
+        getVaccineTypeFromCell()
         guard let date = dateTextField.text else { return }
         guard let time = timeTextField.text else { return }
         guard let treatmentDate = "\(date) \(time)".toDateContainsTime() else { return }
@@ -59,14 +61,35 @@ final class VaccineViewController: BaseViewController {
             self.sendOneSidedAlert(title: "병원명을 입력해 주세요!")
             return
         }
+        if vaccineCategoryCount == 0 {
+            sendOneSidedAlert(title: "백신 항목을 입력해 주세요!")
+        }
         
         let vc = AdditionalMemoViewController()
         vc.title = "추가로 기록하기"
         vc.selectedPet = selectedPet
+        vc.hospital = hospital
+        vc.treatmentDate = treatmentDate
+        vc.vaccineTypes = vaccineTypes
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
-    
+    func getVaccineTypeFromCell() {
+        for i in 0..<vaccineCollectionView.numberOfItems(inSection: 0) {
+            if let cell = vaccineCollectionView.cellForItem(at: IndexPath(item: i, section: 0)) as? VaccineCategoryCollectionViewCell {
+                if let text = cell.loadVaccineType() {
+                    if !text.isEmpty {
+                        vaccineTypes.append(text)
+                    } else {
+                        sendOneSidedAlert(title: "백신 항목을 입력해 주세요!")
+                    }
+                } else {
+                    sendOneSidedAlert(title: "백신 항목을 입력해 주세요!")
+                }
+            }
+        }
+    }
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -111,6 +134,7 @@ final class VaccineViewController: BaseViewController {
     override func configureView() {
         configureTextField([dateTextField, timeTextField], date: dateTextField, time: timeTextField)
     }
+    
 }
 
 
@@ -188,8 +212,6 @@ extension VaccineViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = indexPath.item
-        let row = indexPath.row
-        print(indexPath)
         if vaccineCategoryCount < 3 { // AddButton 있음
             if item == vaccineCategoryCount { // 마지막 Cell이라면
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VaccineAddCollectionViewCell.identifier, for: indexPath) as? VaccineAddCollectionViewCell else { return UICollectionViewCell() }
@@ -231,17 +253,16 @@ extension VaccineViewController: VaccineProtocol {
     }
     
     func presentVaccineVC(vc: VaccineTypeViewController) {
-        
+
         guard let selectedPet else { return }
         vc.selectedPet = selectedPet.first
         let navVC = UINavigationController(rootViewController: vc)
-        
+
         if let presentationController = navVC.presentationController as? UISheetPresentationController {
             presentationController.detents = [.medium(), .large()]
         }
-    
+
         present(navVC, animated: true)
     }
-    
     
 }
