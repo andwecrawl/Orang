@@ -20,7 +20,6 @@ class VaccineCategoryCollectionViewCell: BaseCollectionViewCell {
     
     var delegate: VaccineProtocol?
     
-    
     override func configureHierarchy() {
         [
             vaccineTypeTextField,
@@ -98,4 +97,11 @@ class VaccineCategoryCollectionViewCell: BaseCollectionViewCell {
         vaccineTypeTextField.isUserInteractionEnabled = false
     }
     
+    func loadVaccineType() -> String? {
+        if noVaccineButton.isSelected == true { // inputTextField
+            return inputVaccineTextField.text
+        } else { // vaccineTextField
+            return vaccineTypeTextField.text
+        }
+    }
 }
