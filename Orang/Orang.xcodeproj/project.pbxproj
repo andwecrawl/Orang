@@ -16,6 +16,7 @@
 		D1370A762ADE7E2A00FCBD67 /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A752ADE7E2A00FCBD67 /* TotalViewController.swift */; };
 		D1370A782ADEA5F800FCBD67 /* TotalCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A772ADEA5F800FCBD67 /* TotalCalendarCollectionViewCell.swift */; };
 		D1370A7A2AE0040600FCBD67 /* TempVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A792AE0040600FCBD67 /* TempVC.swift */; };
+		D1370A7D2AE041DE00FCBD67 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D1370A7C2AE041DE00FCBD67 /* Toast */; };
 		D182730A2AD0F31200F4709B /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273092AD0F31200F4709B /* Date+.swift */; };
 		D18273102AD26F5900F4709B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D182730F2AD26F5900F4709B /* FSCalendar */; };
 		D18273142AD2CEA200F4709B /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273132AD2CEA200F4709B /* Unit.swift */; };
@@ -171,6 +172,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D1370A7D2AE041DE00FCBD67 /* Toast in Frameworks */,
 				D1BB7FE72AD693A1001FFF1C /* M13Checkbox in Frameworks */,
 				D1BB7FE32AD68F74001FFF1C /* RealmSwift in Frameworks */,
 				D18273102AD26F5900F4709B /* FSCalendar in Frameworks */,
@@ -672,6 +674,7 @@
 				D1BB7FE02AD68F74001FFF1C /* Realm */,
 				D1BB7FE22AD68F74001FFF1C /* RealmSwift */,
 				D1BB7FE62AD693A1001FFF1C /* M13Checkbox */,
+				D1370A7C2AE041DE00FCBD67 /* Toast */,
 			);
 			productName = Orang;
 			productReference = D1BA58FC2AC330E9007437F4 /* Orang.app */;
@@ -709,6 +712,7 @@
 				D1BB7FDC2AD68F65001FFF1C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D1BB7FDF2AD68F74001FFF1C /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D1BB7FE52AD693A1001FFF1C /* XCRemoteSwiftPackageReference "M13Checkbox" */,
+				D1370A7B2AE041DE00FCBD67 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
 			);
 			productRefGroup = D1BA58FD2AC330E9007437F4 /* Products */;
 			projectDirPath = "";
@@ -1036,6 +1040,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D1370A7B2AE041DE00FCBD67 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
+			requirement = {
+				kind = upToNextMinorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		D182730E2AD26F5900F4709B /* XCRemoteSwiftPackageReference "FSCalendar" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/WenchaoD/FSCalendar.git";
@@ -1087,6 +1099,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D1370A7C2AE041DE00FCBD67 /* Toast */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D1370A7B2AE041DE00FCBD67 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
+			productName = Toast;
+		};
 		D182730F2AD26F5900F4709B /* FSCalendar */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D182730E2AD26F5900F4709B /* XCRemoteSwiftPackageReference "FSCalendar" */;
