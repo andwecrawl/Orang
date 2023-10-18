@@ -88,6 +88,7 @@ class PooPeeViewController: BaseViewController {
             vc.selectedPeeColor = peeColor
         }
         
+        vc.selectedPet = selectedPet
         vc.recordType = .pooPee
         navigationController?.pushViewController(vc, animated: true)
     }
