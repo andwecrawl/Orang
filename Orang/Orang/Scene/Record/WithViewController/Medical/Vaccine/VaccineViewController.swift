@@ -34,14 +34,7 @@ final class VaccineViewController: BaseViewController {
         view.delegate = self
         return view
     }()
-    
-    private let vaccineTypeTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종 항목을".localized(), textAlignment: .center)
-    private let vaccineTypeStackView = UIStackView.stackViewBuilder()
-    private let vaccineDetailTextField = UnderLineTextField.textFieldBuilder(placeholder: "선택해 주세요.".localized(), isTimeTextfield: true, textAlignment: .center)
-    private let vaccineButton = UIButton()
-    
-    private let inputVaccineTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종한 백신을 입력해 주세요!", textAlignment: .center)
-    private let noVaccineButton = UIButton.idkButtonBuilder(title: "접종한 백신이 표에 없어요.")
+
     
     var selectedPet: [PetTable]?
     var vaccineCategoryCount: Int = 0
