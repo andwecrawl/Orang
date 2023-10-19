@@ -23,8 +23,8 @@ extension UIButton {
         button.layer.cornerRadius = 15
         button.layer.shadowColor = UIColor.black.cgColor
         button.layer.shadowOffset = .zero
-        button.layer.shadowRadius = 10
-        button.layer.shadowOpacity = 0.2
+        button.layer.shadowRadius = 8
+        button.layer.shadowOpacity = 0.1
         
         var configuration = UIButton.Configuration.plain()
         configuration.titleAlignment = .leading

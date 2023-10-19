@@ -9,9 +9,8 @@ import UIKit
 
 extension UIView {
     
-    static func shadowViewBuilder() -> UIView {
+    static func shadowViewBuilder(innerView: UIView) -> UIView {
         let outerView = UIView()
-        let innerView = UIView()
         outerView.addSubview(innerView)
         innerView.snp.makeConstraints { make in
             make.edges.equalTo(outerView)
@@ -22,8 +21,8 @@ extension UIView {
         outerView.layer.cornerRadius = 15
         outerView.layer.shadowColor = UIColor.black.cgColor
         outerView.layer.shadowOffset = .zero
-        outerView.layer.shadowRadius = 10
-        outerView.layer.shadowOpacity = 0.2
+        outerView.layer.shadowRadius = 8
+        outerView.layer.shadowOpacity = 0.1
         return outerView
     }
     
@@ -34,8 +33,8 @@ extension UIView {
         outerView.layer.cornerRadius = 15
         outerView.layer.shadowColor = UIColor.black.cgColor
         outerView.layer.shadowOffset = .zero
-        outerView.layer.shadowRadius = 10
-        outerView.layer.shadowOpacity = 0.2
+        outerView.layer.shadowRadius = 8
+        outerView.layer.shadowOpacity = 0.1
     }
     
     func addInnerShadow() {
