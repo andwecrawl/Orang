@@ -15,8 +15,10 @@
 		D1370A6F2ADE600700FCBD67 /* MedicalRecordType.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A6E2ADE600700FCBD67 /* MedicalRecordType.swift */; };
 		D1370A762ADE7E2A00FCBD67 /* TotalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A752ADE7E2A00FCBD67 /* TotalViewController.swift */; };
 		D1370A782ADEA5F800FCBD67 /* TotalCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A772ADEA5F800FCBD67 /* TotalCalendarCollectionViewCell.swift */; };
-		D1370A7A2AE0040600FCBD67 /* TempVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A792AE0040600FCBD67 /* TempVC.swift */; };
 		D1370A7D2AE041DE00FCBD67 /* Toast in Frameworks */ = {isa = PBXBuildFile; productRef = D1370A7C2AE041DE00FCBD67 /* Toast */; };
+		D1370A7F2AE1306B00FCBD67 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A7E2AE1306B00FCBD67 /* CalendarView.swift */; };
+		D1370A812AE130E500FCBD67 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A802AE130E500FCBD67 /* BaseView.swift */; };
+		D1370A852AE1537400FCBD67 /* DiaryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A842AE1537400FCBD67 /* DiaryCollectionViewCell.swift */; };
 		D182730A2AD0F31200F4709B /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273092AD0F31200F4709B /* Date+.swift */; };
 		D18273102AD26F5900F4709B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D182730F2AD26F5900F4709B /* FSCalendar */; };
 		D18273142AD2CEA200F4709B /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273132AD2CEA200F4709B /* Unit.swift */; };
@@ -98,7 +100,9 @@
 		D1370A6E2ADE600700FCBD67 /* MedicalRecordType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalRecordType.swift; sourceTree = "<group>"; };
 		D1370A752ADE7E2A00FCBD67 /* TotalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalViewController.swift; sourceTree = "<group>"; };
 		D1370A772ADEA5F800FCBD67 /* TotalCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
-		D1370A792AE0040600FCBD67 /* TempVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempVC.swift; sourceTree = "<group>"; };
+		D1370A7E2AE1306B00FCBD67 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		D1370A802AE130E500FCBD67 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		D1370A842AE1537400FCBD67 /* DiaryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D18273092AD0F31200F4709B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		D18273132AD2CEA200F4709B /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
@@ -269,7 +273,8 @@
 			children = (
 				D1370A752ADE7E2A00FCBD67 /* TotalViewController.swift */,
 				D1370A772ADEA5F800FCBD67 /* TotalCalendarCollectionViewCell.swift */,
-				D1370A792AE0040600FCBD67 /* TempVC.swift */,
+				D1370A7E2AE1306B00FCBD67 /* CalendarView.swift */,
+				D1370A842AE1537400FCBD67 /* DiaryCollectionViewCell.swift */,
 			);
 			path = Total;
 			sourceTree = "<group>";
@@ -418,6 +423,7 @@
 		D1BA59252AC33293007437F4 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				D1370A802AE130E500FCBD67 /* BaseView.swift */,
 				D1BA59262AC3329C007437F4 /* BaseViewController.swift */,
 				D1BA592A2AC332C5007437F4 /* BaseTableViewCell.swift */,
 				D1B52EFF2ACE79CF00477A14 /* BaseCollectionViewCell.swift */,
@@ -753,10 +759,12 @@
 				D1B52F132AD0299700477A14 /* PooViewController.swift in Sources */,
 				D1BB7FE92AD6B581001FFF1C /* TextViewBuilder.swift in Sources */,
 				D1B52EC42ACAA53D00477A14 /* UnderlineTextFieldBuilder.swift in Sources */,
+				D1370A812AE130E500FCBD67 /* BaseView.swift in Sources */,
 				D18273142AD2CEA200F4709B /* Unit.swift in Sources */,
 				D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */,
 				D1BB7FAF2AD3D00F001FFF1C /* AddCollectionViewCell.swift in Sources */,
 				D1370A5C2ADC017900FCBD67 /* AdditionalMemoViewController.swift in Sources */,
+				D1370A852AE1537400FCBD67 /* DiaryCollectionViewCell.swift in Sources */,
 				D1BB7FBC2AD4683B001FFF1C /* DailyTodo.swift in Sources */,
 				D1370A6D2ADE5C3800FCBD67 /* moveToFirstScene.swift in Sources */,
 				D1B52ED12ACBED4900477A14 /* RecordViewController.swift in Sources */,
@@ -773,7 +781,6 @@
 				D1B52F0C2ACFF0FB00477A14 /* DiaryViewController.swift in Sources */,
 				D1BB7FC92AD531AC001FFF1C /* VaccineViewController.swift in Sources */,
 				D1BA59352AC6B887007437F4 /* LabelBuilder.swift in Sources */,
-				D1370A7A2AE0040600FCBD67 /* TempVC.swift in Sources */,
 				D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */,
 				D1BA59432AC7364D007437F4 /* PetTable.swift in Sources */,
 				D1BB7FFF2AD7FC36001FFF1C /* DiaryDelegateProtocol.swift in Sources */,
@@ -791,6 +798,7 @@
 				D1BA59372AC6B898007437F4 /* ViewAppearance.swift in Sources */,
 				D1370A762ADE7E2A00FCBD67 /* TotalViewController.swift in Sources */,
 				D1B52F092ACFEFC100477A14 /* MedicalHistoryViewController.swift in Sources */,
+				D1370A7F2AE1306B00FCBD67 /* CalendarView.swift in Sources */,
 				D1370A782ADEA5F800FCBD67 /* TotalCalendarCollectionViewCell.swift in Sources */,
 				D1BB7FDB2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift in Sources */,
 				D1BB7FB52AD46451001FFF1C /* AlertAddViewController.swift in Sources */,
