@@ -8,7 +8,7 @@
 import UIKit
 import FSCalendar
 
-class CalendarView: BaseView {
+final class CalendarView: BaseView {
     
     let innerView = UIView()
     lazy var outerView = {
@@ -18,7 +18,7 @@ class CalendarView: BaseView {
     
     let calendarLabel = UILabel.labelBuilder(text: "YYYY년 MM월", size: 18, weight: .bold, alignment: .left)
     
-    private lazy var previousButton : UIButton = {
+    lazy var previousButton : UIButton = {
         let button = UIButton()
         let config = UIImage.SymbolConfiguration(weight: .semibold)
         let image = UIImage(systemName: "chevron.left", withConfiguration: config)
@@ -26,7 +26,7 @@ class CalendarView: BaseView {
         return button
     }()
     
-    private lazy var nextButton : UIButton = {
+    lazy var nextButton : UIButton = {
         let button = UIButton()
         let config = UIImage.SymbolConfiguration(weight: .semibold)
         let image = UIImage(systemName: "chevron.right", withConfiguration: config)
@@ -61,7 +61,7 @@ class CalendarView: BaseView {
         
         monthlyStackView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(16)
-            make.horizontalEdges.equalToSuperview().inset(16)
+            make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(40)
         }
         
