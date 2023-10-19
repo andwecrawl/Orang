@@ -179,7 +179,7 @@
 
 
 // AbnormalSymptoms
-"AbnormalSymptomsNavigationTitle" = "이상 증상 기록하기"
+"AbnormalSymptomsNavigationTitle" = "이상 증상 기록하기";
 
 
 
@@ -254,5 +254,5 @@
 "noMoreImagesError" = "사진은 5장까지 추가할 수 있습니다!";
 "noWeightError" = "몸무게를 입력해 주세요!";
 "noSnackAmountError" = "간식 양을 입력해 주세요!";
-"plzSelectElement" = "해당하는 요소를 선택해 주세요!"
-"plzSelectAbnormalSymptoms" = "이상 증상을 선택해 주세요!"
+"plzSelectElement" = "해당하는 요소를 선택해 주세요!";
+"plzSelectAbnormalSymptoms" = "이상 증상을 선택해 주세요!";
