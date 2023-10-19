@@ -8,6 +8,13 @@
 import Foundation
 
 extension Date {
+    func toCalendarTitle() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy년 MM월"
+        
+        return formatter.string(from: self)
+    }
+    
     func toFormattedString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy년 MM월 dd일"
