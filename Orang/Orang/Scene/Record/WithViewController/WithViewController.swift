@@ -35,16 +35,16 @@ final class WithViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "어떤 아이와의 기록인가요?"
+        title = "withNavigationTitle".localized()
         
-        let nextButton = UIBarButtonItem(title: "다음", style: .plain, target: self, action: #selector(nextButtonClicked))
+        let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
         navigationItem.rightBarButtonItem = nextButton
     }
     
     @objc func nextButtonClicked() {
         guard let recordType else { return }
         if selectedPet.isEmpty {
-            sendOneSidedAlert(title: "함께한 아이를 선택해 주세요!")
+            sendOneSidedAlert(title: "noSelectedPet".localized())
         }
         switch recordType {
         case .diary:

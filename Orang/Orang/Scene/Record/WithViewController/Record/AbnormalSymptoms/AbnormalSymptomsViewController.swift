@@ -30,7 +30,7 @@ final class AbnormalSymptomsViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "이상 증상 기록하기"
+        title = "AbnormalSymptomsNavigationTitle".localized()
         
         let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
         navigationItem.rightBarButtonItem = nextButton
@@ -40,14 +40,14 @@ final class AbnormalSymptomsViewController: BaseViewController {
     
     @objc func nextButtonClicked() {
         let vc = AdditionalInfoViewController()
-        vc.title = "추가적인 증상이 있나요?"
+        vc.title = "moreSymptomsTitle".localized()
         var selectedSymptoms: [AbnormalSymptomsType] = []
         list.forEach{
             if $0.ischecked {
                 selectedSymptoms.append($0.type)
             }
         }
-        if selectedSymptoms.isEmpty { sendOneSidedAlert(title: "이상 증상을 선택해 주세요!") }
+        if selectedSymptoms.isEmpty { sendOneSidedAlert(title: "plzSelectAbnormalSymptoms".localized()) }
         vc.recordType = .abnormalSymptoms
         vc.selectedSymptoms = selectedSymptoms
         vc.selectedPet = selectedPet

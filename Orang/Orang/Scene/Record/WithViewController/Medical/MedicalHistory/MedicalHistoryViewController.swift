@@ -18,8 +18,8 @@ final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
     private let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
     private let dateStackView = UIStackView.stackViewBuilder()
     
-    private let whyLabel = UILabel.labelBuilder(text: "내원 사유".localized(), size: 16, weight: .bold, settingTitle: true)
-    private let whyTextField = UnderLineTextField.textFieldBuilder(placeholder: "아이의 증상을 작성해 주세요!", textAlignment: .center)
+    private let whyLabel = UILabel.labelBuilder(text: "reasonForVisit".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let whyTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputReasonForVisit".localized(), textAlignment: .center)
     private let whyStackView = UIStackView.stackViewBuilder()
     
     private let additionalMemo = AdditionalMemoViewController()
@@ -36,7 +36,7 @@ final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "진료 내역 기록하기"
+        title = "recordMedicalHistory".localized()
         
         let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
@@ -48,7 +48,7 @@ final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
         guard let time = timeTextField.text else { return }
         guard let treatmentDate = "\(date) \(time)".toDateContainsTime() else { return }
         guard let hospital = hospitalTextField.text else {
-            self.sendOneSidedAlert(title: "병원명을 입력해 주세요!")
+            self.sendOneSidedAlert(title: "inputHospitalName".localized())
             return
         }
         guard let treatment = whyTextField.text else { return }
@@ -63,7 +63,7 @@ final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
             let identifier = "\(date)\(index)"
             imageIdentifiers.append(identifier)
             if !ImageManager.shared.saveImageToDirectory(directoryName: .medicalRecords, identifier: identifier, image: images[index]) {
-                sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
                 return
             }
         }

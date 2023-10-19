@@ -6,8 +6,7 @@
   
 */
 
-
-// RecordVC
+// AlertVC
 "dailyTodo" = "일상 할 일";
 "dailyTodoDetail" =
 "식사 / 간식 알림, 산책 / 놀이 알림,
@@ -23,6 +22,52 @@
 "date" = "날짜";
 "inputDate" = "날짜를 입력해 주세요!";
 "inputTime" = "시간을 입력해 주세요!";
+
+
+
+// RecordVC
+"recordNavigationTitle" = "기록하기";
+"recordTitle" = "매일 기록하고 변화를 관찰해 보세요!";
+
+"diaryRecordTitle" = "일상 기록 추가하기";
+"diaryRecordDetail" = " 아이와 함께한 기록을 추가해 보세요!";
+
+"recordRecordTitle" = "생활 기록 추가하기";
+"weightButton" = "몸무게";
+"snackButton" = "간식";
+"fecesAndUrine" = "대소변";
+"feces" = "대변";
+"fecesColor" = "대변 색깔";
+"fecesForm" = "대변 형태";
+"urine" = "소변";
+"urineColor" = "소변 색깔";
+"abnormalSymptoms" = "이상 증상";
+
+"MedicalRecordTitle" = "진료 기록 추가하기";
+"VaccineRecordButton" = "예방 접종 내역";
+"VaccineRecordDetail" = "예방 접종 내역을 기록할 수 있어요!";
+"MedicalHistoryButton" = "진료 내역";
+"MedicalHistoryDetail" = "아이의 진료 내역을 기록할 수 있어요!";
+
+
+
+// withView
+"withNavigationTitle" = "어떤 아이와의 기록인가요?";
+
+
+// AdditionalSymptoms
+"moreSymptomsTitle" = "추가적인 증상이 있나요?";
+
+
+// DiaryVC
+"diaryNavigationTitle" = "일상 기록 추가하기";
+"photoAlbumButton" = "사진 보관함";
+"takePictureButton" = "사진 찍기";
+"selectFileButton" = "파일 선택";
+
+
+// AdditionInfoVC
+"additionalInfoInformationLabel" = "추가로 기록할 내용을 적어 주세요.";
 
 
 // weight
@@ -133,9 +178,17 @@
 "others" = "";
 
 
+// AbnormalSymptoms
+"AbnormalSymptomsNavigationTitle" = "이상 증상 기록하기"
+
+
+
 // Medical
-"hospitalName" = "병원 이름";
-"inputHospitalName" = "병원 이름을 입력해 주세요.";
+"recordMedicalHistory" = "진료 내역 기록하기";
+"hospitalName" = "병원명";
+"inputHospitalName" = "병원명을 입력해 주세요.";
+"reasonForVisit" = "내원 사유";
+"inputReasonForVisit" = "아이의 증상을 작성해 주세요.";
 
 // tabBar
 "Profile" = "프로필";
@@ -154,10 +207,12 @@
 "inputMeetDate" = "만난 날을 입력해 주세요.";
 "birthdaySetting" = "생일";
 "inputBirthday" = "생일을 입력해 주세요.";
+"idkBirthdayButton" = "생일이 기억나지 않아요.";
 "weightSetting" = "몸무게";
 "inputWeight" = "몸무게를 입력해 주세요.";
 "registrationNumber" = "등록번호";
 "inputRegistrationNumber" = "등록번호를 입력해 주세요.";
+"idkRegistrationNumber" = "등록번호가 없어요.";
 
 
 // species String
@@ -186,3 +241,18 @@
 // navigationBar Button
 "save" = "저장";
 "next" = "다음";
+
+
+// error
+"failToSaveImage" = "이미지 저장에 실패했습니다.";
+"plzRetry" = "다시 시도해 주세요!";
+"noSelectedPet" = "기록할 아이를 선택해 주세요!";
+"failFindSelectedPet" = "친구를 찾을 수 없어요!";
+"failFindSelectedPetDetail" = "친구의 기록을 저장할 수 없어요. 프로필창을 확인해 주세요!";
+"noTitleError" = "제목을 입력해 주세요!";
+"noImageError" = "이미지를 하나 이상 등록해 주세요!";
+"noMoreImagesError" = "사진은 5장까지 추가할 수 있습니다!";
+"noWeightError" = "몸무게를 입력해 주세요!";
+"noSnackAmountError" = "간식 양을 입력해 주세요!";
+"plzSelectElement" = "해당하는 요소를 선택해 주세요!"
+"plzSelectAbnormalSymptoms" = "이상 증상을 선택해 주세요!"

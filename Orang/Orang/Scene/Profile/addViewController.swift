@@ -28,7 +28,7 @@ final class AddViewController: BaseViewController {
     private lazy var birthLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 16, weight: .bold, settingTitle: true)
     lazy var birthTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputBirthday".localized())
     private lazy var birthStackView = UIStackView.stackViewBuilder()
-    private lazy var idkBirthButton = UIButton.idkButtonBuilder(title: "생일이 기억나지 않아요.")
+    private lazy var idkBirthButton = UIButton.idkButtonBuilder(title: "idkBirthdayButton".localized())
     
     private lazy var meetDateLabel = UILabel.labelBuilder(text: "meetDateSetting".localized(), size: 16, weight: .bold, settingTitle: true)
     lazy var meetDateTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputMeetDate".localized())
@@ -46,7 +46,7 @@ final class AddViewController: BaseViewController {
     private lazy var registrationLabel = UILabel.labelBuilder(text: "registrationNumber".localized(), size: 16, weight: .bold, settingTitle: true)
     private lazy var registrationTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputRegistrationNumber".localized())
     private lazy var registrationStackView = UIStackView.stackViewBuilder()
-    private lazy var idkRegistrationButton = UIButton.idkButtonBuilder(title: "등록번호가 없어요.")
+    private lazy var idkRegistrationButton = UIButton.idkButtonBuilder(title: "idkRegistrationNumber".localized())
     
     var pet: PetTable?
     
@@ -99,7 +99,7 @@ final class AddViewController: BaseViewController {
         let newPet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate, weight: weight, weightUnit: weightUnit, RegistrationNum: registrationNum)
         
         if !ImageManager.shared.saveImageToDirectory(directoryName: .profile, identifier: newPet.createdDate.toString(), image: image) {
-            sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+            sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
             return
         }
         

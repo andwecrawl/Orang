@@ -9,22 +9,22 @@ import UIKit
 
 final class RecordViewController: BaseViewController {
     
-    let introduceLabel = UILabel.labelBuilder(text: "매일 기록하고 변화를 관찰해 보세요!",size: 19, weight: .bold, settingTitle: false)
+    let introduceLabel = UILabel.labelBuilder(text: "recordTitle".localized(),size: 19, weight: .bold, settingTitle: false)
     
-    let diaryButton = UIButton.shadowButtonBuilder(title: "일상 기록 추가하기", subtitle: " 아이와 함께한 기록을 추가해 보세요!", isBig: true)
+    let diaryButton = UIButton.shadowButtonBuilder(title: "diaryRecordTitle".localized(), subtitle: "diaryRecordDetail".localized(), isBig: true)
     
     let recordView = UIView.shadowViewBuilder()
-    let recordTitleLabel = UILabel.labelBuilder(text: "생활 기록 추가하기", size: 17, weight: .bold, settingTitle: false)
-    let firstRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "몸무게")
-    let secondRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "간식")
-    let thirdRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "대소변")
-    let fourthRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "이상 증상")
+    let recordTitleLabel = UILabel.labelBuilder(text: "recordRecordTitle".localized(), size: 17, weight: .bold, settingTitle: false)
+    let firstRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "weightButton".localized())
+    let secondRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "snackButton".localized())
+    let thirdRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "fecesAndUrine".localized())
+    let fourthRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "abnormalSymptoms".localized())
     let recordStackView = UIStackView.stackViewBuilder()
     
     let medicalView = UIView.shadowViewBuilder()
-    let medicalTitleLabel = UILabel.labelBuilder(text: "진료 기록 추가하기", size: 17, weight: .bold, settingTitle: false)
-    let medicalVaccineButton = UIButton.shadowButtonBuilder(title: "예방 접종 내역", subtitle: "예방 접종 내역을 기록할 수 있어요!", isBig: false)
-    let medicalHistoryButton = UIButton.shadowButtonBuilder(title: "진료 내역", subtitle: "아이의 진료 내역을 기록할 수 있어요!", isBig: false)
+    let medicalTitleLabel = UILabel.labelBuilder(text: "MedicalRecordTitle".localized(), size: 17, weight: .bold, settingTitle: false)
+    let medicalVaccineButton = UIButton.shadowButtonBuilder(title: "VaccineRecordButton".localized(), subtitle: "VaccineRecordDetail".localized(), isBig: false)
+    let medicalHistoryButton = UIButton.shadowButtonBuilder(title: "MedicalHistoryButton".localized(), subtitle: "MedicalHistoryDetail".localized(), isBig: false)
     let medicalStackView = UIStackView.stackViewBuilder(space: 12)
     
     override func viewDidLoad() {
@@ -36,7 +36,7 @@ final class RecordViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "기록하기"
+        title = "recordNavigationTitle".localized()
     }
     
     override func configureHierarchy() {

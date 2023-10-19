@@ -71,7 +71,7 @@ final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
             let identifier = "\(date)\(index)"
             imageIdentifiers.append(identifier)
             if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
-                sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
                 return
             }
         }

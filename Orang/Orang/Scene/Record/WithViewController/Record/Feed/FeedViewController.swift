@@ -53,7 +53,7 @@ final class FeedViewController: BaseViewController, MoveToFirstScene {
         guard let snackType = typeTextField.text else { return }
         guard let number = Int(numberTextField.text ?? "0") else { return }
         if number == 0 || number < 0 {
-            self.sendOneSidedAlert(title: "간식 양을 입력해 주세요!")
+            self.sendOneSidedAlert(title: "noSnackAmountError".localized())
         }
         guard let unitStr = unitButton.titleLabel?.text else { return }
         guard let date = dateTextField.text else { return }

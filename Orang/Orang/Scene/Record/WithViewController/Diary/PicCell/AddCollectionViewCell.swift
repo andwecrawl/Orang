@@ -30,13 +30,13 @@ final class AddCollectionViewCell: BaseCollectionViewCell {
     
     override func configureView() {
         let menuElement: [UIMenuElement] = [
-            UIAction(title: "사진 보관함", image: UIImage(systemName: "photo.on.rectangle"), handler: { _ in
+            UIAction(title: "photoAlbumButton".localized(), image: UIImage(systemName: "photo.on.rectangle"), handler: { _ in
                 self.delegate?.openPhotoAlbum()
             }),
-            UIAction(title: "사진 찍기", image: UIImage(systemName: "camera"), handler: { _ in
+            UIAction(title: "takePictureButton".localized(), image: UIImage(systemName: "camera"), handler: { _ in
                 self.delegate?.takePhoto()
             }),
-            UIAction(title: "파일 선택", image: UIImage(systemName: "folder"), handler: { _ in
+            UIAction(title: "selectFileButton".localized(), image: UIImage(systemName: "folder"), handler: { _ in
                 self.delegate?.selectFile()
             })
         ]

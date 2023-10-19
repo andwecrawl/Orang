@@ -16,7 +16,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
     let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
     private let dateStackView = UIStackView.stackViewBuilder(axis: .horizontal)
     
-    private let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
+    private let informationLabel = UILabel.labelBuilder(text: "additionalInfoInformationLabel".localized(), size: 16, weight: .semibold)
     
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
@@ -62,7 +62,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
     
     @objc func saveButtonClicked() {
         guard let selectedPet else {
-            self.sendOneSidedAlert(title: "친구를 찾을 수 없어요!", message: "친구의 기록을 저장할 수 없어요. 프로필창을 확인해 주세요!")
+            self.sendOneSidedAlert(title: "failFindSelectedPet".localized(), message: "failFindSelectedPetDetail".localized())
             return
         }
         guard let pet = selectedPet.first else { return }
@@ -82,7 +82,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
                 let identifier = "\(date)\(index)"
                 imageIdentifiers.append(identifier)
                 if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
-                    sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                    sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
                     return
                 }
             }
@@ -90,6 +90,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             
             repository.updateRecords(id: pet._id, record)
             print("saved!!")
+            
             moveToFirstScene()
             
         } else if let selectedPeeColor { // 소변
@@ -101,7 +102,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
                 let identifier = "\(date)\(index)"
                 imageIdentifiers.append(identifier)
                 if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
-                    sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                    sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
                     return
                 }
             }
@@ -128,7 +129,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
                 let identifier = "\(date)\(index)"
                 imageIdentifiers.append(identifier)
                 if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
-                    sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                    sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
                     return
                 }
             }
@@ -237,7 +238,7 @@ extension AdditionalInfoViewController: PHPickerViewControllerDelegate, AddDeleg
     func openPhotoAlbum() {
         
         if 5 - picCount < 1 {
-            self.sendOneSidedAlert(title: "사진은 5장까지 추가할 수 있습니다!")
+            self.sendOneSidedAlert(title: "noMoreImagesError".localized())
         }
         var config = PHPickerConfiguration()
         
@@ -271,7 +272,7 @@ extension AdditionalInfoViewController: PHPickerViewControllerDelegate, AddDeleg
                     } else {
                         // 다시 시도 Alert
                         print(error?.localizedDescription)
-                        self.sendOneSidedAlert(title: "이미지를 저장할 수 없습니다!", message: "한 번 더 시도해 주세요!")
+                        self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
                     }
                 }
             }
@@ -280,7 +281,7 @@ extension AdditionalInfoViewController: PHPickerViewControllerDelegate, AddDeleg
         dispatchGroup.notify(queue: DispatchQueue.main) { [weak self] in
             guard let self = self else { return }
             if self.images.count + images.count > 5 {
-                self.sendOneSidedAlert(title: "사진은 5장까지 추가할 수 있어요!")
+                self.sendOneSidedAlert(title: "noMoreImagesError".localized())
                 return
             } else {
                 picCount += images.count
@@ -341,7 +342,7 @@ extension AdditionalInfoViewController: UIDocumentPickerDelegate {
     func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
         var images: [UIImage] = []
         if urls.count > 5 {
-            self.sendOneSidedAlert(title: "이미지를 5개 이상 첨부할 수 없습니다!")
+            self.sendOneSidedAlert(title: "noMoreImagesError".localized())
         }
         for url in urls {
             guard let image = UIImage(contentsOfFile: url.path) else { return }

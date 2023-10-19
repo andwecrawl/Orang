@@ -44,7 +44,7 @@ final class WeightRecordViewController: BaseViewController, MoveToFirstScene {
         guard let pet = selectedPet?.first else { return }
         guard let weight = Float(weightTextField.text ?? "0") else { return }
         if weight == 0 || weight < 0 {
-            self.sendOneSidedAlert(title: "몸무게를 입력해 주세요!")
+            self.sendOneSidedAlert(title: "noWeightError".localized())
         }
         guard let unitStr = weightUnitButton.titleLabel?.text else { return }
         guard let unit = Unit(rawValue: unitStr) else { return }

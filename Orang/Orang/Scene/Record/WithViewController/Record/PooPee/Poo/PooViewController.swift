@@ -64,9 +64,9 @@ extension PooViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "대변 색깔"
+            return "fecesColor".localized()
         } else {
-            return "대변 형태"
+            return "fecesForm".localized()
         }
     }
     func numberOfSections(in tableView: UITableView) -> Int {

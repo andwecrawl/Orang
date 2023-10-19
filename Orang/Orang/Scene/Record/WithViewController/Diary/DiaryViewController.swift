@@ -21,7 +21,7 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
         return view
     }()
     
-    let titleTextField = UnderLineTextField.textFieldBuilder(placeholder: "제목을 입력해 주세요!")
+    let titleTextField = UnderLineTextField.textFieldBuilder(placeholder: "noTitleError".localized())
     let contentTextView = UITextView.TextViewBuilder()
     
     var selectedPet: [PetTable]?
@@ -43,9 +43,9 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "일상 기록 추가하기"
+        title = "diaryNavigationTitle".localized()
         
-        let saveButton = UIBarButtonItem(title: "저장", style: .plain, target: self, action: #selector(saveButtonClicked))
+        let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
     }
     
@@ -53,11 +53,11 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
         guard let pet = selectedPet?.first else { return }
         guard let title = titleTextField.text else {
             titleTextField.setError()
-            sendOneSidedAlert(title: "제목을 입력해 주세요!")
+            sendOneSidedAlert(title: "noTitleError".localized())
             return
         }
         if images.isEmpty {
-            sendOneSidedAlert(title: "이미지를 하나 이상 등록해 주세요!")
+            sendOneSidedAlert(title: "noImageError".localized())
             return
         }
         let content = contentTextView.text
@@ -71,7 +71,7 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
             let identifier = "\(date)\(index)"
             imageIdentifiers.append(identifier)
             if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
-                sendOneSidedAlert(title: "이미지 저장에 실패했습니다.", message: "다시 시도해 주세요!")
+                sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
                 return
             }
         }
@@ -170,7 +170,7 @@ extension DiaryViewController: PHPickerViewControllerDelegate, AddDelegate {
     func openPhotoAlbum() {
         
         if 5 - picCount < 1 {
-            self.sendOneSidedAlert(title: "사진은 5장까지 추가할 수 있습니다!")
+            self.sendOneSidedAlert(title: "noMoreImagesError".localized())
         }
         var config = PHPickerConfiguration()
         
@@ -204,7 +204,7 @@ extension DiaryViewController: PHPickerViewControllerDelegate, AddDelegate {
                     } else {
                         // 다시 시도 Alert
                         print(error?.localizedDescription)
-                        self.sendOneSidedAlert(title: "이미지를 저장할 수 없습니다!", message: "한 번 더 시도해 주세요!")
+                        self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
                     }
                 }
             }
@@ -213,7 +213,7 @@ extension DiaryViewController: PHPickerViewControllerDelegate, AddDelegate {
         dispatchGroup.notify(queue: DispatchQueue.main) { [weak self] in
             guard let self = self else { return }
             if self.images.count + images.count > 5 {
-                self.sendOneSidedAlert(title: "사진은 5장까지 추가할 수 있어요!")
+                self.sendOneSidedAlert(title: "noMoreImagesError".localized())
                 return
             } else {
                 picCount += images.count

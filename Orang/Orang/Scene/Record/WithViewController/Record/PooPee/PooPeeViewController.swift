@@ -9,7 +9,7 @@ import UIKit
 
 class PooPeeViewController: BaseViewController {
     private let segmentedControl = {
-        let segmentedControl = UnderlineSegmentedControl(items: ["대변", "소변"])
+        let segmentedControl = UnderlineSegmentedControl(items: ["feces".localized(), "urine".localized()])
         segmentedControl.translatesAutoresizingMaskIntoConstraints = false
         return segmentedControl
     }()
@@ -52,7 +52,7 @@ class PooPeeViewController: BaseViewController {
     
     override func setNavigationBar() {
         
-        title = "대소변 기록하기"
+        title = "pooPeeTitle".localized()
         let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
         navigationItem.rightBarButtonItem = nextButton
         
@@ -61,18 +61,18 @@ class PooPeeViewController: BaseViewController {
     
     @objc func nextButtonClicked() {
         let vc = AdditionalInfoViewController()
-        vc.title = "추가적인 증상이 있나요?"
+        vc.title = "moreSymptomsTitle".localized()
         
         if currentPage == 0 { // Poo
             
             guard let pooColor = pooVC.selectedPoo?.type else {
-                sendOneSidedAlert(title: "해당하는 요소를 선택해 주세요!")
+                sendOneSidedAlert(title: "plzSelectElement".localized())
                 return
             }
             
             if pooColor != PooColor.none {
                 guard let pooForm = pooVC.selectedForm?.type else {
-                    sendOneSidedAlert(title: "해당하는 요소를 선택해 주세요!")
+                    sendOneSidedAlert(title: "plzSelectElement".localized())
                     return
                 }
                 vc.selectedPooForm = pooForm
@@ -82,7 +82,7 @@ class PooPeeViewController: BaseViewController {
         } else { // Pee
             
             guard let peeColor = peeVC.selectedPeeColor?.type else {
-                sendOneSidedAlert(title: "해당하는 요소를 선택해 주세요!")
+                sendOneSidedAlert(title: "plzSelectElement".localized())
                 return
             }
             vc.selectedPeeColor = peeColor
