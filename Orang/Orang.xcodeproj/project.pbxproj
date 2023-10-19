@@ -575,17 +575,17 @@
 			isa = PBXGroup;
 			children = (
 				D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */,
-				D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */,
-				D1BB7FFD2AD7E712001FFF1C /* DetailVC */,
+				D1BB7FFD2AD7E712001FFF1C /* AbnormalSymptomsCell */,
 			);
 			path = AbnormalSymptoms;
 			sourceTree = "<group>";
 		};
-		D1BB7FFD2AD7E712001FFF1C /* DetailVC */ = {
+		D1BB7FFD2AD7E712001FFF1C /* AbnormalSymptomsCell */ = {
 			isa = PBXGroup;
 			children = (
+				D1BB7FDA2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift */,
 			);
-			path = DetailVC;
+			path = AbnormalSymptomsCell;
 			sourceTree = "<group>";
 		};
 		D1BB80082AD93980001FFF1C /* AdditionalInfo */ = {
