@@ -10,12 +10,14 @@ import Toast
 import FSCalendar
 
 
-class TotalViewController: BaseViewController, UIScrollViewDelegate {
+final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     
     let scrollView = UIScrollView()
     let contentView = UIStackView()
     
     private let calendarView = CalendarView()
+    
+    private let diaryView = DiaryView()
     
     var testView = {
         let view = UIView()
@@ -76,6 +78,7 @@ class TotalViewController: BaseViewController, UIScrollViewDelegate {
         
         [
             calendarView,
+            diaryView,
             testView,
             testView1,
             testView2,
@@ -105,6 +108,10 @@ class TotalViewController: BaseViewController, UIScrollViewDelegate {
             
         }
         
+        diaryView.snp.makeConstraints { make in
+            make.height.greaterThanOrEqualTo(120)
+        }
+        
         testView.snp.makeConstraints {
             $0.height.equalTo(100)
         }
@@ -123,6 +130,16 @@ class TotalViewController: BaseViewController, UIScrollViewDelegate {
     }
     
     override func configureView() {
+        
+        configureCalendarView()
+        configureDiaryView()
+        
+        if let toastIngredient {
+            self.navigationController?.view.makeToast("\(toastIngredient) 저장되었습니다!", position: .bottom)
+        }
+    }
+    
+    func configureCalendarView() {
         calendarView.calendar.delegate = self
         calendarView.calendar.dataSource = self
         calendarView.calendar.select(Date())
@@ -130,37 +147,61 @@ class TotalViewController: BaseViewController, UIScrollViewDelegate {
         
         setCalendar()
         
-        if let toastIngredient {
-            self.navigationController?.view.makeToast("\(toastIngredient) 저장되었습니다!", position: .bottom)
-        }
+        calendarView.previousButton.addTarget(self, action: #selector(previousButtonClicked), for: .touchUpInside)
+        calendarView.nextButton.addTarget(self, action: #selector(nextButtonClicked), for: .touchUpInside)
+        
     }
+    
+    func configureDiaryView() {
+        diaryView.tableView.delegate = self
+        diaryView.tableView.dataSource = self
+        
+    }
+
+    
+}
+
+extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryTableViewCell.identifier) as? DiaryTableViewCell else { return UITableViewCell() }
+        print("here")
+        cell.backgroundColor = .red
+        return cell
+    }
+    
     
 }
 
 
-extension TotalViewController {
-    // 다음 주로 이동 함수
-    @objc private func nextCurrentPage(isPrev: Bool) {
-        print("clicked!")
-        let cal = Calendar.current
-        var dateComponents = DateComponents()
-        dateComponents.month = 1
 
-        self.currentPage = cal.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
-        self.calendarView.calendar.setCurrentPage(self.currentPage!, animated: true)
-    }
-    // 이전 주로 이동 함수
-    @objc private func prevCurrentPage(isPrev: Bool) {
-        print("clicked!")
-        let cal = Calendar.current
+// Calendar
+extension TotalViewController {
+    @objc func previousButtonClicked() {
+        let current = Calendar.current
         var dateComponents = DateComponents()
         dateComponents.month = -1
-
-        self.currentPage = cal.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
-        self.calendarView.calendar.setCurrentPage(self.currentPage!, animated: true)
+        
+        self.currentPage = current.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
+        if let currentPage {
+            self.calendarView.calendar.setCurrentPage(currentPage, animated: true)
+        }
+    }
+    
+    @objc func nextButtonClicked() {
+        let current = Calendar.current
+        var dateComponents = DateComponents()
+        dateComponents.month = 1
+        
+        self.currentPage = current.date(byAdding: dateComponents, to: self.currentPage ?? self.today)
+        if let currentPage {
+            self.calendarView.calendar.setCurrentPage(currentPage, animated: true)
+        }
     }
 }
-
 
 extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalendarDelegateAppearance {
     func setCalendar() {
