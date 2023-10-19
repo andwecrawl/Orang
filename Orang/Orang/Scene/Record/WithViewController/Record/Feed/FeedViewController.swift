@@ -89,9 +89,9 @@ final class FeedViewController: BaseViewController, MoveToFirstScene {
         ]
             .forEach { view.addSubview($0) }
         
-        typeStackView.AddArrangedSubviews([typeLabel, typeTextField])
-        numberStackView.AddArrangedSubviews([numberLabel, numberTextField, unitButton])
-        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
+        typeStackView.addArrangedSubviews([typeLabel, typeTextField])
+        numberStackView.addArrangedSubviews([numberLabel, numberTextField, unitButton])
+        dateStackView.addArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func setConstraints() {

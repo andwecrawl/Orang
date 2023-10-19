@@ -151,7 +151,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
         ]
             .forEach { view.addSubview($0) }
         
-        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
+        dateStackView.addArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func setConstraints() {

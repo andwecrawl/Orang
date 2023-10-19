@@ -86,9 +86,9 @@ final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
         ]
             .forEach{ view.addSubview($0) }
         
-        hospitalStackView.AddArrangedSubviews([hospitalLabel, hospitalTextField])
-        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
-        whyStackView.AddArrangedSubviews([whyLabel, whyTextField])
+        hospitalStackView.addArrangedSubviews([hospitalLabel, hospitalTextField])
+        dateStackView.addArrangedSubviews([dateLabel, dateTextField, timeTextField])
+        whyStackView.addArrangedSubviews([whyLabel, whyTextField])
         
         addMemo()
     }

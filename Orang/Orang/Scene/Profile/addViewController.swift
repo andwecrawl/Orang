@@ -167,15 +167,15 @@ final class AddViewController: BaseViewController {
             view.addSubview($0)
         }
         
-        speciesStackView.AddArrangedSubviews([speciesLabel, speciesTextField])
-        detailStackView.AddArrangedSubviews([detailSpeciesLabel, detailSpeciesTextField])
-        totalSpeciesStackView.AddArrangedSubviews([speciesStackView, detailStackView])
-        nameStackView.AddArrangedSubviews([nameLabel, nameTextField])
-        birthStackView.AddArrangedSubviews([birthLabel, birthTextField])
+        speciesStackView.addArrangedSubviews([speciesLabel, speciesTextField])
+        detailStackView.addArrangedSubviews([detailSpeciesLabel, detailSpeciesTextField])
+        totalSpeciesStackView.addArrangedSubviews([speciesStackView, detailStackView])
+        nameStackView.addArrangedSubviews([nameLabel, nameTextField])
+        birthStackView.addArrangedSubviews([birthLabel, birthTextField])
         view.addSubview(idkBirthButton)
-        meetDateStackView.AddArrangedSubviews([meetDateLabel, meetDateTextField])
-        weightStackView.AddArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
-        registrationStackView.AddArrangedSubviews([registrationLabel, registrationTextField])
+        meetDateStackView.addArrangedSubviews([meetDateLabel, meetDateTextField])
+        weightStackView.addArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
+        registrationStackView.addArrangedSubviews([registrationLabel, registrationTextField])
         view.addSubview(idkRegistrationButton)
     }
     

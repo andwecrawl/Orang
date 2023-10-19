@@ -13,7 +13,12 @@ final class RecordViewController: BaseViewController {
     
     let diaryButton = UIButton.shadowButtonBuilder(title: "diaryRecordTitle".localized(), subtitle: "diaryRecordDetail".localized(), isBig: true)
     
-    let recordView = UIView.shadowViewBuilder()
+    let recordView = {
+        let innerView = UIView()
+        let view = UIView.shadowViewBuilder(innerView: innerView)
+        return view
+    }()
+    
     let recordTitleLabel = UILabel.labelBuilder(text: "recordRecordTitle".localized(), size: 17, weight: .bold, settingTitle: false)
     let firstRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "weightButton".localized())
     let secondRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "snackButton".localized())
@@ -21,7 +26,11 @@ final class RecordViewController: BaseViewController {
     let fourthRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "abnormalSymptoms".localized())
     let recordStackView = UIStackView.stackViewBuilder()
     
-    let medicalView = UIView.shadowViewBuilder()
+    let medicalView = {
+        let innerView = UIView()
+        let view = UIView.shadowViewBuilder(innerView: innerView)
+        return view
+    }()
     let medicalTitleLabel = UILabel.labelBuilder(text: "MedicalRecordTitle".localized(), size: 17, weight: .bold, settingTitle: false)
     let medicalVaccineButton = UIButton.shadowButtonBuilder(title: "VaccineRecordButton".localized(), subtitle: "VaccineRecordDetail".localized(), isBig: false)
     let medicalHistoryButton = UIButton.shadowButtonBuilder(title: "MedicalHistoryButton".localized(), subtitle: "MedicalHistoryDetail".localized(), isBig: false)
@@ -54,8 +63,8 @@ final class RecordViewController: BaseViewController {
         ]
             .forEach { view.addSubview($0) }
         
-        recordStackView.AddArrangedSubviews([firstRecordButton, secondRecordButton, thirdRecordButton, fourthRecordButton])
-        medicalStackView.AddArrangedSubviews([medicalVaccineButton, medicalHistoryButton])
+        recordStackView.addArrangedSubviews([firstRecordButton, secondRecordButton, thirdRecordButton, fourthRecordButton])
+        medicalStackView.addArrangedSubviews([medicalVaccineButton, medicalHistoryButton])
     }
     
     override func configureView() {

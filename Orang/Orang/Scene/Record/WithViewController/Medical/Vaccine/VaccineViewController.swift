@@ -102,8 +102,8 @@ final class VaccineViewController: BaseViewController {
         ]
             .forEach{ view.addSubview($0) }
         
-        hospitalStackView.AddArrangedSubviews([hospitalLabel, hospitalTextField])
-        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
+        hospitalStackView.addArrangedSubviews([hospitalLabel, hospitalTextField])
+        dateStackView.addArrangedSubviews([dateLabel, dateTextField, timeTextField])
         
     }
     

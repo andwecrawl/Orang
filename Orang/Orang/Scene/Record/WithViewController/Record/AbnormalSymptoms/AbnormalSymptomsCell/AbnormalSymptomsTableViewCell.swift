@@ -35,7 +35,7 @@ final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
         self.addSubview(labelStackView)
         self.addSubview(checkbox)
         
-        labelStackView.AddArrangedSubviews([titleLabel, subtitleLabel])
+        labelStackView.addArrangedSubviews([titleLabel, subtitleLabel])
     }
     
     override func setConstraints() {

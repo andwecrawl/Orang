@@ -68,8 +68,8 @@ final class WeightRecordViewController: BaseViewController, MoveToFirstScene {
         ]
             .forEach { view.addSubview($0) }
         
-        weightStackView.AddArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
-        dateStackView.AddArrangedSubviews([dateLabel, dateTextField, timeTextField])
+        weightStackView.addArrangedSubviews([weightLabel, weightTextField, weightUnitButton])
+        dateStackView.addArrangedSubviews([dateLabel, dateTextField, timeTextField])
     }
     
     override func setConstraints() {

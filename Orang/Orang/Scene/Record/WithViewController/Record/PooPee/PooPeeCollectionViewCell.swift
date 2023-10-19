@@ -54,7 +54,7 @@ final class PooPeeTableViewCell: BaseTableViewCell {
         ]
             .forEach { outerView.addSubview($0) }
         
-        labelStackView.AddArrangedSubviews([titleLabel, subtitleLabel])
+        labelStackView.addArrangedSubviews([titleLabel, subtitleLabel])
         subtitleLabel.numberOfLines = 0
     }
     
