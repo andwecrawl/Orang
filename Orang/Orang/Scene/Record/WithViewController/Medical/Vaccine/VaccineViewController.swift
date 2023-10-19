@@ -61,7 +61,9 @@ final class VaccineViewController: BaseViewController {
             self.sendOneSidedAlert(title: "병원명을 입력해 주세요!")
             return
         }
-        if vaccineCategoryCount == 0 {
+        if hospital.isEmpty {
+            sendOneSidedAlert(title: "병원명을 입력해 주세요!")
+        } else if vaccineCategoryCount == 0 {
             sendOneSidedAlert(title: "백신 항목을 입력해 주세요!")
         }
         
