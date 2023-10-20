@@ -18,7 +18,7 @@ class DiaryTableViewCell: BaseTableViewCell {
     let arrowImageView = {
         let view = UIImageView()
         view.image = UIImage(systemName: "greaterthan")
-        view.tintColor = .lightGray
+        view.tintColor = Design.Color.tintColor
         return view
     }()
     

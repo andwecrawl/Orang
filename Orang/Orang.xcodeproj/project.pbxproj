@@ -279,8 +279,7 @@
 			children = (
 				D1370A752ADE7E2A00FCBD67 /* TotalViewController.swift */,
 				D1370A8F2AE18CEC00FCBD67 /* View */,
-				D1370A862AE15DB300FCBD67 /* DiaryTableViewCell.swift */,
-				D1370A842AE1537400FCBD67 /* DailyRecordCollectionViewCell.swift */,
+				D1370A902AE18F8D00FCBD67 /* Cell */,
 			);
 			path = Total;
 			sourceTree = "<group>";
@@ -294,6 +293,15 @@
 				D1370A8D2AE188AB00FCBD67 /* MedicalView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		D1370A902AE18F8D00FCBD67 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				D1370A862AE15DB300FCBD67 /* DiaryTableViewCell.swift */,
+				D1370A842AE1537400FCBD67 /* DailyRecordCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		D18273082AD0950100F4709B /* Add */ = {
