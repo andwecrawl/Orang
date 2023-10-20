@@ -19,6 +19,8 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     
     private let diaryView = DiaryView()
     
+    private let dailyView = DailyView()
+    
     var testView = {
         let view = UIView()
         view.backgroundColor = .blue
@@ -44,6 +46,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     }()
     
     
+    private var calendarCurrentPage: Int = 0
     private var currentPage: Date?
     var selectedDate: Date = Date()
     
@@ -79,6 +82,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         [
             calendarView,
             diaryView,
+            dailyView,
             testView,
             testView1,
             testView2,
@@ -112,6 +116,11 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
             make.height.greaterThanOrEqualTo(120)
         }
         
+        dailyView.snp.makeConstraints { make in
+            make.height.greaterThanOrEqualTo(200)
+        }
+        
+        testView.addInnerShadow()
         testView.snp.makeConstraints {
             $0.height.equalTo(100)
         }
@@ -133,6 +142,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         
         configureCalendarView()
         configureDiaryView()
+        configureDailyView()
         
         if let toastIngredient {
             self.navigationController?.view.makeToast("\(toastIngredient) 저장되었습니다!", position: .bottom)
@@ -158,9 +168,29 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         
     }
 
-    
+    func configureDailyView() {
+        dailyView.collectionView.delegate = self
+        dailyView.collectionView.dataSource = self
+    }
 }
 
+
+extension TotalViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 4
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyRecordCollectionViewCell.identifier, for: indexPath) as? DailyRecordCollectionViewCell else { return UICollectionViewCell() }
+        cell.backgroundColor = .red
+        return cell
+    }
+}
+
+
+
+
+// DiaryView
 extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
@@ -172,7 +202,6 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
         cell.backgroundColor = .red
         return cell
     }
-    
     
 }
 
