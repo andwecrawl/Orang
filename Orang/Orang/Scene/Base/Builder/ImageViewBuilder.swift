@@ -8,7 +8,7 @@
 import UIKit
 
 extension UIImageView {
-    static func imageViewBuilder(tintColor: UIColor = .gray, size: CGFloat) -> UIImageView {
+    static func imageViewBuilder(tintColor: UIColor? = .gray, size: CGFloat) -> UIImageView {
         let view = UIImageView()
         view.tintColor = tintColor
         view.contentMode = .scaleAspectFill
