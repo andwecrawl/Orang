@@ -15,7 +15,7 @@ final class MedicalView: BaseView {
         return view
     }()
     
-    let medicalRecordLabel = UILabel.labelBuilder(text: "일상 기록", size: 18, weight: .bold, alignment: .left)
+    let medicalRecordLabel = UILabel.labelBuilder(text: "진료 기록", size: 18, weight: .bold, alignment: .left)
     
     
     override func configureHierarchy() {
