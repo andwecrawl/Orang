@@ -23,30 +23,13 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     
     private let medicalView = DiaryView()
     
+    private let emptyView = EmptyView()
+    
     var testView = {
         let view = UIView()
-        view.backgroundColor = .blue
+        view.backgroundColor = .clear
         return view
     }()
-    
-    var testView1 = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
-    
-    var testView2 = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
-    
-    var testView3 = {
-        let view = UIView()
-        view.backgroundColor = .blue
-        return view
-    }()
-    
     
     private var calendarCurrentPage: Int = 0
     private var currentPage: Date?
@@ -86,10 +69,8 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
             diaryView,
             dailyView,
             medicalView,
-            testView,
-            testView1,
-            testView2,
-            testView3,
+            emptyView,
+            testView
         ]
             .forEach { contentView.addArrangedSubview($0) }
         
@@ -116,31 +97,22 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         }
         
         diaryView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(80)
+            make.height.greaterThanOrEqualTo(100)
         }
         
         dailyView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(190)
+            make.height.greaterThanOrEqualTo(100)
         }
         
         medicalView.snp.makeConstraints { make in
             make.height.greaterThanOrEqualTo(100)
         }
         
-        testView.addInnerShadow()
+        emptyView.snp.makeConstraints { make in
+            make.height.equalTo(200)
+        }
+        
         testView.snp.makeConstraints {
-            $0.height.equalTo(100)
-        }
-        
-        testView1.snp.makeConstraints {
-            $0.height.equalTo(100)
-        }
-        
-        testView2.snp.makeConstraints {
-            $0.height.equalTo(100)
-        }
-        
-        testView3.snp.makeConstraints {
             $0.height.equalTo(100)
         }
     }
@@ -190,19 +162,6 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
 }
 
 
-extension TotalViewController: UICollectionViewDelegate, UICollectionViewDataSource {
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
-    }
-
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyRecordCollectionViewCell.identifier, for: indexPath) as? DailyRecordCollectionViewCell else { return UICollectionViewCell() }
-        cell.backgroundColor = .white
-        return cell
-    }
-}
-
-
 
 
 // DiaryView
@@ -212,6 +171,10 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if dailyView.tableView == tableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyTempTableViewCell.identifier) as? DailyTempTableViewCell else { return UITableViewCell() }
+            return cell
+        }
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryTableViewCell.identifier) as? DiaryTableViewCell else { return UITableViewCell() }
         return cell
     }
@@ -250,7 +213,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         let calendar = self.calendarView.calendar
         self.currentPage = calendar.currentPage
         calendar.locale = Locale(identifier: Locale.current.identifier)
-        calendar.today = Date()
+        calendar.today = today
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
         calendar.appearance.weekdayFont = .systemFont(ofSize: 13, weight: .semibold)
         calendar.appearance.titleFont = .systemFont(ofSize: 15, weight: .bold)
