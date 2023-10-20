@@ -19,7 +19,9 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     
     private let diaryView = DiaryView()
     
-    private let dailyView = DailyView()
+    private let dailyView = DiaryView()
+    
+    private let medicalView = DiaryView()
     
     var testView = {
         let view = UIView()
@@ -83,6 +85,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
             calendarView,
             diaryView,
             dailyView,
+            medicalView,
             testView,
             testView1,
             testView2,
@@ -113,11 +116,15 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         }
         
         diaryView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(120)
+            make.height.greaterThanOrEqualTo(80)
         }
         
         dailyView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(200)
+            make.height.greaterThanOrEqualTo(190)
+        }
+        
+        medicalView.snp.makeConstraints { make in
+            make.height.greaterThanOrEqualTo(100)
         }
         
         testView.addInnerShadow()
@@ -143,6 +150,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         configureCalendarView()
         configureDiaryView()
         configureDailyView()
+        configureMedicalView()
         
         if let toastIngredient {
             self.navigationController?.view.makeToast("\(toastIngredient) 저장되었습니다!", position: .bottom)
@@ -169,8 +177,15 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     }
 
     func configureDailyView() {
-        dailyView.collectionView.delegate = self
-        dailyView.collectionView.dataSource = self
+        dailyView.recordLabel.text = "생활 기록"
+        dailyView.tableView.delegate = self
+        dailyView.tableView.dataSource = self
+    }
+    
+    func configureMedicalView() {
+        medicalView.recordLabel.text = "진료 기록"
+        medicalView.tableView.delegate = self
+        medicalView.tableView.dataSource = self
     }
 }
 
@@ -182,7 +197,7 @@ extension TotalViewController: UICollectionViewDelegate, UICollectionViewDataSou
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DailyRecordCollectionViewCell.identifier, for: indexPath) as? DailyRecordCollectionViewCell else { return UICollectionViewCell() }
-        cell.backgroundColor = .red
+        cell.backgroundColor = .white
         return cell
     }
 }
@@ -198,8 +213,6 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryTableViewCell.identifier) as? DiaryTableViewCell else { return UITableViewCell() }
-        print("here")
-        cell.backgroundColor = .red
         return cell
     }
     
