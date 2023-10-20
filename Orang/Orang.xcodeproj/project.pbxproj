@@ -291,8 +291,7 @@
 			children = (
 				D1370A7E2AE1306B00FCBD67 /* CalendarView.swift */,
 				D1370A892AE15EFC00FCBD67 /* DiaryView.swift */,
-				D1370A8B2AE1889000FCBD67 /* DailyView.swift */,
-				D1370A8D2AE188AB00FCBD67 /* MedicalView.swift */,
+				D1370A952AE26CA700FCBD67 /* tobecontinue... */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,7 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				D1370A862AE15DB300FCBD67 /* DiaryTableViewCell.swift */,
-				D1370A842AE1537400FCBD67 /* DailyRecordCollectionViewCell.swift */,
+				D1370A962AE26CCC00FCBD67 /* Later */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -320,6 +319,23 @@
 				D1370A932AE25F8B00FCBD67 /* SettingViewController.swift */,
 			);
 			name = Setting;
+			sourceTree = "<group>";
+		};
+		D1370A952AE26CA700FCBD67 /* tobecontinue... */ = {
+			isa = PBXGroup;
+			children = (
+				D1370A8B2AE1889000FCBD67 /* DailyView.swift */,
+				D1370A8D2AE188AB00FCBD67 /* MedicalView.swift */,
+			);
+			path = tobecontinue...;
+			sourceTree = "<group>";
+		};
+		D1370A962AE26CCC00FCBD67 /* Later */ = {
+			isa = PBXGroup;
+			children = (
+				D1370A842AE1537400FCBD67 /* DailyRecordCollectionViewCell.swift */,
+			);
+			path = Later;
 			sourceTree = "<group>";
 		};
 		D18273082AD0950100F4709B /* Add */ = {
