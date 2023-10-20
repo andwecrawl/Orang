@@ -38,7 +38,7 @@ final class VaccineViewController: BaseViewController {
     
     var selectedPet: [PetTable]?
     var vaccineCategoryCount: Int = 0
-    var vaccineTypes: [String] = []
+    var vaccineTypes: [(isSelected: Bool, text: String)] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,17 +72,21 @@ final class VaccineViewController: BaseViewController {
         vc.selectedPet = selectedPet
         vc.hospital = hospital
         vc.treatmentDate = treatmentDate
-        vc.vaccineTypes = vaccineTypes
+        vc.vaccineTypes = vaccineTypes.map{ $0.text }
         
         navigationController?.pushViewController(vc, animated: true)
     }
     
     func getVaccineTypeFromCell() {
+        
+        var vaccineTypes: [(Bool, String)] = []
+        
         for i in 0..<vaccineCollectionView.numberOfItems(inSection: 0) {
             if let cell = vaccineCollectionView.cellForItem(at: IndexPath(item: i, section: 0)) as? VaccineCategoryCollectionViewCell {
-                if let text = cell.loadVaccineType() {
+                let cellData = cell.loadVaccineType()
+                if let text = cellData.1 {
                     if !text.isEmpty {
-                        vaccineTypes.append(text)
+                        vaccineTypes.append((cellData.0, text))
                     } else {
                         sendOneSidedAlert(title: "백신 항목을 입력해 주세요!")
                     }
@@ -91,6 +95,8 @@ final class VaccineViewController: BaseViewController {
                 }
             }
         }
+        
+        self.vaccineTypes = vaccineTypes
     }
     
     override func configureHierarchy() {
@@ -214,6 +220,8 @@ extension VaccineViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let item = indexPath.item
+        let data: (Bool, String) = vaccineTypes.count > item ? vaccineTypes[item] : (false, "")
+        
         if vaccineCategoryCount < 3 { // AddButton 있음
             if item == vaccineCategoryCount { // 마지막 Cell이라면
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VaccineAddCollectionViewCell.identifier, for: indexPath) as? VaccineAddCollectionViewCell else { return UICollectionViewCell() }
@@ -221,11 +229,13 @@ extension VaccineViewController: UICollectionViewDelegate, UICollectionViewDataS
                 return cell
             } else { // 추가하는 Cell이라면
                 guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VaccineCategoryCollectionViewCell.identifier, for: indexPath) as? VaccineCategoryCollectionViewCell else { return UICollectionViewCell() }
+                cell.configureForReuse(isSelected: data.0, text: data.1)
                 cell.delegate = self
                 return cell
             }
         } else { // AddButton 없음
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: VaccineCategoryCollectionViewCell.identifier, for: indexPath) as? VaccineCategoryCollectionViewCell else { return UICollectionViewCell() }
+            cell.configureForReuse(isSelected: data.0, text: data.1)
             cell.delegate = self
             return cell
         }
@@ -246,11 +256,13 @@ extension VaccineViewController: UICollectionViewDelegate, UICollectionViewDataS
 extension VaccineViewController: VaccineProtocol {
     func addButtonHandler() {
         vaccineCategoryCount += 1
+        getVaccineTypeFromCell()
         vaccineCollectionView.reloadData()
     }
     
     func deleteButtonHandler() {
         vaccineCategoryCount -= 1
+        getVaccineTypeFromCell()
         vaccineCollectionView.reloadData()
     }
     

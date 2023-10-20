@@ -15,10 +15,18 @@ class VaccineCategoryCollectionViewCell: BaseCollectionViewCell {
     private let vaccineButton = UIButton()
     
     private let inputVaccineTextField = UnderLineTextField.textFieldBuilder(placeholder: "접종한 백신을 입력해 주세요!", textAlignment: .center)
-    private let noVaccineButton = UIButton.idkButtonBuilder(title: "접종한 백신이 표에 없어요.")
-    
+    let noVaccineButton = UIButton.idkButtonBuilder(title: "접종한 백신이 표에 없어요.")
     
     var delegate: VaccineProtocol?
+    
+    
+    override func prepareForReuse() {
+        
+        vaccineTypeTextField.text = ""
+        inputVaccineTextField.text = ""
+        noVaccineButton.isSelected = false
+    }
+    
     
     override func configureHierarchy() {
         [
@@ -97,11 +105,20 @@ class VaccineCategoryCollectionViewCell: BaseCollectionViewCell {
         vaccineTypeTextField.isUserInteractionEnabled = false
     }
     
-    func loadVaccineType() -> String? {
+    func loadVaccineType() -> (Bool, String?) {
         if noVaccineButton.isSelected == true { // inputTextField
-            return inputVaccineTextField.text
+            return (true, inputVaccineTextField.text)
         } else { // vaccineTextField
-            return vaccineTypeTextField.text
+            return (false, vaccineTypeTextField.text)
+        }
+    }
+    
+    func configureForReuse(isSelected: Bool, text: String) {
+        noVaccineButton.isSelected = isSelected
+        if isSelected {
+            inputVaccineTextField.text = text
+        } else {
+            vaccineTypeTextField.text = text
         }
     }
 }
