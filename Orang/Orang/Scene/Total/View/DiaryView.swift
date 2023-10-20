@@ -15,12 +15,12 @@ final class DiaryView: BaseView {
         return view
     }()
     
-    let diaryRecordLabel = UILabel.labelBuilder(text: "일상 기록", size: 18, weight: .bold, alignment: .left)
+    var recordLabel = UILabel.labelBuilder(text: "일상 기록", size: 18, weight: .bold, alignment: .left)
     
     let tableView = {
         let view = UITableView(frame: .zero)
         view.register(DiaryTableViewCell.self, forCellReuseIdentifier: DiaryTableViewCell.identifier)
-        view.rowHeight = 90
+        view.rowHeight = 80
         return view
     }()
     
@@ -30,7 +30,7 @@ final class DiaryView: BaseView {
         UIView.addOuterShadowAndRadius(outerView: outerView, innerView: innerView)
         
         [
-            diaryRecordLabel,
+            recordLabel,
             tableView
         ]
             .forEach { innerView.addSubview($0) }
@@ -42,14 +42,14 @@ final class DiaryView: BaseView {
             make.edges.equalToSuperview()
         }
         
-        diaryRecordLabel.snp.makeConstraints { make in
+        recordLabel.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(20)
             make.horizontalEdges.equalToSuperview().inset(20)
             make.height.equalTo(30)
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(diaryRecordLabel.snp.bottom).offset(12)
+            make.top.equalTo(recordLabel.snp.bottom).offset(12)
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.greaterThanOrEqualTo(90)
             make.bottom.equalToSuperview().inset(20)

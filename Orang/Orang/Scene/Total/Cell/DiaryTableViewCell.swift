@@ -9,8 +9,8 @@ import UIKit
 
 class DiaryTableViewCell: BaseTableViewCell {
 
-    let diaryImageView = UIImageView.imageViewBuilder(size: 70)
-    let titleLabel = UILabel.labelBuilder(text: "제목입니당", size: 16, weight: .semibold, alignment: .left)
+    let diaryImageView = UIImageView.imageViewBuilder(size: 60)
+    let titleLabel = UILabel.labelBuilder(text: "제목입니당", size: 15, weight: .semibold, alignment: .left)
     let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당", size: 14, weight: .regular, alignment: .justified)
     
     let textStackView = UIStackView.stackViewBuilder(space: 2, axis: .vertical)
