@@ -23,6 +23,8 @@ class DiaryTableViewCell: BaseTableViewCell {
     }()
     
     override func configureHierarchy() {
+        self.backgroundColor = .clear
+        
         [
             diaryImageView,
             textStackView,
