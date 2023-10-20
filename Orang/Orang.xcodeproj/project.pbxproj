@@ -22,6 +22,7 @@
 		D1370A8A2AE15EFC00FCBD67 /* DiaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A892AE15EFC00FCBD67 /* DiaryView.swift */; };
 		D1370A8C2AE1889000FCBD67 /* DailyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A8B2AE1889000FCBD67 /* DailyView.swift */; };
 		D1370A8E2AE188AB00FCBD67 /* MedicalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A8D2AE188AB00FCBD67 /* MedicalView.swift */; };
+		D1370A942AE25F8B00FCBD67 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A932AE25F8B00FCBD67 /* SettingViewController.swift */; };
 		D182730A2AD0F31200F4709B /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273092AD0F31200F4709B /* Date+.swift */; };
 		D18273102AD26F5900F4709B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D182730F2AD26F5900F4709B /* FSCalendar */; };
 		D18273142AD2CEA200F4709B /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273132AD2CEA200F4709B /* Unit.swift */; };
@@ -109,6 +110,7 @@
 		D1370A892AE15EFC00FCBD67 /* DiaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryView.swift; sourceTree = "<group>"; };
 		D1370A8B2AE1889000FCBD67 /* DailyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyView.swift; sourceTree = "<group>"; };
 		D1370A8D2AE188AB00FCBD67 /* MedicalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedicalView.swift; sourceTree = "<group>"; };
+		D1370A932AE25F8B00FCBD67 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		D18273092AD0F31200F4709B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		D18273132AD2CEA200F4709B /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
@@ -304,6 +306,22 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
+		D1370A912AE25F1500FCBD67 /* ProfileViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA59312AC3F1FF007437F4 /* ProfileCollectionViewCell.swift */,
+			);
+			name = ProfileViewCell;
+			sourceTree = "<group>";
+		};
+		D1370A922AE25F4200FCBD67 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				D1370A932AE25F8B00FCBD67 /* SettingViewController.swift */,
+			);
+			name = Setting;
+			sourceTree = "<group>";
+		};
 		D18273082AD0950100F4709B /* Add */ = {
 			isa = PBXGroup;
 			children = (
@@ -470,9 +488,10 @@
 		D1BA592F2AC3EE40007437F4 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				D18273082AD0950100F4709B /* Add */,
+				D1370A922AE25F4200FCBD67 /* Setting */,
 				D1BA59032AC330E9007437F4 /* ProfileViewController.swift */,
-				D1BA59312AC3F1FF007437F4 /* ProfileCollectionViewCell.swift */,
+				D1370A912AE25F1500FCBD67 /* ProfileViewCell */,
+				D18273082AD0950100F4709B /* Add */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -807,6 +826,7 @@
 				D1370A682ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift in Sources */,
 				D1B52F152AD033BC00477A14 /* AddViewController+.swift in Sources */,
 				D1B52F0C2ACFF0FB00477A14 /* DiaryViewController.swift in Sources */,
+				D1370A942AE25F8B00FCBD67 /* SettingViewController.swift in Sources */,
 				D1BB7FC92AD531AC001FFF1C /* VaccineViewController.swift in Sources */,
 				D1BA59352AC6B887007437F4 /* LabelBuilder.swift in Sources */,
 				D1B52ED32ACBEE3B00477A14 /* AlertViewController.swift in Sources */,
