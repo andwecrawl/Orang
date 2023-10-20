@@ -17,14 +17,19 @@ final class DailyView: BaseView {
     
     let dailyRecordLabel = UILabel.labelBuilder(text: "생활 기록", size: 18, weight: .bold, alignment: .left)
     
+    lazy var collectionView = {
+        let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
+        view.register(DailyRecordCollectionViewCell.self, forCellWithReuseIdentifier: DailyRecordCollectionViewCell.identifier)
+        return view
+    }()
     
     override func configureHierarchy() {
         
         self.addSubview(outerView)
-        UIView.addOuterShadowAndRadius(outerView: outerView, innerView: innerView)
         
         [
-            dailyRecordLabel
+            dailyRecordLabel,
+            collectionView
         ]
             .forEach { innerView.addSubview($0) }
         
@@ -41,6 +46,12 @@ final class DailyView: BaseView {
             make.height.equalTo(30)
         }
         
+        collectionView.snp.makeConstraints { make in
+            make.top.equalTo(dailyRecordLabel.snp.bottom).offset(12)
+            make.horizontalEdges.equalToSuperview().inset(16)
+            make.bottom.equalToSuperview().inset(20)
+        }
+        
         
         /*
          tableView.snp.makeConstraints { make in
@@ -52,5 +63,21 @@ final class DailyView: BaseView {
          */
     }
     
+    
+    func setCollectionViewLayout() -> UICollectionViewLayout {
+        let itemSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0))
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        item.contentInsets = NSDirectionalEdgeInsets(top: 5, leading: 5, bottom: 5, trailing: 5)
+        
+        let groupSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.3))
+        
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitems: [item])
+        
+        let section = NSCollectionLayoutSection(group: group)
+        
+        let layout = UICollectionViewCompositionalLayout(section: section)
+        
+        return layout
+    }
     
 }
