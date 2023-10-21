@@ -8,6 +8,7 @@
 import UIKit
 import Toast
 import FSCalendar
+import RealmSwift
 
 
 final class TotalViewController: BaseViewController, UIScrollViewDelegate {
@@ -31,6 +32,8 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         return view
     }()
     
+    private var height: (diary: Int, daily: Int, medical: Int) = (100, 100, 100)
+    
     private var calendarCurrentPage: Int = 0
     private var currentPage: Date?
     var selectedDate: Date = Date()
@@ -39,8 +42,25 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         return Date()
     }()
     
+    let petRepository = PetTableRepository()
+    let recordRepository = RecordTableRepository()
+    var diaryRecords: Results<RecordTable>!
+    var dailyRecords: Results<RecordTable>!
+    var medicalRecords: Results<MedicalRecordTable>!
     
     var toastIngredient: String?
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        loadData(date: selectedDate)
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
     
     override func setNavigationBar() {
         super.setNavigationBar()
@@ -97,15 +117,15 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         }
         
         diaryView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(100)
+            make.height.greaterThanOrEqualTo(height.diary)
         }
         
         dailyView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(100)
+            make.height.greaterThanOrEqualTo(height.daily)
         }
         
         medicalView.snp.makeConstraints { make in
-            make.height.greaterThanOrEqualTo(100)
+            make.height.greaterThanOrEqualTo(height.medical)
         }
         
         emptyView.snp.makeConstraints { make in
@@ -162,21 +182,96 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
 }
 
 
+// loadData & updateConstraints
+extension TotalViewController {
+    func loadData(date: Date) {
+        diaryRecords = recordRepository.fetchRecords(date: date, type: .diary, objectType: RecordTable.self)
+        dailyRecords = recordRepository.fetchRecords(date: date, type: .daily, objectType: RecordTable.self)
+        medicalRecords = recordRepository.fetchRecords(date: date, type: .medical, objectType: MedicalRecordTable.self)
+        
+        setContentView()
+        
+        diaryView.tableView.reloadData()
+        dailyView.tableView.reloadData()
+        medicalView.tableView.reloadData()
+    }
+    
+    func setContentView() {
+        if diaryRecords.isEmpty && dailyRecords.isEmpty && medicalRecords.isEmpty {
+            diaryView.isHidden = true
+            dailyView.isHidden = true
+            medicalView.isHidden = true
+            emptyView.isHidden = false
+        } else {
+            emptyView.isHidden = true
+        }
+        
+        if diaryRecords.isEmpty {
+            diaryView.isHidden = true
+        } else {
+            diaryView.isHidden = false
+            let newHeight = 100 + diaryRecords.count * 80
+            if newHeight != height.diary {
+                height.diary = newHeight
+                diaryView.snp.updateConstraints { make in
+                    make.height.equalTo(height.diary)
+                }
+            }
+        }
+        print("diarys End")
+        if dailyRecords.isEmpty {
+            dailyView.isHidden = true
+        } else {
+            dailyView.isHidden = false
+            diaryView.tableView.separatorColor = .clear
+            print(dailyRecords.count)
+            let newHeight = 100 + dailyRecords.count * 80
+            if newHeight != height.daily {
+                height.daily = newHeight
+                dailyView.snp.updateConstraints { make in
+                    make.height.equalTo(height.daily)
+                }
+            }
+        }
+        print("daily End")
+        if medicalRecords.isEmpty {
+            medicalView.isHidden = true
+        } else {
+            medicalView.isHidden = false
+            let newHeight = 100 + medicalRecords.count * 80
+            if newHeight != height.medical {
+                height.medical = newHeight
+                medicalView.snp.updateConstraints { make in
+                    make.height.equalTo(height.medical)
+                }
+            }
+        }
+        
+        print("medical End")
+    }
+}
 
 
 // DiaryView
 extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        if diaryView.tableView == tableView {
+            return diaryRecords.count
+        } else if dailyView.tableView == tableView {
+            return dailyRecords.count
+        } else {
+            return medicalRecords.count
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if dailyView.tableView == tableView {
+        if diaryView.tableView == tableView {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryTableViewCell.identifier) as? DiaryTableViewCell else { return UITableViewCell() }
+            return cell
+        } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyTempTableViewCell.identifier) as? DailyTempTableViewCell else { return UITableViewCell() }
             return cell
         }
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryTableViewCell.identifier) as? DiaryTableViewCell else { return UITableViewCell() }
-        return cell
     }
     
 }
@@ -224,10 +319,6 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         calendarCurrentPageDidChange(calendar)
     }
 
-    func setCalendarHeight() {
-
-    }
-
     func setWeekdayFont() {
 
     }
@@ -250,13 +341,6 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         calendar.appearance.titleDefaultColor = Design.Color.content
     }
 
-
-    // height 관련
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-
-    }
-
-
     // 선택된 날짜 설정
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
         return Design.Color.tintColor
@@ -265,7 +349,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
 
     // 날짜 선택 시 할 일 지정
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-
+        print(date)
     }
 
 
