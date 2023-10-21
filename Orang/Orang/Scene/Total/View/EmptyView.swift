@@ -17,7 +17,7 @@ final class EmptyView: BaseView {
     
     let recordLabel = UILabel.labelBuilder(text: "오늘의 기록", size: 18, weight: .bold, alignment: .left)
     
-    let informationLabel = UILabel.labelBuilder(text: "기록하기 탭에서\n아이의 기록을 새롭게 추가해 보세요!", size: 16, weight: .light, alignment: .center)
+    let informationLabel = UILabel.labelBuilder(text: "기록하기 탭에서\n아이의 기록을 새롭게 추가해 보세요!", size: 14, weight: .light, alignment: .center)
     
     override func configureHierarchy() {
         self.addSubview(outerView)
