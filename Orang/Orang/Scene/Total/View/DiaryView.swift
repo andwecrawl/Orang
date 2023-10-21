@@ -19,6 +19,8 @@ final class DiaryView: BaseView {
     
     let tableView = {
         let view = UITableView(frame: .zero)
+        view.backgroundColor = .clear
+        view.register(DailyTempTableViewCell.self, forCellReuseIdentifier: DailyTempTableViewCell.identifier)
         view.register(DiaryTableViewCell.self, forCellReuseIdentifier: DiaryTableViewCell.identifier)
         view.rowHeight = 80
         return view
@@ -51,7 +53,7 @@ final class DiaryView: BaseView {
         tableView.snp.makeConstraints { make in
             make.top.equalTo(recordLabel.snp.bottom).offset(12)
             make.horizontalEdges.equalToSuperview().inset(16)
-            make.height.greaterThanOrEqualTo(90)
+            make.height.greaterThanOrEqualTo(80)
             make.bottom.equalToSuperview().inset(20)
         }
         
