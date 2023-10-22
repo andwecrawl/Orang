@@ -11,7 +11,7 @@ import RealmSwift
 protocol PetTableRepositoryType: AnyObject {
     func fetch() -> Results<PetTable>
     func create(_ item: PetTable)
-    func delete(_ item: PetTable)
+    func delete(_ item: Pet)
     func updatePet(id: ObjectId, _ item: PetTable)
 }
 
@@ -34,7 +34,7 @@ class PetTableRepository: PetTableRepositoryType {
         return data
     }
     
-    func delete(_ item: PetTable) {
+    func delete(_ item: Pet) {
         let pet = realm.objects(PetTable.self)
         let records = realm.objects(RecordTable.self).where({ $0.petId == item._id })
         let medicalRecords = realm.objects(MedicalRecordTable.self).where({ $0.petId == item._id })
