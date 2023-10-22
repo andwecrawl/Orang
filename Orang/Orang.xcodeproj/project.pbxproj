@@ -297,8 +297,8 @@
 			children = (
 				D1370A7E2AE1306B00FCBD67 /* CalendarView.swift */,
 				D1370A892AE15EFC00FCBD67 /* DiaryView.swift */,
-				D1370A952AE26CA700FCBD67 /* tobecontinue... */,
 				D1370A972AE2707100FCBD67 /* EmptyView.swift */,
+				D1370A952AE26CA700FCBD67 /* tobecontinue... */,
 			);
 			path = View;
 			sourceTree = "<group>";
