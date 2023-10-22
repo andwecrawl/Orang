@@ -74,8 +74,6 @@ final class FeedViewController: BaseViewController, MoveToFirstScene {
             
             repository.updateRecords(id: pet._id, record)
             
-            print("saved!!")
-            
             moveToFirstScene()
         }
     }

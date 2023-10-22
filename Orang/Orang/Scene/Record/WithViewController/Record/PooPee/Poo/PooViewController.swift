@@ -53,7 +53,6 @@ final class PooViewController: BaseViewController {
     override func configureView() {
         PooColor.allCases.forEach{ self.colorList.append(CheckRecord(type: $0)) }
         PooForm.allCases.forEach{ self.formList.append(CheckRecord(type: $0)) }
-        print(formList)
     }
 }
 

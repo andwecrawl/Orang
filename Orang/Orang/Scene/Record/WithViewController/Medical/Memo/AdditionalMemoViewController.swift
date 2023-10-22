@@ -44,7 +44,6 @@ final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print(vaccineTypes)
     }
     
     override func setNavigationBar() {
@@ -79,7 +78,6 @@ final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
         
         repository.updateMedicalRecords(id: pet._id, record)
         
-        print("saved!!")
         moveToFirstScene()
     }
     
@@ -276,7 +274,6 @@ extension AdditionalMemoViewController: UIImagePickerControllerDelegate, UINavig
 extension AdditionalMemoViewController: UIDocumentPickerDelegate {
     // 왠지는 모르겟지만 안돌아감......
     func selectFile() {
-        print("hello?")
         let controller = UIDocumentPickerViewController(forOpeningContentTypes: [.png, .jpeg, .webP, .rawImage], asCopy: true)
         controller.delegate = self
         controller.allowsMultipleSelection = true

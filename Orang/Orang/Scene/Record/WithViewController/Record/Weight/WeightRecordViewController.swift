@@ -55,7 +55,6 @@ final class WeightRecordViewController: BaseViewController, MoveToFirstScene {
         let record = RecordTable(recordType: .weight, petID: pet._id, recordDate: recordDate, weight: weight , weightUnit: unit)
         
         repository.updateRecords(id: pet._id, record)
-        print("saved!!")
         moveToFirstScene()
     }
     

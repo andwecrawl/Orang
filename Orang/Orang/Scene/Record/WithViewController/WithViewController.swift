@@ -147,7 +147,6 @@ extension WithViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 }
             }
         }
-        print(selectedPet)
     }
     
     

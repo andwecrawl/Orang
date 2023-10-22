@@ -70,7 +70,6 @@ final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
         record.imageArray = imageIdentifiers
         
         repository.updateMedicalRecords(id: pet._id, record)
-        print("saved!!")
         moveToFirstScene()
         
     }

@@ -89,7 +89,6 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             record.imageArray = imageIdentifiers
             
             repository.updateRecords(id: pet._id, record)
-            print("saved!!")
             
             moveToFirstScene()
             
@@ -109,7 +108,6 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             record.imageArray = imageIdentifiers
             
             repository.updateRecords(id: pet._id, record)
-            print("saved!!")
             moveToFirstScene()
             
         } else if let selectedSymptoms { // 이상 증상
@@ -136,7 +134,6 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             record.imageArray = imageIdentifiers
             
             repository.updateRecords(id: pet._id, record)
-            print("saved!!")
             moveToFirstScene()
         }
     }
@@ -332,7 +329,6 @@ extension AdditionalInfoViewController: DeleteDelegate {
 extension AdditionalInfoViewController: UIDocumentPickerDelegate {
     // 왠지는 모르겟지만 안돌아감......
     func selectFile() {
-        print("hello?")
         let controller = UIDocumentPickerViewController(forOpeningContentTypes: [.png, .jpeg, .webP, .rawImage], asCopy: true)
         controller.delegate = self
         controller.allowsMultipleSelection = true
