@@ -78,9 +78,13 @@ class PetTableRepository: PetTableRepositoryType {
             print("Pet \(id) not found")
             return
         }
-        try! realm.write {
-            pet.records.append(item)
-            print("Updated: \(pet)")
+        do {
+            try realm.write {
+                pet.records.append(item)
+                print("Updated: \(pet)")
+            }
+        } catch {
+            print("update Error: \(error)")
         }
     }
     
@@ -89,9 +93,13 @@ class PetTableRepository: PetTableRepositoryType {
             print("Pet \(id) not found")
             return
         }
-        try! realm.write {
-            pet.medicalRecords.append(item)
-            print("Updated: \(pet)")
+        do {
+            try realm.write {
+                pet.medicalRecords.append(item)
+                print("Updated: \(pet)")
+            }
+        } catch {
+            print("update Error: \(error)")
         }
     }
     
