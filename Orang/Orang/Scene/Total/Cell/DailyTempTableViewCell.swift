@@ -8,8 +8,10 @@
 import UIKit
 
 class DailyTempTableViewCell: BaseTableViewCell {
-
+    
     let diaryImageView = UIImageView.imageViewBuilder(size: 60)
+    let typeImageView = UIImageView.imageViewBuilder(size: 24)
+
     let titleLabel = UILabel.labelBuilder(text: "제목입니당", size: 15, weight: .semibold, alignment: .left)
     let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당", size: 14, weight: .regular, alignment: .justified)
     
@@ -27,6 +29,7 @@ class DailyTempTableViewCell: BaseTableViewCell {
         
         [
             diaryImageView,
+            typeImageView,
             textStackView,
             arrowImageView
         ]
@@ -38,12 +41,17 @@ class DailyTempTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         diaryImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().inset(8)
+        }
+        
+        typeImageView.snp.makeConstraints { make in
+            make.bottom.equalTo(diaryImageView.snp.bottom).offset(2)
+            make.trailing.equalTo(diaryImageView.snp.trailing).offset(2)
         }
         
         textStackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(diaryImageView.snp.trailing).offset(12)
+            make.leading.equalTo(diaryImageView.snp.trailing).offset(14)
             make.trailing.equalToSuperview().inset(36)
         }
         
@@ -58,6 +66,9 @@ class DailyTempTableViewCell: BaseTableViewCell {
     override func configureView() {
         textStackView.distribution = .equalSpacing
         
+        typeImageView.contentMode = .scaleAspectFit
+        typeImageView.addInnerShadow()
+        typeImageView.backgroundColor = .white
         diaryImageView.backgroundColor = .gray
         titleLabel.numberOfLines = 1
         subtitleLabel.numberOfLines = 2
