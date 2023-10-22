@@ -32,7 +32,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         return view
     }()
     
-    private var height: (diary: Int, daily: Int, medical: Int) = (100, 100, 100)
+    private var height: (diary: Int, daily: Int, medical: Int) = (80, 80, 80)
     
     private var calendarCurrentPage: Int = 0
     private var currentPage: Date?
@@ -44,9 +44,14 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     
     let petRepository = PetTableRepository()
     let recordRepository = RecordTableRepository()
+    var petList: Results<PetTable>!
     var diaryRecords: Results<RecordTable>!
     var dailyRecords: Results<RecordTable>!
     var medicalRecords: Results<MedicalRecordTable>!
+    
+    var diaryEvent: [Date] = []
+    var dailyEvent: [Date] = []
+    var medicalEvent: [Date] = []
     
     var toastIngredient: String?
     
@@ -165,19 +170,21 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     func configureDiaryView() {
         diaryView.tableView.delegate = self
         diaryView.tableView.dataSource = self
-        
+        diaryView.tableView.separatorStyle = .none
     }
 
     func configureDailyView() {
         dailyView.recordLabel.text = "생활 기록"
         dailyView.tableView.delegate = self
         dailyView.tableView.dataSource = self
+        dailyView.tableView.separatorStyle = .none
     }
     
     func configureMedicalView() {
         medicalView.recordLabel.text = "진료 기록"
         medicalView.tableView.delegate = self
         medicalView.tableView.dataSource = self
+        medicalView.tableView.separatorStyle = .none
     }
 }
 
@@ -185,6 +192,8 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
 // loadData & updateConstraints
 extension TotalViewController {
     func loadData(date: Date) {
+        print("isFirst?")
+        petList = petRepository.fetch()
         diaryRecords = recordRepository.fetchRecords(date: date, type: .diary, objectType: RecordTable.self)
         dailyRecords = recordRepository.fetchRecords(date: date, type: .daily, objectType: RecordTable.self)
         medicalRecords = recordRepository.fetchRecords(date: date, type: .medical, objectType: MedicalRecordTable.self)
@@ -210,44 +219,39 @@ extension TotalViewController {
             diaryView.isHidden = true
         } else {
             diaryView.isHidden = false
-            let newHeight = 100 + diaryRecords.count * 80
+            let newHeight = 80 + diaryRecords.count * 80
             if newHeight != height.diary {
                 height.diary = newHeight
                 diaryView.snp.updateConstraints { make in
-                    make.height.equalTo(height.diary)
+                    make.height.greaterThanOrEqualTo(height.diary)
                 }
             }
         }
-        print("diarys End")
         if dailyRecords.isEmpty {
             dailyView.isHidden = true
         } else {
             dailyView.isHidden = false
             diaryView.tableView.separatorColor = .clear
-            print(dailyRecords.count)
-            let newHeight = 100 + dailyRecords.count * 80
+            let newHeight = 80 + dailyRecords.count * 80
             if newHeight != height.daily {
                 height.daily = newHeight
                 dailyView.snp.updateConstraints { make in
-                    make.height.equalTo(height.daily)
+                    make.height.greaterThanOrEqualTo(height.daily)
                 }
             }
         }
-        print("daily End")
         if medicalRecords.isEmpty {
             medicalView.isHidden = true
         } else {
             medicalView.isHidden = false
-            let newHeight = 100 + medicalRecords.count * 80
+            let newHeight = 80 + medicalRecords.count * 80
             if newHeight != height.medical {
                 height.medical = newHeight
                 medicalView.snp.updateConstraints { make in
-                    make.height.equalTo(height.medical)
+                    make.height.greaterThanOrEqualTo(height.medical)
                 }
             }
         }
-        
-        print("medical End")
     }
 }
 
@@ -265,13 +269,126 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let row = indexPath.row
+        
         if diaryView.tableView == tableView {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DiaryTableViewCell.identifier) as? DiaryTableViewCell else { return UITableViewCell() }
+            let record = diaryRecords[row]
+            let petID = record.petId
+            let data = makeRecordCellData(petID: petID, recordType: record.recordType, record: record)
+            cell.titleLabel.text = data.title
+            cell.subtitleLabel.text = data.subtitle
+            if let image = data.images.last {
+                cell.diaryImageView.image = image
+            }
             return cell
-        } else {
+            
+        } else if dailyView.tableView == tableView {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyTempTableViewCell.identifier) as? DailyTempTableViewCell else { return UITableViewCell() }
+            print(row)
+            let record = dailyRecords[row]
+            let petID = record.petId
+            let data = makeRecordCellData(petID: petID, recordType: record.recordType, record: record)
+            cell.titleLabel.text = data.title
+            cell.subtitleLabel.text = data.subtitle
+            if let profileImage = data.images.first, let symbolImage = data.images.last {
+                cell.diaryImageView.image = profileImage
+                cell.typeImageView.image = symbolImage
+            }
+            return cell
+
+        } else { // medicalView
+            
+
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyTempTableViewCell.identifier) as? DailyTempTableViewCell else { return UITableViewCell() }
+
+            let record = medicalRecords[row]
+            let petID = record.petId
+            let data = makeMedicalCellData(petID: petID, recordType: record.recordType, record: record)
+            cell.titleLabel.text = data.title
+            cell.subtitleLabel.text = data.subtitle
+            if let profileImage = data.images.first, let symbolImage = data.images.last {
+                cell.diaryImageView.image = profileImage
+                cell.typeImageView.image = symbolImage
+            }
+            
             return cell
         }
+    }
+    
+    func makeRecordCellData(petID: ObjectId, recordType: RecordType, record: RecordTable) -> (title: String, subtitle: String?, images: [UIImage?]) {
+        
+        if let pet = petList.filter({ $0._id == petID }).first {
+            let profileImage = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
+            let unit = record.weightUnit?.toString ?? ""
+            
+            switch recordType {
+            case .diary:
+                if let title = record.title {
+                    let subtitle = record.content
+                    let diaryImage = ImageManager.shared.loadImageFromDirectory(directoryName: .diaries, with: record.imageArray.first ?? "")
+                    return (title, subtitle, [profileImage, diaryImage])
+                }
+            case .weight:
+                let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+                let weight = record.weight ?? 0
+                let subtitle = "\(weight)\(unit)"
+                let typeImage = record.recordType.image
+                return (title, subtitle, [profileImage, typeImage])
+            case .snack:
+                let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+                let snack = record.snackAmount ?? 0
+                let snackSpecies = record.snackSpecies ?? ""
+                let subtitle = "\(snackSpecies): \(snack)\(unit)"
+                let typeImage = record.recordType.image
+                return (title, subtitle, [profileImage, typeImage])
+            case .pooPee:
+                let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+                let typeImage = record.recordType.image
+                if let peeColor = record.peeColor {
+                    let subtitle = peeColor.title
+                    return (title, subtitle, [profileImage, typeImage])
+                } else if let pooColor = record.pooColor {
+                    let subtitle = "\(pooColor.title) | \(record.pooForm?.title ?? "")"
+                    return (title, subtitle, [profileImage, typeImage])
+                }
+            case .abnormalSymptoms:
+                let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+                let subtitle = record.abnormalSymptomsArray.map({ $0.title }).joined(separator: " | ")
+                let typeImage = record.recordType.image
+                return (title, subtitle, [profileImage, typeImage])
+            default: break
+            }
+        }
+        
+        return ("데이터를 찾을 수 없습니다.", "데이터를 찾을 수 없습니다.", [])
+    }
+    
+    func makeMedicalCellData(petID: ObjectId, recordType: RecordType, record: MedicalRecordTable) -> (title: String, subtitle: String?, images: [UIImage?]) {
+        if let pet = petList.filter({ $0._id == petID }).first {
+            let profileImage = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
+            let typeImage = record.recordType.image
+            let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+            
+            if recordType == .vaccine {
+                
+                let subtitle =  "\(record.hospital) | \(record.vaccineTypeArray.joined(separator: ", "))"
+                return (title, subtitle, [profileImage, typeImage])
+                
+            } else { // recordType == .medicalHistory
+                
+                let treatment = record.treatment ?? "작성한 내원 사유가 없어요!"
+                let memo = record.content ?? ""
+                let subtitle = "\(record.hospital) | \(treatment) | \(memo)"
+                
+                return (title, subtitle, [profileImage, typeImage])
+            }
+        }
+        
+        return ("데이터를 찾을 수 없습니다.", "데이터를 찾을 수 없습니다.", [])
     }
     
 }
@@ -349,7 +466,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
 
     // 날짜 선택 시 할 일 지정
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        print(date)
+        loadData(date: date)
     }
 
 
