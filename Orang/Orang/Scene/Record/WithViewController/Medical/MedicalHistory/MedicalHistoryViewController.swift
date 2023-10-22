@@ -55,7 +55,7 @@ final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
         guard let content = additionalMemo.contentTextView.text else { return }
         
         
-        let record = MedicalRecordTable(hospital: hospital, petId: pet._id, treatmentDate: treatmentDate, recordType: .treatmentRecord, treatment: treatment, content: content, imageArray: [])
+        let record = MedicalRecordTable(hospital: hospital, petId: pet._id, treatmentDate: treatmentDate, recordType: .medicalHistory, treatment: treatment, content: content, imageArray: [])
         var imageIdentifiers: [String] = []
         // photo 추가
         let images = additionalMemo.images

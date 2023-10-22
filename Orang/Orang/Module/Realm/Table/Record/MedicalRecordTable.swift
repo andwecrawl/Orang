@@ -14,7 +14,7 @@ class MedicalRecordTable: Object {
     @Persisted var petId: ObjectId
     @Persisted var hospital: String
     @Persisted var treatmentDate: Date
-    @Persisted var recordType: MedicalRecordType
+    @Persisted var recordType: RecordType
     @Persisted var treatment: String?
     @Persisted var vaccineType: List<String> = List<String>()
     @Persisted var content: String?
@@ -42,7 +42,7 @@ class MedicalRecordTable: Object {
     
     @Persisted(originProperty: "medicalRecords") var owner: LinkingObjects<PetTable>
     
-    convenience init(hospital: String, petId: ObjectId, treatmentDate: Date, recordType: MedicalRecordType, treatment: String? = nil, vaccineType: [String], content: String?, imageArray: [String]) {
+    convenience init(hospital: String, petId: ObjectId, treatmentDate: Date, recordType: RecordType, treatment: String? = nil, vaccineType: [String], content: String?, imageArray: [String]) {
         self.init()
         
         self.petId = petId
@@ -56,7 +56,7 @@ class MedicalRecordTable: Object {
         self.imageArray = imageArray
     }
     
-    convenience init(hospital: String, petId: ObjectId, treatmentDate: Date, recordType: MedicalRecordType, treatment: String?, content: String?, imageArray: [String]) {
+    convenience init(hospital: String, petId: ObjectId, treatmentDate: Date, recordType: RecordType, treatment: String?, content: String?, imageArray: [String]) {
         self.init()
         
         self.petId = petId

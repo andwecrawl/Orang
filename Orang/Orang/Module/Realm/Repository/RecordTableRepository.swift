@@ -60,7 +60,7 @@ class RecordTableRepository: RecordTableRepositoryType {
         let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
         
         if type == .treatmentRecord {
-            let product = data.filter("recordDate >= %@ AND recordDate < %@", today, tomorrow).where({ $0.recordType == .treatmentRecord }).sorted(byKeyPath: "createdDate", ascending: false)
+            let product = data.filter("recordDate >= %@ AND recordDate < %@", today, tomorrow).where({ $0.recordType == .medicalHistory }).sorted(byKeyPath: "createdDate", ascending: false)
             return product
         } else {
             let product = data.filter("recordDate >= %@ AND recordDate < %@", today, tomorrow).where({ $0.recordType == .vaccine }).sorted(byKeyPath: "createdDate", ascending: false)
