@@ -8,7 +8,6 @@
 import UIKit
 import PhotosUI
 
-
 final class DiaryViewController: BaseViewController, MoveToFirstScene {
     
     lazy var collectionView = {
@@ -44,14 +43,14 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
         super.setNavigationBar()
         
         title = "diaryNavigationTitle".localized()
-        
         let saveButton = UIBarButtonItem(title: "save".localized(), style: .plain, target: self, action: #selector(saveButtonClicked))
         navigationItem.rightBarButtonItem = saveButton
     }
     
     @objc func saveButtonClicked() {
         guard let pet = selectedPet?.first else { return }
-        guard let title = titleTextField.text else {
+        guard let title = titleTextField.text else { return }
+        if title.isEmpty {
             titleTextField.setError()
             sendOneSidedAlert(title: "noTitleError".localized())
             return
