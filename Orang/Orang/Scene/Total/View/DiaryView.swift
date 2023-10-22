@@ -51,7 +51,7 @@ final class DiaryView: BaseView {
         }
         
         tableView.snp.makeConstraints { make in
-            make.top.equalTo(recordLabel.snp.bottom).offset(12)
+            make.top.equalTo(recordLabel.snp.bottom).offset(8)
             make.horizontalEdges.equalToSuperview().inset(16)
             make.height.greaterThanOrEqualTo(80)
             make.bottom.equalToSuperview().inset(20)

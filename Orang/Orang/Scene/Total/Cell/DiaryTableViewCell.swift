@@ -38,12 +38,12 @@ class DiaryTableViewCell: BaseTableViewCell {
     override func setConstraints() {
         diaryImageView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalToSuperview().inset(12)
+            make.leading.equalToSuperview().inset(8)
         }
         
         textStackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
-            make.leading.equalTo(diaryImageView.snp.trailing).offset(12)
+            make.leading.equalTo(diaryImageView.snp.trailing).offset(14)
             make.trailing.equalToSuperview().inset(36)
         }
         
@@ -58,7 +58,6 @@ class DiaryTableViewCell: BaseTableViewCell {
     override func configureView() {
         textStackView.distribution = .equalSpacing
         
-        diaryImageView.layer.cornerRadius = 0
         diaryImageView.backgroundColor = .gray
         titleLabel.numberOfLines = 1
         subtitleLabel.numberOfLines = 2
