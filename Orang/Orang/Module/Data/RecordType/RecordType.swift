@@ -16,6 +16,45 @@ enum RecordType: Int, PersistableEnum {
     case abnormalSymptoms
     case vaccine
     case medicalHistory
+    
+    var recordDescriptions: String {
+        switch self {
+        case .diary:
+            return "일상 기록"
+        case .weight:
+            return "몸무게 기록"
+        case .snack:
+            return "간식 기록"
+        case .pooPee:
+            return "대소변 기록"
+        case .abnormalSymptoms:
+            return "이상증상 기록"
+        case .vaccine:
+            return "예방접종 내역"
+        case .medicalHistory:
+            return "진료 내역"
+        }
+    }
+    
+    var image: UIImage? {
+        switch self {
+            
+        case .diary:
+            return UIImage(systemName: Design.image.diary)
+        case .weight:
+            return UIImage(systemName: Design.image.weight)
+        case .snack:
+            return UIImage(systemName: Design.image.snack)
+        case .pooPee:
+            return UIImage(systemName: Design.image.peePoo)
+        case .abnormalSymptoms:
+            return UIImage(systemName: Design.image.abnormalSymptoms)
+        case .vaccine:
+            return UIImage(systemName: Design.image.vaccine)
+        case .medicalHistory:
+            return UIImage(systemName: Design.image.medicalHistory)
+        }
+    }
 }
 
 
