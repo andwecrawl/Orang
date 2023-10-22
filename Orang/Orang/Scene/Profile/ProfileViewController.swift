@@ -18,19 +18,22 @@ final class ProfileViewController: BaseViewController {
         return view
     }()
     
-    let repository = PetTableRepository()
-    var list: Results<PetTable>!
+    let viewModel = ProfileViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        list = repository.fetch()
-        repository.loadFileURL()
+        
+        viewModel.petList.bind { list in
+            self.collectionView.reloadData()
+        }
+        
+        self.viewModel.fetchPet()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        collectionView.reloadData()
+        viewModel.fetchPet()
     }
     
     override func configureHierarchy() {
@@ -46,8 +49,9 @@ final class ProfileViewController: BaseViewController {
         
         title = "Profile"
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonClicked))
-        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingButtonClicked))
-        navigationItem.rightBarButtonItems = [settingButton, addButton]
+        // 추후 설정 추가
+//        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingButtonClicked))
+        navigationItem.rightBarButtonItems = [addButton]
     }
     
     @objc private func addButtonClicked() {
@@ -69,14 +73,13 @@ final class ProfileViewController: BaseViewController {
 extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return list.count
+        return viewModel.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ProfileCollectionViewCell.identifier, for: indexPath) as? ProfileCollectionViewCell else { return UICollectionViewCell() }
         
-        let row = indexPath.row
-        cell.pet = list[row]
+        cell.pet = viewModel.cellForRowAt(at: indexPath)
         cell.configureView()
         
         return cell
@@ -102,7 +105,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, contextMenuConfigurationForItemsAt indexPaths: [IndexPath], point: CGPoint) -> UIContextMenuConfiguration? {
         guard let indexPath = indexPaths.first else { return nil }
-        let pet = list[indexPath.item]
+        let pet = viewModel.cellForRowAt(at: indexPath)
         
         let modify = UIAction(title: "modifiy".localized(), image: UIImage(systemName: "pencil")) { _ in
             let vc = AddViewController()
@@ -111,9 +114,7 @@ extension ProfileViewController: UICollectionViewDelegate, UICollectionViewDataS
         }
         let delete = UIAction(title: "delete".localized(), image: UIImage(systemName: "trash"), attributes: .destructive) { _ in
             self.sendActionAlert(title: "deleteTitle %@".localized(with: pet.name), message: "deleteSubscript %@".localized(with: pet.name)) { _ in
-                ImageManager.shared.removeImageFromDirectory(directoryName: .profile, identifier: pet.profileImage)
-                self.repository.delete(pet)
-                collectionView.reloadData()
+                self.viewModel.deletePet(at: indexPath)
             } denyHandler: { _ in }
         }
 
