@@ -92,13 +92,14 @@ class RecordTable: Object {
     }
     
     // snack
-    convenience init(recordType: RecordType, petID: ObjectId, recordDate: Date, snackSpecies: String, snackAmount: Int) {
+    convenience init(recordType: RecordType, petID: ObjectId, recordDate: Date, snackSpecies: String, snackAmount: Int, unit: Unit) {
         self.init()
         
         self.recordType = recordType
         self.petId = petID
         self.recordDate = recordDate
         self.snackSpecies = snackSpecies
+        self.weightUnit = unit
         self.snackAmount = snackAmount
     }
     

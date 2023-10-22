@@ -63,13 +63,14 @@ final class FeedViewController: BaseViewController, MoveToFirstScene {
         if unitStr == "count".localized() {
             let unit = Unit.count
             
-            let record = RecordTable(recordType: .snack, petID: pet._id, recordDate: recordDate, snackSpecies: snackType, snackAmount: number)
+            let record = RecordTable(recordType: .snack, petID: pet._id, recordDate: recordDate, snackSpecies: snackType, snackAmount: number, unit: unit)
             
             repository.updateRecords(id: pet._id, record)
+            moveToFirstScene()
         } else {
             guard let unit = Unit(rawValue: unitStr) else { return }
             
-            let record = RecordTable(recordType: .snack, petID: pet._id, recordDate: recordDate, snackSpecies: snackType, snackAmount: number)
+            let record = RecordTable(recordType: .snack, petID: pet._id, recordDate: recordDate, snackSpecies: snackType, snackAmount: number, unit: unit)
             
             repository.updateRecords(id: pet._id, record)
             
