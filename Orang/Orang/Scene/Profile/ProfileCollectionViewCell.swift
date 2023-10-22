@@ -34,7 +34,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
     
     private let profileStackView = UIStackView.stackViewBuilder(space: 8)
     
-    var pet: PetTable?
+    var pet: Pet?
     
     override func awakeFromNib() {
         super.awakeFromNib()

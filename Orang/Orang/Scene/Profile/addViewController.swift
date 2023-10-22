@@ -48,7 +48,7 @@ final class AddViewController: BaseViewController {
     private lazy var registrationStackView = UIStackView.stackViewBuilder()
     private lazy var idkRegistrationButton = UIButton.idkButtonBuilder(title: "idkRegistrationNumber".localized())
     
-    var pet: PetTable?
+    var pet: Pet?
     
     var species: Species? = nil
     var birth: Date? = nil
