@@ -8,7 +8,7 @@
 import Foundation
 import RealmSwift
 
-class ProfileViewModel {
+final class ProfileViewModel {
     
     var petList: Observable<[Pet]> = Observable([])
     let repository = PetTableRepository()
