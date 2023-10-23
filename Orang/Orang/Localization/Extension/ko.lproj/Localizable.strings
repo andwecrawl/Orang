@@ -6,7 +6,14 @@
   
 */
 
+// totalVC
+"totalNavigationTitle" = "모아보기";
+"recordOf" = "%@의 기록";
+"inputNewRecord" = "기록하기 탭에서\n아이의 기록을 새롭게 추가해 보세요!";
+
+
 // AlertVC
+"AlertNavigationTitle" = "일정 관리";
 "dailyTodo" = "일상 할 일";
 "dailyTodoDetail" =
 "식사 / 간식 알림, 산책 / 놀이 알림,
@@ -194,6 +201,7 @@
 "Profile" = "프로필";
 
 // profileVC
+"ProfileNavigationTitle" = "아이 설정";
 "meetDate %@" = "%@부터";
 "belongDate %d" = "만난 지 %d일";
 "speciesSetting" = "종";
