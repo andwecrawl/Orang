@@ -15,9 +15,9 @@ final class EmptyView: BaseView {
         return view
     }()
     
-    let recordLabel = UILabel.labelBuilder(text: "오늘의 기록", size: 18, weight: .bold, alignment: .left)
+    let recordLabel = UILabel.labelBuilder(text: "recordOf".localized(with: ""), size: 18, weight: .bold, alignment: .left)
     
-    let informationLabel = UILabel.labelBuilder(text: "기록하기 탭에서\n아이의 기록을 새롭게 추가해 보세요!", size: 14, weight: .light, alignment: .center)
+    let informationLabel = UILabel.labelBuilder(text: "inputNewRecord".localized(), size: 14, weight: .light, alignment: .center)
     
     override func configureHierarchy() {
         self.addSubview(outerView)
@@ -47,15 +47,6 @@ final class EmptyView: BaseView {
             make.centerX.equalToSuperview()
             make.top.equalTo(recordLabel.snp.bottom).offset(44)
         }
-        
-        /*
-         tableView.snp.makeConstraints { make in
-             make.top.equalTo(diaryRecordLabel.snp.bottom).offset(12)
-             make.horizontalEdges.equalToSuperview().inset(16)
-             make.height.greaterThanOrEqualTo(90)
-             make.bottom.equalToSuperview().inset(20)
-         }
-         */
     }
     
     

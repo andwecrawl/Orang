@@ -10,9 +10,14 @@ import Foundation
 extension Date {
     func toCalendarTitle() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월"
+        if Locale.current == Locale(identifier: "ko_KR") {
+            formatter.dateFormat = "yyyy년 MM월"
+            return formatter.string(from: self)
+        } else {
+            formatter.dateFormat = "MMMM d, yyyy"
+            return formatter.string(from: self)
+        }
         
-        return formatter.string(from: self)
     }
     
     func toFormattedString() -> String {

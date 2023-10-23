@@ -47,7 +47,7 @@ final class ProfileViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "Profile"
+        title = "ProfileNavigationTitle".localized()
         let addButton = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(addButtonClicked))
         // 추후 설정 추가
 //        let settingButton = UIBarButtonItem(image: UIImage(systemName: "gear"), style: .plain, target: self, action: #selector(settingButtonClicked))

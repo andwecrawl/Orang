@@ -69,8 +69,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     
     override func setNavigationBar() {
         super.setNavigationBar()
-        
-        title = "모아보기"
+        title = "totalNavigationTitle".localized()
     }
     
     override func configureHierarchy() {
