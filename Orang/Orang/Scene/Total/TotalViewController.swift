@@ -60,7 +60,6 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         super.viewDidLoad()
         
         loadData(date: selectedDate)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -147,6 +146,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         configureDiaryView()
         configureDailyView()
         configureMedicalView()
+        configureEmptyView()
         
         if let toastIngredient {
             self.navigationController?.view.makeToast("\(toastIngredient) 저장되었습니다!", position: .bottom)
@@ -166,24 +166,36 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         
     }
     
+    
     func configureDiaryView() {
         diaryView.tableView.delegate = self
         diaryView.tableView.dataSource = self
-        diaryView.tableView.separatorStyle = .none
     }
 
     func configureDailyView() {
         dailyView.recordLabel.text = "생활 기록"
         dailyView.tableView.delegate = self
         dailyView.tableView.dataSource = self
-        dailyView.tableView.separatorStyle = .none
     }
     
     func configureMedicalView() {
         medicalView.recordLabel.text = "진료 기록"
         medicalView.tableView.delegate = self
         medicalView.tableView.dataSource = self
-        medicalView.tableView.separatorStyle = .none
+    }
+    
+    func configureEmptyView() {
+        print("hello???")
+        if selectedDate.startOfTheDate == Date().startOfTheDate {
+            print(selectedDate.startOfTheDate, today.startOfTheDate)
+            emptyView.recordLabel.text = "todaysRecord".localized()
+        } else {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "d"
+            let str = dateFormatter.string(from: selectedDate)
+            print(str)
+            emptyView.recordLabel.text = "recordOf".localized(with: str)
+        }
     }
 }
 
@@ -191,13 +203,14 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
 // loadData & updateConstraints
 extension TotalViewController {
     func loadData(date: Date) {
-        print("isFirst?")
         petList = petRepository.fetch()
         diaryRecords = recordRepository.fetchRecords(date: date, type: .diary, objectType: RecordTable.self)
         dailyRecords = recordRepository.fetchRecords(date: date, type: .daily, objectType: RecordTable.self)
         medicalRecords = recordRepository.fetchRecords(date: date, type: .medical, objectType: MedicalRecordTable.self)
+        configureEvents()
         
         setContentView()
+        configureEmptyView()
         
         diaryView.tableView.reloadData()
         dailyView.tableView.reloadData()
@@ -230,7 +243,6 @@ extension TotalViewController {
             dailyView.isHidden = true
         } else {
             dailyView.isHidden = false
-            diaryView.tableView.separatorColor = .clear
             let newHeight = 80 + dailyRecords.count * 80
             if newHeight != height.daily {
                 height.daily = newHeight
@@ -282,12 +294,16 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
             if let image = data.images.last {
                 cell.diaryImageView.image = image
             }
+            if tableView.isLast(for: indexPath) {
+                DispatchQueue.main.async {
+                    cell.addAboveTheBottomBorderWithColor(color: Design.Color.buttonBackground)
+                }
+            }
             return cell
             
         } else if dailyView.tableView == tableView {
             
             guard let cell = tableView.dequeueReusableCell(withIdentifier: DailyTempTableViewCell.identifier) as? DailyTempTableViewCell else { return UITableViewCell() }
-            print(row)
             let record = dailyRecords[row]
             let petID = record.petId
             let data = makeRecordCellData(petID: petID, recordType: record.recordType, record: record)
@@ -296,6 +312,11 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
             if let profileImage = data.images.first, let symbolImage = data.images.last {
                 cell.diaryImageView.image = profileImage
                 cell.typeImageView.image = symbolImage
+            }
+            if tableView.isLast(for: indexPath) {
+                DispatchQueue.main.async {
+                    cell.addAboveTheBottomBorderWithColor(color: Design.Color.buttonBackground)
+                }
             }
             return cell
 
@@ -313,9 +334,36 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
                 cell.diaryImageView.image = profileImage
                 cell.typeImageView.image = symbolImage
             }
+            if tableView.isLast(for: indexPath) {
+                DispatchQueue.main.async {
+                    cell.addAboveTheBottomBorderWithColor(color: Design.Color.buttonBackground)
+                }
+            }
             
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.reloadRows(at: [indexPath], with: .none)
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        // 오른쪽에 만들기
+
+//        let modity = UIContextualAction(style: .normal, title: "수정") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+//            print("수정 클릭 됨")
+//            success(true)
+//        }
+//        modity.backgroundColor = .systemBlue
+
+        let delete = UIContextualAction(style: .normal, title: "삭제") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
+            print("삭제 클릭 됨")
+            success(true)
+        }
+        delete.backgroundColor = .systemRed
+        
+        return UISwipeActionsConfiguration(actions:[delete])
     }
     
     func makeRecordCellData(petID: ObjectId, recordType: RecordType, record: RecordTable) -> (title: String, subtitle: String?, images: [UIImage?]) {
@@ -447,7 +495,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
 
         // 동그라미 색 지정
         calendar.appearance.selectionColor = Design.Color.tintColor
-        calendar.appearance.todayColor = Design.Color.tintColor?.withAlphaComponent(0.4)
+        calendar.appearance.todayColor = Design.Color.tintColor.withAlphaComponent(0.4)
 
         // 요일 색깔 설정
         calendar.appearance.weekdayTextColor = Design.Color.border
@@ -455,6 +503,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         calendar.appearance.titlePlaceholderColor = UIColor.gray.withAlphaComponent(0.8)
         // 평일 날짜 색
         calendar.appearance.titleDefaultColor = Design.Color.content
+        calendar.appearance.eventSelectionColor = Design.Color.tintColor
     }
 
     // 선택된 날짜 설정
@@ -465,6 +514,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
 
     // 날짜 선택 시 할 일 지정
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        selectedDate = date
         loadData(date: date)
     }
 
@@ -479,4 +529,85 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
         self.calendarView.calendarLabel.text = self.currentPage?.toCalendarTitle()
     }
+}
+
+
+extension TotalViewController {
+    
+    func configureEvents() {
+        let events = recordRepository.fetchMonthlyRecords(date: selectedDate)
+        diaryEvent = events.diaryRecord
+        dailyEvent = events.dailyRecord
+        medicalEvent = events.medicalRecord
+        print(events)
+    }
+    
+    // 이벤트 밑에 Dot 표시 개수
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int {
+        let formattedDate = date.startOfTheDate
+        var dots = 0
+        if self.diaryEvent.contains(formattedDate){
+            dots += 1
+        }
+        if self.dailyEvent.contains(formattedDate){
+            dots += 1
+        }
+        if self.medicalEvent.contains(formattedDate){
+            dots += 1
+        }
+        return dots
+    }
+    
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventSelectionColorsFor date: Date) -> [UIColor]? {
+        let formattedDate = date.startOfTheDate
+        
+        var colors: [UIColor] = []
+        
+        if self.diaryEvent.contains(formattedDate){
+            colors.append(Design.Color.diary)
+        }
+
+        if self.dailyEvent.contains(formattedDate){
+            colors.append(Design.Color.daily)
+        }
+        
+        if self.medicalEvent.contains(formattedDate){
+            colors.append(Design.Color.medical)
+        }
+
+        return colors
+    }
+
+    // Default Event Dot 색상 분기처리 - FSCalendarDelegateAppearance
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventDefaultColorsFor date: Date) -> [UIColor]?{
+        
+        let formattedDate = date.startOfTheDate
+        
+        var colors: [UIColor] = []
+        
+        if self.diaryEvent.contains(formattedDate){
+            colors.append(Design.Color.diary)
+        }
+
+        if self.dailyEvent.contains(formattedDate){
+            colors.append(Design.Color.daily)
+        }
+        
+        if self.medicalEvent.contains(formattedDate){
+            colors.append(Design.Color.medical)
+        }
+
+        return colors
+    }
+
+    // Event 표시 Dot 사이즈 조정
+    func calendar(_ calendar: FSCalendar, willDisplay cell: FSCalendarCell, for date: Date, at monthPosition: FSCalendarMonthPosition) {
+        let eventScaleFactor: CGFloat = 1.2
+        cell.eventIndicator.transform = CGAffineTransform(scaleX: eventScaleFactor, y: eventScaleFactor)
+    }
+
+    func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, eventOffsetFor date: Date) -> CGPoint {
+        return CGPoint(x: 0, y: 2)
+    }
+    
 }
