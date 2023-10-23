@@ -34,6 +34,7 @@
 		D1370AA92AE5B5B700FCBD67 /* Pet.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370AA82AE5B5B700FCBD67 /* Pet.swift */; };
 		D1370AB02AE6541D00FCBD67 /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370AAF2AE6541D00FCBD67 /* AddViewModel.swift */; };
 		D1370AB22AE6545400FCBD67 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370AB12AE6545400FCBD67 /* AddView.swift */; };
+		D1370AB42AE6648400FCBD67 /* RecordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370AB32AE6648400FCBD67 /* RecordView.swift */; };
 		D182730A2AD0F31200F4709B /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273092AD0F31200F4709B /* Date+.swift */; };
 		D18273102AD26F5900F4709B /* FSCalendar in Frameworks */ = {isa = PBXBuildFile; productRef = D182730F2AD26F5900F4709B /* FSCalendar */; };
 		D18273142AD2CEA200F4709B /* Unit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D18273132AD2CEA200F4709B /* Unit.swift */; };
@@ -133,6 +134,7 @@
 		D1370AA82AE5B5B700FCBD67 /* Pet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pet.swift; sourceTree = "<group>"; };
 		D1370AAF2AE6541D00FCBD67 /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		D1370AB12AE6545400FCBD67 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
+		D1370AB32AE6648400FCBD67 /* RecordView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordView.swift; sourceTree = "<group>"; };
 		D18273092AD0F31200F4709B /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		D18273132AD2CEA200F4709B /* Unit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unit.swift; sourceTree = "<group>"; };
 		D1B52EC12AC9931F00477A14 /* ButtonBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonBuilder.swift; sourceTree = "<group>"; };
@@ -374,9 +376,9 @@
 			isa = PBXGroup;
 			children = (
 				D1370AB12AE6545400FCBD67 /* AddView.swift */,
+				D1370AAF2AE6541D00FCBD67 /* AddViewModel.swift */,
 				D1BA59462AC73CEB007437F4 /* AddViewController.swift */,
 				D1B52F142AD033BC00477A14 /* AddViewController+.swift */,
-				D1370AAF2AE6541D00FCBD67 /* AddViewModel.swift */,
 			);
 			name = Add;
 			sourceTree = "<group>";
@@ -411,6 +413,7 @@
 		D1B52ECE2ACBED2400477A14 /* Record */ = {
 			isa = PBXGroup;
 			children = (
+				D1370AB32AE6648400FCBD67 /* RecordView.swift */,
 				D1B52ED02ACBED4900477A14 /* RecordViewController.swift */,
 				D1BB7FD02AD570A3001FFF1C /* WithViewController */,
 			);
@@ -885,6 +888,7 @@
 				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
 				D1BB7FC42AD52082001FFF1C /* MedicalRecordTable.swift in Sources */,
 				D1BA59402AC71147007437F4 /* ImageViewBuilder.swift in Sources */,
+				D1370AB42AE6648400FCBD67 /* RecordView.swift in Sources */,
 				D1BB7FB92AD467E9001FFF1C /* AlertSetting.swift in Sources */,
 				D1370A682ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift in Sources */,
 				D1B52F152AD033BC00477A14 /* AddViewController+.swift in Sources */,

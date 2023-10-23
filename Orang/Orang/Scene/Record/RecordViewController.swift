@@ -9,32 +9,9 @@ import UIKit
 
 final class RecordViewController: BaseViewController {
     
-    let introduceLabel = UILabel.labelBuilder(text: "recordTitle".localized(),size: 19, weight: .bold, settingTitle: false)
     
-    let diaryButton = UIButton.shadowButtonBuilder(title: "diaryRecordTitle".localized(), subtitle: "diaryRecordDetail".localized(), isBig: true)
+    let mainView = RecordView()
     
-    let recordView = {
-        let innerView = UIView()
-        let view = UIView.shadowViewBuilder(innerView: innerView)
-        return view
-    }()
-    
-    let recordTitleLabel = UILabel.labelBuilder(text: "recordRecordTitle".localized(), size: 17, weight: .bold, settingTitle: false)
-    let firstRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "weightButton".localized())
-    let secondRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "snackButton".localized())
-    let thirdRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "fecesAndUrine".localized())
-    let fourthRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "abnormalSymptoms".localized())
-    let recordStackView = UIStackView.stackViewBuilder()
-    
-    let medicalView = {
-        let innerView = UIView()
-        let view = UIView.shadowViewBuilder(innerView: innerView)
-        return view
-    }()
-    let medicalTitleLabel = UILabel.labelBuilder(text: "MedicalRecordTitle".localized(), size: 17, weight: .bold, settingTitle: false)
-    let medicalVaccineButton = UIButton.shadowButtonBuilder(title: "VaccineRecordButton".localized(), subtitle: "VaccineRecordDetail".localized(), isBig: false)
-    let medicalHistoryButton = UIButton.shadowButtonBuilder(title: "MedicalHistoryButton".localized(), subtitle: "MedicalHistoryDetail".localized(), isBig: false)
-    let medicalStackView = UIStackView.stackViewBuilder(space: 12)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,41 +25,37 @@ final class RecordViewController: BaseViewController {
         title = "recordNavigationTitle".localized()
     }
     
+    
     override func configureHierarchy() {
         super.configureHierarchy()
        
-        [
-            introduceLabel,
-            diaryButton,
-            recordView,
-            recordTitleLabel,
-            recordStackView,
-            medicalView,
-            medicalTitleLabel,
-            medicalStackView
-        ]
-            .forEach { view.addSubview($0) }
-        
-        recordStackView.addArrangedSubviews([firstRecordButton, secondRecordButton, thirdRecordButton, fourthRecordButton])
-        medicalStackView.addArrangedSubviews([medicalVaccineButton, medicalHistoryButton])
+        view.addSubview(mainView)
     }
     
+    
+    override func setConstraints() {
+        mainView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+    }
+    
+    
     override func configureView() {
-        medicalStackView.distribution = .fillEqually
+        mainView.medicalStackView.distribution = .fillEqually
         
-        diaryButton.addTarget(self, action: #selector(diaryButtonClicked), for: .touchUpInside)
-        firstRecordButton.addTarget(self, action: #selector(recordButtonClicked), for: .touchUpInside)
-        firstRecordButton.tag = 1
-        secondRecordButton.addTarget(self, action: #selector(recordButtonClicked), for: .touchUpInside)
-        secondRecordButton.tag = 2
-        thirdRecordButton.addTarget(self, action: #selector(recordButtonClicked), for: .touchUpInside)
-        thirdRecordButton.tag = 3
-        fourthRecordButton.addTarget(self, action: #selector(recordButtonClicked), for: .touchUpInside)
-        fourthRecordButton.tag = 4
-        medicalVaccineButton.addTarget(self, action: #selector(medicalButtonClicked), for: .touchUpInside)
-        medicalVaccineButton.tag = 100
-        medicalHistoryButton.addTarget(self, action: #selector(medicalButtonClicked), for: .touchUpInside)
-        medicalHistoryButton.tag = 101
+        mainView.diaryButton.addTarget(self, action: #selector(diaryButtonClicked), for: .touchUpInside)
+        mainView.firstRecordButton.addTarget(self, action: #selector(recordButtonClicked), for: .touchUpInside)
+        mainView.firstRecordButton.tag = 1
+        mainView.secondRecordButton.addTarget(self, action: #selector(recordButtonClicked), for: .touchUpInside)
+        mainView.secondRecordButton.tag = 2
+        mainView.thirdRecordButton.addTarget(self, action: #selector(recordButtonClicked), for: .touchUpInside)
+        mainView.thirdRecordButton.tag = 3
+        mainView.fourthRecordButton.addTarget(self, action: #selector(recordButtonClicked), for: .touchUpInside)
+        mainView.fourthRecordButton.tag = 4
+        mainView.medicalVaccineButton.addTarget(self, action: #selector(medicalButtonClicked), for: .touchUpInside)
+        mainView.medicalVaccineButton.tag = 100
+        mainView.medicalHistoryButton.addTarget(self, action: #selector(medicalButtonClicked), for: .touchUpInside)
+        mainView.medicalHistoryButton.tag = 101
     }
     
     @objc func diaryButtonClicked() {
@@ -116,58 +89,5 @@ final class RecordViewController: BaseViewController {
             vc.recordType = .medicalHistory
         }
         navigationController?.pushViewController(vc, animated: true)
-    }
-    
-    
-    override func setConstraints() {
-        introduceLabel.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(40)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
-        }
-        
-        diaryButton.backgroundColor = .white.withAlphaComponent(0.8)
-        diaryButton.snp.makeConstraints { make in
-            make.height.equalTo(120)
-            make.top.equalTo(introduceLabel.snp.bottom).offset(12)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
-        }
-        
-        recordView.snp.makeConstraints { make in
-            make.height.equalTo(150)
-            make.top.equalTo(diaryButton.snp.bottom).offset(16)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
-        }
-        
-        recordTitleLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
-            make.top.equalTo(recordView).inset(16)
-            make.horizontalEdges.equalTo(recordView).inset(26)
-        }
-        
-        recordStackView.snp.makeConstraints { make in
-            make.height.equalTo(70)
-            make.top.equalTo(recordTitleLabel.snp.bottom).offset(10)
-            make.horizontalEdges.equalTo(recordView).inset(20)
-        }
-        
-        medicalView.snp.makeConstraints { make in
-            make.height.equalTo(200)
-            make.top.equalTo(recordView.snp.bottom).offset(16)
-            make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(16)
-        }
-        
-        medicalTitleLabel.snp.makeConstraints { make in
-            make.height.equalTo(40)
-            make.top.equalTo(medicalView).inset(16)
-            make.horizontalEdges.equalTo(medicalView).inset(26)
-        }
-        
-        medicalStackView.snp.makeConstraints { make in
-            make.top.equalTo(medicalTitleLabel.snp.bottom).offset(10)
-            make.horizontalEdges.equalTo(medicalView).inset(20)
-            make.bottom.equalTo(medicalView).inset(26)
-        }
-        
     }
 }
