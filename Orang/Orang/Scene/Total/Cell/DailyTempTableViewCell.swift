@@ -67,7 +67,6 @@ class DailyTempTableViewCell: BaseTableViewCell {
         textStackView.distribution = .equalSpacing
         
         typeImageView.contentMode = .scaleAspectFit
-        typeImageView.addInnerShadow()
         typeImageView.backgroundColor = .white
         diaryImageView.backgroundColor = .gray
         titleLabel.numberOfLines = 1
