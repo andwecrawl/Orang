@@ -34,5 +34,10 @@ class Design {
         static let content = UIColor(named: "contentColor")
         static let tintColor = UIColor(named: "tintColor")
         static let buttonBackground = UIColor(named: "buttonBackground")
+        
+        static let diary = UIColor(named: "diary")!
+        static let daily = UIColor(named: "daily")!
+        static let medical = UIColor(named: "medical")!
+        static let temp = UIColor(named: "temp")!
     }
 }
