@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AddView: BaseView {
+final class AddView: BaseView {
     
     lazy var profileImageView = UIImageView.imageViewBuilder(size: 130)
     lazy var profileImageButton = UIButton.profileButtonBuilder(size: 130)
@@ -138,8 +138,5 @@ class AddView: BaseView {
             make.leading.equalTo(registrationLabel.snp.trailing)
             make.trailing.equalTo(registrationTextField.snp.trailing)
         }
-        
     }
-    
-    
 }
