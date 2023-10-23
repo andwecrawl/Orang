@@ -15,7 +15,7 @@ extension UIView {
         innerView.snp.makeConstraints { make in
             make.edges.equalTo(outerView)
         }
-        outerView.backgroundColor = .white.withAlphaComponent(0.8)
+        outerView.backgroundColor = Design.Color.buttonBackground
         innerView.layer.cornerRadius = 15
         innerView.clipsToBounds = true
         outerView.layer.cornerRadius = 15
@@ -37,26 +37,10 @@ extension UIView {
         outerView.layer.shadowOpacity = 0.1
     }
     
-    func addInnerShadow() {
-        let innerShadow = CALayer()
-        innerShadow.frame = bounds
-        
-        // Shadow path (1pt ring around bounds)
-        let radius = self.layer.cornerRadius
-        let path = UIBezierPath(roundedRect: innerShadow.bounds.insetBy(dx: 2, dy:2), cornerRadius:radius)
-        let cutout = UIBezierPath(roundedRect: innerShadow.bounds, cornerRadius:radius).reversing()
-        
-        path.append(cutout)
-        innerShadow.shadowPath = path.cgPath
-        innerShadow.masksToBounds = true
-        
-        // Shadow properties
-        innerShadow.shadowColor = UIColor.black.cgColor
-        innerShadow.shadowOffset = CGSize(width: 0, height: 0)
-        innerShadow.shadowOpacity = 0.5
-        innerShadow.shadowRadius = 2
-        innerShadow.cornerRadius = self.layer.cornerRadius
-        layer.addSublayer(innerShadow)
-        
+    func addAboveTheBottomBorderWithColor(color: UIColor) {
+        let border = CALayer()
+        border.backgroundColor = color.cgColor
+        border.frame = CGRect(x: 0, y: self.frame.size.height - 1, width: self.frame.size.width, height: 1)
+        self.layer.addSublayer(border)
     }
 }
