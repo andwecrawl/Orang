@@ -8,7 +8,8 @@
 
 // totalVC
 "totalNavigationTitle" = "모아보기";
-"recordOf" = "%@의 기록";
+"recordOf" = "%@일의 기록";
+"todaysRecord" = "오늘의 기록";
 "inputNewRecord" = "기록하기 탭에서\n아이의 기록을 새롭게 추가해 보세요!";
 
 

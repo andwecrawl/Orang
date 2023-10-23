@@ -30,7 +30,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         recordNav.tabBarItem = UITabBarItem(title: "recordNavigationTitle".localized(), image: UIImage(systemName: "pencil.and.outline"), tag: 1)
         
         let profileNav = UINavigationController(rootViewController: ProfileViewController())
-        profileNav.tabBarItem = UITabBarItem(title: "ProfileNavigationTitle", image: UIImage(systemName: "pawprint.circle.fill"), tag: 2)
+        profileNav.tabBarItem = UITabBarItem(title: "ProfileNavigationTitle".localized(), image: UIImage(systemName: "pawprint.circle.fill"), tag: 2)
         
         tabBar.setViewControllers([totalNav, alertNav, recordNav, profileNav], animated: true)
         window?.rootViewController = tabBar
