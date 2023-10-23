@@ -17,6 +17,7 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return Species.allCases.count
     }
+    
     // 해당 셀을 선택했을 때 어떻게 할지 action을 여기서 지정!
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         let selected = Species.allCases[row]
@@ -32,14 +33,11 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             configureDetailSpeciesTextField(hasDetail: false)
         }
         
-        speciesTextField.text = selected.toString
+        mainView.speciesTextField.text = selected.toString
     }
     
     // 말 그대로 타이틀 지정해 주기!!
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        if row == 0 {
-            speciesTextField.text = "\(Species.allCases[row].toString)"
-        }
         return "\(Species.allCases[row].toString)"
     }
 }
@@ -59,7 +57,7 @@ extension AddViewController {
         datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
         
         textField.inputView = datePicker
-        if textField == birthTextField {
+        if textField == mainView.birthTextField {
             birth = datePicker.date
         } else {
             meetDate = datePicker.date
@@ -71,10 +69,10 @@ extension AddViewController {
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
             birth = sender.date
-            birthTextField.text = sender.date.toFormattedString()
+            mainView.birthTextField.text = sender.date.toFormattedString()
         } else {
             meetDate = sender.date
-            meetDateTextField.text = sender.date.toFormattedString()
+            mainView.meetDateTextField.text = sender.date.toFormattedString()
         }
     }
 }
@@ -104,7 +102,7 @@ extension AddViewController: PHPickerViewControllerDelegate {
             itemProvider.loadObject(ofClass: type) { [weak self](image, error) in
                 if let image = image as? UIImage {
                     DispatchQueue.main.async {
-                        self?.profileImageView.image = image
+                        self?.mainView.profileImageView.image = image
                     }
                 } else {
                     // 다시 시도 Alert
