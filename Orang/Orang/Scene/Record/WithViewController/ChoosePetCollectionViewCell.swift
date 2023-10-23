@@ -62,7 +62,7 @@ final class ChoosePetCollectionViewCell: BaseCollectionViewCell {
         imageView.image = image
         
         if isSelectedPet {
-            imageView.layer.borderColor = Design.Color.tintColor?.cgColor
+            imageView.layer.borderColor = Design.Color.tintColor.cgColor
         } else {
             imageView.layer.borderColor = Design.Color.border.cgColor
         }

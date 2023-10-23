@@ -75,7 +75,6 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             
             let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, pooColor: selectedPooColor, pooForm: selectedPooForm, content: content, images: [])
             
-            
             var imageIdentifiers: [String] = []
             // photo 추가
             for index in images.indices {

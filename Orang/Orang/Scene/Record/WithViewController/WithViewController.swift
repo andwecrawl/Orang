@@ -130,7 +130,7 @@ extension WithViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 item.imageView.layer.borderColor = Design.Color.border.cgColor
             } else {
                 selectedPet.append(pet)
-                item.imageView.layer.borderColor = Design.Color.tintColor?.cgColor
+                item.imageView.layer.borderColor = Design.Color.tintColor.cgColor
             }
         } else {
             if selectedPet.isEmpty {
