@@ -124,11 +124,12 @@ extension UIButton {
         return button
     }
     
-    static func recordButtonBuilder(image: String, title: String) -> UIButton {
+    static func recordButtonBuilder(image: UIImage?, title: String) -> UIButton {
         let button = UIButton()
         var config = UIButton.Configuration.plain()
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 18, weight: .bold)
-        config.image = UIImage(systemName: image, withConfiguration: imageConfig)
+        let resizeImage = image?.withConfiguration(imageConfig)
+        config.image = resizeImage
         var titleContainer = AttributeContainer()
         titleContainer.font = .systemFont(ofSize: 13, weight: .light)
         titleContainer.foregroundColor = .darkGray
