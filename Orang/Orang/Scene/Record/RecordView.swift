@@ -20,10 +20,10 @@ final class RecordView: BaseView {
     }()
     
     let recordTitleLabel = UILabel.labelBuilder(text: "recordRecordTitle".localized(), size: 17, weight: .bold, settingTitle: false)
-    let firstRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "weightButton".localized())
-    let secondRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "snackButton".localized())
-    let thirdRecordButton = UIButton.recordButtonBuilder(image:  "lizard.fill", title: "fecesAndUrine".localized())
-    let fourthRecordButton = UIButton.recordButtonBuilder(image: "lizard.fill", title: "abnormalSymptoms".localized())
+    let firstRecordButton = UIButton.recordButtonBuilder(image: RecordType.weight.image, title: "weightButton".localized())
+    let secondRecordButton = UIButton.recordButtonBuilder(image: RecordType.snack.image, title: "snackButton".localized())
+    let thirdRecordButton = UIButton.recordButtonBuilder(image: RecordType.pooPee.image, title: "fecesAndUrine".localized())
+    let fourthRecordButton = UIButton.recordButtonBuilder(image: RecordType.abnormalSymptoms.image, title: "abnormalSymptoms".localized())
     let recordStackView = UIStackView.stackViewBuilder()
     
     let medicalView = {
