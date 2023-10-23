@@ -36,10 +36,24 @@ class RecordTableRepository: RecordTableRepositoryType {
         }
     }
     
+    func fetchMonthlyRecords(date: Date) -> (diaryRecord: [Date], dailyRecord: [Date], medicalRecord: [Date]) {
+        let firstDate = date.startDateOfMonth
+        let lastDate = date.endDateOfMonth
+        
+        let record = realm.objects(RecordTable.self)
+        let medicalRecord = realm.objects(MedicalRecordTable.self)
+        
+        let diary = record.filter("recordDate >= %@ AND recordDate < %@ AND recordType == %@", firstDate, lastDate, RecordType.diary.rawValue).sorted(byKeyPath: "createdDate", ascending: false).map({ $0.recordDate.startOfTheDate })
+        let daily = record.filter("recordDate >= %@ AND recordDate < %@ AND recordType != %@", firstDate, lastDate, RecordType.diary.rawValue).sorted(byKeyPath: "createdDate", ascending: false).map({ $0.recordDate.startOfTheDate })
+        let medical = medicalRecord.filter("treatmentDate >= %@ AND treatmentDate < %@", firstDate, lastDate).map({ $0.treatmentDate.startOfTheDate })
+        
+        return ([Date](diary), [Date](daily), [Date](medical))
+    }
+    
     func fetchRecords<T: Object>(date: Date, type: myRecords, objectType: T.Type) -> Results<T> {
         let data: Results<T> = realm.objects(T.self)
-        let today = Calendar.current.startOfDay(for: date)
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        let today = date.startOfTheDate
+        let tomorrow = date.nextDayOfTheDate
         
         let filteredData: Results<T>
         
@@ -56,8 +70,8 @@ class RecordTableRepository: RecordTableRepositoryType {
     
     func fetchMedicalRecord(date: Date, type: MedicalRecordType) -> Results<MedicalRecordTable> {
         let data = realm.objects(MedicalRecordTable.self)
-        let today = Calendar.current.startOfDay(for: date)
-        let tomorrow = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        let today = date.startOfTheDate
+        let tomorrow = date.nextDayOfTheDate
         
         if type == .treatmentRecord {
             let product = data.filter("recordDate >= %@ AND recordDate < %@", today, tomorrow).where({ $0.recordType == .medicalHistory }).sorted(byKeyPath: "createdDate", ascending: false)
