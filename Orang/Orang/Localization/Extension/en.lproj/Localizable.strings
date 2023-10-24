@@ -1,7 +1,256 @@
-/* 
+/*
   Localizable.strings
   Orang
 
   Created by yeoni on 2023/09/30.
   
 */
+
+// totalVC
+"totalNavigationTitle" = "Collections";
+"recordOf" = "Record of %@ days";
+"todaysRecord" = "Today's Record";
+"inputNewRecord" = "Try adding a new record in the Record tab!";
+
+
+// AlertVC
+"AlertNavigationTitle" = "Schedule";
+"dailyTodo" = "Daily To-Do";
+"dailyTodoDetail" =
+"You can set meal/snack reminders, walk/play reminders, cleaning reminders, and purchase time reminders!";
+
+"medicalAppointment" = "Medical Appointments";
+"medicalAppointmentDetail" =
+"You can manage and schedule medical and medication appointments for each pet!";
+
+"inputNumber" = "Please enter a number!";
+"date" = "Date";
+"inputDate" = "Please enter a date!";
+"inputTime" = "Please enter a time!";
+
+
+// RecordVC
+"recordNavigationTitle" = "Record";
+"recordTitle" = "Record daily and observe changes!";
+
+"diaryRecordTitle" = "Add Daily Records";
+"diaryRecordDetail" = "Add records of your daily activities with your pet!";
+
+"recordRecordTitle" = "Add Lifestyle Records";
+"weightButton" = "Weight";
+"snackButton" = "Snack";
+"fecesAndUrine" = "Feces & Urine";
+"feces" = "Feces";
+"fecesColor" = "Feces Color";
+"fecesForm" = "Feces Form";
+"urine" = "Urine";
+"urineColor" = "Urine Color";
+"abnormalSymptoms" = "Symptoms";
+
+"MedicalRecordTitle" = "Add Medical Records";
+"VaccineRecordButton" = "Vaccination History";
+"VaccineRecordDetail" = "You can record vaccination history!";
+"MedicalHistoryButton" = "Medical History";
+"MedicalHistoryDetail" = "You can record your pet's medical history!";
+
+
+// withView
+"withNavigationTitle" = "Whose Record is this?";
+
+
+// AdditionalSymptoms
+"moreSymptomsTitle" = "Any Additional Symptoms?";
+
+
+// DiaryVC
+"diaryNavigationTitle" = "Add Daily Records";
+"photoAlbumButton" = "Photo Album";
+"takePictureButton" = "Take a Photo";
+"selectFileButton" = "Select File";
+
+
+// AdditionInfoVC
+"additionalInfoInformationLabel" = "Please write additional information to record.";
+
+
+// weight
+"weightTitle" = "Add Weight Record";
+
+// snack
+"snackTitle" = "Add Snack Record";
+"snackVariation" = "Snack Type";
+"inputSnackType" = "Please enter the snack name!";
+"amount" = "Amount";
+
+// pooPee
+"pooPeeTitle" = "Add Feces&Urine Record";
+
+// Pee
+    // Color
+"yellowTitlePee" = "Yellow Urine";
+"lightYellowTitlePee" = "Clear or Light Yellow Urine";
+"orangeTitlePee" = "Orange and Dark Yellow Urine";
+"brownTitlePee" = "Brown Urine";
+"redTitlePee" = "Red Urine";
+"crystalTitlePee" = "Crystals visible in urine.";
+"noneTitlePee" = "Didn't see urine.";
+
+"yellowPee" = "If it's clear and yellow without impurities, it's healthy urine!";
+"lightYellowPee" = "Light yellow urine can be seen when urine is not concentrated and is often observed. If this occurs frequently, it is recommended to consult a doctor.";
+"orangePee" = "It can occur if there is a lack of body moisture! However, if the urine color is too dark and the skin of the eyes, ears, and abdomen is also yellow, there may be a problem with the liver or gallbladder. It is recommended to see a doctor as soon as possible.";
+"brownPee" = "It may be due to severe dehydration, infection by parasites, muscle damage due to accidents or trauma, severe bladder inflammation, or liver disease, so it is recommended to see a doctor as soon as possible.";
+"redPee" = "It can be seen in urinary tract diseases such as cystitis or urolithiasis, or in hemorrhagic cystitis. It is recommended to see a doctor as soon as possible.";
+"crystalPee" = "If sparkling crystals are found in the urine or it is difficult to see urine, it may be suspected of cystitis. If left untreated, urolithiasis may occur, so be careful.";
+"nonePee" = "Make sure there is not too little urine! If your pet does not urinate all day in a clean environment with plenty of water, there may be a problem in the urinary tract.";
+
+// PooColor
+"brownTitlePoo" = "Brown Stool";
+"blackTitlePoo" = "Black Stool";
+"redTitlePoo" = "Red Stool";
+"orangeTitlePoo" = "Orange Stool";
+"grayTitlePoo" = "Gray Stool";
+"yellowTitlePoo" = "Yellow Stool";
+"greenTitlePoo" = "Green Stool";
+"dottedTitlePoo" = "White spots are visible.";
+"noneTitlePoo" = "Didn't see stool.";
+
+"brownPoo" = "Eating well and taking an adequate amount of water, so it's healthy!";
+"blackPoo" = "It can be seen due to food, iron supplements, or adsorbents, but dark, sticky, and smelly black stool can be seen due to upper digestive tract bleeding or dehydration, so it is recommended to see a doctor.";
+"redPoo" = "There may be bleeding in the digestive tract, so it is recommended to see a doctor.";
+"orangePoo" = "It can be seen due to food, gastroenteritis, or liver or gallbladder diseases. If your pet has no appetite or energy, or if orange stool is consistently observed, it is recommended to see a doctor.";
+"grayPoo" = "If the stool is greasy and gray, it may indicate problems with pancreatic function, so it is recommended to see a doctor.";
+"yellowPoo" = "There may be hypersensitivity or indigestion to certain foods. Check if there is a change in diet from the usual and, if it continues, consult a doctor.";
+"greenPoo" = "Eating too much grass or having inflammatory bowel disease or impaired bile metabolism may be in a state where it is not working properly. Check if there is a change in diet from the usual and, if it continues, consult a doctor.";
+"dottedPoo" = "It may be in a state of infection with parasites, so it is recommended to see a doctor.";
+"nonePoo" = "If you haven't had a bowel movement for more than 3 days, it is likely to be constipation! Try improving your water intake and diet, and if the symptoms persist, it is recommended to see a doctor.";
+
+// PooForm
+"normalTitlePoo" = "Normal Soft Stool";
+"hardTitlePoo" = "Hard and Small Stool";
+"mudTitlePoo" = "Mud-like Stool";
+"waterTitlePoo" = "Diarrhea";
+"mucusTitlePoo" = "Stool mixed with mucus";
+
+"normalPoo" = "If it's moderately firm and moist, it's healthy!";
+"hardPoo" = "It can occur in cases of constipation or when the amount of food is small.";
+"mudPoo" = "It can occur when the amount of food is large, when the food is suddenly changed, or when digestion is not going well.";
+"waterPoo" = "It may be a symptom of diarrhea, which is difficult to digest food or acute enteritis, infectious diseases, or food poisoning.";
+"mucusPoo" = "If mucus is visible in the stool, there may be a problem in the large intestine.";
+
+
+// AbnormalSymptoms
+// title
+"weiredSkinTitle" = "Skin Abnormalities";
+"weiredEyesTitle" = "Eye Abnormalities";
+"weiredNoseTitle" = "Nose Abnormalities";
+"weiredEearTitle" = "Ear Abnormalities";
+"hardToBreathTitle" = "Difficulty Breathing";
+"pukeTitle" = "Vomiting";
+"caughtTitle" = "Persistent Cough";
+"convulsionTitle" = "Convulsions";
+"walkingWeiredTitle" = "Unusual Gait";
+"decreaseInActivityTitle" = "Significant Decrease in Activity";
+"loseWeightTitle" = "Sudden Weight Loss";
+"haveAFeverTitle" = "Fever";
+"abdominalDistentionTitle" = "Abdominal Distension";
+"lossHairTitle" = "Excessive Hair Loss";
+"diarrheaTitle" = "Diarrhea";
+"bloodyStoolTitle" = "Bloody Stool";
+"othersTitle" = "Other Symptoms";
+
+// subtitle
+"weiredSkin" = "The skin/mucous membrane has become red or swollen or turned yellow.";
+"weiredEyes" = "The eyes are bulging or congested.";
+"weiredNose" = "The nose has turned blue or become very dry.";
+"weiredEear" = "The head is tilted or the face is paralyzed.";
+"hardToBreath" = "Continues to try to sit or has difficulty breathing.";
+"puke" = "Vomiting.";
+"caught" = "Coughs severely.";
+"convulsion" = "Convulsions have lasted for several minutes.";
+"walkingWeired" = "Tries to keep legs up without touching the ground.";
+"decreaseInActivity" = "Is visibly moving less than before.";
+"loseWeight" = "Sudden weight loss.";
+"haveAFever" = "The temperature is higher than usual.";
+"abdominalDistention" = "The abdomen has swollen rapidly.";
+"lossHair" = "Too much hair is falling out.";
+"diarrhea" = "Severe diarrhea.";
+"bloodyStool" = "Stool has a lot of blood on it.";
+"others" = "Other symptoms.";
+
+
+// AbnormalSymptoms
+"AbnormalSymptomsNavigationTitle" = "Record Abnormal Symptoms";
+
+
+// Medical
+"recordMedicalHistory" = "Record Medical History";
+"hospitalName" = "Hospital Name";
+"inputHospitalName" = "Please enter the hospital name.";
+"reasonForVisit" = "Reason for Visit";
+"inputReasonForVisit" = "Please write your Pet's symptoms.";
+
+// tabBar
+"Profile" = "Profile";
+
+// profileVC
+"ProfileNavigationTitle" = "Settings";
+"meetDate %@" = "Met on %@";
+"belongDate %d" = "Met %d days ago";
+"speciesSetting" = "Species";
+"chooseSpecies" = "Choose the species.";
+"inputDetailSpecies" = "Write the specific species.";
+"nameSetting" = "Name";
+"inputName" = "Enter the name.";
+"meetDateSetting" = "Date Met";
+"meetDate" = "Met on %@";
+"belongDateSetting" = "Met %@ days ago";
+"inputMeetDate" = "Enter the met date.";
+"birthdaySetting" = "Birthday";
+"inputBirthday" = "Enter the birthday.";
+"idkBirthdayButton" = "Don't know the birthday.";
+"weightSetting" = "Weight";
+"inputWeight" = "Enter the weight.";
+"registrationNumber" = "Registration Number";
+"inputRegistrationNumber" = "Enter the registration number.";
+"idkRegistrationNumber" = "Don't have a registration number.";
+
+
+// species String
+"dog" = "Dog";
+"cat" = "Cat";
+"hamster" = "Hamster";
+"rat" = "Rat";
+"hedgehog" = "Hedgehog";
+"rabbit" = "Rabbit";
+"reptile" = "Reptile";
+"etc" = "Other";
+
+
+// AlertMessage
+"modifiy" = "Modify";
+"delete" = "Delete";
+"deleteTitle %@" = "Delete %@'s profile?";
+"deleteSubscript %@" = "If you delete it, all data and schedules of %@ will disappear, and it cannot be recovered!";
+
+// Unit
+"count" = "Count";
+
+
+// NavigationBar Button
+"save" = "Save";
+"next" = "Next";
+
+
+// Error
+"failToSaveImage" = "Failed to save the image.";
+"plzRetry" = "Please try again!";
+"noSelectedPet" = "Please select a pet to record!";
+"failFindSelectedPet" = "Cannot find the selected pet!";
+"failFindSelectedPetDetail" = "Unable to save the pet's record. Please check the profile window!";
+"noTitleError" = "Please enter a title!";
+"noImageError" = "Please upload one or more images!";
+"noMoreImagesError" = "You can add up to 5 photos!";
+"noWeightError" = "Please enter the weight!";
+"noSnackAmountError" = "Please enter the snack amount!";
+"plzSelectElement" = "Please select the corresponding element!";
+"plzSelectAbnormalSymptoms" = "Please select abnormal symptoms!";
