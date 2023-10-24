@@ -189,7 +189,7 @@ extension VaccineTypeViewController {
         let containerCellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Vaccine> { (cell, indexPath, menuItem) in
             var contentConfiguration = cell.defaultContentConfiguration()
             contentConfiguration.text = menuItem.title
-            contentConfiguration.textProperties.font = .boldSystemFont(ofSize: 15)
+            contentConfiguration.textProperties.font = Design.Font.scdreamBold.midFont
             cell.contentConfiguration = contentConfiguration
             
             var disclosureOptions = UICellAccessory.OutlineDisclosureOptions(style: .header)
@@ -201,7 +201,7 @@ extension VaccineTypeViewController {
         let cellRegistration = UICollectionView.CellRegistration<UICollectionViewListCell, Vaccine> { cell, indexPath, menuItem in
             var contentConfiguration = cell.defaultContentConfiguration()
             contentConfiguration.text = menuItem.title
-            contentConfiguration.textProperties.font = .systemFont(ofSize: 15)
+            contentConfiguration.textProperties.font = Design.Font.scdreamMedium.midFont
             cell.contentConfiguration = contentConfiguration
             cell.backgroundConfiguration = UIBackgroundConfiguration.clear()
         }

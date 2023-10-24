@@ -114,7 +114,8 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     override func setConstraints() {
         
         calendarView.snp.makeConstraints { make in
-            make.top.horizontalEdges.equalToSuperview()
+            make.top.equalToSuperview().offset(10)
+            make.horizontalEdges.equalToSuperview()
             make.height.equalTo(372)
             
         }
@@ -132,7 +133,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         }
         
         emptyView.snp.makeConstraints { make in
-            make.height.equalTo(200)
+            make.height.equalTo(160)
         }
         
         testView.snp.makeConstraints {
@@ -185,7 +186,6 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     }
     
     func configureEmptyView() {
-        print("hello???")
         if selectedDate.startOfTheDate == Date().startOfTheDate {
             print(selectedDate.startOfTheDate, today.startOfTheDate)
             emptyView.recordLabel.text = "todaysRecord".localized()
@@ -222,9 +222,11 @@ extension TotalViewController {
             diaryView.isHidden = true
             dailyView.isHidden = true
             medicalView.isHidden = true
+            testView.isHidden = true
             emptyView.isHidden = false
         } else {
             emptyView.isHidden = true
+            testView.isHidden = false
         }
         
         if diaryRecords.isEmpty {

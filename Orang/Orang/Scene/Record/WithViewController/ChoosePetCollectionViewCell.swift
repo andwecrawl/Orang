@@ -15,7 +15,7 @@ final class ChoosePetCollectionViewCell: BaseCollectionViewCell {
         return view
     }()
     
-    let nameLabel = UILabel.labelBuilder(size: 14, weight: .semibold, alignment: .center, settingTitle: false)
+    let nameLabel = UILabel.labelBuilder(size: 13, weight: .medium, alignment: .center, settingTitle: false)
     
     var pet: PetTable?
     var isSelectedPet: Bool?

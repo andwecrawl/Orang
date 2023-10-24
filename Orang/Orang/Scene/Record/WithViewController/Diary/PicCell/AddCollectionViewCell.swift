@@ -51,7 +51,7 @@ final class AddCollectionViewCell: BaseCollectionViewCell {
         config.imagePlacement = .top
         config.imagePadding = 6
         var titleContainer = AttributeContainer()
-        titleContainer.font = .systemFont(ofSize: 13, weight: .light)
+        titleContainer.font = Design.Font.scdreamLight.smallFont
         titleContainer.foregroundColor = .darkGray
         config.attributedTitle = AttributedString("\(imagesCount)/5", attributes: titleContainer)
         addButton.configuration = config

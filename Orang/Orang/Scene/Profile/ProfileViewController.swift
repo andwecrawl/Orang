@@ -27,6 +27,8 @@ final class ProfileViewController: BaseViewController {
             self.collectionView.reloadData()
         }
         
+        viewModel.repository.loadFileURL()
+        
         self.viewModel.fetchPet()
     }
     

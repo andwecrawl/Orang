@@ -12,20 +12,20 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
     private let innerView = UIView()
     private let outerView = UIView()
     
-    private let profileImageView = UIImageView.imageViewBuilder(size: 110)
+    private let profileImageView = UIImageView.imageViewBuilder(size: 120)
     
     private let dateLabel = UILabel.labelBuilder(size: 13, weight: .light, color: .lightGray, alignment: .right, settingTitle: false)
-    private let belongLabel = UILabel.labelBuilder(size: 16, weight: .bold, color: .black, alignment: .right, settingTitle: false)
+    private let belongLabel = UILabel.labelBuilder(size: 16, weight: .medium, color: .black, alignment: .right, settingTitle: false)
     
-    private let speciesSettingLabel = UILabel.labelBuilder(text: "speciesSetting".localized(),size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
-    private let nameSettingLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
-    private let birthSettingLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
-    private let weightSettingLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 15, weight: .semibold, color: .black, alignment: .left, settingTitle: false)
+    private let speciesSettingLabel = UILabel.labelBuilder(text: "speciesSetting".localized(),size: 15, weight: .medium, color: .black, alignment: .left, settingTitle: false)
+    private let nameSettingLabel = UILabel.labelBuilder(text: "nameSetting".localized(), size: 15, weight: .medium, color: .black, alignment: .left, settingTitle: false)
+    private let birthSettingLabel = UILabel.labelBuilder(text: "birthdaySetting".localized(), size: 15, weight: .medium, color: .black, alignment: .left, settingTitle: false)
+    private let weightSettingLabel = UILabel.labelBuilder(text: "weightSetting".localized(), size: 15, weight: .medium, color: .black, alignment: .left, settingTitle: false)
     
-    private let speciesLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
-    private let nameLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
-    private let birthLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
-    private let weightLabel = UILabel.labelBuilder(size: 15, weight: .light, color: .black, settingTitle: false)
+    private let speciesLabel = UILabel.labelBuilder(size: 14, weight: .light, color: .black, settingTitle: false)
+    private let nameLabel = UILabel.labelBuilder(size: 14, weight: .light, color: .black, settingTitle: false)
+    private let birthLabel = UILabel.labelBuilder(size: 14, weight: .light, color: .black, settingTitle: false)
+    private let weightLabel = UILabel.labelBuilder(size: 14, weight: .light, color: .black, settingTitle: false)
     
     private let speciesStackView = UIStackView.stackViewBuilder()
     private let nameStackView = UIStackView.stackViewBuilder()
@@ -95,17 +95,17 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(innerView).inset(22)
-            make.leading.equalTo(profileImageView.snp.trailing).offset(20)
-            make.trailing.equalTo(innerView).inset(16)
+            make.leading.equalTo(profileImageView.snp.trailing).offset(18)
+            make.trailing.equalTo(innerView).inset(18)
         }
         
         belongLabel.snp.makeConstraints { make in
-            make.top.equalTo(dateLabel.snp.bottom)
+            make.top.equalTo(dateLabel.snp.bottom).offset(4)
             make.horizontalEdges.equalTo(dateLabel)
         }
         
         speciesStackView.snp.makeConstraints { make in
-            make.top.equalTo(belongLabel.snp.bottom).offset(14)
+            make.top.equalTo(belongLabel.snp.bottom).offset(18)
             make.horizontalEdges.equalTo(belongLabel)
         }
 

@@ -15,8 +15,8 @@ final class PooPeeTableViewCell: BaseTableViewCell {
         view.contentMode = .scaleAspectFit
         return view
     }()
-    private let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 16, weight: .bold)
-    private let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 14, weight: .regular)
+    private let titleLabel = UILabel.labelBuilder(text: "타이틀입니당", size: 15, weight: .bold)
+    private let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당", size: 13, weight: .regular)
     
     private let checkbox = {
         let button = M13Checkbox(frame: .zero)

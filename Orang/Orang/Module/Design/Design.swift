@@ -12,18 +12,18 @@ class Design {
         // 자잘한 이미지들
         static let poo = "poo"
         
-        static let diary = "lizard.fill"
-        static let weight = "lizard.fill"
-        static let snack = "lizard.fill"
-        static let peePoo = "lizard.fill"
-        static let abnormalSymptoms = "lizard.fill"
-        static let vaccine = "lizard.fill"
-        static let medicalHistory = "lizard.fill"
+        static let diary = ""
+        static let weight = UIImage(named: "weightB")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 40, height: 40))
+        static let snack = UIImage(named: "snackB")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 40, height: 40))
+        static let peePoo = UIImage(named: "padB")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 40, height: 40))
+        static let abnormalSymptoms = UIImage(named: "warningB")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 40, height: 40))
+        static let vaccine = UIImage(named: "vaccineB")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 40, height: 40))
+        static let medicalHistory = UIImage(named: "medicalRecordB")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 40))
         
-        static let totalVC = ""
-        static let alertVC = ""
-        static let recordVC = ""
-        static let profileVC = ""
+        static let totalVC = UIImage(named: "total")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 30))
+        static let alertVC = UIImage(named: "alert")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 30))
+        static let recordVC = UIImage(named: "record")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 30))
+        static let profileVC =  UIImage(named: "setting")!.withTintColor(Design.Color.tintColor, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 30, height: 30))
     }
     
     enum Color {

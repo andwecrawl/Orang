@@ -43,6 +43,7 @@ final class EmptyView: BaseView {
         }
         
         informationLabel.numberOfLines = 0
+        informationLabel.textColor = Design.Color.border
         informationLabel.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
             make.centerY.equalToSuperview().offset(16)
