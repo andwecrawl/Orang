@@ -16,6 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.overrideKeyboardAppearance = true
         IQKeyboardManager.shared.shouldResignOnTouchOutside = true
         UINavigationBar.appearance().tintColor = Design.Color.tintColor
+        UINavigationBar.appearance().largeTitleTextAttributes = [
+            NSAttributedString.Key.font: Design.Font.scdreamExBold.getFonts(size: 30) ?? UIFont.systemFont(ofSize: 30)
+        ]
         UITabBar.appearance().tintColor = Design.Color.tintColor
         UIButton.appearance().setTitleColor(Design.Color.content, for: .normal)
         UIButton.appearance().tintColor = Design.Color.tintColor

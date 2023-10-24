@@ -21,16 +21,16 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let tabBar = UITabBarController()
         
         let totalNav = UINavigationController(rootViewController: TotalViewController())
-        totalNav.tabBarItem = UITabBarItem(title: "totalNavigationTitle".localized(), image: UIImage(systemName: "house.fill"), tag: 0)
+        totalNav.tabBarItem = UITabBarItem(title: "totalNavigationTitle".localized(), image: Design.image.totalVC, tag: 0)
         
         let alertNav = UINavigationController(rootViewController: AlertViewController())
-        alertNav.tabBarItem = UITabBarItem(title: "AlertNavigationTitle".localized(), image: UIImage(systemName: "alarm"), tag: 0)
+        alertNav.tabBarItem = UITabBarItem(title: "AlertNavigationTitle".localized(), image: Design.image.alertVC, tag: 0)
         
         let recordNav = UINavigationController(rootViewController: RecordViewController())
-        recordNav.tabBarItem = UITabBarItem(title: "recordNavigationTitle".localized(), image: UIImage(systemName: "pencil.and.outline"), tag: 1)
+        recordNav.tabBarItem = UITabBarItem(title: "recordNavigationTitle".localized(), image: Design.image.recordVC, tag: 1)
         
         let profileNav = UINavigationController(rootViewController: ProfileViewController())
-        profileNav.tabBarItem = UITabBarItem(title: "ProfileNavigationTitle".localized(), image: UIImage(systemName: "pawprint.circle.fill"), tag: 2)
+        profileNav.tabBarItem = UITabBarItem(title: "ProfileNavigationTitle".localized(), image: Design.image.profileVC, tag: 2)
         
         tabBar.setViewControllers([totalNav, alertNav, recordNav, profileNav], animated: true)
         window?.rootViewController = tabBar
