@@ -40,19 +40,19 @@ enum RecordType: Int, PersistableEnum {
         switch self {
             
         case .diary:
-            return UIImage(systemName: Design.image.diary)
+            return nil
         case .weight:
-            return UIImage(systemName: Design.image.weight)
+            return Design.image.weight
         case .snack:
-            return UIImage(systemName: Design.image.snack)
+            return Design.image.snack
         case .pooPee:
-            return UIImage(systemName: Design.image.peePoo)
+            return Design.image.peePoo
         case .abnormalSymptoms:
-            return UIImage(systemName: Design.image.abnormalSymptoms)
+            return Design.image.abnormalSymptoms
         case .vaccine:
-            return UIImage(systemName: Design.image.vaccine)
+            return Design.image.vaccine
         case .medicalHistory:
-            return UIImage(systemName: Design.image.medicalHistory)
+            return Design.image.medicalHistory
         }
     }
 }
