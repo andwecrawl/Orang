@@ -27,17 +27,58 @@ class Design {
     }
     
     enum Color {
-        static let background = UIColor(named: "background")
+        static let background = UIColor(named: "background")!
         static let border = UIColor.systemGray
         static let halfGray = UIColor.systemGray4.withAlphaComponent(0.8)
         static let todaysColor = UIColor.systemGray.withAlphaComponent(0.4)
-        static let content = UIColor(named: "contentColor")
-        static let tintColor = UIColor(named: "tintColor")
-        static let buttonBackground = UIColor(named: "buttonBackground")
+        static let content = UIColor(named: "contentColor")!
+        static let tintColor = UIColor(named: "tintColor")!
+        static let buttonBackground = UIColor(named: "buttonBackground")!
         
         static let diary = UIColor(named: "diary")!
         static let daily = UIColor(named: "daily")!
         static let medical = UIColor(named: "medical")!
         static let temp = UIColor(named: "temp")!
+    }
+    
+    enum FontSize: CGFloat {
+        case small = 12
+        case medium = 14
+        case large = 16
+        case extraLarge = 18
+    }
+    
+    enum Font: String {
+        case scdreamLight = "S-CoreDream-3Light"
+        case scdreamRegular = "S-CoreDream-4Regular"
+        case scdreamMedium = "S-CoreDream-5Medium"
+        case scdreamBold = "S-CoreDream-6Bold"
+        case scdreamExBold = "S-CoreDream-7ExtraBold"
+        case leeseoyun = "LeeSeoyun"
+        
+        /// 아이폰 작은 글씨(size: 12)
+        var smallFont: UIFont {
+            return UIFont(name: self.rawValue, size: FontSize.small.rawValue)!
+        }
+        
+        var midFont: UIFont {
+            return UIFont(name: self.rawValue, size: FontSize.medium.rawValue)!
+        }
+        
+        var largeFont: UIFont {
+            return UIFont(name: self.rawValue, size: FontSize.large.rawValue)!
+        }
+        
+        var exlargeFont: UIFont {
+            return UIFont(name: self.rawValue, size: FontSize.extraLarge.rawValue)!
+        }
+        
+        func getFonts(size: CGFloat) -> UIFont {
+            return UIFont(name: self.rawValue, size: size)!
+        }
+    }
+    
+    enum FontsWeight {
+        case light, medium, bold
     }
 }
