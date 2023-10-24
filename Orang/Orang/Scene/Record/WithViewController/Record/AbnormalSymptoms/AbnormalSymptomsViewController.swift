@@ -12,6 +12,7 @@ final class AbnormalSymptomsViewController: BaseViewController {
     private lazy var tableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.register(AbnormalSymptomsTableViewCell.self, forCellReuseIdentifier: AbnormalSymptomsTableViewCell.identifier)
+        view.estimatedRowHeight = 80
         view.rowHeight = UITableView.automaticDimension
         view.delegate = self
         view.dataSource = self
@@ -98,9 +99,5 @@ extension AbnormalSymptomsViewController: UITableViewDelegate, UITableViewDataSo
         cell.symptom?.ischecked.toggle()
         list[indexPath.row].ischecked.toggle()
         tableView.reloadRows(at: [indexPath], with: .automatic)
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
     }
 }

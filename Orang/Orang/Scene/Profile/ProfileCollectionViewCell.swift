@@ -12,7 +12,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
     private let innerView = UIView()
     private let outerView = UIView()
     
-    private let profileImageView = UIImageView.imageViewBuilder(size: 130)
+    private let profileImageView = UIImageView.imageViewBuilder(size: 110)
     
     private let dateLabel = UILabel.labelBuilder(size: 13, weight: .light, color: .lightGray, alignment: .right, settingTitle: false)
     private let belongLabel = UILabel.labelBuilder(size: 16, weight: .bold, color: .black, alignment: .right, settingTitle: false)
@@ -69,7 +69,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         [nameSettingLabel, birthSettingLabel, weightSettingLabel, speciesSettingLabel].forEach {
             $0.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .horizontal)
             $0.snp.makeConstraints { make in
-                make.width.equalTo(50)
+                make.width.equalTo(70)
             }
         }
         [nameLabel, birthLabel, weightLabel, speciesLabel].forEach { $0.setContentHuggingPriority(UILayoutPriority(rawValue: 248), for: .horizontal) }
@@ -105,7 +105,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         }
         
         speciesStackView.snp.makeConstraints { make in
-            make.top.equalTo(belongLabel.snp.bottom).offset(16)
+            make.top.equalTo(belongLabel.snp.bottom).offset(14)
             make.horizontalEdges.equalTo(belongLabel)
         }
 
@@ -150,7 +150,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         if let birthday = pet.birthday {
             birthLabel.text = birthday.toFormattedString()
         } else {
-            birthLabel.text = "생일을 몰라요"
+            birthLabel.text = "idkBirthdayButton".localized()
         }
         weightLabel.text = "\(pet.weight)\(pet.weightUnit.rawValue)"
     }

@@ -68,6 +68,7 @@ final class CalendarView: BaseView {
         [previousButton, nextButton].forEach { button in
             button.snp.makeConstraints { make in
                 make.width.equalTo(button.snp.height).multipliedBy(0.8)
+                make.centerY.equalToSuperview()
             }
         }
         

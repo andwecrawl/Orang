@@ -24,7 +24,7 @@ final class RecordView: BaseView {
     let secondRecordButton = UIButton.recordButtonBuilder(image: RecordType.snack.image, title: "snackButton".localized())
     let thirdRecordButton = UIButton.recordButtonBuilder(image: RecordType.pooPee.image, title: "fecesAndUrine".localized())
     let fourthRecordButton = UIButton.recordButtonBuilder(image: RecordType.abnormalSymptoms.image, title: "abnormalSymptoms".localized())
-    let recordStackView = UIStackView.stackViewBuilder()
+    let recordStackView = UIStackView.stackViewBuilder(space: 6)
     
     let medicalView = {
         let innerView = UIView()
@@ -80,6 +80,7 @@ final class RecordView: BaseView {
             make.horizontalEdges.equalTo(recordView).inset(26)
         }
         
+        recordStackView.distribution = .fillEqually
         recordStackView.snp.makeConstraints { make in
             make.height.equalTo(70)
             make.top.equalTo(recordTitleLabel.snp.bottom).offset(10)

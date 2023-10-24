@@ -31,7 +31,7 @@ extension UIButton {
         if isBig {
             configuration.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 26, bottom: 20, trailing: 20)
         } else {
-            configuration.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 16, bottom: 40, trailing: 20)
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 16, bottom: 30, trailing: 20)
             button.layer.shadowRadius = 4
         }
         
@@ -133,6 +133,7 @@ extension UIButton {
         var titleContainer = AttributeContainer()
         titleContainer.font = .systemFont(ofSize: 13, weight: .light)
         titleContainer.foregroundColor = .darkGray
+        config.titleAlignment = .center
         config.attributedTitle = AttributedString(title, attributes: titleContainer)
         config.imagePlacement = .top
         config.imagePadding = 10

@@ -18,7 +18,7 @@ final class DailyView: BaseView {
     let dailyRecordLabel = UILabel.labelBuilder(text: "생활 기록", size: 18, weight: .bold, alignment: .left)
     
     lazy var collectionView = {
-        let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
+        let view = UICollectionView(frame: CGRect(x: 0, y: 0, width: 100, height: 100), collectionViewLayout: setCollectionViewLayout())
         view.register(DailyRecordCollectionViewCell.self, forCellWithReuseIdentifier: DailyRecordCollectionViewCell.identifier)
         return view
     }()

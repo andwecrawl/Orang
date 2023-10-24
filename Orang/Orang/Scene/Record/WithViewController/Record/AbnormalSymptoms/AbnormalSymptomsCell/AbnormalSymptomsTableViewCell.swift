@@ -39,11 +39,12 @@ final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
     }
     
     override func setConstraints() {
-        labelStackView.distribution = .fillProportionally
+        labelStackView.distribution = .equalSpacing
         
+        subtitleLabel.numberOfLines = 0
         labelStackView.snp.makeConstraints { make in
             make.verticalEdges.equalTo(self.safeAreaLayoutGuide).inset(12)
-            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).inset(30)
+            make.leading.equalTo(self.safeAreaLayoutGuide.snp.leading).inset(24)
             make.trailing.equalTo(checkbox.snp.leading).offset(10)
         }
         
