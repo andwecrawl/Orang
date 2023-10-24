@@ -2,8 +2,19 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>SCDream1.otf</string>
+		<string>SCDream2.otf</string>
+		<string>SCDream3.otf</string>
+		<string>SCDream4.otf</string>
+		<string>SCDream5.otf</string>
+		<string>SCDream6.otf</string>
+		<string>SCDream7.otf</string>
+		<string>LeeSeoyun.otf</string>
+	</array>
 	<key>NSCameraUsageDescription</key>
-	<string>카메라 권한을 허용해야 이미지 촬영 및 첨부가 가능합니다.</string>
+	<string>카메라 권한을 허용해야 기록에 이미지 촬영 및 첨부가 가능합니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
