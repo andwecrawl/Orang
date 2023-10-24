@@ -14,7 +14,7 @@ class VaccineAddCollectionViewCell: BaseCollectionViewCell {
         let imageConfig = UIImage.SymbolConfiguration(pointSize: 15)
         let image = UIImage(systemName: "plus", withConfiguration: imageConfig)
         button.setImage(image, for: .normal)
-        button.setTitle(" 접종 항목 추가하기", for: .normal)
+        button.setTitle("addVaccineType".localized(), for: .normal)
         button.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
         button.titleLabel?.textColor = .darkGray
         button.tintColor = .darkGray

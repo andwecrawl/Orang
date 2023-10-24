@@ -51,12 +51,16 @@
 "urineColor" = "소변 색깔";
 "abnormalSymptoms" = "이상 증상";
 
+"vaccineRecordTitle" = "예방 접종 내역 기록하기";
 "MedicalRecordTitle" = "진료 기록 추가하기";
 "VaccineRecordButton" = "예방 접종 내역";
 "VaccineRecordDetail" = "예방 접종 내역을 기록할 수 있어요!";
 "MedicalHistoryButton" = "진료 내역";
 "MedicalHistoryDetail" = "아이의 진료 내역을 기록할 수 있어요!";
-
+"addVaccineType" = " 접종 항목 추가하기";
+"inputVaccineType" = "접종 항목을 선택해 주세요.";
+"inputVaccineTypeByHand" = "접종한 백신을 입력해 주세요!";
+"isNotInTheTable" = "접종한 백신이 표에 없어요.";
 
 
 // withView
@@ -75,6 +79,7 @@
 
 
 // AdditionInfoVC
+"AdditionalMemo" = "추가 기록하기";
 "additionalInfoInformationLabel" = "추가로 기록할 내용을 적어 주세요.";
 
 
@@ -197,6 +202,10 @@
 "inputHospitalName" = "병원명을 입력해 주세요.";
 "reasonForVisit" = "내원 사유";
 "inputReasonForVisit" = "아이의 증상을 작성해 주세요.";
+"basicVaccinations" = "기본 예방 접종 항목";
+"Vaccinations" = "백신 항목";
+"inputVaccineType" = "백신 항목을 입력해 주세요!";
+"sorryForNot %@" = "%@의 경우 예방 접종 항목을 제공하지 않습니다.";
 
 // tabBar
 "Profile" = "프로필";
@@ -265,3 +274,49 @@
 "noSnackAmountError" = "간식 양을 입력해 주세요!";
 "plzSelectElement" = "해당하는 요소를 선택해 주세요!";
 "plzSelectAbnormalSymptoms" = "이상 증상을 선택해 주세요!";
+
+
+// 백신 이름
+"" = "기초 예방 접종";
+"doseDate_%d_to_%d_weeks" = "생후 %d주 ~ %d주";
+"comprehensive_vaccine" = "종합 백신";
+"core_vaccination" = "핵심 백신";
+"heartworm" = "심장사상충";
+"external_parasites" = "외부기생충";
+"internal_parasites" = "내부기생충";
+"viral_hemorrhagic_disease" = "바이러스 출혈열 백신";
+"fungal_skin_disease" = "곰팡이성 피부병";
+"distemper_hepatitis_parvovirus" = "디스템퍼/간염/파보바이러스 (DHP)";
+"rabies" = "광견병";
+"leptospirosis" = "렙토스피로시스";
+"bordetella" = "보르테텔라(켄넬 코프)";
+"canine_influenza" = "신종플루";
+"lyme_disease" = "라임병";
+"antibody_test" = "항체가 검사";
+"monthly_vaccination" = "월별 예방 접종";
+"annually_vaccination" = "연도별 예방 접종";
+"infectious_peritonitis" = "전염성 복막염";
+"corona_enteritis" = "코로나 장염";
+
+// 접종 스케줄
+"1st_dose" = "1차";
+"2nd_dose" = "2차";
+"3rd_dose" = "3차";
+"4th_dose" = "4차";
+"5th_dose" = "5차";
+"6th_dose" = "6차";
+
+"basic1st_dose" = "기초 예방 1차";
+"basic2nd_dose" = "기초 예방 2차";
+"basic3rd_dose" = "기초 예방 3차";
+"basic4th_dose" = "기초 예방 4차";
+"basic5th_dose" = "기초 예방 5차";
+"basic6th_dose" = "기초 예방 6차";
+
+"diaryRecordDescriptions" = "일상 기록";
+"weightRecordDescriptions" = "몸무게 기록";
+"snackRecordDescriptions" = "간식 기록";
+"peepooRecordDescriptions" = "대소변 기록";
+"symptomsRecordDescriptions" = "이상증상 기록";
+"vaccineRecordDescriptions" = "예방접종 내역";
+"medicalHistoryRecordDescriptions" = "진료 내역";

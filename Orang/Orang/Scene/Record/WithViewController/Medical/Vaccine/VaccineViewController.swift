@@ -25,7 +25,7 @@ final class VaccineViewController: BaseViewController {
     private let timeTextField = UnderLineTextField.textFieldBuilder(placeholder: "inputTime".localized(), isTimeTextfield: true)
     private let dateStackView = UIStackView.stackViewBuilder()
 
-    private let vaccineTypeLabel = UILabel.labelBuilder(text: "접종 항목".localized(), size: 16, weight: .bold, settingTitle: true)
+    private let vaccineTypeLabel = UILabel.labelBuilder(text: "Vaccinations".localized(), size: 16, weight: .bold, settingTitle: true)
     lazy var vaccineCollectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
         view.register(VaccineCategoryCollectionViewCell.self, forCellWithReuseIdentifier: VaccineCategoryCollectionViewCell.identifier)
@@ -46,7 +46,7 @@ final class VaccineViewController: BaseViewController {
     }
     
     override func setNavigationBar() {
-        title = "예방 접종 내역 기록하기"
+        title = "vaccineRecordTitle".localized()
         
         let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
         navigationItem.rightBarButtonItem = nextButton
@@ -58,17 +58,17 @@ final class VaccineViewController: BaseViewController {
         guard let time = timeTextField.text else { return }
         guard let treatmentDate = "\(date) \(time)".toDateContainsTime() else { return }
         guard let hospital = hospitalTextField.text else {
-            self.sendOneSidedAlert(title: "병원명을 입력해 주세요!")
+            self.sendOneSidedAlert(title: "inputHospitalName".localized())
             return
         }
         if hospital.isEmpty {
-            sendOneSidedAlert(title: "병원명을 입력해 주세요!")
+            sendOneSidedAlert(title: "inputHospitalName".localized())
         } else if vaccineCategoryCount == 0 {
-            sendOneSidedAlert(title: "백신 항목을 입력해 주세요!")
+            sendOneSidedAlert(title: "inputVaccineType".localized())
         }
         
         let vc = AdditionalMemoViewController()
-        vc.title = "추가로 기록하기"
+        vc.title = "AdditionalMemo".localized()
         vc.selectedPet = selectedPet
         vc.hospital = hospital
         vc.treatmentDate = treatmentDate
@@ -88,10 +88,10 @@ final class VaccineViewController: BaseViewController {
                     if !text.isEmpty {
                         vaccineTypes.append((cellData.0, text))
                     } else {
-                        sendOneSidedAlert(title: "백신 항목을 입력해 주세요!")
+                        sendOneSidedAlert(title: "inputVaccineType".localized())
                     }
                 } else {
-                    sendOneSidedAlert(title: "백신 항목을 입력해 주세요!")
+                    sendOneSidedAlert(title: "inputVaccineType".localized())
                 }
             }
         }

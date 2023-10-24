@@ -47,23 +47,27 @@
 "urineColor" = "Urine Color";
 "abnormalSymptoms" = "Symptoms";
 
-"MedicalRecordTitle" = "Add Medical Records";
+"vaccineRecordTitle" = "Vaccination";
+"MedicalRecordTitle" = "Medical Records";
 "VaccineRecordButton" = "Vaccination History";
 "VaccineRecordDetail" = "You can record vaccination history!";
 "MedicalHistoryButton" = "Medical History";
 "MedicalHistoryDetail" = "You can record your pet's medical history!";
-
+"addVaccineType" = " Add administered Vaccine";
+"inputVaccineType" = "Please select the administered vaccine.";
+"inputVaccineTypeByHand" = "Please enter the administered vaccine!";
+"isNotInTheTable" = "The administered vaccine is not in the table.";
 
 // withView
 "withNavigationTitle" = "Whose Record is this?";
 
 
 // AdditionalSymptoms
-"moreSymptomsTitle" = "Any Additional Symptoms?";
+"moreSymptomsTitle" = "Additional Symptoms?";
 
 
 // DiaryVC
-"diaryNavigationTitle" = "Add Daily Records";
+"diaryNavigationTitle" = "Daily Records";
 "photoAlbumButton" = "Photo Album";
 "takePictureButton" = "Take a Photo";
 "selectFileButton" = "Select File";
@@ -71,19 +75,20 @@
 
 // AdditionInfoVC
 "additionalInfoInformationLabel" = "Please write additional information to record.";
+"AdditionalMemo" = "Additional Memo";
 
 
 // weight
-"weightTitle" = "Add Weight Record";
+"weightTitle" = "Weight Record";
 
 // snack
-"snackTitle" = "Add Snack Record";
-"snackVariation" = "Snack Type";
+"snackTitle" = "Snack Record";
+"snackVariation" = "Type";
 "inputSnackType" = "Please enter the snack name!";
 "amount" = "Amount";
 
 // pooPee
-"pooPeeTitle" = "Add Feces&Urine Record";
+"pooPeeTitle" = "Feces&Urine Record";
 
 // Pee
     // Color
@@ -179,15 +184,19 @@
 
 
 // AbnormalSymptoms
-"AbnormalSymptomsNavigationTitle" = "Record Abnormal Symptoms";
+"AbnormalSymptomsNavigationTitle" = "Abnormal Symptoms";
 
 
 // Medical
-"recordMedicalHistory" = "Record Medical History";
+"recordMedicalHistory" = "Medical History";
 "hospitalName" = "Hospital Name";
 "inputHospitalName" = "Please enter the hospital name.";
 "reasonForVisit" = "Reason for Visit";
 "inputReasonForVisit" = "Please write your Pet's symptoms.";
+"basicVaccinations" = "Basic Vaccinations";
+"Vaccinations" = "Vaccinations";
+"inputVaccineType" = "Select the vaccine.";
+"sorryForNot %@" = "For %@, we do not provide vaccination items.";
 
 // tabBar
 "Profile" = "Profile";
@@ -254,3 +263,49 @@
 "noSnackAmountError" = "Please enter the snack amount!";
 "plzSelectElement" = "Please select the corresponding element!";
 "plzSelectAbnormalSymptoms" = "Please select abnormal symptoms!";
+
+
+// Vaccine Names
+"basic_vaccination" = "Basic Vaccination";
+"first_dose_%d_to_%d_weeks" = "%d to %d weeks old";
+"comprehensive_vaccine" = "Comprehensive Vaccine";
+"core_vaccination" = "Core Vaccination";
+"heartworm" = "Heartworm";
+"external_parasites" = "External Parasites";
+"internal_parasites" = "Internal Parasites";
+"viral_hemorrhagic_disease" = "Viral Hemorrhagic Disease Vaccine";
+"fungal_skin_disease" = "Fungal Skin Disease Vaccine";
+"distemper_hepatitis_parvovirus" = "Distemper, Hepatitis, Parvovirus (DHP)";
+"rabies" = "Rabies";
+"leptospirosis" = "Leptospirosis";
+"bordetella" = "Bordetella(Kennel Cough)";
+"canine_influenza" = "Canine Influenza";
+"lyme_disease" = "Lyme Disease";
+"antibody_test" = "Antibody Test";
+"monthly_vaccination" = "Monthly Vaccination";
+"annually_vaccination" = "Annually Vaccinations";
+"infectious_peritonitis" = "Infectious Peritonitis";
+"corona_enteritis" = "corona enteritis";
+
+// Vaccination Schedule
+"1st_dose" = "1st Dose";
+"2nd_dose" = "2nd Dose";
+"3rd_dose" = "3rd Dose";
+"4th_dose" = "4th Dose";
+"5th_dose" = "5th Dose";
+"6th_dose" = "6th Dose";
+
+"basic1st_dose" = "1st Basic Vaccinations";
+"basic2nd_dose" = "2nd Basic Vaccinations";
+"basic3rd_dose" = "3rd Basic Vaccinations";
+"basic4th_dose" = "4th Basic Vaccinations";
+"basic5th_dose" = "5th Basic Vaccinations";
+"basic6th_dose" = "6th Basic Vaccinations";
+
+"diaryRecordDescriptions" = "Diary";
+"weightRecordDescriptions" = "Weight";
+"snackRecordDescriptions" = "Snack";
+"peepooRecordDescriptions" = "Feces & Urine";
+"symptomsRecordDescriptions" = "Abnormal Symptoms";
+"vaccineRecordDescriptions" = "Vaccinations";
+"medicalHistoryRecordDescriptions" = "Medical History";

@@ -56,7 +56,7 @@ class VaccineTypeViewController: BaseViewController {
     }
     
     override func setNavigationBar() {
-        navigationItem.title = "기본 예방 접종 항목"
+        navigationItem.title = "basicVaccinations".localized()
     }
     
     override func configureHierarchy() {
@@ -81,10 +81,10 @@ class VaccineTypeViewController: BaseViewController {
         if species == .etc {
             guard let detail = selectedPet.detailSpecies else { return }
             outlineCollectionView.isHidden = true
-            informationLabel.text = "\(detail)의 경우 예방 접종 항목을 제공하지 않습니다!"
+            informationLabel.text = "sorryForNot %@".localized(with: detail)
         } else if !(species == .cat || species == .dog || species == .rabbit) {
             outlineCollectionView.isHidden = true
-            informationLabel.text = "\(species.toString)의 경우 예방 접종 항목을 제공하지 않습니다!"
+            informationLabel.text = "sorryForNot %@".localized(with: species.toString)
         } else {
             outlineCollectionView.isHidden = false
             informationLabel.isHidden = true
@@ -94,84 +94,86 @@ class VaccineTypeViewController: BaseViewController {
     private lazy var menuItems: [Vaccine] = {
         if selectedPet?.species == .cat {
             return [
-                Vaccine(title: "기초 예방 접종", subitems: [
-                    Vaccine(title: "1차: 생후 6주 ~ 8주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 1차")
+                Vaccine(title: "basic_vaccination".localized(), subitems: [
+                    Vaccine(title: "\("1st_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [6, 8]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic1st_dose".localized())
                     ]),
-                    Vaccine(title: "2차: 8주 ~ 10주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 2차")
+                    
+                    
+                    Vaccine(title: "\("2nd_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [8, 10]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic2nd_dose".localized())
                     ]),
-                    Vaccine(title: "3차: 10주 ~ 12주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 3차"),
-                        Vaccine(title: "광견병", variation: "기초 예방 3차")
+                    Vaccine(title: "\("3rd_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [10, 12]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic3rd_dose".localized()),
+                        Vaccine(title: "rabies".localized(), variation: "basic3rd_dose".localized())
                     ]),
-                    Vaccine(title: "4차: 12주 ~ 14주", subitems: [
-                        Vaccine(title: "전염성 복막염", variation: "기초 예방 4차")
+                    Vaccine(title: "\("4th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [12, 14]))", subitems: [
+                        Vaccine(title: "infectious_peritonitis".localized(), variation: "basic4th_dose".localized())
                     ]),
-                    Vaccine(title: "5차: 14주 ~ 16주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 5차"),
-                        Vaccine(title: "광견병", variation: "기초 예방 5차")
+                    Vaccine(title: "\("5th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [14, 16]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic5th_dose".localized()),
+                        Vaccine(title: "rabies".localized(), variation: "basic5th_dose".localized())
                     ])
                 ]),
-                Vaccine(title: "월별 예방 접종", subitems: [
-                    Vaccine(title: "심장사상충", variation: "월별 접종"),
-                    Vaccine(title: "외부기생충", variation: "월별 접종"),
-                    Vaccine(title: "내부기생충", variation: "월별 접종")]),
-                Vaccine(title: "연도별 예방 접종", subitems: [
-                    Vaccine(title: "종합 백신", variation: "연도별 접종"),
-                    Vaccine(title: "광견병", variation: "연도별 접종")
+                Vaccine(title: "monthly_vaccination".localized(), subitems: [
+                    Vaccine(title: "heartworm".localized(), variation: "monthly_vaccination".localized()),
+                    Vaccine(title: "external_parasites".localized(), variation: "monthly_vaccination".localized()),
+                    Vaccine(title: "internal_parasites".localized(), variation: "monthly_vaccination".localized())]),
+                Vaccine(title: "annually_vaccination".localized(), subitems: [
+                    Vaccine(title: "comprehensive_vaccine".localized(), variation: "annually_vaccination".localized()),
+                    Vaccine(title: "rabies".localized(), variation: "annually_vaccination".localized())
                 ])
             ]
         } else if selectedPet?.species == .dog {
             return [
-                Vaccine(title: "기초 예방 접종", subitems: [
-                    Vaccine(title: "1차: 생후 6주 ~ 8주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 1차"),
-                        Vaccine(title: "코로나 장염", variation: "기초 예방 1차")
+                Vaccine(title: "basic_vaccination".localized(), subitems: [
+                    Vaccine(title: "\("1st_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [6, 8]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic1st_dose".localized()),
+                        Vaccine(title: "corona_enteritis".localized(), variation: "basic1st_dose".localized())
                     ]),
-                    Vaccine(title: "2차: 8주 ~ 10주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 2차"),
-                        Vaccine(title: "코로나 장염", variation: "기초 예방 2차")
+                    Vaccine(title: "\("2nd_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [8, 10]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic2nd_dose".localized()),
+                        Vaccine(title: "corona_enteritis".localized(), variation: "basic2nd_dose".localized())
                     ]),
-                    Vaccine(title: "3차: 10주 ~ 12주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 3차"),
-                        Vaccine(title: "켄넬코프", variation: "기초 예방 3차")
+                    Vaccine(title: "\("3rd_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [10, 12]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic3rd_dose".localized()),
+                        Vaccine(title: "bordetella".localized(), variation: "basic3rd_dose".localized())
                     ]),
-                    Vaccine(title: "4차: 12주 ~ 14주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 4차"),
-                        Vaccine(title: "켄넬코프", variation: "기초 예방 4차")
+                    Vaccine(title: "\("4th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [12, 14]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic4th_dose".localized()),
+                        Vaccine(title: "bordetella".localized(), variation: "basic4th_dose".localized())
                     ]),
-                    Vaccine(title: "5차: 14주 ~ 16주", subitems: [
-                        Vaccine(title: "종합 백신", variation: "기초 예방 5차"),
-                        Vaccine(title: "신종플루", variation: "기초 예방 5차")
+                    Vaccine(title: "\("5th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [14, 16]))", subitems: [
+                        Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic5th_dose".localized()),
+                        Vaccine(title: "canine_influenza".localized(), variation: "basic5th_dose".localized())
                     ]),
-                    Vaccine(title: "6차: 16주 ~ 18주", subitems: [
-                        Vaccine(title: "광견병", variation: "기초 예방 6차"),
-                        Vaccine(title: "신종플루", variation: "기초 예방 6차"),
-                        Vaccine(title: "항체가 검사", variation: "기초 예방 6차")
+                    Vaccine(title: "\("6th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [16, 18]))", subitems: [
+                        Vaccine(title: "rabies".localized(), variation: "basic6th_dose".localized()),
+                        Vaccine(title: "canine_influenza".localized(), variation: "basic6th_dose".localized()),
+                        Vaccine(title: "antibody_test".localized(), variation: "basic6th_dose".localized())
                     ])
                 ]),
-                Vaccine(title: "월별 예방 접종", subitems: [
-                    Vaccine(title: "심장사상충", variation: "월별 접종"),
-                    Vaccine(title: "외부기생충", variation: "월별 접종"),
-                    Vaccine(title: "내부기생충", variation: "월별 접종")]),
-                Vaccine(title: "연도별 예방 접종", subitems: [
-                    Vaccine(title: "종합 백신", variation: "연도별 접종"),
-                    Vaccine(title: "코로나 장염", variation: "연도별 접종"),
-                    Vaccine(title: "켄넬코프", variation: "연도별 접종"),
-                    Vaccine(title: "신종플루", variation: "연도별 접종"),
-                    Vaccine(title: "광견병", variation: "연도별 접종"),
-                    Vaccine(title: "곰팡이 백신", variation: "연도별 접종"),
-                    Vaccine(title: "항체가 검사", variation: "연도별 접종")
+                Vaccine(title: "monthly_vaccination".localized(), subitems: [
+                    Vaccine(title: "heartworm".localized(), variation: "monthly_vaccination".localized()),
+                    Vaccine(title: "external_parasites".localized(), variation: "monthly_vaccination".localized()),
+                    Vaccine(title: "internal_parasites".localized(), variation: "monthly_vaccination".localized())]),
+                Vaccine(title: "annually_vaccination".localized(), subitems: [
+                    Vaccine(title: "comprehensive_vaccine".localized(), variation: "annually_vaccination".localized()),
+                    Vaccine(title: "corona_enteritis".localized(), variation: "annually_vaccination".localized()),
+                    Vaccine(title: "bordetella".localized(), variation: "annually_vaccination".localized()),
+                    Vaccine(title: "canine_influenza".localized(), variation: "annually_vaccination".localized()),
+                    Vaccine(title: "rabies".localized(), variation: "annually_vaccination".localized()),
+                    Vaccine(title: "fungal_skin_disease".localized(), variation: "annually_vaccination".localized()),
+                    Vaccine(title: "antibody_test".localized(), variation: "annually_vaccination".localized())
                 ])
             ]
         } else if selectedPet?.species == .rabbit {
             return [
-                Vaccine(title: "바이러스 출혈열 백신", variation: "기초 예방 접종"),
-                Vaccine(title: "광견병", variation: "기초 예방 접종"),
-                Vaccine(title: "외부기생충", variation: "기초 예방 접종"),
-                Vaccine(title: "내부기생충", variation: "기초 예방 접종"),
-                Vaccine(title: "곰팡이성 피부병", variation: "기초 예방 접종")
+                Vaccine(title: "viral_hemorrhagic_disease".localized(), variation: "basic_vaccination".localized()),
+                Vaccine(title: "rabies".localized(), variation: "basic_vaccination".localized()),
+                Vaccine(title: "external_parasites".localized(), variation: "basic_vaccination".localized()),
+                Vaccine(title: "internal_parasites".localized(), variation: "basic_vaccination".localized()),
+                Vaccine(title: "fungal_skin_disease".localized(), variation: "basic_vaccination".localized())
             ]
         } else {
             return []

@@ -11,7 +11,7 @@ import PhotosUI
 
 final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
     
-    private let informationLabel = UILabel.labelBuilder(text: "추가로 기록할 내용을 적어 주세요!", size: 16, weight: .semibold)
+    private let informationLabel = UILabel.labelBuilder(text: "additionalInfoInformationLabel".localized(), size: 16, weight: .semibold)
     
     private lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())

@@ -20,19 +20,19 @@ enum RecordType: Int, PersistableEnum {
     var recordDescriptions: String {
         switch self {
         case .diary:
-            return "일상 기록"
+            return "diaryRecordDescriptions".localized()
         case .weight:
-            return "몸무게 기록"
+            return "weightRecordDescriptions".localized()
         case .snack:
-            return "간식 기록"
+            return "snackRecordDescriptions".localized()
         case .pooPee:
-            return "대소변 기록"
+            return "peepooRecordDescriptions".localized()
         case .abnormalSymptoms:
-            return "이상증상 기록"
+            return "symptomsRecordDescriptions".localized()
         case .vaccine:
-            return "예방접종 내역"
+            return "vaccineRecordDescriptions".localized()
         case .medicalHistory:
-            return "진료 내역"
+            return "medicalHistoryRecordDescriptions".localized()
         }
     }
     
