@@ -40,14 +40,17 @@ extension Date {
             formatter.dateFormat = "MMMM d, yyyy"
             return formatter.string(from: self)
         }
-        
     }
     
     func toFormattedString() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy년 MM월 dd일"
-        
-        return formatter.string(from: self)
+        if Locale.current == Locale(identifier: "ko_KR") {
+            formatter.dateFormat = "yyyy년 MM월 dd일"
+            return formatter.string(from: self)
+        } else {
+            formatter.dateFormat = "MMMM d, yyyy"
+            return formatter.string(from: self)
+        }
     }
     
     func toFormattedStringTime() -> String {
