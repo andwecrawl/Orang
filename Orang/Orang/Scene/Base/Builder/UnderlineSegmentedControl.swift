@@ -48,7 +48,7 @@ final class UnderlineSegmentedControl: UISegmentedControl {
         self.setTitleTextAttributes(
             [
                 NSAttributedString.Key.foregroundColor: Design.Color.tintColor,
-                .font: UIFont.systemFont(ofSize: 14, weight: .semibold)
+                .font: Design.Font.scdreamBold.largeFont
             ],
             for: .selected
         )

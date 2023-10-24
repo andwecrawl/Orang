@@ -31,7 +31,7 @@ extension UIButton {
         if isBig {
             configuration.contentInsets = NSDirectionalEdgeInsets(top: 20, leading: 26, bottom: 20, trailing: 20)
         } else {
-            configuration.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 16, bottom: 30, trailing: 20)
+            configuration.contentInsets = NSDirectionalEdgeInsets(top: 30, leading: 16, bottom: 36, trailing: 20)
             button.layer.shadowRadius = 4
         }
         
@@ -43,11 +43,11 @@ extension UIButton {
         subtitleContainer.foregroundColor = Design.Color.border
         
         if isBig {
-            titleContainer.font = .systemFont(ofSize: 17, weight: .bold)
-            subtitleContainer.font = .systemFont(ofSize: 13, weight: .light)
+            titleContainer.font = Design.Font.scdreamMedium.getFonts(size: 17)
+            subtitleContainer.font = Design.Font.scdreamRegular.smallFont
         } else {
-            titleContainer.font = .systemFont(ofSize: 15, weight: .bold)
-            subtitleContainer.font = .systemFont(ofSize: 12, weight: .light)
+            titleContainer.font = Design.Font.scdreamMedium.midFont
+            subtitleContainer.font = Design.Font.scdreamRegular.smallFont
         }
         
         configuration.attributedTitle = AttributedString(title, attributes: titleContainer)
@@ -79,8 +79,7 @@ extension UIButton {
         button.configurationUpdateHandler = { button in
 
             var container = AttributeContainer()
-            container.font = .systemFont(ofSize: 14, weight: .semibold)
-            
+            container.font = Design.Font.scdreamMedium.midFont
             var configuration = UIButton.Configuration.plain()
             configuration.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(pointSize: 13)
             configuration.imagePadding = 8
@@ -110,7 +109,7 @@ extension UIButton {
     
     static func unitPopUpButtonBuilder(menuElement: [UIMenuElement]) -> UIButton {
         let button = UIButton()
-        button.titleLabel?.font = .systemFont(ofSize: 17, weight: .medium)
+        button.titleLabel?.font = Design.Font.scdreamMedium.largeFont
         button.layer.cornerRadius = 8
         button.layer.borderColor = Design.Color.border.cgColor
         button.layer.borderWidth = 1
@@ -127,16 +126,14 @@ extension UIButton {
     static func recordButtonBuilder(image: UIImage?, title: String) -> UIButton {
         let button = UIButton()
         var config = UIButton.Configuration.plain()
-        let imageConfig = UIImage.SymbolConfiguration(pointSize: 18, weight: .bold)
-        let resizeImage = image?.withConfiguration(imageConfig)
-        config.image = resizeImage
+        config.image = image
         var titleContainer = AttributeContainer()
-        titleContainer.font = .systemFont(ofSize: 13, weight: .light)
-        titleContainer.foregroundColor = .darkGray
+        titleContainer.font = Design.Font.scdreamRegular.getFonts(size: 12)
+        titleContainer.foregroundColor = Design.Color.border
         config.titleAlignment = .center
         config.attributedTitle = AttributedString(title, attributes: titleContainer)
         config.imagePlacement = .top
-        config.imagePadding = 10
+        config.imagePadding = 6
         button.configuration = config
         return button
     }

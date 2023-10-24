@@ -12,7 +12,7 @@ extension UITextView {
         let view = UITextView()
         view.layer.cornerRadius = 16
         view.layer.borderColor = Design.Color.border.cgColor
-        view.font = .systemFont(ofSize: 14)
+        view.font = Design.Font.scdreamMedium.midFont
         view.textContainerInset = UIEdgeInsets(top: 16, left: 8, bottom: 16, right: 8)
         view.layer.borderWidth = 1
         view.backgroundColor = Design.Color.background

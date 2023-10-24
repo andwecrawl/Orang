@@ -12,12 +12,22 @@ extension UILabel {
         let view = UILabel()
         if settingTitle {
             view.snp.makeConstraints { make in
-                make.width.equalTo(80)
+                make.width.equalTo(60)
                 make.height.equalTo(50)
             }
         }
         view.textAlignment = alignment
-        view.font = .systemFont(ofSize: size, weight: weight)
+        switch weight {
+        case .light:
+            view.font = Design.Font.scdreamLight.getFonts(size: size)
+        case .regular:
+            view.font = Design.Font.scdreamRegular.getFonts(size: size)
+        case .medium, .regular:
+            view.font = Design.Font.scdreamMedium.getFonts(size: size)
+        case .semibold, .bold:
+            view.font = Design.Font.scdreamBold.getFonts(size: size)
+        default: break
+        }
         view.textColor = color
         view.text = text
         return view

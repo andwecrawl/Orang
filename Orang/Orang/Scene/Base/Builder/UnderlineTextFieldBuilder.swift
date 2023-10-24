@@ -94,7 +94,7 @@ extension UnderLineTextField {
                 make.width.equalTo(100)
             }
         }
-        textField.font = .systemFont(ofSize: 15)
+        textField.font = Design.Font.scdreamMedium.midFont
         textField.snp.makeConstraints { make in
             make.height.equalTo(50)
         }
