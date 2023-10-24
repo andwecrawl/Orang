@@ -55,7 +55,14 @@ extension Date {
     
     func toFormattedStringTime() -> String {
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH시 mm분"
+        if Locale.current == Locale(identifier: "ko_KR") {
+            formatter.dateFormat = "HH시 mm분"
+            return formatter.string(from: self)
+        } else {
+            formatter.dateStyle = .none
+            formatter.timeStyle = .medium
+            return formatter.string(from: self)
+        }
         
         return formatter.string(from: self)
     }
