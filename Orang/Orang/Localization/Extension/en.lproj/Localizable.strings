@@ -33,10 +33,10 @@
 "recordNavigationTitle" = "Record";
 "recordTitle" = "Record daily and observe changes!";
 
-"diaryRecordTitle" = "Add Daily Records";
+"diaryRecordTitle" = "Daily Journal";
 "diaryRecordDetail" = "Add records of your daily activities with your pet!";
 
-"recordRecordTitle" = "Add Lifestyle Records";
+"recordRecordTitle" = "Lifestyle Report";
 "weightButton" = "Weight";
 "snackButton" = "Snack";
 "fecesAndUrine" = "Feces & Urine";
@@ -48,7 +48,7 @@
 "abnormalSymptoms" = "Symptoms";
 
 "vaccineRecordTitle" = "Vaccination";
-"MedicalRecordTitle" = "Medical Records";
+"MedicalRecordTitle" = "Medical Report";
 "VaccineRecordButton" = "Vaccination History";
 "VaccineRecordDetail" = "You can record vaccination history!";
 "MedicalHistoryButton" = "Medical History";
