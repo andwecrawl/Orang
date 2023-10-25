@@ -35,6 +35,9 @@ final class AddViewController: BaseViewController {
         let image = mainView.profileImageView.image
         guard let name = mainView.nameTextField.text else { return }
         guard let meetDate else { return }
+        if birth == nil {
+            birth = mainView.birthTextField.text?.toDate()
+        }
         if mainView.idkBirthButton.isSelected {
             birth = nil
         }
