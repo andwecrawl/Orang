@@ -11,7 +11,7 @@ import RealmSwift
 protocol RecordTableRepositoryType: AnyObject {
 //    func fetchRecords<T: Object>(date: Date, type: myRecords, objectType: T.Type)
     func create(PetID: ObjectId, _ item: RecordTable)
-    func deleteRecord(PetID: ObjectId, _ item: RecordTable)
+    func deleteRecord(_ item: RecordTable)
     func update(PetID: ObjectId, _ item: RecordTable)
 }
 
@@ -82,7 +82,7 @@ class RecordTableRepository: RecordTableRepositoryType {
         }
     }
     
-    func deleteRecord(PetID: ObjectId, _ item: RecordTable) {
+    func deleteRecord(_ item: RecordTable) {
         let task = realm.objects(RecordTable.self)
         guard let product = task.where({ $0.createdDate == item.createdDate }).first else { return }
         do {
@@ -94,7 +94,7 @@ class RecordTableRepository: RecordTableRepositoryType {
         }
     }
     
-    func deleteMedicalRecord(PetID: ObjectId, _ item: MedicalRecordTable) {
+    func deleteMedicalRecord(_ item: MedicalRecordTable) {
         let task = realm.objects(MedicalRecordTable.self)
         guard let product = task.where({ $0.createdDate == item.createdDate }).first else { return }
         do {
