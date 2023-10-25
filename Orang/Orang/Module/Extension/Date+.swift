@@ -33,37 +33,37 @@ extension Date {
     
     func toCalendarTitle() -> String {
         let formatter = DateFormatter()
-        if Locale.current == Locale(identifier: "ko_KR") {
+//        if Locale.current == Locale(identifier: "ko") {
             formatter.dateFormat = "yyyy년 MM월"
             return formatter.string(from: self)
-        } else {
-            formatter.dateFormat = "MMMM d, yyyy"
-            return formatter.string(from: self)
-        }
+//        } else {
+//            formatter.dateFormat = "MMMM yyyy"
+//            return formatter.string(from: self)
+//        }
     }
     
     func toFormattedString() -> String {
         let formatter = DateFormatter()
-        if Locale.current == Locale(identifier: "ko_KR") {
-            formatter.dateFormat = "yyyy년 MM월 dd일"
-            return formatter.string(from: self)
-        } else {
-            formatter.dateFormat = "MMMM d, yyyy"
-            return formatter.string(from: self)
-        }
+        formatter.dateStyle = .long
+        return formatter.string(from: self)
+//        if Locale.current == Locale(identifier: "ko") {
+//            formatter.dateFormat = "yyyy년 MM월 dd일"
+//            return formatter.string(from: self)
+//        } else {
+//            formatter.dateFormat = "MMMM d, yyyy"
+//            return formatter.string(from: self)
+//        }
     }
     
     func toFormattedStringTime() -> String {
         let formatter = DateFormatter()
-        if Locale.current == Locale(identifier: "ko_KR") {
             formatter.dateFormat = "HH시 mm분"
             return formatter.string(from: self)
-        } else {
-            formatter.dateStyle = .none
-            formatter.timeStyle = .medium
-            return formatter.string(from: self)
-        }
-        
+    }
+    
+    func toDisplayString() -> String {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .short
         return formatter.string(from: self)
     }
     
@@ -80,19 +80,15 @@ extension Date {
     
     func compareToNow() -> Int {
         
-        let target = self.toFormattedString().toDate()
-        let today = Date().toFormattedString().toDate()
+        let target = self.startOfTheDate
+        let today = Date().startOfTheDate
         
         //interval 계산
         let calendar = Calendar.current
         
-        if let target, let today {
-            let dateGap = calendar.dateComponents([.day], from: target, to: today).day!
-            
-            return dateGap + 1
-        } else {
-            return 0 // TODO: d-day 계산 실패 -> alert 필요?
-        }
+        let dateGap = calendar.dateComponents([.day], from: target, to: today).day!
+        print(dateGap)
+        return dateGap + 1
     }
     
     func forLoadImage() -> String {
