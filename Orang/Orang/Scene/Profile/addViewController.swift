@@ -218,8 +218,10 @@ final class AddViewController: BaseViewController {
             textField.text = sender.titleLabel?.text ?? ""
             textField.isUserInteractionEnabled = false
         } else {
-            let date = Date()
-            textField.text = date.toFormattedString()
+            if sender == mainView.idkBirthButton {
+                let date = Date()
+                textField.text = date.toFormattedString()
+            }
             textField.isUserInteractionEnabled = true
         }
     }
