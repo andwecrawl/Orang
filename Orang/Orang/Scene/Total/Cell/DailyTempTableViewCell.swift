@@ -10,7 +10,8 @@ import UIKit
 class DailyTempTableViewCell: BaseTableViewCell {
     
     let diaryImageView = UIImageView.imageViewBuilder(size: 60)
-    let typeImageView = UIImageView.imageViewBuilder(size: 24)
+    let tempView = UIImageView.imageViewBuilder(size: 24)
+    let typeImageView = UIImageView.imageViewBuilder(size: 20)
 
     let titleLabel = UILabel.labelBuilder(text: "제목입니당", size: 15, weight: .semibold, alignment: .left)
     let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당", size: 14, weight: .regular, alignment: .justified)
@@ -29,6 +30,7 @@ class DailyTempTableViewCell: BaseTableViewCell {
         
         [
             diaryImageView,
+            tempView,
             typeImageView,
             textStackView,
             arrowImageView
@@ -44,9 +46,13 @@ class DailyTempTableViewCell: BaseTableViewCell {
             make.leading.equalToSuperview().inset(8)
         }
         
-        typeImageView.snp.makeConstraints { make in
+        tempView.snp.makeConstraints { make in
             make.bottom.equalTo(diaryImageView.snp.bottom).offset(2)
             make.trailing.equalTo(diaryImageView.snp.trailing).offset(2)
+        }
+        
+        typeImageView.snp.makeConstraints { make in
+            make.center.equalTo(tempView)
         }
         
         textStackView.snp.makeConstraints { make in
@@ -67,7 +73,7 @@ class DailyTempTableViewCell: BaseTableViewCell {
         textStackView.distribution = .equalSpacing
         
         typeImageView.contentMode = .scaleAspectFit
-        typeImageView.backgroundColor = .white
+        tempView.backgroundColor = .white
         diaryImageView.backgroundColor = .gray
         titleLabel.numberOfLines = 1
         subtitleLabel.numberOfLines = 2

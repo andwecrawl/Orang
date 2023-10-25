@@ -69,7 +69,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         [nameSettingLabel, birthSettingLabel, weightSettingLabel, speciesSettingLabel].forEach {
             $0.setContentCompressionResistancePriority(UILayoutPriority(rawValue: 751), for: .horizontal)
             $0.snp.makeConstraints { make in
-                make.width.equalTo(70)
+                make.width.equalTo(65)
             }
         }
         [nameLabel, birthLabel, weightLabel, speciesLabel].forEach { $0.setContentHuggingPriority(UILayoutPriority(rawValue: 248), for: .horizontal) }
@@ -90,13 +90,13 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         
         profileImageView.snp.makeConstraints { make in
             make.centerY.equalTo(innerView)
-            make.leading.equalTo(innerView).inset(16)
+            make.leading.equalTo(innerView).inset(14)
         }
         
         dateLabel.snp.makeConstraints { make in
             make.top.equalTo(innerView).inset(22)
-            make.leading.equalTo(profileImageView.snp.trailing).offset(18)
-            make.trailing.equalTo(innerView).inset(18)
+            make.leading.equalTo(profileImageView.snp.trailing).offset(16)
+            make.trailing.equalTo(innerView).inset(16)
         }
         
         belongLabel.snp.makeConstraints { make in
@@ -148,7 +148,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
         }
         nameLabel.text = pet.name
         if let birthday = pet.birthday {
-            birthLabel.text = birthday.toFormattedString()
+            birthLabel.text = birthday.toDisplayString()
         } else {
             birthLabel.text = "idkBirthdayButton".localized()
         }

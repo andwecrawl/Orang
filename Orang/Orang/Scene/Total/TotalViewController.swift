@@ -347,7 +347,7 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.reloadRows(at: [indexPath], with: .none)
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
@@ -361,7 +361,29 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
 
         let delete = UIContextualAction(style: .normal, title: "삭제") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
             print("삭제 클릭 됨")
+            
+            let item = indexPath.item
+            var records: ImageManager.DirectoryName
+            
+            if tableView == self.diaryView.tableView {
+                records = .diaries
+                let record = self.diaryRecords[item]
+                record.imageArray.forEach({ ImageManager.shared.removeImageFromDirectory(directoryName: records, identifier: $0) })
+                self.recordRepository.deleteRecord(record)
+            } else if tableView == self.dailyView.tableView {
+                records = .dailyRecords
+                let record = self.dailyRecords[item]
+                record.imageArray.forEach({ ImageManager.shared.removeImageFromDirectory(directoryName: records, identifier: $0) })
+                self.recordRepository.deleteRecord(record)
+            } else {
+                records = .medicalRecords
+                let record = self.medicalRecords[item]
+                record.imageArray.forEach({ ImageManager.shared.removeImageFromDirectory(directoryName: records, identifier: $0) })
+                self.recordRepository.deleteMedicalRecord(record)
+            }
             success(true)
+            tableView.reloadData()
+            self.setContentView()
         }
         delete.backgroundColor = .systemRed
         

@@ -65,9 +65,15 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             self.sendOneSidedAlert(title: "failFindSelectedPet".localized(), message: "failFindSelectedPetDetail".localized())
             return
         }
-        guard let pet = selectedPet.first else { return }
-        guard let date = dateTextField.text else { return }
-        guard let time = timeTextField.text else { return }
+        guard let pet = selectedPet.first else {
+            print("nopet")
+            return }
+        guard let date = dateTextField.text else {
+            print("nodate")
+            return }
+        guard let time = timeTextField.text else {
+            print("notime")
+            return }
         guard let recordDate = "\(date) \(time)".toDateContainsTime() else { return }
         let content = contentTextView.text
         

@@ -106,15 +106,11 @@
 		D1BB80162ADA7123001FFF1C /* CheckRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80152ADA7123001FFF1C /* CheckRecord.swift */; };
 		D1BB80182ADA714C001FFF1C /* CheckProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BB80172ADA714C001FFF1C /* CheckProtocol.swift */; };
 		D1F08BC12AE7C1D1007E793C /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08BC02AE7C1D1007E793C /* UIImage+.swift */; };
-		D1F08BCD2AE7D747007E793C /* SCDream1.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BC32AE7D747007E793C /* SCDream1.otf */; };
 		D1F08BCE2AE7D747007E793C /* SCDream3.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BC42AE7D747007E793C /* SCDream3.otf */; };
-		D1F08BCF2AE7D747007E793C /* SCDream2.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BC52AE7D747007E793C /* SCDream2.otf */; };
 		D1F08BD02AE7D747007E793C /* SCDream6.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BC62AE7D747007E793C /* SCDream6.otf */; };
 		D1F08BD12AE7D747007E793C /* SCDream7.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BC72AE7D747007E793C /* SCDream7.otf */; };
 		D1F08BD22AE7D747007E793C /* SCDream5.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BC82AE7D747007E793C /* SCDream5.otf */; };
 		D1F08BD32AE7D747007E793C /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BC92AE7D747007E793C /* SCDream4.otf */; };
-		D1F08BD52AE7D747007E793C /* SCDream9.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BCB2AE7D747007E793C /* SCDream9.otf */; };
-		D1F08BD62AE7D747007E793C /* SCDream8.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BCC2AE7D747007E793C /* SCDream8.otf */; };
 		D1F08BD82AE7D94D007E793C /* LeeSeoyun.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BD72AE7D94D007E793C /* LeeSeoyun.otf */; };
 		D1F08BDC2AE7F41F007E793C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BDE2AE7F41F007E793C /* InfoPlist.strings */; };
 		D1F08BE22AE820D6007E793C /* APNGKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1F08BE12AE820D6007E793C /* APNGKit */; };
@@ -122,13 +118,11 @@
 		D1F08BE82AE82543007E793C /* Doggo.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BE72AE82543007E793C /* Doggo.png */; };
 		D1F08BEA2AE82E13007E793C /* ChangwonDangam.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BE92AE82E13007E793C /* ChangwonDangam.otf */; };
 		D1F08BEC2AE83E31007E793C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08BEB2AE83E31007E793C /* LaunchViewController.swift */; };
-		D1F08BF52AE90CD2007E793C /* California.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BF32AE90CD2007E793C /* California.png */; };
-		D1F08BF62AE90CD2007E793C /* Ronchi.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BF42AE90CD2007E793C /* Ronchi.png */; };
 		D1F08BF92AE91058007E793C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BF82AE91058007E793C /* LaunchScreen.storyboard */; };
 		D1F08BFF2AE91746007E793C /* Doggo_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BFC2AE91746007E793C /* Doggo_1.png */; };
 		D1F08C002AE91746007E793C /* Doggo_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BFD2AE91746007E793C /* Doggo_2.png */; };
 		D1F08C012AE91746007E793C /* Doggo_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BFE2AE91746007E793C /* Doggo_3.png */; };
-		D1F08C032AE91770007E793C /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C022AE91770007E793C /* TestViewController.swift */; };
+		D1F08C092AE94A48007E793C /* gradientbg.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08C082AE94A48007E793C /* gradientbg.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -226,15 +220,11 @@
 		D1BB80152ADA7123001FFF1C /* CheckRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckRecord.swift; sourceTree = "<group>"; };
 		D1BB80172ADA714C001FFF1C /* CheckProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckProtocol.swift; sourceTree = "<group>"; };
 		D1F08BC02AE7C1D1007E793C /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
-		D1F08BC32AE7D747007E793C /* SCDream1.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream1.otf; sourceTree = "<group>"; };
 		D1F08BC42AE7D747007E793C /* SCDream3.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream3.otf; sourceTree = "<group>"; };
-		D1F08BC52AE7D747007E793C /* SCDream2.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream2.otf; sourceTree = "<group>"; };
 		D1F08BC62AE7D747007E793C /* SCDream6.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream6.otf; sourceTree = "<group>"; };
 		D1F08BC72AE7D747007E793C /* SCDream7.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream7.otf; sourceTree = "<group>"; };
 		D1F08BC82AE7D747007E793C /* SCDream5.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream5.otf; sourceTree = "<group>"; };
 		D1F08BC92AE7D747007E793C /* SCDream4.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream4.otf; sourceTree = "<group>"; };
-		D1F08BCB2AE7D747007E793C /* SCDream9.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream9.otf; sourceTree = "<group>"; };
-		D1F08BCC2AE7D747007E793C /* SCDream8.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SCDream8.otf; sourceTree = "<group>"; };
 		D1F08BD72AE7D94D007E793C /* LeeSeoyun.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeeSeoyun.otf; sourceTree = "<group>"; };
 		D1F08BDD2AE7F41F007E793C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D1F08BDF2AE7F420007E793C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -242,13 +232,11 @@
 		D1F08BE72AE82543007E793C /* Doggo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doggo.png; sourceTree = "<group>"; };
 		D1F08BE92AE82E13007E793C /* ChangwonDangam.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChangwonDangam.otf; sourceTree = "<group>"; };
 		D1F08BEB2AE83E31007E793C /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
-		D1F08BF32AE90CD2007E793C /* California.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = California.png; sourceTree = "<group>"; };
-		D1F08BF42AE90CD2007E793C /* Ronchi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Ronchi.png; sourceTree = "<group>"; };
 		D1F08BF82AE91058007E793C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1F08BFC2AE91746007E793C /* Doggo_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doggo_1.png; sourceTree = "<group>"; };
 		D1F08BFD2AE91746007E793C /* Doggo_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doggo_2.png; sourceTree = "<group>"; };
 		D1F08BFE2AE91746007E793C /* Doggo_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doggo_3.png; sourceTree = "<group>"; };
-		D1F08C022AE91770007E793C /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		D1F08C082AE94A48007E793C /* gradientbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradientbg.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -468,7 +456,6 @@
 				D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */,
 				D1BA59012AC330E9007437F4 /* SceneDelegate.swift */,
 				D1F08BE52AE824BE007E793C /* SplashViewController.swift */,
-				D1F08C022AE91770007E793C /* TestViewController.swift */,
 				D1F08BEB2AE83E31007E793C /* LaunchViewController.swift */,
 			);
 			path = Application;
@@ -830,15 +817,11 @@
 			children = (
 				D1F08BE92AE82E13007E793C /* ChangwonDangam.otf */,
 				D1F08BD72AE7D94D007E793C /* LeeSeoyun.otf */,
-				D1F08BC32AE7D747007E793C /* SCDream1.otf */,
 				D1F08BC42AE7D747007E793C /* SCDream3.otf */,
-				D1F08BC52AE7D747007E793C /* SCDream2.otf */,
 				D1F08BC62AE7D747007E793C /* SCDream6.otf */,
 				D1F08BC72AE7D747007E793C /* SCDream7.otf */,
 				D1F08BC82AE7D747007E793C /* SCDream5.otf */,
 				D1F08BC92AE7D747007E793C /* SCDream4.otf */,
-				D1F08BCB2AE7D747007E793C /* SCDream9.otf */,
-				D1F08BCC2AE7D747007E793C /* SCDream8.otf */,
 			);
 			path = font;
 			sourceTree = "<group>";
@@ -854,12 +837,11 @@
 		D1F08BF72AE90CD8007E793C /* launchScreenAsset */ = {
 			isa = PBXGroup;
 			children = (
+				D1F08C082AE94A48007E793C /* gradientbg.png */,
 				D1F08BE72AE82543007E793C /* Doggo.png */,
 				D1F08BFC2AE91746007E793C /* Doggo_1.png */,
 				D1F08BFD2AE91746007E793C /* Doggo_2.png */,
 				D1F08BFE2AE91746007E793C /* Doggo_3.png */,
-				D1F08BF32AE90CD2007E793C /* California.png */,
-				D1F08BF42AE90CD2007E793C /* Ronchi.png */,
 			);
 			path = launchScreenAsset;
 			sourceTree = "<group>";
@@ -946,24 +928,19 @@
 			files = (
 				D1F08BD32AE7D747007E793C /* SCDream4.otf in Resources */,
 				D1F08BDC2AE7F41F007E793C /* InfoPlist.strings in Resources */,
-				D1F08BCF2AE7D747007E793C /* SCDream2.otf in Resources */,
 				D1F08C002AE91746007E793C /* Doggo_2.png in Resources */,
 				D1F08BD12AE7D747007E793C /* SCDream7.otf in Resources */,
-				D1F08BD52AE7D747007E793C /* SCDream9.otf in Resources */,
 				D1F08BE82AE82543007E793C /* Doggo.png in Resources */,
 				D1F08BEA2AE82E13007E793C /* ChangwonDangam.otf in Resources */,
 				D1F08BCE2AE7D747007E793C /* SCDream3.otf in Resources */,
 				D1F08BF92AE91058007E793C /* LaunchScreen.storyboard in Resources */,
-				D1F08BF62AE90CD2007E793C /* Ronchi.png in Resources */,
+				D1F08C092AE94A48007E793C /* gradientbg.png in Resources */,
 				D1F08BD22AE7D747007E793C /* SCDream5.otf in Resources */,
 				D1F08C012AE91746007E793C /* Doggo_3.png in Resources */,
-				D1F08BF52AE90CD2007E793C /* California.png in Resources */,
 				D1F08BD02AE7D747007E793C /* SCDream6.otf in Resources */,
 				D1F08BD82AE7D94D007E793C /* LeeSeoyun.otf in Resources */,
 				D1BA59502AC82B4C007437F4 /* Localizable.strings in Resources */,
-				D1F08BD62AE7D747007E793C /* SCDream8.otf in Resources */,
 				D1BA59092AC330EA007437F4 /* Assets.xcassets in Resources */,
-				D1F08BCD2AE7D747007E793C /* SCDream1.otf in Resources */,
 				D1F08BFF2AE91746007E793C /* Doggo_1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -977,7 +954,6 @@
 			files = (
 				D182730A2AD0F31200F4709B /* Date+.swift in Sources */,
 				D1370A8C2AE1889000FCBD67 /* DailyView.swift in Sources */,
-				D1F08C032AE91770007E793C /* TestViewController.swift in Sources */,
 				D1BB80032AD85A43001FFF1C /* PooPeeViewController.swift in Sources */,
 				D1370AA32AE59FF100FCBD67 /* ProfileViewModel.swift in Sources */,
 				D1BB800A2AD93994001FFF1C /* AdditionalInfoViewController.swift in Sources */,

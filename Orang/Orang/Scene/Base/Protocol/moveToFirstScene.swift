@@ -21,20 +21,25 @@ extension MoveToFirstScene {
         let tabBar = UITabBarController()
         
         let totalNav = UINavigationController(rootViewController: TotalViewController())
-        totalNav.tabBarItem = UITabBarItem(title: "모아보기", image: UIImage(systemName: "house.fill"), tag: 0)
+        totalNav.tabBarItem = UITabBarItem(title: "totalNavigationTitle".localized(), image: Design.image.totalVC, tag: 0)
         
-        let alertNav = UINavigationController(rootViewController: AlertViewController())
-        alertNav.tabBarItem = UITabBarItem(title: "일정 관리", image: UIImage(systemName: "alarm"), tag: 0)
+//        let alertNav = UINavigationController(rootViewController: AlertViewController())
+//        alertNav.tabBarItem = UITabBarItem(title: "AlertNavigationTitle".localized(), image: Design.image.alertVC, tag: 0)
         
         let recordNav = UINavigationController(rootViewController: RecordViewController())
-        recordNav.tabBarItem = UITabBarItem(title: "기록하기", image: UIImage(systemName: "pencil.and.outline"), tag: 1)
+        recordNav.tabBarItem = UITabBarItem(title: "recordNavigationTitle".localized(), image: Design.image.recordVC, tag: 1)
         
         let profileNav = UINavigationController(rootViewController: ProfileViewController())
-        profileNav.tabBarItem = UITabBarItem(title: "아이 설정", image: UIImage(systemName: "pawprint.circle.fill"), tag: 2)
+        profileNav.tabBarItem = UITabBarItem(title: "ProfileNavigationTitle".localized(), image: Design.image.profileVC, tag: 2)
         
-        tabBar.setViewControllers([totalNav, alertNav, recordNav, profileNav], animated: true)
+        tabBar.setViewControllers([totalNav, recordNav, profileNav], animated: true)
         
-        SceneDelegate?.window?.rootViewController = tabBar
-        SceneDelegate?.window?.makeKeyAndVisible()
+        UIView.transition(with: SceneDelegate?.window ?? UIWindow(), duration: 0.4, options: .transitionCrossDissolve, animations: {
+            SceneDelegate?.window?.rootViewController = tabBar
+        }) { (completed) in
+            if completed {
+                SceneDelegate?.window?.makeKeyAndVisible()
+            }
+        }
     }
 }
