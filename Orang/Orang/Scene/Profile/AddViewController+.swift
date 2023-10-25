@@ -58,9 +58,9 @@ extension AddViewController {
         
         textField.inputView = datePicker
         if textField == mainView.birthTextField {
-            birth = datePicker.date
+            birth = textField.text?.toDate()
         } else {
-            meetDate = datePicker.date
+            meetDate = textField.text?.toDate()
         }
         textField.text = datePicker.date.toFormattedString()
     }
