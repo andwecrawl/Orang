@@ -88,7 +88,7 @@
 
 // snack
 "snackTitle" = "간식 기록 추가하기";
-"snackVariation" = "간식 종류";
+"snackVariation" = "종류";
 "inputSnackType" = "간식 이름을 적어 주세요!";
 
 "amount" = "양";
