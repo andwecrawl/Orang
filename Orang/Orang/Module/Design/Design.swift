@@ -10,6 +10,9 @@ import UIKit
 class Design {
     enum image {
         // 자잘한 이미지들
+        static let bg1 = "California"
+        static let bg2 = "Ronchi"
+        
         static let poo = "poo"
         
         static let diary = ""
@@ -55,6 +58,7 @@ class Design {
         case scdreamBold = "S-CoreDream-6Bold"
         case scdreamExBold = "S-CoreDream-7ExtraBold"
         case leeseoyun = "LeeSeoyun"
+        case changwon = "ChangwonDangamAsac"
         
         /// 아이폰 작은 글씨(size: 12)
         var smallFont: UIFont {

@@ -4,6 +4,7 @@
 <dict>
 	<key>UIAppFonts</key>
 	<array>
+		<string>ChangwonDangam.otf</string>
 		<string>SCDream1.otf</string>
 		<string>SCDream2.otf</string>
 		<string>SCDream3.otf</string>
@@ -13,8 +14,6 @@
 		<string>SCDream7.otf</string>
 		<string>LeeSeoyun.otf</string>
 	</array>
-	<key>NSCameraUsageDescription</key>
-	<string>카메라 권한을 허용해야 기록에 이미지 촬영 및 첨부가 가능합니다.</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
