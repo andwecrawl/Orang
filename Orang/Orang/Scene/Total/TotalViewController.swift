@@ -114,7 +114,7 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     override func setConstraints() {
         
         calendarView.snp.makeConstraints { make in
-            make.top.equalToSuperview().offset(10)
+            make.top.equalToSuperview()
             make.horizontalEdges.equalToSuperview()
             make.height.equalTo(372)
             
