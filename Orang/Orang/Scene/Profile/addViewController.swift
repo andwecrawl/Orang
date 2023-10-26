@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Toast
 
 final class AddViewController: BaseViewController {
     
@@ -14,8 +15,6 @@ final class AddViewController: BaseViewController {
     var pet: Pet?
     
     var species: Species? = nil
-    var birth: Date? = nil
-    var meetDate: Date? = nil
     var registrationNum: String? = nil
     let repository = PetTableRepository()
     
@@ -25,6 +24,7 @@ final class AddViewController: BaseViewController {
     }
     
     override func setNavigationBar() {
+        super.setNavigationBar()
         navigationItem.largeTitleDisplayMode = .never
         
         let saveButton = UIBarButtonItem(title: "save".localized(), style: .done, target: self, action: #selector(saveButtonClicked))
@@ -33,28 +33,43 @@ final class AddViewController: BaseViewController {
     
     @objc func saveButtonClicked() {
         let image = mainView.profileImageView.image
-        guard let name = mainView.nameTextField.text else { return }
-        guard let meetDate else { return }
-        if birth == nil {
-            birth = mainView.birthTextField.text?.toDate()
-        }
+        let meetDate = mainView.meetDateTextField.text?.toDate()!
+        
+        var birth: Date?
         if mainView.idkBirthButton.isSelected {
             birth = nil
+        } else if let tempDate = mainView.birthTextField.text?.toDate() {
+            birth = tempDate
         }
+        
+        guard let species else {
+            let _ = hasError(species: .none, detailSpecies: "", name: mainView.nameTextField.text ?? "", birth: birth, meetDate: meetDate, weight: Float(mainView.weightTextField.text ?? "") ?? 0 )
+            return
+        }
+        
+        guard let name = mainView.nameTextField.text else {
+            let _ = hasError(species: .none, detailSpecies: "", name: "", birth: nil, meetDate: meetDate, weight: .none)
+            return
+        }
+        
         guard let weightStr = mainView.weightTextField.text, let weight = Float(weightStr) else {
             let _ = hasError(species: .none, detailSpecies: "", name: name, birth: birth, meetDate: meetDate, weight: .none)
             return
         }
-        guard let species else {
-            let _ = hasError(species: .none, detailSpecies: "", name: name, birth: birth, meetDate: meetDate, weight: weight)
-            return
-        }
+        
         guard let detailSpecies = mainView.detailSpeciesTextField.text else {
             let _ = hasError(species: species, detailSpecies: "", name: name, birth: birth, meetDate: meetDate, weight: weight)
             return
         }
-        registrationNum = mainView.registrationTextField.text
-        
+        if mainView.idkRegistrationButton.isSelected {
+            registrationNum = nil
+        } else {
+            registrationNum = mainView.registrationTextField.text ?? ""
+            if registrationNum!.isEmpty {
+                mainView.registrationTextField.setError()
+                return
+            }
+        }
         
         let hasError = hasError(species: species, detailSpecies: detailSpecies, name: name, birth: birth, meetDate: meetDate, weight: weight)
         if hasError { return }
@@ -62,7 +77,7 @@ final class AddViewController: BaseViewController {
         let weightUnitStr = mainView.weightUnitButton.titleLabel?.text ?? "g"
         let weightUnit = Unit(rawValue: weightUnitStr) ?? .g
         
-        let newPet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate, weight: weight, weightUnit: weightUnit, RegistrationNum: registrationNum)
+        let newPet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate ?? Date(), weight: weight, weightUnit: weightUnit, RegistrationNum: registrationNum)
         
         if !ImageManager.shared.saveImageToDirectory(directoryName: .profile, identifier: newPet.createdDate.toString(), image: image) {
             sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
@@ -78,39 +93,66 @@ final class AddViewController: BaseViewController {
         navigationController?.popViewController(animated: true)
     }
     
-    func hasError(species: Species?, detailSpecies: String, name: String, birth: Date?, meetDate: Date, weight: Float?) -> Bool {
+    func hasError(species: Species?, detailSpecies: String, name: String, birth: Date?, meetDate: Date?, weight: Float?) -> Bool {
         var foundError = false
+        
         if ((species == .reptile || species == .etc) && detailSpecies.isEmpty) {
             mainView.detailSpeciesTextField.setError()
             foundError = true
         } else if species == .none {
             mainView.speciesTextField.setError()
             foundError = true
+        } else if (species == .dog || species == .cat) && !mainView.idkRegistrationButton.isSelected {
+            if let regText = mainView.registrationTextField.text {
+                if regText.isEmpty {
+                    mainView.registrationTextField.setError()
+                    foundError = true
+                }
+            }
         }
+        
         if name.isEmpty {
             mainView.nameTextField.setError()
             foundError = true
         }
-        if let birth {
-            if birth.compareNow() == .orderedDescending {
-                mainView.birthTextField.setError()
-                foundError = true
-            } else if birth.compare(meetDate) == .orderedDescending {
-                mainView.birthTextField.setError()
+        
+        if let meetDate {
+            if meetDate.compareNow() == .orderedDescending {
+                mainView.meetDateTextField.setError()
                 foundError = true
             }
-        }
-        if meetDate.compareNow() == .orderedDescending {
+        } else {
             mainView.meetDateTextField.setError()
             foundError = true
         }
-        guard let weight else {
-            mainView.weightTextField.setError()
-            return true
+        
+        if let birth {
+            if birth.compareNow() == .orderedDescending {
+                print(birth.compareNow())
+                mainView.birthTextField.setError()
+                foundError = true
+            } else if birth.startOfTheDate.compare(meetDate ?? Date().startOfTheDate) == .orderedDescending {
+                mainView.birthTextField.setError()
+                foundError = true
+            }
+        } else {
+            mainView.birthTextField.setError()
+            foundError = true
         }
-        if weight < 0 {
+        
+        
+        if let weight {
+            if weight <= 0 {
+                mainView.weightTextField.setError()
+                foundError = true
+            }
+        } else {
             mainView.weightTextField.setError()
             foundError = true
+        }
+        
+        if foundError {
+            self.view .makeToast("fillEachSections".localized())
         }
         return foundError
     }
@@ -174,7 +216,21 @@ final class AddViewController: BaseViewController {
             guard let detailSpecies = pet.detailSpecies else { return }
             mainView.speciesTextField.text = species.toString
             mainView.detailSpeciesTextField.text = detailSpecies
+            configureDetailSpeciesTextField(hasDetail: true)
         } else {
+            if species == .dog || species == .cat {
+                configureRegistrationSection(canRegistrate: true)
+                if let num = pet.registrationNum {
+                    mainView.registrationTextField.text = num
+                    print(num)
+                    if num.isEmpty {
+                        mainView.idkRegistrationButton.isSelected = true
+                        idkButtonClicked(mainView.idkRegistrationButton)
+                    }
+                } else {
+                    idkButtonClicked(mainView.idkRegistrationButton)
+                }
+            }
             mainView.speciesTextField.text = species.toString
         }
         mainView.nameTextField.text = pet.name
@@ -224,6 +280,8 @@ final class AddViewController: BaseViewController {
             if sender == mainView.idkBirthButton {
                 let date = Date()
                 textField.text = date.toFormattedString()
+            } else {
+                textField.text = ""
             }
             textField.isUserInteractionEnabled = true
         }
