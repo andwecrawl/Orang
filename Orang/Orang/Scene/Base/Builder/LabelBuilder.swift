@@ -12,7 +12,7 @@ extension UILabel {
         let view = UILabel()
         if settingTitle {
             view.snp.makeConstraints { make in
-                make.width.equalTo(60)
+                make.width.equalTo(70)
                 make.height.equalTo(50)
             }
         }
