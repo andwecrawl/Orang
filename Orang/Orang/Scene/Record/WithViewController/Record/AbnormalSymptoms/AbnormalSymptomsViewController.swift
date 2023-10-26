@@ -12,8 +12,7 @@ final class AbnormalSymptomsViewController: BaseViewController {
     private lazy var tableView = {
         let view = UITableView(frame: .zero, style: .plain)
         view.register(AbnormalSymptomsTableViewCell.self, forCellReuseIdentifier: AbnormalSymptomsTableViewCell.identifier)
-        view.estimatedRowHeight = 80
-        view.rowHeight = UITableView.automaticDimension
+        view.rowHeight = 60
         view.delegate = self
         view.dataSource = self
         return view
