@@ -1,33 +1,6 @@
 {
   "pins" : [
     {
-      "identity" : "alamofire",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/Alamofire/Alamofire",
-      "state" : {
-        "revision" : "b2fa556e4e48cbf06cf8c63def138c98f4b811fa",
-        "version" : "5.8.0"
-      }
-    },
-    {
-      "identity" : "apngkit",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/APNGKit.git",
-      "state" : {
-        "revision" : "bfd119f25559def835ab0c3761d609fc73858f6e",
-        "version" : "2.2.3"
-      }
-    },
-    {
-      "identity" : "delegate",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/onevcat/Delegate.git",
-      "state" : {
-        "revision" : "499e507f2a68d6e8737f7f6f7c0385596b4398fc",
-        "version" : "1.2.0"
-      }
-    },
-    {
       "identity" : "fscalendar",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/WenchaoD/FSCalendar.git",

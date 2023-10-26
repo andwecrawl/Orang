@@ -59,7 +59,6 @@
 		D1BA59022AC330E9007437F4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59012AC330E9007437F4 /* SceneDelegate.swift */; };
 		D1BA59042AC330E9007437F4 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59032AC330E9007437F4 /* ProfileViewController.swift */; };
 		D1BA59092AC330EA007437F4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D1BA59082AC330EA007437F4 /* Assets.xcassets */; };
-		D1BA59152AC3317B007437F4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = D1BA59142AC3317B007437F4 /* Alamofire */; };
 		D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA59262AC3329C007437F4 /* BaseViewController.swift */; };
 		D1BA592B2AC332C5007437F4 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA592A2AC332C5007437F4 /* BaseTableViewCell.swift */; };
 		D1BA592E2AC334E3007437F4 /* reusableViewProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1BA592D2AC334E3007437F4 /* reusableViewProtocol.swift */; };
@@ -113,7 +112,6 @@
 		D1F08BD32AE7D747007E793C /* SCDream4.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BC92AE7D747007E793C /* SCDream4.otf */; };
 		D1F08BD82AE7D94D007E793C /* LeeSeoyun.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BD72AE7D94D007E793C /* LeeSeoyun.otf */; };
 		D1F08BDC2AE7F41F007E793C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BDE2AE7F41F007E793C /* InfoPlist.strings */; };
-		D1F08BE22AE820D6007E793C /* APNGKit in Frameworks */ = {isa = PBXBuildFile; productRef = D1F08BE12AE820D6007E793C /* APNGKit */; };
 		D1F08BE62AE824BE007E793C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08BE52AE824BE007E793C /* SplashViewController.swift */; };
 		D1F08BE82AE82543007E793C /* Doggo.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BE72AE82543007E793C /* Doggo.png */; };
 		D1F08BEA2AE82E13007E793C /* ChangwonDangam.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BE92AE82E13007E793C /* ChangwonDangam.otf */; };
@@ -244,13 +242,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D1F08BE22AE820D6007E793C /* APNGKit in Frameworks */,
 				D1370A7D2AE041DE00FCBD67 /* Toast in Frameworks */,
 				D1BB7FE72AD693A1001FFF1C /* M13Checkbox in Frameworks */,
 				D1BB7FE32AD68F74001FFF1C /* RealmSwift in Frameworks */,
 				D18273102AD26F5900F4709B /* FSCalendar in Frameworks */,
 				D1BB7FDE2AD68F65001FFF1C /* SnapKit in Frameworks */,
-				D1BA59152AC3317B007437F4 /* Alamofire in Frameworks */,
 				D1B52EC02AC9918000477A14 /* IQKeyboardManagerSwift in Frameworks */,
 				D1BB7FE12AD68F74001FFF1C /* Realm in Frameworks */,
 			);
@@ -863,7 +859,6 @@
 			);
 			name = Orang;
 			packageProductDependencies = (
-				D1BA59142AC3317B007437F4 /* Alamofire */,
 				D1B52EBF2AC9918000477A14 /* IQKeyboardManagerSwift */,
 				D182730F2AD26F5900F4709B /* FSCalendar */,
 				D1BB7FDD2AD68F65001FFF1C /* SnapKit */,
@@ -871,7 +866,6 @@
 				D1BB7FE22AD68F74001FFF1C /* RealmSwift */,
 				D1BB7FE62AD693A1001FFF1C /* M13Checkbox */,
 				D1370A7C2AE041DE00FCBD67 /* Toast */,
-				D1F08BE12AE820D6007E793C /* APNGKit */,
 			);
 			productName = Orang;
 			productReference = D1BA58FC2AC330E9007437F4 /* Orang.app */;
@@ -903,14 +897,12 @@
 			);
 			mainGroup = D1BA58F32AC330E9007437F4;
 			packageReferences = (
-				D1BA59132AC3317B007437F4 /* XCRemoteSwiftPackageReference "Alamofire" */,
 				D1B52EBE2AC9918000477A14 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 				D182730E2AD26F5900F4709B /* XCRemoteSwiftPackageReference "FSCalendar" */,
 				D1BB7FDC2AD68F65001FFF1C /* XCRemoteSwiftPackageReference "SnapKit" */,
 				D1BB7FDF2AD68F74001FFF1C /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D1BB7FE52AD693A1001FFF1C /* XCRemoteSwiftPackageReference "M13Checkbox" */,
 				D1370A7B2AE041DE00FCBD67 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
-				D1F08BE02AE820D6007E793C /* XCRemoteSwiftPackageReference "APNGKit" */,
 			);
 			productRefGroup = D1BA58FD2AC330E9007437F4 /* Products */;
 			projectDirPath = "";
@@ -1302,14 +1294,6 @@
 				minimumVersion = 6.5.0;
 			};
 		};
-		D1BA59132AC3317B007437F4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Alamofire/Alamofire";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 5.0.0;
-			};
-		};
 		D1BB7FDC2AD68F65001FFF1C /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -1334,14 +1318,6 @@
 				minimumVersion = 3.4.0;
 			};
 		};
-		D1F08BE02AE820D6007E793C /* XCRemoteSwiftPackageReference "APNGKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/onevcat/APNGKit.git";
-			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 2.2.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1359,11 +1335,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1B52EBE2AC9918000477A14 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
 			productName = IQKeyboardManagerSwift;
-		};
-		D1BA59142AC3317B007437F4 /* Alamofire */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D1BA59132AC3317B007437F4 /* XCRemoteSwiftPackageReference "Alamofire" */;
-			productName = Alamofire;
 		};
 		D1BB7FDD2AD68F65001FFF1C /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -1384,11 +1355,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D1BB7FE52AD693A1001FFF1C /* XCRemoteSwiftPackageReference "M13Checkbox" */;
 			productName = M13Checkbox;
-		};
-		D1F08BE12AE820D6007E793C /* APNGKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = D1F08BE02AE820D6007E793C /* XCRemoteSwiftPackageReference "APNGKit" */;
-			productName = APNGKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
