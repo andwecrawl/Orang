@@ -113,14 +113,13 @@
 		D1F08BD82AE7D94D007E793C /* LeeSeoyun.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BD72AE7D94D007E793C /* LeeSeoyun.otf */; };
 		D1F08BDC2AE7F41F007E793C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BDE2AE7F41F007E793C /* InfoPlist.strings */; };
 		D1F08BE62AE824BE007E793C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08BE52AE824BE007E793C /* SplashViewController.swift */; };
-		D1F08BE82AE82543007E793C /* Doggo.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BE72AE82543007E793C /* Doggo.png */; };
 		D1F08BEA2AE82E13007E793C /* ChangwonDangam.otf in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BE92AE82E13007E793C /* ChangwonDangam.otf */; };
 		D1F08BEC2AE83E31007E793C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08BEB2AE83E31007E793C /* LaunchViewController.swift */; };
 		D1F08BF92AE91058007E793C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BF82AE91058007E793C /* LaunchScreen.storyboard */; };
 		D1F08BFF2AE91746007E793C /* Doggo_1.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BFC2AE91746007E793C /* Doggo_1.png */; };
 		D1F08C002AE91746007E793C /* Doggo_2.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BFD2AE91746007E793C /* Doggo_2.png */; };
 		D1F08C012AE91746007E793C /* Doggo_3.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08BFE2AE91746007E793C /* Doggo_3.png */; };
-		D1F08C092AE94A48007E793C /* gradientbg.png in Resources */ = {isa = PBXBuildFile; fileRef = D1F08C082AE94A48007E793C /* gradientbg.png */; };
+		D1F08C1E2AEA82B1007E793C /* SymptomsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1F08C1D2AEA82B1007E793C /* SymptomsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -227,14 +226,13 @@
 		D1F08BDD2AE7F41F007E793C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D1F08BDF2AE7F420007E793C /* ko */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ko; path = ko.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		D1F08BE52AE824BE007E793C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
-		D1F08BE72AE82543007E793C /* Doggo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doggo.png; sourceTree = "<group>"; };
 		D1F08BE92AE82E13007E793C /* ChangwonDangam.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChangwonDangam.otf; sourceTree = "<group>"; };
 		D1F08BEB2AE83E31007E793C /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		D1F08BF82AE91058007E793C /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D1F08BFC2AE91746007E793C /* Doggo_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doggo_1.png; sourceTree = "<group>"; };
 		D1F08BFD2AE91746007E793C /* Doggo_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doggo_2.png; sourceTree = "<group>"; };
 		D1F08BFE2AE91746007E793C /* Doggo_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Doggo_3.png; sourceTree = "<group>"; };
-		D1F08C082AE94A48007E793C /* gradientbg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gradientbg.png; sourceTree = "<group>"; };
+		D1F08C1D2AEA82B1007E793C /* SymptomsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SymptomsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -733,6 +731,7 @@
 			isa = PBXGroup;
 			children = (
 				D1BB7FC62AD5314F001FFF1C /* AbnormalSymptomsViewController.swift */,
+				D1F08C1D2AEA82B1007E793C /* SymptomsViewModel.swift */,
 				D1BB7FFD2AD7E712001FFF1C /* AbnormalSymptomsCell */,
 			);
 			path = AbnormalSymptoms;
@@ -833,8 +832,6 @@
 		D1F08BF72AE90CD8007E793C /* launchScreenAsset */ = {
 			isa = PBXGroup;
 			children = (
-				D1F08C082AE94A48007E793C /* gradientbg.png */,
-				D1F08BE72AE82543007E793C /* Doggo.png */,
 				D1F08BFC2AE91746007E793C /* Doggo_1.png */,
 				D1F08BFD2AE91746007E793C /* Doggo_2.png */,
 				D1F08BFE2AE91746007E793C /* Doggo_3.png */,
@@ -922,11 +919,9 @@
 				D1F08BDC2AE7F41F007E793C /* InfoPlist.strings in Resources */,
 				D1F08C002AE91746007E793C /* Doggo_2.png in Resources */,
 				D1F08BD12AE7D747007E793C /* SCDream7.otf in Resources */,
-				D1F08BE82AE82543007E793C /* Doggo.png in Resources */,
 				D1F08BEA2AE82E13007E793C /* ChangwonDangam.otf in Resources */,
 				D1F08BCE2AE7D747007E793C /* SCDream3.otf in Resources */,
 				D1F08BF92AE91058007E793C /* LaunchScreen.storyboard in Resources */,
-				D1F08C092AE94A48007E793C /* gradientbg.png in Resources */,
 				D1F08BD22AE7D747007E793C /* SCDream5.otf in Resources */,
 				D1F08C012AE91746007E793C /* Doggo_3.png in Resources */,
 				D1F08BD02AE7D747007E793C /* SCDream6.otf in Resources */,
@@ -1014,6 +1009,7 @@
 				D1B52F092ACFEFC100477A14 /* MedicalHistoryViewController.swift in Sources */,
 				D1370A7F2AE1306B00FCBD67 /* CalendarView.swift in Sources */,
 				D1BB7FDB2AD68DB8001FFF1C /* AbnormalSymptomsTableViewCell.swift in Sources */,
+				D1F08C1E2AEA82B1007E793C /* SymptomsViewModel.swift in Sources */,
 				D1BB7FB52AD46451001FFF1C /* AlertAddViewController.swift in Sources */,
 				D1BB7FC22AD51FC2001FFF1C /* RecordTable.swift in Sources */,
 				D1B52EFE2ACDC48E00477A14 /* ViewController+.swift in Sources */,
