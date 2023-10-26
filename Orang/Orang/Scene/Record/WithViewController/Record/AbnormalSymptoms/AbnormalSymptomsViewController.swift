@@ -19,8 +19,8 @@ final class AbnormalSymptomsViewController: BaseViewController {
     }()
     
     var selectedPet: [PetTable]?
-    var list: [CheckRecord<AbnormalSymptomsType>] = []
     
+    var viewModel = SymptomsViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,28 +41,24 @@ final class AbnormalSymptomsViewController: BaseViewController {
     @objc func nextButtonClicked() {
         let vc = AdditionalInfoViewController()
         vc.title = "moreSymptomsTitle".localized()
-        var selectedSymptoms: [AbnormalSymptomsType] = []
-        list.forEach{
-            if $0.ischecked {
-                selectedSymptoms.append($0.type)
+        vc.recordType = .abnormalSymptoms
+        vc.selectedPet = selectedPet
+        
+        viewModel.checkValidations { symptoms in
+            if let symptoms {
+                vc.selectedSymptoms = symptoms
+            } else {
+                sendOneSidedAlert(title: "plzSelectAbnormalSymptoms".localized())
             }
         }
-        if selectedSymptoms.isEmpty { sendOneSidedAlert(title: "plzSelectAbnormalSymptoms".localized()) }
-        vc.recordType = .abnormalSymptoms
-        vc.selectedSymptoms = selectedSymptoms
-        vc.selectedPet = selectedPet
+        
         navigationController?.pushViewController(vc, animated: true)
     }
     
     override func configureHierarchy() {
         super.configureHierarchy()
         
-        AbnormalSymptomsType.allCases.forEach{ self.list.append(CheckRecord(type: $0)) }
-        
-        [
-            tableView
-        ]
-            .forEach { view.addSubview($0) }
+        view.addSubview(tableView)
         
     }
     
@@ -77,26 +73,29 @@ final class AbnormalSymptomsViewController: BaseViewController {
     
     override func configureView() {
         
+        viewModel.fetchSymptoms()
+        
+        viewModel.list.bind { _ in
+            self.tableView.reloadData()
+        }
+        
     }
 }
 
 extension AbnormalSymptomsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return list.count
+        return viewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AbnormalSymptomsTableViewCell.identifier, for: indexPath) as? AbnormalSymptomsTableViewCell else { return UITableViewCell() }
-        let symptom = list[indexPath.row]
-        cell.symptom = symptom
+        
+        cell.symptom = viewModel.cellForRowAt(at: indexPath)
         cell.configureView()
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: AbnormalSymptomsTableViewCell.identifier, for: indexPath) as? AbnormalSymptomsTableViewCell else { return }
-        cell.symptom?.ischecked.toggle()
-        list[indexPath.row].ischecked.toggle()
-        tableView.reloadRows(at: [indexPath], with: .automatic)
+        viewModel.didSelectRowAt(at: indexPath)
     }
 }
