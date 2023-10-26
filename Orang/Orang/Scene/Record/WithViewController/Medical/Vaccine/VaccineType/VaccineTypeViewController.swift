@@ -95,22 +95,22 @@ class VaccineTypeViewController: BaseViewController {
         if selectedPet?.species == .cat {
             return [
                 Vaccine(title: "basic_vaccination".localized(), subitems: [
-                    Vaccine(title: "\("1st_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [6, 8]))", subitems: [
+                    Vaccine(title: "\("1st_dose".localized()): \("68weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic1st_dose".localized())
                     ]),
                     
                     
-                    Vaccine(title: "\("2nd_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [8, 10]))", subitems: [
+                    Vaccine(title: "\("2nd_dose".localized()): \("810weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic2nd_dose".localized())
                     ]),
-                    Vaccine(title: "\("3rd_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [10, 12]))", subitems: [
+                    Vaccine(title: "\("3rd_dose".localized()): \("1012weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic3rd_dose".localized()),
                         Vaccine(title: "rabies".localized(), variation: "basic3rd_dose".localized())
                     ]),
-                    Vaccine(title: "\("4th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [12, 14]))", subitems: [
+                    Vaccine(title: "\("4th_dose".localized()): \("1214weeks".localized())", subitems: [
                         Vaccine(title: "infectious_peritonitis".localized(), variation: "basic4th_dose".localized())
                     ]),
-                    Vaccine(title: "\("5th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [14, 16]))", subitems: [
+                    Vaccine(title: "\("5th_dose".localized()): \("1416weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic5th_dose".localized()),
                         Vaccine(title: "rabies".localized(), variation: "basic5th_dose".localized())
                     ])
@@ -127,27 +127,27 @@ class VaccineTypeViewController: BaseViewController {
         } else if selectedPet?.species == .dog {
             return [
                 Vaccine(title: "basic_vaccination".localized(), subitems: [
-                    Vaccine(title: "\("1st_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [6, 8]))", subitems: [
+                    Vaccine(title: "\("1st_dose".localized()): \("68weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic1st_dose".localized()),
                         Vaccine(title: "corona_enteritis".localized(), variation: "basic1st_dose".localized())
                     ]),
-                    Vaccine(title: "\("2nd_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [8, 10]))", subitems: [
+                    Vaccine(title: "\("2nd_dose".localized()): \("810weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic2nd_dose".localized()),
                         Vaccine(title: "corona_enteritis".localized(), variation: "basic2nd_dose".localized())
                     ]),
-                    Vaccine(title: "\("3rd_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [10, 12]))", subitems: [
+                    Vaccine(title: "\("3rd_dose".localized()): \("1012weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic3rd_dose".localized()),
                         Vaccine(title: "bordetella".localized(), variation: "basic3rd_dose".localized())
                     ]),
-                    Vaccine(title: "\("4th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [12, 14]))", subitems: [
+                    Vaccine(title: "\("4th_dose".localized()): \("1214weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic4th_dose".localized()),
                         Vaccine(title: "bordetella".localized(), variation: "basic4th_dose".localized())
                     ]),
-                    Vaccine(title: "\("5th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [14, 16]))", subitems: [
+                    Vaccine(title: "\("5th_dose".localized()): \("1416weeks".localized())", subitems: [
                         Vaccine(title: "comprehensive_vaccine".localized(), variation: "basic5th_dose".localized()),
                         Vaccine(title: "canine_influenza".localized(), variation: "basic5th_dose".localized())
                     ]),
-                    Vaccine(title: "\("6th_dose".localized()): \("doseDate_%d_to_%d_weeks".localized(with: [16, 18]))", subitems: [
+                    Vaccine(title: "\("6th_dose".localized()): \("1618weeks".localized())", subitems: [
                         Vaccine(title: "rabies".localized(), variation: "basic6th_dose".localized()),
                         Vaccine(title: "canine_influenza".localized(), variation: "basic6th_dose".localized()),
                         Vaccine(title: "antibody_test".localized(), variation: "basic6th_dose".localized())
