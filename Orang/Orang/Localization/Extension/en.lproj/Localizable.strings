@@ -222,7 +222,7 @@
 "registrationNumber" = "Registration Number";
 "inputRegistrationNumber" = "Enter the registration number.";
 "idkRegistrationNumber" = "Don't have a registration number.";
-
+"fillEachSections" = "Please fill in all fields.";
 
 // species String
 "dog" = "Dog";
@@ -267,7 +267,14 @@
 
 // Vaccine Names
 "basic_vaccination" = "Basic Vaccination";
-"first_dose_%d_to_%d_weeks" = "%d to %d weeks old";
+"basic_vaccination" = "기초 예방 접종";
+"68weeks" = "6 to 8 weeks old";
+"810weeks" = "8 to 10 weeks old";
+"1012weeks" = "10 to 12 weeks old";
+"1214weeks" = "12 to 14 weeks old";
+"1416weeks" = "14 to 16 weeks old";
+"1618weeks" = "16 to 18 weeks old";
+"doseDate_%u_to_%u_weeks" = "%u to %u weeks old";
 "comprehensive_vaccine" = "Comprehensive Vaccine";
 "core_vaccination" = "Core Vaccination";
 "heartworm" = "Heartworm";

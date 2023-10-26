@@ -200,10 +200,10 @@
 "recordMedicalHistory" = "진료 내역 기록하기";
 "hospitalName" = "병원명";
 "inputHospitalName" = "병원명을 입력해 주세요.";
-"reasonForVisit" = "내원 사유";
+"reasonForVisit" = "증상";
 "inputReasonForVisit" = "아이의 증상을 작성해 주세요.";
 "basicVaccinations" = "기본 예방 접종 항목";
-"Vaccinations" = "백신 항목";
+"Vaccinations" = "백신명";
 "inputVaccineType" = "백신 항목을 입력해 주세요!";
 "sorryForNot %@" = "%@의 경우 예방 접종 항목을 제공하지 않습니다.";
 
@@ -231,6 +231,7 @@
 "registrationNumber" = "등록번호";
 "inputRegistrationNumber" = "등록번호를 입력해 주세요.";
 "idkRegistrationNumber" = "등록번호가 없어요.";
+"fillEachSections" = "프로필을 모두 작성해 주세요!";
 
 
 // species String
@@ -277,8 +278,13 @@
 
 
 // 백신 이름
-"" = "기초 예방 접종";
-"doseDate_%d_to_%d_weeks" = "생후 %d주 ~ %d주";
+"basic_vaccination" = "기초 예방 접종";
+"68weeks" = "생후 6주 ~ 8주";
+"810weeks" = "생후 8주 ~ 10주";
+"1012weeks" = "생후 10주 ~ 12주";
+"1214weeks" = "생후 12주 ~ 14주";
+"1416weeks" = "생후 14주 ~ 16주";
+"1618weeks" = "생후 16주 ~ 18주";
 "comprehensive_vaccine" = "종합 백신";
 "core_vaccination" = "핵심 백신";
 "heartworm" = "심장사상충";
