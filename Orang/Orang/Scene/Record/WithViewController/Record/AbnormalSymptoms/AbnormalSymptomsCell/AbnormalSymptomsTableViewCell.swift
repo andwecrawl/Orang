@@ -65,5 +65,10 @@ final class AbnormalSymptomsTableViewCell: BaseTableViewCell {
         }
         titleLabel.text = symptom.title
         subtitleLabel.text = symptom.subtitle
+        if symptom.subtitle.isEmpty {
+            subtitleLabel.isHidden = true
+        } else {
+            subtitleLabel.isHidden = false
+        }
     }
 }
