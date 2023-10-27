@@ -40,6 +40,11 @@ class LaunchViewController: BaseViewController, MoveToFirstScene {
         timer = Timer.scheduledTimer(timeInterval: 0.16, target: self, selector: #selector(updateImageView), userInfo: nil, repeats: true)
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        timer = nil
+    }
+    
     override func configureHierarchy() {
         super.configureHierarchy()
         
@@ -83,13 +88,15 @@ class LaunchViewController: BaseViewController, MoveToFirstScene {
         imageView.layer.shadowRadius = 8
         imageView.layer.shadowOpacity = 0.1
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2.3) {
             self.moveToFirstScene()
         }
         
     }
     
-    
+    deinit {
+        timer?.invalidate()
+    }
     
     
     @objc func updateImageView() {
