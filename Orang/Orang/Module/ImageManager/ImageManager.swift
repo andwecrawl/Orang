@@ -109,4 +109,20 @@ class ImageManager {
             print("Failed to delete file: \(error.localizedDescription)")
         }
     }
+    
+    func makeImageString(directoryName: DirectoryName, createDate: Date, images: [UIImage], completionHandler: @escaping (([String]) -> ()), errorHandler: @escaping () -> ()) {
+        
+        var imageIdentifiers: [String] = []
+        // photo 추가
+        for index in images.indices {
+            let identifier = "\(createDate)\(index)"
+            imageIdentifiers.append(identifier)
+            if !ImageManager.shared.saveImageToDirectory(directoryName: directoryName, identifier: identifier, image: images[index]) {
+                errorHandler()
+                return
+            }
+        }
+        completionHandler(imageIdentifiers)
+    }
+    
 }
