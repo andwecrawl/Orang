@@ -15,14 +15,14 @@ extension Date {
         }
         return date
     }
-
+    
     var endDateOfMonth: Date {
         guard let date = Calendar.current.date(byAdding: DateComponents(month: 1, day: -1), to: self.startDateOfMonth) else {
             fatalError("Unable to get end date from date")
         }
         return date
     }
-
+    
     var startOfTheDate: Date {
         return Calendar.current.startOfDay(for: self)
     }
@@ -33,32 +33,20 @@ extension Date {
     
     func toCalendarTitle() -> String {
         let formatter = DateFormatter()
-//        if Locale.current == Locale(identifier: "ko") {
-            formatter.dateFormat = "yyyy년 MM월"
-            return formatter.string(from: self)
-//        } else {
-//            formatter.dateFormat = "MMMM yyyy"
-//            return formatter.string(from: self)
-//        }
+        formatter.dateFormat = "yyyy년 MM월"
+        return formatter.string(from: self)
     }
     
     func toFormattedString() -> String {
         let formatter = DateFormatter()
-        formatter.dateStyle = .long
+        formatter.dateFormat = "yyyy년 MM월 dd일"
         return formatter.string(from: self)
-//        if Locale.current == Locale(identifier: "ko") {
-//            formatter.dateFormat = "yyyy년 MM월 dd일"
-//            return formatter.string(from: self)
-//        } else {
-//            formatter.dateFormat = "MMMM d, yyyy"
-//            return formatter.string(from: self)
-//        }
     }
     
     func toFormattedStringTime() -> String {
         let formatter = DateFormatter()
-            formatter.dateFormat = "HH시 mm분"
-            return formatter.string(from: self)
+        formatter.dateFormat = "HH시 mm분"
+        return formatter.string(from: self)
     }
     
     func toDisplayString() -> String {
