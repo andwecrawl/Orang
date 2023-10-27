@@ -62,8 +62,17 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
         loadData(date: selectedDate)
     }
     
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+        super.traitCollectionDidChange(previousTraitCollection)
+        if self.traitCollection.hasDifferentColorAppearance(comparedTo: previousTraitCollection) {
+            loadData(date: selectedDate)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        loadData(date: selectedDate)
     }
     
     override func setNavigationBar() {
@@ -187,7 +196,6 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     
     func configureEmptyView() {
         if selectedDate.startOfTheDate == Date().startOfTheDate {
-            print(selectedDate.startOfTheDate, today.startOfTheDate)
             emptyView.recordLabel.text = "todaysRecord".localized()
         } else {
             let dateFormatter = DateFormatter()
@@ -382,6 +390,8 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
                 self.recordRepository.deleteMedicalRecord(record)
             }
             success(true)
+            self.configureEvents()
+            self.calendarView.calendar.reloadData()
             tableView.reloadData()
             self.setContentView()
         }
@@ -515,7 +525,6 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         
         let calendar = self.calendarView.calendar
         // headerColor
-        calendar.appearance.headerTitleColor = Design.Color.content
         calendar.appearance.headerTitleColor = Design.Color.buttonContent
 
         // 동그라미 색 지정
@@ -527,7 +536,6 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         // 달에 유효하지 않은 날짜의 색 지정
         calendar.appearance.titlePlaceholderColor = UIColor.gray.withAlphaComponent(0.8)
         // 평일 날짜 색
-        calendar.appearance.titleDefaultColor = Design.Color.content
         calendar.appearance.titleDefaultColor = Design.Color.buttonContent
         calendar.appearance.eventSelectionColor = Design.Color.tintColor
     }
@@ -565,7 +573,6 @@ extension TotalViewController {
         diaryEvent = events.diaryRecord
         dailyEvent = events.dailyRecord
         medicalEvent = events.medicalRecord
-        print(events)
     }
     
     // 이벤트 밑에 Dot 표시 개수
