@@ -35,7 +35,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
     var selectedPooColor: PooColor?
     var selectedPooForm: PooForm?
     var selectedPeeColor: PeeColor?
-    var selectedSymptoms: [Any]?
+    var selectedSymptoms: [AbnormalSymptomsType]?
     
     var picCount: Int = 0
     
@@ -117,14 +117,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             
         } else if let selectedSymptoms { // 이상 증상
             
-            var symptoms: [AbnormalSymptomsType] = []
-            for element in selectedSymptoms {
-                if let symptom = element as? AbnormalSymptomsType {
-                    symptoms.append(symptom)
-                }
-            }
-            
-            let record = RecordTable(recordType: .abnormalSymptoms, petID: pet._id, recordDate: recordDate, abnormalSymptoms: symptoms, content: content, images: [])
+            let record = RecordTable(recordType: .abnormalSymptoms, petID: pet._id, recordDate: recordDate, abnormalSymptoms: selectedSymptoms, content: content, images: [])
             
             var imageIdentifiers: [String] = []
             // photo 추가
@@ -139,6 +132,7 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             record.imageArray = imageIdentifiers
             
             repository.updateRecords(id: pet._id, record)
+            print("saved!!")
             moveToFirstScene()
         }
     }
