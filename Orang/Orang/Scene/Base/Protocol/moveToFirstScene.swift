@@ -34,7 +34,7 @@ extension MoveToFirstScene {
         
         tabBar.setViewControllers([totalNav, recordNav, profileNav], animated: true)
         
-        UIView.transition(with: SceneDelegate?.window ?? UIWindow(), duration: 0.4, options: .transitionCrossDissolve, animations: {
+        UIView.transition(with: SceneDelegate?.window ?? UIWindow(), duration: 0.3, options: .transitionCrossDissolve, animations: {
             SceneDelegate?.window?.rootViewController = tabBar
         }) { (completed) in
             if completed {
