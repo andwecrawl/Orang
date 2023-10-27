@@ -155,11 +155,9 @@ extension FeedViewController {
     // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
-            //            birth = sender.date
             dateTextField.text = sender.date.toFormattedString()
             
         } else {
-            //            meetDate = sender.date
             timeTextField.text = sender.date.toFormattedStringTime()
         }
     }
