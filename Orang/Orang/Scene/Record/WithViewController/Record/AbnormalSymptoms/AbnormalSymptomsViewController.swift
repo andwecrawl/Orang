@@ -19,6 +19,7 @@ final class AbnormalSymptomsViewController: BaseViewController {
     }()
     
     var selectedPet: [PetTable]?
+    var list: [CheckRecord<AbnormalSymptomsType>] = []
     
     var viewModel = SymptomsViewModel()
     
@@ -35,28 +36,28 @@ final class AbnormalSymptomsViewController: BaseViewController {
         let nextButton = UIBarButtonItem(title: "next".localized(), style: .plain, target: self, action: #selector(nextButtonClicked))
         navigationItem.rightBarButtonItem = nextButton
         
-
+        
     }
     
     @objc func nextButtonClicked() {
         let vc = AdditionalInfoViewController()
         vc.title = "moreSymptomsTitle".localized()
-        vc.recordType = .abnormalSymptoms
-        vc.selectedPet = selectedPet
-        
-        viewModel.checkValidations { symptoms in
-            if let symptoms {
-                vc.selectedSymptoms = symptoms
-            } else {
-                sendOneSidedAlert(title: "plzSelectAbnormalSymptoms".localized())
+        var selectedSymptoms: [AbnormalSymptomsType] = []
+        list.forEach{
+            if $0.ischecked {
+                selectedSymptoms.append($0.type)
             }
         }
-        
+        if selectedSymptoms.isEmpty { sendOneSidedAlert(title: "plzSelectAbnormalSymptoms".localized()) }
+        vc.recordType = .abnormalSymptoms
+        vc.selectedSymptoms = selectedSymptoms
+        vc.selectedPet = selectedPet
         navigationController?.pushViewController(vc, animated: true)
     }
     
     override func configureHierarchy() {
         super.configureHierarchy()
+        AbnormalSymptomsType.allCases.forEach{ self.list.append(CheckRecord(type: $0)) }
         
         view.addSubview(tableView)
         
@@ -79,23 +80,32 @@ final class AbnormalSymptomsViewController: BaseViewController {
             self.tableView.reloadData()
         }
         
+        viewModel.selectedIndexPath.bind { indexPath in
+            if let indexPath {
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+        }
+        
     }
 }
 
 extension AbnormalSymptomsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows
+        return list.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: AbnormalSymptomsTableViewCell.identifier, for: indexPath) as? AbnormalSymptomsTableViewCell else { return UITableViewCell() }
-        
-        cell.symptom = viewModel.cellForRowAt(at: indexPath)
+        let symptom = list[indexPath.row]
+        cell.symptom = symptom
         cell.configureView()
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.didSelectRowAt(at: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: AbnormalSymptomsTableViewCell.identifier, for: indexPath) as? AbnormalSymptomsTableViewCell else { return }
+        cell.symptom?.ischecked.toggle()
+        list[indexPath.row].ischecked.toggle()
+        tableView.reloadRows(at: [indexPath], with: .automatic)
     }
 }
