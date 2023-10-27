@@ -250,9 +250,25 @@ extension DiaryViewController: UIImagePickerControllerDelegate, UINavigationCont
     }
     
     func selectFile() {
-        
+        let controller = UIDocumentPickerViewController(forOpeningContentTypes: [.png, .jpeg, .webP, .rawImage], asCopy: true)
+        controller.delegate = self
+        controller.allowsMultipleSelection = true
+        present(controller, animated: true, completion: nil)
     }
     
+    func documentPicker(_ controller: UIDocumentPickerViewController, didPickDocumentsAt urls: [URL]) {
+        if urls.count > 5 {
+            self.sendOneSidedAlert(title: "noMoreImagesError".localized())
+        }
+        for url in urls {
+            if images.count > 4 {
+                self.sendOneSidedAlert(title: "최대 사진 갯수를 초과했습니다!", message: "선택한 사진의 일부만 추가됩니다.")
+                return
+            }
+            guard let image = UIImage(contentsOfFile: url.path) else { return }
+            self.images.append(image)
+        }
+    }
 }
 
 
