@@ -80,12 +80,6 @@ final class AbnormalSymptomsViewController: BaseViewController {
             self.tableView.reloadData()
         }
         
-        viewModel.selectedIndexPath.bind { indexPath in
-            if let indexPath {
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
-            }
-        }
-        
     }
 }
 
