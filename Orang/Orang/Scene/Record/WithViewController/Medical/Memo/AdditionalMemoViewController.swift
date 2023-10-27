@@ -63,18 +63,13 @@ final class AdditionalMemoViewController: BaseViewController, MoveToFirstScene {
         let content = contentTextView.text
         
         let record = MedicalRecordTable(hospital: hospital, petId: pet._id, treatmentDate: treatmentDate, recordType: .vaccine, vaccineType: vaccineTypes, content: content, imageArray: [])
-        var imageIdentifiers: [String] = []
-        // photo 추가
-        let date = record.createdDate
-        for index in images.indices {
-            let identifier = "\(date)\(index)"
-            imageIdentifiers.append(identifier)
-            if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
-                sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
-                return
-            }
+        
+        ImageManager.shared.makeImageString(directoryName: .medicalRecords, createDate: record.createdDate, images: images) { imageIdentifier in
+            record.imageArray = imageIdentifier
+        } errorHandler: {
+            self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+            return
         }
-        record.imageArray = imageIdentifiers
         
         repository.updateMedicalRecords(id: pet._id, record)
         

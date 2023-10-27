@@ -81,36 +81,25 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             
             let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, pooColor: selectedPooColor, pooForm: selectedPooForm, content: content, images: [])
             
-            var imageIdentifiers: [String] = []
-            // photo 추가
-            for index in images.indices {
-                let identifier = "\(date)\(index)"
-                imageIdentifiers.append(identifier)
-                if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
-                    sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
-                    return
-                }
+            ImageManager.shared.makeImageString(directoryName: .dailyRecords, createDate: record.createdDate, images: images) { imageIdentifier in
+                record.imageArray = imageIdentifier
+            } errorHandler: {
+                self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+                return
             }
-            record.imageArray = imageIdentifiers
             
             repository.updateRecords(id: pet._id, record)
-            
             moveToFirstScene()
             
         } else if let selectedPeeColor { // 소변
             let record = RecordTable(recordType: .pooPee, petID: pet._id, recordDate: recordDate, peeColor: selectedPeeColor, content: content, images: [])
             
-            var imageIdentifiers: [String] = []
-            // photo 추가
-            for index in images.indices {
-                let identifier = "\(date)\(index)"
-                imageIdentifiers.append(identifier)
-                if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
-                    sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
-                    return
-                }
+            ImageManager.shared.makeImageString(directoryName: .dailyRecords, createDate: record.createdDate, images: images) { imageIdentifier in
+                record.imageArray = imageIdentifier
+            } errorHandler: {
+                self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+                return
             }
-            record.imageArray = imageIdentifiers
             
             repository.updateRecords(id: pet._id, record)
             moveToFirstScene()
@@ -119,20 +108,14 @@ final class AdditionalInfoViewController: BaseViewController, MoveToFirstScene {
             
             let record = RecordTable(recordType: .abnormalSymptoms, petID: pet._id, recordDate: recordDate, abnormalSymptoms: selectedSymptoms, content: content, images: [])
             
-            var imageIdentifiers: [String] = []
-            // photo 추가
-            for index in images.indices {
-                let identifier = "\(date)\(index)"
-                imageIdentifiers.append(identifier)
-                if !ImageManager.shared.saveImageToDirectory(directoryName: .dailyRecords, identifier: identifier, image: images[index]) {
-                    sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
-                    return
-                }
+            ImageManager.shared.makeImageString(directoryName: .dailyRecords, createDate: record.createdDate, images: images) { imageIdentifier in
+                record.imageArray = imageIdentifier
+            } errorHandler: {
+                self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+                return
             }
-            record.imageArray = imageIdentifiers
             
             repository.updateRecords(id: pet._id, record)
-            print("saved!!")
             moveToFirstScene()
         }
     }

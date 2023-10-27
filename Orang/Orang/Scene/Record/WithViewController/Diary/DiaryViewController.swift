@@ -64,15 +64,11 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
         
         let record = RecordTable(recordType: .diary, petID: pet._id, recordDate: date, title: title, content: content, images: [])
         
-        var imageIdentifiers: [String] = []
-        // photo 추가
-        for index in images.indices {
-            let identifier = "\(date)\(index)"
-            imageIdentifiers.append(identifier)
-            if !ImageManager.shared.saveImageToDirectory(directoryName: .diaries, identifier: identifier, image: images[index]) {
-                sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
-                return
-            }
+        ImageManager.shared.makeImageString(directoryName: .diaries, createDate: record.createdDate, images: images) { imageIdentifier in
+            record.imageArray = imageIdentifier
+        } errorHandler: {
+            self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+            return
         }
         record.imageArray = imageIdentifiers
         

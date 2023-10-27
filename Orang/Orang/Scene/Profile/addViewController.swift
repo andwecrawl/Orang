@@ -79,8 +79,10 @@ final class AddViewController: BaseViewController {
         
         let newPet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate ?? Date(), weight: weight, weightUnit: weightUnit, RegistrationNum: registrationNum)
         
-        if !ImageManager.shared.saveImageToDirectory(directoryName: .profile, identifier: newPet.createdDate.toString(), image: image) {
-            sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+        ImageManager.shared.makeImageString(directoryName: .profile, createDate: newPet.createdDate, images: [image]) { imageIdentifier in
+            newPet.profileImage = imageIdentifier.first!
+        } errorHandler: {
+            self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
             return
         }
         

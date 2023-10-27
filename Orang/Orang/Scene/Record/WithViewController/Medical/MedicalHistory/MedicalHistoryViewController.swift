@@ -56,18 +56,14 @@ final class MedicalHistoryViewController: BaseViewController, MoveToFirstScene {
         
         
         let record = MedicalRecordTable(hospital: hospital, petId: pet._id, treatmentDate: treatmentDate, recordType: .medicalHistory, treatment: treatment, content: content, imageArray: [])
-        var imageIdentifiers: [String] = []
-        // photo 추가
+        
         let images = additionalMemo.images
-        for index in images.indices {
-            let identifier = "\(date)\(index)"
-            imageIdentifiers.append(identifier)
-            if !ImageManager.shared.saveImageToDirectory(directoryName: .medicalRecords, identifier: identifier, image: images[index]) {
-                sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
-                return
-            }
+        ImageManager.shared.makeImageString(directoryName: .medicalRecords, createDate: record.createdDate, images: images) { imageIdentifier in
+            record.imageArray = imageIdentifier
+        } errorHandler: {
+            self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+            return
         }
-        record.imageArray = imageIdentifiers
         
         repository.updateMedicalRecords(id: pet._id, record)
         moveToFirstScene()
