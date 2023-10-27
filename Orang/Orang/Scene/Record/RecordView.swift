@@ -19,7 +19,7 @@ final class RecordView: BaseView {
         return view
     }()
     
-    let recordTitleLabel = UILabel.labelBuilder(text: "recordRecordTitle".localized(), size: 17, weight: .medium, settingTitle: false)
+    let recordTitleLabel = UILabel.labelBuilder(text: "recordRecordTitle".localized(), size: 17, weight: .medium, color: Design.Color.buttonContent, settingTitle: false)
     let firstRecordButton = UIButton.recordButtonBuilder(image: RecordType.weight.image, title: "weightButton".localized())
     let secondRecordButton = UIButton.recordButtonBuilder(image: RecordType.snack.image, title: "snackButton".localized())
     let thirdRecordButton = UIButton.recordButtonBuilder(image: RecordType.pooPee.image, title: "fecesAndUrine".localized())
@@ -31,7 +31,7 @@ final class RecordView: BaseView {
         let view = UIView.shadowViewBuilder(innerView: innerView)
         return view
     }()
-    let medicalTitleLabel = UILabel.labelBuilder(text: "MedicalRecordTitle".localized(), size: 17, weight: .medium, settingTitle: false)
+    let medicalTitleLabel = UILabel.labelBuilder(text: "MedicalRecordTitle".localized(), size: 17, weight: .medium, color: Design.Color.buttonContent, settingTitle: false)
     let medicalVaccineButton = UIButton.shadowButtonBuilder(title: "VaccineRecordButton".localized(), subtitle: "VaccineRecordDetail".localized(), isBig: false)
     let medicalHistoryButton = UIButton.shadowButtonBuilder(title: "MedicalHistoryButton".localized(), subtitle: "MedicalHistoryDetail".localized(), isBig: false)
     let medicalStackView = UIStackView.stackViewBuilder(space: 12)

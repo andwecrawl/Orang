@@ -14,7 +14,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
     
     private let profileImageView = UIImageView.imageViewBuilder(size: 120)
     
-    private let dateLabel = UILabel.labelBuilder(size: 13, weight: .light, color: .lightGray, alignment: .right, settingTitle: false)
+    private let dateLabel = UILabel.labelBuilder(size: 13, weight: .light, color: .gray, alignment: .right, settingTitle: false)
     private let belongLabel = UILabel.labelBuilder(size: 16, weight: .medium, color: .black, alignment: .right, settingTitle: false)
     
     private let speciesSettingLabel = UILabel.labelBuilder(text: "speciesSetting".localized(),size: 15, weight: .medium, color: .black, alignment: .left, settingTitle: false)
@@ -78,7 +78,7 @@ class ProfileCollectionViewCell: BaseCollectionViewCell {
     }
     
     override func setConstraints() {
-        outerView.backgroundColor = .white
+        outerView.backgroundColor = Design.Color.buttonBackground
         outerView.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(self.safeAreaLayoutGuide)
             make.verticalEdges.equalTo(self.safeAreaLayoutGuide)

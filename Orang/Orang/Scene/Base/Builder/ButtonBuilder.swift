@@ -39,7 +39,7 @@ extension UIButton {
         
         var titleContainer = AttributeContainer()
         var subtitleContainer = AttributeContainer()
-        titleContainer.foregroundColor = Design.Color.content
+        titleContainer.foregroundColor = Design.Color.buttonContent
         subtitleContainer.foregroundColor = Design.Color.border
         
         if isBig {
@@ -89,7 +89,7 @@ extension UIButton {
             switch button.state {
                 
             case .selected:
-                container.foregroundColor = Design.Color.content
+                container.foregroundColor = Design.Color.buttonContent
                 configuration.attributedTitle = AttributedString(title, attributes: container)
                 configuration.image = UIImage(systemName: "checkmark.square.fill")
             case .highlighted:

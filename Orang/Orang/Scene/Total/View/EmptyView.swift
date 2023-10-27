@@ -15,7 +15,7 @@ final class EmptyView: BaseView {
         return view
     }()
     
-    let recordLabel = UILabel.labelBuilder(text: "todaysRecord".localized(), size: 18, weight: .bold, alignment: .left)
+    let recordLabel = UILabel.labelBuilder(text: "todaysRecord".localized(), size: 18, weight: .bold, color: Design.Color.buttonContent, alignment: .left)
     
     let informationLabel = UILabel.labelBuilder(text: "inputNewRecord".localized(), size: 14, weight: .light, alignment: .center)
     

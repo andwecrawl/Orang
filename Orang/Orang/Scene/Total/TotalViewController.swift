@@ -516,6 +516,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         let calendar = self.calendarView.calendar
         // headerColor
         calendar.appearance.headerTitleColor = Design.Color.content
+        calendar.appearance.headerTitleColor = Design.Color.buttonContent
 
         // 동그라미 색 지정
         calendar.appearance.selectionColor = Design.Color.tintColor
@@ -527,6 +528,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         calendar.appearance.titlePlaceholderColor = UIColor.gray.withAlphaComponent(0.8)
         // 평일 날짜 색
         calendar.appearance.titleDefaultColor = Design.Color.content
+        calendar.appearance.titleDefaultColor = Design.Color.buttonContent
         calendar.appearance.eventSelectionColor = Design.Color.tintColor
     }
 

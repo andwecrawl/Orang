@@ -15,7 +15,7 @@ final class DiaryView: BaseView {
         return view
     }()
     
-    var recordLabel = UILabel.labelBuilder(text: "일상 기록", size: 18, weight: .bold, alignment: .left)
+    var recordLabel = UILabel.labelBuilder(text: "일상 기록", size: 18, weight: .bold, color: Design.Color.buttonContent, alignment: .left)
     
     let tableView = {
         let view = UITableView(frame: .zero)

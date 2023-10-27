@@ -16,7 +16,7 @@ final class CalendarView: BaseView {
         return view
     }()
     
-    let calendarLabel = UILabel.labelBuilder(text: "YYYY년 MM월", size: 18, weight: .bold, alignment: .left)
+    let calendarLabel = UILabel.labelBuilder(text: "YYYY년 MM월", size: 18, weight: .bold, color: Design.Color.buttonContent, alignment: .left)
     
     lazy var previousButton : UIButton = {
         let button = UIButton()
