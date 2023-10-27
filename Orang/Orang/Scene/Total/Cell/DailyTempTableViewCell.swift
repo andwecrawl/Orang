@@ -14,7 +14,7 @@ class DailyTempTableViewCell: BaseTableViewCell {
     let typeImageView = UIImageView.imageViewBuilder(size: 20)
 
     let titleLabel = UILabel.labelBuilder(text: "제목입니당", size: 15, weight: .semibold, color: Design.Color.buttonContent, alignment: .left)
-    let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당", size: 14, weight: .regular, color: Design.Color.buttonContent, alignment: .justified)
+    let subtitleLabel = UILabel.labelBuilder(text: "서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당서브타이틀입니당", size: 14, weight: .regular, color: Design.Color.buttonContent, alignment: .natural)
     
     let textStackView = UIStackView.stackViewBuilder(space: 2, axis: .vertical)
     
@@ -58,7 +58,7 @@ class DailyTempTableViewCell: BaseTableViewCell {
         textStackView.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.leading.equalTo(diaryImageView.snp.trailing).offset(14)
-            make.trailing.equalToSuperview().inset(36)
+            make.trailing.equalToSuperview().inset(16)
         }
         
         arrowImageView.snp.makeConstraints { make in
