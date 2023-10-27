@@ -37,6 +37,7 @@ class Design {
         static let content = UIColor(named: "contentColor")!
         static let tintColor = UIColor(named: "tintColor")!
         static let buttonBackground = UIColor(named: "buttonBackground")!
+        static let buttonContent = UIColor(named: "buttonContent")!
         
         static let diary = UIColor(named: "diary")!
         static let daily = UIColor(named: "daily")!
