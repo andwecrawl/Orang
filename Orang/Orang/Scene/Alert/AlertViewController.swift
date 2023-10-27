@@ -32,7 +32,7 @@ class AlertViewController: BaseViewController {
     override func setNavigationBar() {
         super.setNavigationBar()
         
-        title = "일정 관리"
+        title = "AlertNavigationTitle".localized()
     }
     
     override func configureHierarchy() {
@@ -47,11 +47,10 @@ class AlertViewController: BaseViewController {
     }
         
     override func setConstraints() {
-//        calendar.backgroundColor = .gray
         calendar.snp.makeConstraints { make in
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(4)
             make.top.equalTo(view.safeAreaLayoutGuide)
-            make.height.equalTo(400)
+            make.height.equalTo(300)
         }
         dailyTodoButton.backgroundColor = .white.withAlphaComponent(0.8)
         dailyTodoButton.snp.makeConstraints { make in
@@ -81,47 +80,50 @@ extension AlertViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
         calendar.locale = Locale(identifier: Locale.current.identifier)
         calendar.today = Date()
         calendar.appearance.headerMinimumDissolvedAlpha = 0.0
-        calendar.appearance.weekdayFont = .systemFont(ofSize: 13, weight: .semibold)
-        calendar.appearance.titleFont = .systemFont(ofSize: 15, weight: .bold)
+        calendar.appearance.weekdayFont = Design.Font.scdreamBold.smallFont
+        calendar.appearance.titleFont = Design.Font.scdreamExBold.midFont
+        calendar.scrollEnabled = true
         
+        setCalendarHeader()
         setCalendarColor()
     }
     
-    func setCalendarHeight() {
-        
-    }
-    
-    func setWeekdayFont() {
-        
-    }
-    
     func setCalendarColor() {
+        // headerColor
+        calendar.appearance.headerTitleColor = Design.Color.content
+        
         // 동그라미 색 지정
         calendar.appearance.selectionColor = Design.Color.tintColor
-        calendar.appearance.todayColor = Design.Color.todaysColor
+        calendar.appearance.todayColor = Design.Color.tintColor.withAlphaComponent(0.4)
         
+        // 요일 색깔 설정
+        calendar.appearance.weekdayTextColor = Design.Color.border
         // 달에 유효하지 않은 날짜의 색 지정
         self.calendar.appearance.titlePlaceholderColor = UIColor.gray.withAlphaComponent(0.8)
         // 평일 날짜 색
         self.calendar.appearance.titleDefaultColor = Design.Color.content
     }
     
-    // 날짜 선택 시 할 일 지정
-    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
-        
+    func setCalendarHeader() {
+        calendar.appearance.headerTitleAlignment = .center
+        calendar.headerHeight = 0
     }
-    
-    // height 관련
-    func calendar(_ calendar: FSCalendar, boundingRectWillChange bounds: CGRect, animated: Bool) {
-        
-    }
-    
     
     // 선택된 날짜 설정
     func calendar(_ calendar: FSCalendar, appearance: FSCalendarAppearance, fillSelectionColorFor date: Date) -> UIColor? {
         return Design.Color.tintColor
     }
     
+    
+    // 날짜 선택 시 할 일 지정
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition) {
+        
+    }
+    
+    // 날짜 선택 해제 불가능
+    func calendar(_ calendar: FSCalendar, shouldDeselect date: Date, at monthPosition: FSCalendarMonthPosition) -> Bool {
+         return false
+    }
 }
 
 
