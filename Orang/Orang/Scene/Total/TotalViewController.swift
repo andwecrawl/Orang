@@ -561,6 +561,7 @@ extension TotalViewController: FSCalendarDataSource, FSCalendarDelegate, FSCalen
 
     // mm월이 바뀌면 자동으로 변경
     func calendarCurrentPageDidChange(_ calendar: FSCalendar) {
+        currentPage = calendar.currentPage
         self.calendarView.calendarLabel.text = self.currentPage?.toCalendarTitle()
     }
 }
