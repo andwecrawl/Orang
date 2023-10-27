@@ -201,7 +201,6 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "d"
             let str = dateFormatter.string(from: selectedDate)
-            print(str)
             emptyView.recordLabel.text = "recordOf".localized(with: str)
         }
     }
@@ -368,7 +367,6 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
 //        modity.backgroundColor = .systemBlue
 
         let delete = UIContextualAction(style: .normal, title: "삭제") { (UIContextualAction, UIView, success: @escaping (Bool) -> Void) in
-            print("삭제 클릭 됨")
             
             let item = indexPath.item
             var records: ImageManager.DirectoryName

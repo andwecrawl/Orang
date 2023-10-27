@@ -42,12 +42,6 @@ class SplashViewController: BaseViewController, MoveToFirstScene {
     }
     
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        print("hello")
-        
-    }
-    
     override func configureHierarchy() {
         super.configureHierarchy()
         configureBackground()

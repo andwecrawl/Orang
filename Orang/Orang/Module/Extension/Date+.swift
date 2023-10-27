@@ -75,7 +75,6 @@ extension Date {
         let calendar = Calendar.current
         
         let dateGap = calendar.dateComponents([.day], from: target, to: today).day!
-        print(dateGap)
         return dateGap + 1
     }
     
