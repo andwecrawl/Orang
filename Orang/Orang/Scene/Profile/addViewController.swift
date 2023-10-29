@@ -11,6 +11,7 @@ import Toast
 final class AddViewController: BaseViewController {
     
     let mainView = AddView()
+    let viewModel = AddViewModel()
     
     var pet: Pet?
     
@@ -195,6 +196,7 @@ final class AddViewController: BaseViewController {
                     $0.keyboardType = .decimalPad
                 }
                 $0.delegate = self
+                $0.addTarget(self, action: #selector(textFieldEditingChanged), for: .editingChanged)
             }
         
         mainView.profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
@@ -204,8 +206,67 @@ final class AddViewController: BaseViewController {
         configureRegistrationSection(canRegistrate: false)
         configureDetailSpeciesTextField(hasDetail: false)
         
+        bindViewModel()
         setEditVC()
     }
+    
+    @objc func textFieldEditingChanged(_ sender: UITextField) {
+        switch sender {
+        case mainView.detailSpeciesTextField:
+            viewModel.detailSpecies.value = mainView.detailSpeciesTextField.text
+        case mainView.nameTextField:
+            viewModel.name.value = mainView.nameTextField.text ?? ""
+        case mainView.birthTextField:
+            viewModel.birthday.value = mainView.birthTextField.text?.toDate()
+            print(mainView.birthTextField.text?.toDate())
+        case mainView.meetDateTextField:
+            viewModel.belongDate.value = mainView.meetDateTextField.text?.toDate() ?? Date()
+        case mainView.weightTextField:
+            viewModel.weight.value = mainView.weightTextField.text ?? ""
+        case mainView.speciesTextField:
+            viewModel.species.value = species
+        default: break
+        }
+    }
+    
+    func bindViewModel() {
+        
+        viewModel.species.bind { species in
+            self.mainView.speciesTextField.text = species?.toString
+            mainView.idkRegistrationButton.isHidden = viewModel.registrationStackisHidden
+            mainView.detailStackView.isHidden = viewModel.detailSectionIsHidden
+        }
+        
+        viewModel.detailSpecies.bind { detailSpecies in
+            self.mainView.detailSpeciesTextField.text = detailSpecies
+        }
+        
+        viewModel.name.bind { name in
+            self.mainView.nameTextField.text = name
+        }
+        
+        viewModel.birthday.bind { birthday in
+            self.mainView.birthTextField.text = birthday?.toFormattedString()
+        }
+        
+        viewModel.belongDate.bind { meetDate in
+            self.mainView.meetDateTextField.text = meetDate.toFormattedString()
+        }
+        
+        viewModel.weight.bind { weight in
+            self.mainView.weightTextField.text = "\(weight)"
+        }
+        
+        
+        viewModel.weightUnit.bind { unit in
+            self.mainView.weightUnitButton.setTitle(Unit.g.toString, for: .normal)
+        }
+        
+        viewModel.registrationNum.bind { number in
+            self.mainView.registrationTextField.text = number
+        }
+    }
+    
     
     func setEditVC() {
         guard let pet else { return }
