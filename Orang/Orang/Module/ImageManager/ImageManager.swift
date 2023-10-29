@@ -27,7 +27,7 @@ class ImageManager {
         case directory, fileURL
     }
     
-    func createURL(URLCase: FileURLCase, directoryName: DirectoryName, identifier: String) -> (URL, String) {
+    private func createURL(URLCase: FileURLCase, directoryName: DirectoryName, identifier: String) -> (URL, String) {
         let documentURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first!
         let directoryURL = documentURL.appendingPathComponent(directoryName.rawValue)
         let imageName = "\(identifier).jpeg"
