@@ -52,7 +52,7 @@ extension AddViewController {
     
     
     // datePicker의 최소 최대 설정
-    func getMaxMinDate(date: Date) -> (max: Date?, min: Date?) {
+    private func getMaxMinDate(date: Date) -> (max: Date?, min: Date?) {
         
         let calendar = Calendar(identifier: .gregorian)
         var components = DateComponents()

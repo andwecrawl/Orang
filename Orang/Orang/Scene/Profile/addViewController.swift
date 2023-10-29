@@ -10,12 +10,11 @@ import Toast
 
 final class AddViewController: BaseViewController {
     
-    let mainView = AddView()
+    private let mainView = AddView()
     let viewModel = AddViewModel()
     
     var pet: Pet?
     
-    var species: Species? = nil
     var registrationNum: String? = nil
     let repository = PetTableRepository()
     
