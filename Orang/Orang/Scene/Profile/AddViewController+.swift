@@ -33,7 +33,8 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
             configureDetailSpeciesTextField(hasDetail: false)
         }
         
-        mainView.speciesTextField.text = selected.toString
+        let selected = Species.allCases[row]
+        viewModel.species.value = selected
     }
     
     // 말 그대로 타이틀 지정해 주기!!
@@ -52,6 +53,10 @@ extension AddViewController {
         datePicker.datePickerMode = .date
         datePicker.preferredDatePickerStyle = .inline
         
+        let range = getMaxMinDate(date: datePicker.date)
+        datePicker.maximumDate = range.max
+        datePicker.minimumDate = range.min
+        
         // 원하는 언어로 지역 설정
         datePicker.locale = Locale(identifier: "ko-KR")
         datePicker.addTarget(self, action: #selector(dateChange), for: .valueChanged)
@@ -59,6 +64,21 @@ extension AddViewController {
         textField.inputView = datePicker
         textField.text = datePicker.date.toFormattedString()
     }
+    
+    
+    func getMaxMinDate(date: Date) -> (max: Date?, min: Date?) {
+        
+        let calendar = Calendar(identifier: .gregorian)
+        var components = DateComponents()
+        components.calendar = calendar
+        components.year = -1
+        components.month = 12
+        let maxDate = calendar.date(byAdding: components, to: date)
+        components.year = -31
+        let minDate = calendar.date(byAdding: components, to: date)
+        return (maxDate, minDate)
+    }
+    
     
     // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
