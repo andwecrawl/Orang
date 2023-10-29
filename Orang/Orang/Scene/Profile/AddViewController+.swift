@@ -18,14 +18,12 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
         return Species.allCases.count
     }
     
-    // 해당 셀을 선택했을 때 어떻게 할지 action을 여기서 지정!
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
         let selected = Species.allCases[row]
         viewModel.species.value = selected
     }
     
-    // 말 그대로 타이틀 지정해 주기!!
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return "\(Species.allCases[row].toString)"
     }
@@ -35,7 +33,6 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
 // datePicker
 extension AddViewController {
     func setupDatePicker(textField: UITextField) {
-        // 여기서 datePicker를 weak로 써줘야 하나?
         let datePicker = UIDatePicker()
         datePicker.tag = textField.tag
         datePicker.datePickerMode = .date
@@ -54,6 +51,7 @@ extension AddViewController {
     }
     
     
+    // datePicker의 최소 최대 설정
     func getMaxMinDate(date: Date) -> (max: Date?, min: Date?) {
         
         let calendar = Calendar(identifier: .gregorian)
@@ -68,7 +66,6 @@ extension AddViewController {
     }
     
     
-    // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
             viewModel.birthday.value = sender.date
