@@ -33,8 +33,11 @@ final class AddViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
-        let image = mainView.profileImageView.image
-        let meetDate = mainView.meetDateTextField.text?.toDate()!
+        guard let image = mainView.profileImageView.image else {
+            self.sendOneSidedAlert(title: "이미지를 선택해 주세요!")
+            return
+        }
+        let meetDate = mainView.meetDateTextField.text?.toDate() ?? Date()
         
         var birth: Date?
         if mainView.idkBirthButton.isSelected {
@@ -66,9 +69,11 @@ final class AddViewController: BaseViewController {
             registrationNum = nil
         } else {
             registrationNum = mainView.registrationTextField.text ?? ""
-            if registrationNum!.isEmpty {
-                mainView.registrationTextField.setError()
-                return
+            if species == .cat || species == .dog {
+                if registrationNum!.isEmpty {
+                    mainView.registrationTextField.setError()
+                    return
+                }
             }
         }
         
@@ -139,8 +144,10 @@ final class AddViewController: BaseViewController {
                 foundError = true
             }
         } else {
-            mainView.birthTextField.setError()
-            foundError = true
+            if !mainView.idkBirthButton.isSelected {
+                mainView.birthTextField.setError()
+                foundError = true
+            }
         }
         
         
@@ -159,6 +166,7 @@ final class AddViewController: BaseViewController {
         }
         return foundError
     }
+    
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -202,9 +210,6 @@ final class AddViewController: BaseViewController {
         mainView.profileImageButton.addTarget(self, action: #selector(profileImageButtonClicked), for: .touchUpInside)
         
         [mainView.idkBirthButton, mainView.idkRegistrationButton].forEach { $0.addTarget(self, action: #selector(idkButtonClicked), for: .touchUpInside) }
-        
-        configureRegistrationSection(canRegistrate: false)
-        configureDetailSpeciesTextField(hasDetail: false)
         
         bindViewModel()
         setEditVC()
@@ -271,6 +276,7 @@ final class AddViewController: BaseViewController {
     func setEditVC() {
         guard let pet else { return }
         
+        print("anybody here")
         let image = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
         mainView.profileImageView.image = image
         let species = pet.species
@@ -285,7 +291,6 @@ final class AddViewController: BaseViewController {
                 configureRegistrationSection(canRegistrate: true)
                 if let num = pet.registrationNum {
                     mainView.registrationTextField.text = num
-                    print(num)
                     if num.isEmpty {
                         mainView.idkRegistrationButton.isSelected = true
                         idkButtonClicked(mainView.idkRegistrationButton)
@@ -301,6 +306,7 @@ final class AddViewController: BaseViewController {
             mainView.birthTextField.text = birthday.toFormattedString()
         } else {
             mainView.idkBirthButton.isSelected = true
+            mainView.birthTextField.text = mainView.idkBirthButton.titleLabel?.text
         }
         mainView.weightTextField.text = "\(pet.weight)"
         
@@ -315,23 +321,6 @@ final class AddViewController: BaseViewController {
         }
     }
     
-    func configureRegistrationSection(canRegistrate: Bool) {
-        if canRegistrate {
-            mainView.registrationStackView.isHidden = false
-            mainView.idkRegistrationButton.isHidden = false
-        } else {
-            mainView.registrationStackView.isHidden = true
-            mainView.idkRegistrationButton.isHidden = true
-        }
-    }
-    
-    func configureDetailSpeciesTextField(hasDetail: Bool) {
-        if hasDetail {
-            mainView.detailStackView.isHidden = false
-        } else {
-            mainView.detailStackView.isHidden = true
-        }
-    }
     
     @objc func idkButtonClicked(_ sender: UIButton) {
         sender.isSelected.toggle()
@@ -372,4 +361,5 @@ extension AddViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
     }
+    
 }
