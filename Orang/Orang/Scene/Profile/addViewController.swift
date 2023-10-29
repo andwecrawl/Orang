@@ -238,8 +238,8 @@ final class AddViewController: BaseViewController {
         
         viewModel.species.bind { species in
             self.mainView.speciesTextField.text = species?.toString
-            self.mainView.idkRegistrationButton.isHidden = viewModel.registrationStackisHidden
-            self.mainView.detailStackView.isHidden = viewModel.detailSectionIsHidden
+            self.mainView.idkRegistrationButton.isHidden = self.viewModel.registrationStackisHidden
+            self.mainView.detailStackView.isHidden = self.viewModel.detailSectionIsHidden
         }
         
         viewModel.detailSpecies.bind { detailSpecies in
@@ -285,10 +285,8 @@ final class AddViewController: BaseViewController {
             guard let detailSpecies = pet.detailSpecies else { return }
             mainView.speciesTextField.text = species.toString
             mainView.detailSpeciesTextField.text = detailSpecies
-            configureDetailSpeciesTextField(hasDetail: true)
         } else {
             if species == .dog || species == .cat {
-                configureRegistrationSection(canRegistrate: true)
                 if let num = pet.registrationNum {
                     mainView.registrationTextField.text = num
                     if num.isEmpty {
