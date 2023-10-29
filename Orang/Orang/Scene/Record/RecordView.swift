@@ -52,6 +52,9 @@ final class RecordView: BaseView {
         
         recordStackView.addArrangedSubviews([firstRecordButton, secondRecordButton, thirdRecordButton, fourthRecordButton])
         medicalStackView.addArrangedSubviews([medicalVaccineButton, medicalHistoryButton])
+        [medicalVaccineButton, medicalHistoryButton].forEach { button in
+            button.backgroundColor = .white.withAlphaComponent(0.8)
+        }
     }
     
     override func setConstraints() {
@@ -105,8 +108,4 @@ final class RecordView: BaseView {
             make.bottom.equalTo(medicalView).inset(26)
         }
     }
-    
-    
-    
-    
 }
