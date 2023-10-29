@@ -20,18 +20,6 @@ extension AddViewController: UIPickerViewDelegate, UIPickerViewDataSource {
     
     // 해당 셀을 선택했을 때 어떻게 할지 action을 여기서 지정!
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        let selected = Species.allCases[row]
-        species = selected
-        if selected == .cat || selected == .dog {
-            configureRegistrationSection(canRegistrate: true)
-            configureDetailSpeciesTextField(hasDetail: false)
-        } else if selected == .reptile || selected == .etc {
-            configureRegistrationSection(canRegistrate: false)
-            configureDetailSpeciesTextField(hasDetail: true)
-        } else {
-            configureRegistrationSection(canRegistrate: false)
-            configureDetailSpeciesTextField(hasDetail: false)
-        }
         
         let selected = Species.allCases[row]
         viewModel.species.value = selected
@@ -83,9 +71,9 @@ extension AddViewController {
     // 값이 변할 때 마다 동작
     @objc func dateChange(_ sender: UIDatePicker) {
         if sender.tag == 1 {
-            mainView.birthTextField.text = sender.date.toFormattedString()
+            viewModel.birthday.value = sender.date
         } else {
-            mainView.meetDateTextField.text = sender.date.toFormattedString()
+            viewModel.belongDate.value = sender.date
         }
     }
 }
