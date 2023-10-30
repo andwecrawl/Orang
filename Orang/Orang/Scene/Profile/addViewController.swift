@@ -10,7 +10,7 @@ import Toast
 
 final class AddViewController: BaseViewController {
     
-    private let mainView = AddView()
+    let mainView = AddView()
     let viewModel = AddViewModel()
     
     var pet: Pet?
@@ -45,7 +45,7 @@ final class AddViewController: BaseViewController {
             birth = tempDate
         }
         
-        guard let species else {
+        guard let species = viewModel.species.value else {
             let _ = hasError(species: .none, detailSpecies: "", name: mainView.nameTextField.text ?? "", birth: birth, meetDate: meetDate, weight: Float(mainView.weightTextField.text ?? "") ?? 0 )
             return
         }
@@ -227,8 +227,6 @@ final class AddViewController: BaseViewController {
             viewModel.belongDate.value = mainView.meetDateTextField.text?.toDate() ?? Date()
         case mainView.weightTextField:
             viewModel.weight.value = mainView.weightTextField.text ?? ""
-        case mainView.speciesTextField:
-            viewModel.species.value = species
         default: break
         }
     }
@@ -275,11 +273,10 @@ final class AddViewController: BaseViewController {
     func setEditVC() {
         guard let pet else { return }
         
-        print("anybody here")
         let image = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
         mainView.profileImageView.image = image
         let species = pet.species
-        self.species = species
+        self.viewModel.species.value = species
         if species == .reptile || species == .etc {
             guard let detailSpecies = pet.detailSpecies else { return }
             mainView.speciesTextField.text = species.toString
@@ -341,6 +338,11 @@ final class AddViewController: BaseViewController {
 // textField
 extension AddViewController: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        if textField.text?.count ?? 0 > 12 {
+            return false
+        }
+        
         if textField == mainView.birthTextField || textField == mainView.meetDateTextField || textField == mainView.speciesTextField {
             return false
         } else if textField == mainView.registrationTextField || textField == mainView.weightTextField {
