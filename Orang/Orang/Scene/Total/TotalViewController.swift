@@ -436,7 +436,13 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
                 }
             case .abnormalSymptoms:
                 let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
-                let subtitle = record.abnormalSymptomsArray.map({ $0.title }).joined(separator: " | ")
+                let subtitle = record.abnormalSymptomsArray.map({
+                    if $0 == .others {
+                        return record.content ?? ""
+                    } else {
+                        return $0.title
+                    }
+                }).joined(separator: " | ")
                 let typeImage = record.recordType.image
                 return (title, subtitle, [profileImage, typeImage])
             default: break
