@@ -8,7 +8,7 @@
 import UIKit
 import PhotosUI
 
-final class DiaryViewController: BaseViewController, MoveToFirstScene {
+final class DiaryViewController: BaseViewController, MoveToFirstScene, UITextViewDelegate {
     
     lazy var collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
@@ -24,8 +24,9 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
     let contentTextView = UITextView.TextViewBuilder()
     
     var selectedPet: [PetTable]?
-    var picCount: Int = 0
     let repository = PetTableRepository()
+    
+    let viewModel = DiaryViewModel()
     
     private var images: [UIImage] = [] {
         didSet {
@@ -49,30 +50,26 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
     
     @objc func saveButtonClicked() {
         guard let pet = selectedPet?.first else { return }
-        guard let title = titleTextField.text else { return }
-        if title.isEmpty {
-            titleTextField.setError()
-            sendOneSidedAlert(title: "noTitleError".localized())
-            return
-        }
-        if images.isEmpty {
-            sendOneSidedAlert(title: "noImageError".localized())
-            return
-        }
-        let content = contentTextView.text
-        let date = Date()
         
-        let record = RecordTable(recordType: .diary, petID: pet._id, recordDate: date, title: title, content: content, images: [])
+        let recordDate = viewModel.checkValidation(petID: pet._id) { titleAlert in
+            self.titleTextField.setError()
+            self.view.makeToast(titleAlert)
+        } imageHandler: { imageAlert in
+            self.view.makeToast(imageAlert)
+        }
+
+        guard let recordDate else { return }
         
-        ImageManager.shared.makeImageString(directoryName: .diaries, createDate: record.createdDate, images: images) { imageIdentifier in
-            record.imageArray = imageIdentifier
+        var imageIdentifiers: [String] = []
+        ImageManager.shared.makeImageString(directoryName: .diaries, createDate: recordDate, images: images) { imageIdentifier in
+            imageIdentifiers.append(contentsOf: imageIdentifier)
         } errorHandler: {
             self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
             return
         }
-        record.imageArray = imageIdentifiers
         
-        repository.updateRecords(id: pet._id, record)
+        viewModel.saveData(images: imageIdentifiers)
+
         moveToFirstScene()
     }
     
@@ -88,14 +85,14 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
     
     override func setConstraints() {
         titleTextField.snp.makeConstraints { make in
-            make.top.equalTo(view.safeAreaLayoutGuide)
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(12)
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
         }
         
         contentTextView.snp.makeConstraints { make in
             make.top.equalTo(titleTextField.snp.bottom).offset(16)
             make.horizontalEdges.equalTo(titleTextField)
-            make.height.equalTo(300)
+            make.height.equalTo(250)
         }
         
         collectionView.snp.makeConstraints { make in
@@ -107,6 +104,25 @@ final class DiaryViewController: BaseViewController, MoveToFirstScene {
     
     override func configureView() {
         
+        titleTextField.addTarget(self, action: #selector(titleTextFieldDidChanged), for: .editingChanged)
+        contentTextView.delegate = self
+        
+        viewModel.title.bind { text in
+            self.titleTextField.text = text
+        }
+        
+        viewModel.content.bind { text in
+            self.contentTextView.text = text
+        }
+        
+    }
+    
+    @objc func titleTextFieldDidChanged() {
+        viewModel.title.value = titleTextField.text
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        viewModel.content.value = textView.text
     }
     
 }
@@ -117,14 +133,12 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        let add = images.count >= 5 ? 0 : 1
-        let images = images.count < 6 ? images.count : 5
-        return add + images
+        return viewModel.numberOfItems
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let add = images.count >= 5 ? 0 : 1
-        let images = images.count < 6 ? images.count : 5
+        let add = viewModel.add
+        let images = viewModel.images
         if add == 1 && indexPath.item == 0 {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: AddCollectionViewCell.identifier, for: indexPath) as? AddCollectionViewCell else { return UICollectionViewCell() }
             cell.configureAddButton(imagesCount: images)
@@ -163,14 +177,10 @@ extension DiaryViewController: UICollectionViewDataSource, UICollectionViewDeleg
 
 extension DiaryViewController: PHPickerViewControllerDelegate, AddDelegate {
     func openPhotoAlbum() {
-        
-        if 5 - picCount < 1 {
-            self.sendOneSidedAlert(title: "noMoreImagesError".localized())
-        }
         var config = PHPickerConfiguration()
         
         config.filter = .images
-        config.selectionLimit = 5 - picCount
+        config.selectionLimit = 5 - viewModel.imageCount.value
         config.selection = .ordered
         
         let imagePicker = PHPickerViewController(configuration: config)
@@ -211,7 +221,7 @@ extension DiaryViewController: PHPickerViewControllerDelegate, AddDelegate {
                 self.sendOneSidedAlert(title: "noMoreImagesError".localized())
                 return
             } else {
-                picCount += images.count
+                viewModel.imageCount.value += images.count
                 self.images.append(contentsOf: images)
             }
         }
@@ -235,7 +245,7 @@ extension DiaryViewController: UIImagePickerControllerDelegate, UINavigationCont
         
         if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             self.images.append(image)
-            picCount += 1
+            viewModel.imageCount.value += 1
         }
         
         picker.dismiss(animated: true, completion: nil)
@@ -245,6 +255,9 @@ extension DiaryViewController: UIImagePickerControllerDelegate, UINavigationCont
         picker.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension DiaryViewController: UIDocumentPickerDelegate {
     func selectFile() {
         let controller = UIDocumentPickerViewController(forOpeningContentTypes: [.png, .jpeg, .webP, .rawImage], asCopy: true)
         controller.delegate = self
@@ -272,7 +285,7 @@ extension DiaryViewController: DeleteDelegate {
     func deleteImages(image: UIImage) {
         if let firstIndex = self.images.firstIndex(of: image) {
             self.images.remove(at: firstIndex)
-            self.picCount -= 1
+            self.viewModel.imageCount.value -= 1
         }
     }
 }
