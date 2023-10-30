@@ -10,6 +10,8 @@ import RealmSwift
 
 final class WithViewController: BaseViewController {
     
+    let alertLabel = UILabel.labelBuilder(text: "아직 아이를 설정하지 않았어요!\n아이 설정 탭에서 아이를 설정해 주세요!", size: 16, weight: .medium, alignment: .center)
+    
     let collectionView = {
         let view = UICollectionView(frame: .zero, collectionViewLayout: setCollectionViewLayout())
         view.register(ChoosePetCollectionViewCell.self, forCellWithReuseIdentifier: ChoosePetCollectionViewCell.identifier)
@@ -25,11 +27,13 @@ final class WithViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         list = repository.fetch()
+        checkHasProfile()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         collectionView.reloadData()
+        checkHasProfile()
     }
     
     override func setNavigationBar() {
@@ -81,10 +85,16 @@ final class WithViewController: BaseViewController {
     
     override func configureHierarchy() {
         super.configureHierarchy()
+        view.addSubview(alertLabel)
         view.addSubview(collectionView)
     }
     
     override func setConstraints() {
+        alertLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.top.equalTo(view.safeAreaLayoutGuide).inset(100)
+        }
+        
         collectionView.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).inset(10)
             make.bottom.horizontalEdges.equalTo(view.safeAreaLayoutGuide)
@@ -94,6 +104,16 @@ final class WithViewController: BaseViewController {
     override func configureView() {
         collectionView.delegate = self
         collectionView.dataSource = self
+        
+        alertLabel.numberOfLines = 0
+    }
+    
+    func checkHasProfile() {
+        if list.isEmpty {
+            collectionView.isHidden = true
+        } else {
+            collectionView.isHidden = false
+        }
     }
     
 }
