@@ -66,7 +66,7 @@ class VaccineCategoryCollectionViewCell: BaseCollectionViewCell {
     }
     
     @objc func vaccineButtonClicked() {
-        let vc = VaccineTypeViewController()
+        let vc = VaccineSelectViewController()
         vc.modalPresentationStyle = .formSheet
         vc.completionHandler = { (title, variation) in
             self.vaccineTypeTextField.text = "\(variation) - \(title)"

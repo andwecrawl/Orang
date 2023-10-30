@@ -10,7 +10,7 @@ import UIKit
 protocol VaccineProtocol {
     func addButtonHandler()
     func deleteButtonHandler()
-    func presentVaccineVC(vc: VaccineTypeViewController)
+    func presentVaccineVC(vc: VaccineSelectViewController)
 }
 
 
@@ -161,7 +161,6 @@ extension VaccineViewController {
     }
     
     func setupDatePicker(textField: UITextField) {
-        // 여기서 datePicker를 weak로 써줘야 하나?
         let datePicker = UIDatePicker()
         datePicker.tag = textField.tag
         
@@ -266,7 +265,7 @@ extension VaccineViewController: VaccineProtocol {
         vaccineCollectionView.reloadData()
     }
     
-    func presentVaccineVC(vc: VaccineTypeViewController) {
+    func presentVaccineVC(vc: VaccineSelectViewController) {
 
         guard let selectedPet else { return }
         vc.selectedPet = selectedPet.first

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class VaccineTypeViewController: BaseViewController {
+class VaccineSelectViewController: BaseViewController {
     
     let informationLabel = UILabel.labelBuilder(size: 15, weight: .semibold)
     
@@ -182,7 +182,7 @@ class VaccineTypeViewController: BaseViewController {
     
 }
 
-extension VaccineTypeViewController {
+extension VaccineSelectViewController {
     
     private func configureDataSource() {
         
@@ -241,7 +241,7 @@ extension VaccineTypeViewController {
     
 }
 
-extension VaccineTypeViewController: UICollectionViewDelegate {
+extension VaccineSelectViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         guard let menuItem = self.dataSource.itemIdentifier(for: indexPath) else { return }
         

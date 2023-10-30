@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		D1370A5C2ADC017900FCBD67 /* AdditionalMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */; };
-		D1370A5E2ADC103300FCBD67 /* VaccineTypeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5D2ADC103300FCBD67 /* VaccineTypeViewController.swift */; };
+		D1370A5E2ADC103300FCBD67 /* VaccineSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5D2ADC103300FCBD67 /* VaccineSelectViewController.swift */; };
 		D1370A662ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */; };
 		D1370A682ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A672ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift */; };
 		D1370A6D2ADE5C3800FCBD67 /* moveToFirstScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A6C2ADE5C3800FCBD67 /* moveToFirstScene.swift */; };
@@ -124,7 +124,7 @@
 
 /* Begin PBXFileReference section */
 		D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalMemoViewController.swift; sourceTree = "<group>"; };
-		D1370A5D2ADC103300FCBD67 /* VaccineTypeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineTypeViewController.swift; sourceTree = "<group>"; };
+		D1370A5D2ADC103300FCBD67 /* VaccineSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineSelectViewController.swift; sourceTree = "<group>"; };
 		D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1370A672ADD156A00FCBD67 /* VaccineAddCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineAddCollectionViewCell.swift; sourceTree = "<group>"; };
 		D1370A6C2ADE5C3800FCBD67 /* moveToFirstScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moveToFirstScene.swift; sourceTree = "<group>"; };
@@ -256,7 +256,7 @@
 		D1370A5F2ADC556400FCBD67 /* VaccineType */ = {
 			isa = PBXGroup;
 			children = (
-				D1370A5D2ADC103300FCBD67 /* VaccineTypeViewController.swift */,
+				D1370A5D2ADC103300FCBD67 /* VaccineSelectViewController.swift */,
 			);
 			path = VaccineType;
 			sourceTree = "<group>";
@@ -972,7 +972,7 @@
 				D1370A982AE2707100FCBD67 /* EmptyView.swift in Sources */,
 				D1BA594C2AC82901007437F4 /* Design.swift in Sources */,
 				D1BB7FCD2AD544CA001FFF1C /* RecordType.swift in Sources */,
-				D1370A5E2ADC103300FCBD67 /* VaccineTypeViewController.swift in Sources */,
+				D1370A5E2ADC103300FCBD67 /* VaccineSelectViewController.swift in Sources */,
 				D1BB80122ADA6C75001FFF1C /* Pee.swift in Sources */,
 				D1BA59272AC3329C007437F4 /* BaseViewController.swift in Sources */,
 				D1BB7FC42AD52082001FFF1C /* MedicalRecordTable.swift in Sources */,
