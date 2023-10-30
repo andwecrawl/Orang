@@ -89,7 +89,7 @@ extension UIButton {
             switch button.state {
                 
             case .selected:
-                container.foregroundColor = Design.Color.buttonContent
+                container.foregroundColor = Design.Color.content
                 configuration.attributedTitle = AttributedString(title, attributes: container)
                 configuration.image = UIImage(systemName: "checkmark.square.fill")
             case .highlighted:
