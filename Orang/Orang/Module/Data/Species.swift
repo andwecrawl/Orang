@@ -9,7 +9,7 @@ import Foundation
 import RealmSwift
 import UIKit
 
-enum Species: String, PersistableEnum, CaseIterable {
+enum Species: Int, PersistableEnum, CaseIterable {
     case dog
     case cat
     case hamster
@@ -19,12 +19,16 @@ enum Species: String, PersistableEnum, CaseIterable {
     case reptile
     case etc
     
+    var rawString: String {
+        return String(describing: self)
+    }
+    
     var toString: String {
         return String(describing: self).localized()
     }
     
     var image: UIImage {
-        if let image = UIImage(named: self.rawValue) {
+        if let image = UIImage(named: self.rawString) {
             return image.withTintColor(Design.Color.background, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 80, height: 80))
         } else {
             return UIImage(systemName: "pawprint")!.withTintColor(Design.Color.background, renderingMode: .alwaysTemplate).resized(to: CGSize(width: 80, height: 80))
