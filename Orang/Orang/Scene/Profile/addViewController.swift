@@ -235,6 +235,7 @@ final class AddViewController: BaseViewController {
         
         viewModel.species.bind { species in
             self.mainView.speciesTextField.text = species?.toString
+            self.mainView.speciesImageView.image = species?.image
             self.mainView.idkRegistrationButton.isHidden = self.viewModel.registrationStackisHidden
             self.mainView.detailStackView.isHidden = self.viewModel.detailSectionIsHidden
         }

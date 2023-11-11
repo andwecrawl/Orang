@@ -100,6 +100,7 @@ extension AddViewController: PHPickerViewControllerDelegate {
             itemProvider.loadObject(ofClass: type) { [weak self](image, error) in
                 if let image = image as? UIImage {
                     DispatchQueue.main.async {
+                        self?.mainView.speciesImageView.isHidden = true
                         self?.mainView.profileImageView.image = image
                     }
                 } else {
