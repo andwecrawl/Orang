@@ -5,31 +5,12 @@
 //  Created by yeoni on 2023/10/23.
 //
 
-
-/*
- var components = DateComponents()
- components.calendar = calendar
-
- // datePicker max 날짜 세팅 -> 오늘 날짜 에서
- //
- components.year = -1
- components.month = 12
- let maxDate = calendar.date(byAdding: components, to: currentDate)!
-
- // datePicker min 날짜 세팅 -> 30년 전 까지
- //
- components.year = -31
- let minDate = calendar.date(byAdding: components, to: currentDate)!
-
- datePicker.minimumDate = minDate
- datePicker.maximumDate = maxDate
- */
-
-
 import Foundation
 import RealmSwift
 
 class AddViewModel {
+    
+    let repository = PetTableRepository()
     
     var species: Observable<Species?> = Observable(nil)
     var detailSpecies: Observable<String?> = Observable("")
@@ -47,8 +28,10 @@ class AddViewModel {
     private var hasWeight = false
     private var validUnit = false
     private var canRegistrate = false
+    private var canSave = false
     
     func checkValidations() {
+    func savePetData() {
         
     }
     
