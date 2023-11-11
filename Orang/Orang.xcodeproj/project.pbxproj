@@ -253,6 +253,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D12B91C22AFF95E0006451FE /* LaunchVC */ = {
+			isa = PBXGroup;
+			children = (
+				D1F08BE52AE824BE007E793C /* SplashViewController.swift */,
+				D1F08BEB2AE83E31007E793C /* LaunchViewController.swift */,
+			);
+			path = LaunchVC;
+			sourceTree = "<group>";
+		};
 		D1370A5F2ADC556400FCBD67 /* VaccineType */ = {
 			isa = PBXGroup;
 			children = (
@@ -449,8 +458,7 @@
 			children = (
 				D1BA58FF2AC330E9007437F4 /* AppDelegate.swift */,
 				D1BA59012AC330E9007437F4 /* SceneDelegate.swift */,
-				D1F08BE52AE824BE007E793C /* SplashViewController.swift */,
-				D1F08BEB2AE83E31007E793C /* LaunchViewController.swift */,
+				D12B91C22AFF95E0006451FE /* LaunchVC */,
 			);
 			path = Application;
 			sourceTree = "<group>";
@@ -606,7 +614,6 @@
 				D1B52F162AD0383A00477A14 /* Species.swift */,
 				D1370AB52AE6D7BA00FCBD67 /* TableData */,
 				D1BB800F2ADA6C31001FFF1C /* RecordType */,
-				D18273132AD2CEA200F4709B /* Unit.swift */,
 				D1BB7FBA2AD4680D001FFF1C /* AlertSetting */,
 			);
 			path = Data;
@@ -775,6 +782,7 @@
 			children = (
 				D1BB7FCC2AD544CA001FFF1C /* RecordType.swift */,
 				D1370A6E2ADE600700FCBD67 /* MedicalRecordType.swift */,
+				D18273132AD2CEA200F4709B /* Unit.swift */,
 				D1BB80192ADA715D001FFF1C /* CheckRecord */,
 				D1BB80102ADA6C6D001FFF1C /* PeePoo */,
 				D1BB801A2ADA7165001FFF1C /* AbnormalSymptoms */,
