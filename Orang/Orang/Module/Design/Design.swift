@@ -10,8 +10,6 @@ import UIKit
 class Design {
     enum image {
         // 자잘한 이미지들
-        static let bg1 = "California"
-        static let bg2 = "Ronchi"
         
         static let poo = "poo"
         
