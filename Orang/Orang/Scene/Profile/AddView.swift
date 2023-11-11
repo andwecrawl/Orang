@@ -10,6 +10,7 @@ import UIKit
 final class AddView: BaseView {
     
     lazy var profileImageView = UIImageView.imageViewBuilder(size: 130)
+    lazy var speciesImageView = UIImageView.imageViewBuilder(size: 80)
     lazy var profileImageButton = UIButton.profileButtonBuilder(size: 130)
     
     private lazy var speciesLabel = UILabel.labelBuilder(text: "speciesSetting".localized(), size: 16, weight: .bold, settingTitle: true)
@@ -52,6 +53,7 @@ final class AddView: BaseView {
     override func configureHierarchy() {
         [
             profileImageView,
+            speciesImageView,
             profileImageButton,
             totalSpeciesStackView,
             nameStackView,
@@ -79,6 +81,10 @@ final class AddView: BaseView {
         profileImageView.snp.makeConstraints { make in
             make.centerX.equalTo(self.safeAreaLayoutGuide)
             make.top.equalTo(self.safeAreaLayoutGuide).inset(20)
+        }
+        
+        speciesImageView.snp.makeConstraints { make in
+            make.center.equalTo(profileImageView)
         }
         
         profileImageButton.snp.makeConstraints { make in
