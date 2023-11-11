@@ -32,10 +32,7 @@ final class AddViewController: BaseViewController {
     }
     
     @objc func saveButtonClicked() {
-        guard let image = mainView.profileImageView.image else {
-            self.sendOneSidedAlert(title: "이미지를 선택해 주세요!")
-            return
-        }
+        
         let meetDate = mainView.meetDateTextField.text?.toDate() ?? Date()
         
         var birth: Date?
@@ -82,13 +79,21 @@ final class AddViewController: BaseViewController {
         let weightUnitStr = mainView.weightUnitButton.titleLabel?.text ?? "g"
         let weightUnit = Unit(rawValue: weightUnitStr) ?? .g
         
-        let newPet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate ?? Date(), weight: weight, weightUnit: weightUnit, RegistrationNum: registrationNum)
+        var newPet = PetTable(species: species, detailSpecies: detailSpecies, name: name, birthday: birth, belongDate: meetDate ?? Date(), weight: weight, weightUnit: weightUnit, RegistrationNum: registrationNum)
         
-        ImageManager.shared.makeImageString(directoryName: .profile, createDate: newPet.createdDate, images: [image]) { imageIdentifier in
-            newPet.profileImage = imageIdentifier.first!
-        } errorHandler: {
-            self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
-            return
+        
+        if let image = mainView.profileImageView.image {
+            guard let profile = saveImage(image: image, createdDate: newPet.createdDate) else {
+                self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+                return
+            }
+            newPet.profileImage = profile
+        } else if let image = mainView.speciesImageView.image {
+            guard let profile = saveImage(image: image, createdDate: newPet.createdDate) else {
+                self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+                return
+            }
+            newPet.profileImage = profile
         }
         
         if let pet {
@@ -98,6 +103,18 @@ final class AddViewController: BaseViewController {
         }
         
         navigationController?.popViewController(animated: true)
+    }
+    
+    func saveImage(image: UIImage, createdDate: Date) -> String? {
+        var profile: String?
+        ImageManager.shared.makeImageString(directoryName: .profile, createDate: createdDate, images: [image]) { imageIdentifier in
+            profile = imageIdentifier.first
+        } errorHandler: {
+            self.sendOneSidedAlert(title: "failToSaveImage".localized(), message: "plzRetry".localized())
+            return
+        }
+        return profile
+        
     }
     
     func hasError(species: Species?, detailSpecies: String, name: String, birth: Date?, meetDate: Date?, weight: Float?) -> Bool {
