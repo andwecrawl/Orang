@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D12B91C42B00F8D9006451FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D12B91C32B00F8D9006451FE /* GoogleService-Info.plist */; };
+		D12B91C72B00F953006451FE /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D12B91C62B00F953006451FE /* FirebaseAnalyticsWithoutAdIdSupport */; };
+		D12B91C92B00F953006451FE /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D12B91C82B00F953006451FE /* FirebaseCrashlytics */; };
+		D12B91CB2B00F953006451FE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D12B91CA2B00F953006451FE /* FirebaseMessaging */; };
 		D1370A5C2ADC017900FCBD67 /* AdditionalMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */; };
 		D1370A5E2ADC103300FCBD67 /* VaccineSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5D2ADC103300FCBD67 /* VaccineSelectViewController.swift */; };
 		D1370A662ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */; };
@@ -123,6 +127,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D12B91C32B00F8D9006451FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalMemoViewController.swift; sourceTree = "<group>"; };
 		D1370A5D2ADC103300FCBD67 /* VaccineSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineSelectViewController.swift; sourceTree = "<group>"; };
 		D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -242,11 +247,14 @@
 			files = (
 				D1370A7D2AE041DE00FCBD67 /* Toast in Frameworks */,
 				D1BB7FE72AD693A1001FFF1C /* M13Checkbox in Frameworks */,
+				D12B91CB2B00F953006451FE /* FirebaseMessaging in Frameworks */,
 				D1BB7FE32AD68F74001FFF1C /* RealmSwift in Frameworks */,
 				D18273102AD26F5900F4709B /* FSCalendar in Frameworks */,
 				D1BB7FDE2AD68F65001FFF1C /* SnapKit in Frameworks */,
 				D1B52EC02AC9918000477A14 /* IQKeyboardManagerSwift in Frameworks */,
+				D12B91C92B00F953006451FE /* FirebaseCrashlytics in Frameworks */,
 				D1BB7FE12AD68F74001FFF1C /* Realm in Frameworks */,
+				D12B91C72B00F953006451FE /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -544,6 +552,7 @@
 				D1F08BC22AE7D747007E793C /* font */,
 				D1F08BF82AE91058007E793C /* LaunchScreen.storyboard */,
 				D1BA590D2AC330EA007437F4 /* Info.plist */,
+				D12B91C32B00F8D9006451FE /* GoogleService-Info.plist */,
 			);
 			path = Orang;
 			sourceTree = "<group>";
@@ -857,6 +866,7 @@
 				D1BA58F82AC330E9007437F4 /* Sources */,
 				D1BA58F92AC330E9007437F4 /* Frameworks */,
 				D1BA58FA2AC330E9007437F4 /* Resources */,
+				D12B91CC2B00FAC4006451FE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -871,6 +881,9 @@
 				D1BB7FE22AD68F74001FFF1C /* RealmSwift */,
 				D1BB7FE62AD693A1001FFF1C /* M13Checkbox */,
 				D1370A7C2AE041DE00FCBD67 /* Toast */,
+				D12B91C62B00F953006451FE /* FirebaseAnalyticsWithoutAdIdSupport */,
+				D12B91C82B00F953006451FE /* FirebaseCrashlytics */,
+				D12B91CA2B00F953006451FE /* FirebaseMessaging */,
 			);
 			productName = Orang;
 			productReference = D1BA58FC2AC330E9007437F4 /* Orang.app */;
@@ -908,6 +921,7 @@
 				D1BB7FDF2AD68F74001FFF1C /* XCRemoteSwiftPackageReference "realm-swift" */,
 				D1BB7FE52AD693A1001FFF1C /* XCRemoteSwiftPackageReference "M13Checkbox" */,
 				D1370A7B2AE041DE00FCBD67 /* XCRemoteSwiftPackageReference "Toast-Swift" */,
+				D12B91C52B00F953006451FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = D1BA58FD2AC330E9007437F4 /* Products */;
 			projectDirPath = "";
@@ -925,6 +939,7 @@
 			files = (
 				D1F08BD32AE7D747007E793C /* SCDream4.otf in Resources */,
 				D1F08BDC2AE7F41F007E793C /* InfoPlist.strings in Resources */,
+				D12B91C42B00F8D9006451FE /* GoogleService-Info.plist in Resources */,
 				D1F08C002AE91746007E793C /* Doggo_2.png in Resources */,
 				D1F08BD12AE7D747007E793C /* SCDream7.otf in Resources */,
 				D1F08BEA2AE82E13007E793C /* ChangwonDangam.otf in Resources */,
@@ -941,6 +956,31 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D12B91CC2B00FAC4006451FE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${PRODUCT_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Info.plist",
+				"$(TARGET_BUILD_DIR)/$(UNLOCALIZED_RESOURCES_FOLDER_PATH)/GoogleService-Info.plist",
+				"$(TARGET_BUILD_DIR)/$(EXECUTABLE_PATH)",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		D1BA58F82AC330E9007437F4 /* Sources */ = {
@@ -1100,7 +1140,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
@@ -1276,6 +1316,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		D12B91C52B00F953006451FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.17.0;
+			};
+		};
 		D1370A7B2AE041DE00FCBD67 /* XCRemoteSwiftPackageReference "Toast-Swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/scalessec/Toast-Swift.git";
@@ -1327,6 +1375,21 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		D12B91C62B00F953006451FE /* FirebaseAnalyticsWithoutAdIdSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D12B91C52B00F953006451FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalyticsWithoutAdIdSupport;
+		};
+		D12B91C82B00F953006451FE /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D12B91C52B00F953006451FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+		D12B91CA2B00F953006451FE /* FirebaseMessaging */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D12B91C52B00F953006451FE /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseMessaging;
+		};
 		D1370A7C2AE041DE00FCBD67 /* Toast */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = D1370A7B2AE041DE00FCBD67 /* XCRemoteSwiftPackageReference "Toast-Swift" */;
