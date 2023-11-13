@@ -6,7 +6,8 @@
 //
 
 import UIKit
-import Firebase
+import FirebaseCore
+import FirebaseMessaging
 
 import IQKeyboardManagerSwift
 
@@ -28,6 +29,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UITableView.appearance().backgroundColor = Design.Color.background
         
         FirebaseApp.configure()
+        
+        
+        UNUserNotificationCenter.current().delegate = self
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { _, _ in }
+        )
+        
+        application.registerForRemoteNotifications()
+        
+        
+        Messaging.messaging().delegate = self
+        
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("FC registration token: \(token)")
+            }
+        }
+        
+        
         return true
     }
 
@@ -48,3 +73,51 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        let token = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
+        print("apple token: \(token)")
+        Messaging.messaging().apnsToken = deviceToken
+    }
+    
+//    func registerForRemoteNotification(application: UIApplication) {
+//        UNUserNotificationCenter.current().delegate = self
+//        
+//        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+//        UNUserNotificationCenter.current().requestAuthorization(
+//            options: authOptions,
+//            completionHandler: { _, _ in }
+//        )
+//
+//        application.registerForRemoteNotifications()
+//    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    
+//    func registerAndLoadToken() {
+//        
+//        Messaging.messaging().token { token, error in
+//            if let error = error {
+//                print("Error fetching FCM registration token: \(error)")
+//            } else if let token = token {
+//                print("FC registration token: \(token)")
+//            }
+//        }
+//    }
+    
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
+        print("\(String(describing: fcmToken))")
+        
+        // 토큰 갱신 모니터링
+        let dataDict: [String: String] = ["token": fcmToken ?? ""]
+        NotificationCenter.default.post(
+            name: Notification.Name("FCMToken"),
+            object: nil,
+            userInfo: dataDict
+        )
+    }
+    
+}

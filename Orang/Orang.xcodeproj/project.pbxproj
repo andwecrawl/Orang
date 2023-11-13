@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D12B91C42B00F8D9006451FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D12B91C32B00F8D9006451FE /* GoogleService-Info.plist */; };
 		D12B91C72B00F953006451FE /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D12B91C62B00F953006451FE /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D12B91C92B00F953006451FE /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = D12B91C82B00F953006451FE /* FirebaseCrashlytics */; };
 		D12B91CB2B00F953006451FE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D12B91CA2B00F953006451FE /* FirebaseMessaging */; };
+		D12B91EE2B020777006451FE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D12B91ED2B020777006451FE /* GoogleService-Info.plist */; };
 		D1370A5C2ADC017900FCBD67 /* AdditionalMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */; };
 		D1370A5E2ADC103300FCBD67 /* VaccineSelectViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A5D2ADC103300FCBD67 /* VaccineSelectViewController.swift */; };
 		D1370A662ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */; };
@@ -127,7 +127,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D12B91C32B00F8D9006451FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D12B91ED2B020777006451FE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
+		D12B91EF2B020B3A006451FE /* Orang.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Orang.entitlements; sourceTree = "<group>"; };
 		D1370A5B2ADC017900FCBD67 /* AdditionalMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdditionalMemoViewController.swift; sourceTree = "<group>"; };
 		D1370A5D2ADC103300FCBD67 /* VaccineSelectViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineSelectViewController.swift; sourceTree = "<group>"; };
 		D1370A652ADD156100FCBD67 /* VaccineCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VaccineCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -543,6 +544,7 @@
 		D1BA58FE2AC330E9007437F4 /* Orang */ = {
 			isa = PBXGroup;
 			children = (
+				D12B91EF2B020B3A006451FE /* Orang.entitlements */,
 				D1B52ECD2ACBE7FF00477A14 /* Application */,
 				D1BA59212AC33249007437F4 /* Scene */,
 				D1BA59222AC33256007437F4 /* Module */,
@@ -552,7 +554,7 @@
 				D1F08BC22AE7D747007E793C /* font */,
 				D1F08BF82AE91058007E793C /* LaunchScreen.storyboard */,
 				D1BA590D2AC330EA007437F4 /* Info.plist */,
-				D12B91C32B00F8D9006451FE /* GoogleService-Info.plist */,
+				D12B91ED2B020777006451FE /* GoogleService-Info.plist */,
 			);
 			path = Orang;
 			sourceTree = "<group>";
@@ -939,13 +941,13 @@
 			files = (
 				D1F08BD32AE7D747007E793C /* SCDream4.otf in Resources */,
 				D1F08BDC2AE7F41F007E793C /* InfoPlist.strings in Resources */,
-				D12B91C42B00F8D9006451FE /* GoogleService-Info.plist in Resources */,
 				D1F08C002AE91746007E793C /* Doggo_2.png in Resources */,
 				D1F08BD12AE7D747007E793C /* SCDream7.otf in Resources */,
 				D1F08BEA2AE82E13007E793C /* ChangwonDangam.otf in Resources */,
 				D1F08BCE2AE7D747007E793C /* SCDream3.otf in Resources */,
 				D1F08BF92AE91058007E793C /* LaunchScreen.storyboard in Resources */,
 				D1F08BD22AE7D747007E793C /* SCDream5.otf in Resources */,
+				D12B91EE2B020777006451FE /* GoogleService-Info.plist in Resources */,
 				D1F08C012AE91746007E793C /* Doggo_3.png in Resources */,
 				D1F08BD02AE7D747007E793C /* SCDream6.otf in Resources */,
 				D1F08BD82AE7D94D007E793C /* LeeSeoyun.otf in Resources */,
@@ -1229,6 +1231,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Orang/Orang.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X686YG6VXT;
@@ -1263,6 +1266,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Orang/Orang.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X686YG6VXT;
