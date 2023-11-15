@@ -30,28 +30,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         FirebaseApp.configure()
         
+        registerForRemoteNotification(application: application)
         
-        UNUserNotificationCenter.current().delegate = self
-        
-        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-        UNUserNotificationCenter.current().requestAuthorization(
-            options: authOptions,
-            completionHandler: { _, _ in }
-        )
-        
-        application.registerForRemoteNotifications()
-        
-        
-        Messaging.messaging().delegate = self
-        
-        Messaging.messaging().token { token, error in
-            if let error = error {
-                print("Error fetching FCM registration token: \(error)")
-            } else if let token = token {
-                print("FC registration token: \(token)")
-            }
-        }
-        
+        registerAndLoadToken()
         
         return true
     }
@@ -82,31 +63,33 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         Messaging.messaging().apnsToken = deviceToken
     }
     
-//    func registerForRemoteNotification(application: UIApplication) {
-//        UNUserNotificationCenter.current().delegate = self
-//        
-//        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-//        UNUserNotificationCenter.current().requestAuthorization(
-//            options: authOptions,
-//            completionHandler: { _, _ in }
-//        )
-//
-//        application.registerForRemoteNotifications()
-//    }
+    func registerForRemoteNotification(application: UIApplication) {        UNUserNotificationCenter.current().delegate = self
+        
+        let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+        UNUserNotificationCenter.current().requestAuthorization(
+            options: authOptions,
+            completionHandler: { _, _ in }
+        )
+        
+        application.registerForRemoteNotifications()
+    }
 }
+
 
 extension AppDelegate: MessagingDelegate {
     
-//    func registerAndLoadToken() {
-//        
-//        Messaging.messaging().token { token, error in
-//            if let error = error {
-//                print("Error fetching FCM registration token: \(error)")
-//            } else if let token = token {
-//                print("FC registration token: \(token)")
-//            }
-//        }
-//    }
+    func registerAndLoadToken() {
+        
+        Messaging.messaging().delegate = self
+        
+        Messaging.messaging().token { token, error in
+            if let error = error {
+                print("Error fetching FCM registration token: \(error)")
+            } else if let token = token {
+                print("FC registration token: \(token)")
+            }
+        }
+    }
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         print("\(String(describing: fcmToken))")
