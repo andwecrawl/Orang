@@ -412,20 +412,20 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
                     return (title, subtitle, [profileImage, diaryImage])
                 }
             case .weight:
-                let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+                let title = "\(pet.name)의 \(record.recordType)"
                 let weight = record.weight ?? 0
                 let subtitle = "\(weight)\(unit)"
                 let typeImage = record.recordType.image
                 return (title, subtitle, [profileImage, typeImage])
             case .snack:
-                let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+                let title = "\(pet.name)의 \(record.recordType)"
                 let snack = record.snackAmount ?? 0
                 let snackSpecies = record.snackSpecies ?? ""
                 let subtitle = "\(snackSpecies): \(snack)\(unit)"
                 let typeImage = record.recordType.image
                 return (title, subtitle, [profileImage, typeImage])
             case .pooPee:
-                let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+                let title = "\(pet.name)의 \(record.recordType)"
                 let typeImage = record.recordType.image
                 if let peeColor = record.peeColor {
                     let subtitle = peeColor.title
@@ -435,7 +435,7 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
                     return (title, subtitle, [profileImage, typeImage])
                 }
             case .abnormalSymptoms:
-                let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+                let title = "\(pet.name)의 \(record.recordType)"
                 let subtitle = record.abnormalSymptomsArray.map({
                     if $0 == .others {
                         return record.content ?? ""
@@ -456,7 +456,7 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
         if let pet = petList.filter({ $0._id == petID }).first {
             let profileImage = ImageManager.shared.loadImageFromDirectory(directoryName: .profile, with: pet.profileImage)
             let typeImage = record.recordType.image
-            let title = "\(pet.name)의 \(record.recordType.recordDescriptions)"
+            let title = "\(pet.name)의 \(record.description)"
             
             if recordType == .vaccine {
                 

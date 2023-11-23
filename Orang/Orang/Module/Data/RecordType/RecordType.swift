@@ -8,7 +8,7 @@
 import UIKit
 import RealmSwift
 
-enum RecordType: Int, PersistableEnum {
+enum RecordType: Int, PersistableEnum, CustomStringConvertible {
     case diary
     case weight
     case snack
@@ -17,7 +17,7 @@ enum RecordType: Int, PersistableEnum {
     case vaccine
     case medicalHistory
     
-    var recordDescriptions: String {
+    var description: String {
         switch self {
         case .diary:
             return "diaryRecordDescriptions".localized()
