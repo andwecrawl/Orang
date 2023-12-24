@@ -67,7 +67,12 @@ class DiaryTableViewCell: BaseTableViewCell {
     }
     
     override func setAccessibility() {
+        
+        textStackView.accessibilityLabel = "제목 \(titleLabel.text ?? "") 내용  \(subtitleLabel.text ?? "")"
+        [titleLabel, subtitleLabel].forEach{ $0.isAccessibilityElement = false }
+        
+        diaryImageView.accessibilityLabel = "accessibilityHint_diaryImageView".localized()
         arrowImageView.accessibilityHint = "accessibilityHint_arrayImageView".localized() // 추후 수정
-        self.accessibilityElements = [titleLabel, subtitleLabel]
+        self.accessibilityElements = [diaryImageView, textStackView]
     }
 }
