@@ -12,6 +12,7 @@ class BaseTableViewCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        isAccessibilityElement = false
         configureHierarchy()
         setConstraints()
         configureView()
@@ -36,6 +37,10 @@ class BaseTableViewCell: UITableViewCell {
     }
     
     func configureView() {
+        
+    }
+    
+    func setAccessibility() {
         
     }
 }

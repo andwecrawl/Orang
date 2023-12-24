@@ -12,6 +12,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        isAccessibilityElement = false
         configureHierarchy()
         setConstraints()
         configureView()
@@ -35,4 +36,7 @@ class BaseCollectionViewCell: UICollectionViewCell {
         
     }
     
+    func setAccessability() {
+        
+    }
 }
