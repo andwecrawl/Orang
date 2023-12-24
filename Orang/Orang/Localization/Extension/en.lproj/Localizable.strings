@@ -316,3 +316,8 @@
 "symptomsRecordDescriptions" = "Abnormal Symptoms";
 "vaccineRecordDescriptions" = "Vaccinations";
 "medicalHistoryRecordDescriptions" = "Medical History";
+
+
+// AccesabilityHint
+
+"AccesabilityHint_Title" = "This is Tab Title."
