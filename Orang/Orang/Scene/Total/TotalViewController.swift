@@ -78,6 +78,8 @@ final class TotalViewController: BaseViewController, UIScrollViewDelegate {
     override func setNavigationBar() {
         super.setNavigationBar()
         title = "totalNavigationTitle".localized()
+        navigationController?.accessibilityLabel = title
+        navigationController?.accessibilityHint = "accessibilityHint_title".localized()
     }
     
     override func configureHierarchy() {
@@ -308,6 +310,7 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.addAboveTheBottomBorderWithColor(color: Design.Color.buttonBackground)
                 }
             }
+            cell.setAccessibility()
             return cell
             
         } else if dailyView.tableView == tableView {
@@ -327,6 +330,7 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.addAboveTheBottomBorderWithColor(color: Design.Color.buttonBackground)
                 }
             }
+            cell.setAccessibility()
             return cell
 
         } else { // medicalView
@@ -348,7 +352,7 @@ extension TotalViewController: UITableViewDelegate, UITableViewDataSource {
                     cell.addAboveTheBottomBorderWithColor(color: Design.Color.buttonBackground)
                 }
             }
-            
+            cell.setAccessibility()
             return cell
         }
     }
