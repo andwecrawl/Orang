@@ -35,7 +35,10 @@ class DailyTempTableViewCell: BaseTableViewCell {
             textStackView,
             arrowImageView
         ]
-            .forEach { self.addSubview($0) }
+            .forEach { 
+                self.addSubview($0)
+                $0.isAccessibilityElement = true
+            }
         
         textStackView.addArrangedSubviews([titleLabel, subtitleLabel])
     }
@@ -79,4 +82,9 @@ class DailyTempTableViewCell: BaseTableViewCell {
         subtitleLabel.numberOfLines = 2
     }
     
+    
+    override func setAccessibility() {
+        arrowImageView.accessibilityHint = "accessibilityHint_arrayImageView".localized() // 추후 수정
+        self.accessibilityElements = [titleLabel, subtitleLabel]
+    }
 }
