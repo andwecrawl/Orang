@@ -331,7 +331,7 @@
 // accessibilityHint
 
 "accessibilityHint_title" = "탭 타이틀";
-"accessibilityHint_previousButton" = "지난 달로 이동하는 버튼";
-"accessibilityHint_nextButton" = "다음 달로 이동하는 버튼";
+"accessibilityHint_previousButton" = "지난 달 버튼";
+"accessibilityHint_nextButton" = "다음 달 버튼";
 "accessibilityHint_diaryImageView" = "아이 사진";
 "accessibilityHint_arrayImageView" = "디테일 화면으로 이동";

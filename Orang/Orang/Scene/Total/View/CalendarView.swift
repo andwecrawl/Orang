@@ -22,6 +22,7 @@ final class CalendarView: BaseView {
         let button = UIButton()
         let config = UIImage.SymbolConfiguration(weight: .semibold)
         let image = UIImage(systemName: "chevron.left", withConfiguration: config)
+        button.accessibilityLabel = "accessibilityHint_previousButton".localized()
         button.setImage(image, for: .normal)
         return button
     }()
@@ -30,6 +31,7 @@ final class CalendarView: BaseView {
         let button = UIButton()
         let config = UIImage.SymbolConfiguration(weight: .semibold)
         let image = UIImage(systemName: "chevron.right", withConfiguration: config)
+        button.accessibilityLabel = "accessibilityHint_nextButton".localized()
         button.setImage(image, for: .normal)
         return button
     }()
