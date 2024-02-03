@@ -549,9 +549,7 @@
 				D1BA59212AC33249007437F4 /* Scene */,
 				D1BA59222AC33256007437F4 /* Module */,
 				D1BA594D2AC82ADC007437F4 /* Localization */,
-				D1BA59082AC330EA007437F4 /* Assets.xcassets */,
-				D1F08BF72AE90CD8007E793C /* launchScreenAsset */,
-				D1F08BC22AE7D747007E793C /* font */,
+				D1C67B792B6D0323009AD2A7 /* Resource */,
 				D1F08BF82AE91058007E793C /* LaunchScreen.storyboard */,
 				D1BA590D2AC330EA007437F4 /* Info.plist */,
 				D12B91ED2B020777006451FE /* GoogleService-Info.plist */,
@@ -824,6 +822,16 @@
 				D1BB7FD32AD679DF001FFF1C /* AbnormalSymptoms.swift */,
 			);
 			path = AbnormalSymptoms;
+			sourceTree = "<group>";
+		};
+		D1C67B792B6D0323009AD2A7 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				D1BA59082AC330EA007437F4 /* Assets.xcassets */,
+				D1F08BF72AE90CD8007E793C /* launchScreenAsset */,
+				D1F08BC22AE7D747007E793C /* font */,
+			);
+			path = Resource;
 			sourceTree = "<group>";
 		};
 		D1F08BC22AE7D747007E793C /* font */ = {
