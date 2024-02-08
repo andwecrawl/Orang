@@ -30,10 +30,8 @@ class AddViewModel {
     private var canRegistrate = false
     private var canSave = false
     
-    func checkValidations() {
-    func savePetData() {
-        
-    }
+    func checkValidations() { }
+    func savePetData() { }
     
     var registrationStackisHidden: Bool {
         if species.value == .cat || species.value == .dog {
