@@ -33,6 +33,9 @@ class SettingViewController: BaseViewController {
         
     }
     
+    override func setNavigationBar() {
+        title = "환경 설정"
+    }
     
     override func configureHierarchy() {
         super.configureHierarchy()
@@ -83,6 +86,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource {
             
         }
         
+        tableView.reloadRows(at: [indexPath], with: .automatic)
         navigationController?.pushViewController(vc, animated: true)
     }
 }
