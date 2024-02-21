@@ -3,7 +3,7 @@
   "strings" : {
     "1st_dose" : {
       "comment" : "Vaccination Schedule",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -20,7 +20,7 @@
       }
     },
     "2nd_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -37,7 +37,7 @@
       }
     },
     "3rd_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -54,7 +54,7 @@
       }
     },
     "4th_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -71,7 +71,7 @@
       }
     },
     "5th_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -88,7 +88,7 @@
       }
     },
     "6th_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -105,7 +105,7 @@
       }
     },
     "68weeks" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -122,7 +122,7 @@
       }
     },
     "810weeks" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -139,7 +139,7 @@
       }
     },
     "1012weeks" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -156,7 +156,7 @@
       }
     },
     "1214weeks" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -173,7 +173,7 @@
       }
     },
     "1416weeks" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -190,7 +190,7 @@
       }
     },
     "1618weeks" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -207,7 +207,7 @@
       }
     },
     "abdominalDistention" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -224,7 +224,7 @@
       }
     },
     "abdominalDistentionTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -241,7 +241,7 @@
       }
     },
     "abnormalSymptoms" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -259,7 +259,7 @@
     },
     "AbnormalSymptomsNavigationTitle" : {
       "comment" : "AbnormalSymptoms",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -277,7 +277,7 @@
     },
     "AccesabilityHint_Title" : {
       "comment" : "AccesabilityHint",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -294,7 +294,7 @@
       }
     },
     "accessibilityHint_arrayImageView" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -305,7 +305,7 @@
       }
     },
     "accessibilityHint_diaryImageView" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -316,7 +316,7 @@
       }
     },
     "accessibilityHint_nextButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -327,7 +327,7 @@
       }
     },
     "accessibilityHint_previousButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -339,7 +339,7 @@
     },
     "accessibilityHint_title" : {
       "comment" : "accessibilityHint",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "ko" : {
           "stringUnit" : {
@@ -351,7 +351,7 @@
     },
     "additionalInfoInformationLabel" : {
       "comment" : "AdditionInfoVC",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -368,7 +368,7 @@
       }
     },
     "AdditionalMemo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -385,7 +385,7 @@
       }
     },
     "addVaccineType" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -403,7 +403,7 @@
     },
     "AlertNavigationTitle" : {
       "comment" : "AlertVC",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -420,7 +420,7 @@
       }
     },
     "amount" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -437,7 +437,7 @@
       }
     },
     "annually_vaccination" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -454,7 +454,7 @@
       }
     },
     "antibody_test" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -472,7 +472,7 @@
     },
     "basic_vaccination" : {
       "comment" : "Vaccine Names",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -489,7 +489,7 @@
       }
     },
     "basic1st_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -506,7 +506,7 @@
       }
     },
     "basic2nd_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -523,7 +523,7 @@
       }
     },
     "basic3rd_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -540,7 +540,7 @@
       }
     },
     "basic4th_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -557,7 +557,7 @@
       }
     },
     "basic5th_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -574,7 +574,7 @@
       }
     },
     "basic6th_dose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -591,7 +591,7 @@
       }
     },
     "basicVaccinations" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -608,7 +608,7 @@
       }
     },
     "belongDate %d" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -625,7 +625,7 @@
       }
     },
     "belongDateSetting" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -642,7 +642,7 @@
       }
     },
     "birthdaySetting" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -659,7 +659,7 @@
       }
     },
     "blackPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -676,7 +676,7 @@
       }
     },
     "blackTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -693,7 +693,7 @@
       }
     },
     "bloodyStool" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -710,7 +710,7 @@
       }
     },
     "bloodyStoolTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -727,7 +727,7 @@
       }
     },
     "bordetella" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -744,7 +744,7 @@
       }
     },
     "brownPee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -761,7 +761,7 @@
       }
     },
     "brownPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -778,7 +778,7 @@
       }
     },
     "brownTitlePee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -796,7 +796,7 @@
     },
     "brownTitlePoo" : {
       "comment" : "PooColor",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -813,7 +813,7 @@
       }
     },
     "canine_influenza" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -830,7 +830,7 @@
       }
     },
     "cat" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -847,7 +847,7 @@
       }
     },
     "caught" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -864,7 +864,7 @@
       }
     },
     "caughtTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -881,7 +881,7 @@
       }
     },
     "chooseSpecies" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -898,7 +898,7 @@
       }
     },
     "comprehensive_vaccine" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -915,7 +915,7 @@
       }
     },
     "convulsion" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -932,7 +932,7 @@
       }
     },
     "convulsionTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -949,7 +949,7 @@
       }
     },
     "core_vaccination" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -966,7 +966,7 @@
       }
     },
     "corona_enteritis" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -984,7 +984,7 @@
     },
     "count" : {
       "comment" : "Unit",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1001,7 +1001,7 @@
       }
     },
     "crystalPee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1018,7 +1018,7 @@
       }
     },
     "crystalTitlePee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1035,7 +1035,7 @@
       }
     },
     "dailyTodo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1052,7 +1052,7 @@
       }
     },
     "dailyTodoDetail" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1069,7 +1069,7 @@
       }
     },
     "date" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1086,7 +1086,7 @@
       }
     },
     "decreaseInActivity" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1103,7 +1103,7 @@
       }
     },
     "decreaseInActivityTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1120,7 +1120,7 @@
       }
     },
     "delete" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1137,7 +1137,7 @@
       }
     },
     "deleteSubscript %@" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1154,7 +1154,7 @@
       }
     },
     "deleteTitle %@" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1171,7 +1171,7 @@
       }
     },
     "detailSettings" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1188,7 +1188,7 @@
       }
     },
     "diarrhea" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1205,7 +1205,7 @@
       }
     },
     "diarrheaTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1223,7 +1223,7 @@
     },
     "diaryNavigationTitle" : {
       "comment" : "DiaryVC",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1240,7 +1240,7 @@
       }
     },
     "diaryRecordDescriptions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1257,7 +1257,7 @@
       }
     },
     "diaryRecordDetail" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1274,7 +1274,7 @@
       }
     },
     "diaryRecordTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1291,7 +1291,7 @@
       }
     },
     "distemper_hepatitis_parvovirus" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1309,7 +1309,7 @@
     },
     "dog" : {
       "comment" : "species String",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1326,7 +1326,7 @@
       }
     },
     "doseDate_%u_to_%u_weeks" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1343,7 +1343,7 @@
       }
     },
     "dottedPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1360,7 +1360,7 @@
       }
     },
     "dottedTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1377,7 +1377,7 @@
       }
     },
     "etc" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1394,7 +1394,7 @@
       }
     },
     "external_parasites" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1411,7 +1411,7 @@
       }
     },
     "failFindSelectedPet" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1428,7 +1428,7 @@
       }
     },
     "failFindSelectedPetDetail" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1446,7 +1446,7 @@
     },
     "failToSaveImage" : {
       "comment" : "Error",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1463,7 +1463,7 @@
       }
     },
     "feces" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1480,7 +1480,7 @@
       }
     },
     "fecesAndUrine" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1497,7 +1497,7 @@
       }
     },
     "fecesColor" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1514,7 +1514,7 @@
       }
     },
     "fecesForm" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1531,7 +1531,7 @@
       }
     },
     "fillEachSections" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1548,7 +1548,7 @@
       }
     },
     "fungal_skin_disease" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1565,7 +1565,7 @@
       }
     },
     "grayPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1582,7 +1582,7 @@
       }
     },
     "grayTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1599,7 +1599,7 @@
       }
     },
     "greenPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1616,7 +1616,7 @@
       }
     },
     "greenTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1633,7 +1633,7 @@
       }
     },
     "hamster" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1650,7 +1650,7 @@
       }
     },
     "hardPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1667,7 +1667,7 @@
       }
     },
     "hardTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1684,7 +1684,7 @@
       }
     },
     "hardToBreath" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1701,7 +1701,7 @@
       }
     },
     "hardToBreathTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1718,7 +1718,7 @@
       }
     },
     "haveAFever" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1735,7 +1735,7 @@
       }
     },
     "haveAFeverTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1752,7 +1752,7 @@
       }
     },
     "heartworm" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1769,7 +1769,7 @@
       }
     },
     "hedgehog" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1786,7 +1786,7 @@
       }
     },
     "hospitalName" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1803,7 +1803,7 @@
       }
     },
     "idkBirthdayButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1820,7 +1820,7 @@
       }
     },
     "idkRegistrationNumber" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1837,7 +1837,7 @@
       }
     },
     "infectious_peritonitis" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1854,7 +1854,7 @@
       }
     },
     "inputBirthday" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1871,7 +1871,7 @@
       }
     },
     "inputDate" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1888,7 +1888,7 @@
       }
     },
     "inputDetailSpecies" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1905,7 +1905,7 @@
       }
     },
     "inputHospitalName" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1922,7 +1922,7 @@
       }
     },
     "inputMeetDate" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1939,7 +1939,7 @@
       }
     },
     "inputName" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1956,7 +1956,7 @@
       }
     },
     "inputNewRecord" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1973,7 +1973,7 @@
       }
     },
     "inputNumber" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -1990,7 +1990,7 @@
       }
     },
     "inputReasonForVisit" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2007,7 +2007,7 @@
       }
     },
     "inputRegistrationNumber" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2024,7 +2024,7 @@
       }
     },
     "inputSnackType" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2041,7 +2041,7 @@
       }
     },
     "inputTime" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2058,7 +2058,7 @@
       }
     },
     "inputVaccineType" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2075,7 +2075,7 @@
       }
     },
     "inputVaccineTypeByHand" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2092,7 +2092,7 @@
       }
     },
     "inputWeight" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2109,7 +2109,7 @@
       }
     },
     "internal_parasites" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2126,7 +2126,7 @@
       }
     },
     "isNotInTheTable" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2143,7 +2143,7 @@
       }
     },
     "leptospirosis" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2160,7 +2160,7 @@
       }
     },
     "lightYellowPee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2177,7 +2177,7 @@
       }
     },
     "lightYellowTitlePee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2194,7 +2194,7 @@
       }
     },
     "loseWeight" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2211,7 +2211,7 @@
       }
     },
     "loseWeightTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2228,7 +2228,7 @@
       }
     },
     "lossHair" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2245,7 +2245,7 @@
       }
     },
     "lossHairTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2262,7 +2262,7 @@
       }
     },
     "lyme_disease" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2279,7 +2279,7 @@
       }
     },
     "medicalAppointment" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2296,7 +2296,7 @@
       }
     },
     "medicalAppointmentDetail" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2313,7 +2313,7 @@
       }
     },
     "MedicalHistoryButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2330,7 +2330,7 @@
       }
     },
     "MedicalHistoryDetail" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2347,7 +2347,7 @@
       }
     },
     "medicalHistoryRecordDescriptions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2364,7 +2364,7 @@
       }
     },
     "MedicalRecordTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2381,7 +2381,7 @@
       }
     },
     "meetDate" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2398,7 +2398,7 @@
       }
     },
     "meetDate %@" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2415,7 +2415,7 @@
       }
     },
     "meetDateSetting" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2433,7 +2433,7 @@
     },
     "modifiy" : {
       "comment" : "AlertMessage",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2450,7 +2450,7 @@
       }
     },
     "monthly_vaccination" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2468,7 +2468,7 @@
     },
     "moreSymptomsTitle" : {
       "comment" : "AdditionalSymptoms",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2485,7 +2485,7 @@
       }
     },
     "mucusPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2502,7 +2502,7 @@
       }
     },
     "mucusTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2519,7 +2519,7 @@
       }
     },
     "mudPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2536,7 +2536,7 @@
       }
     },
     "mudTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2553,7 +2553,7 @@
       }
     },
     "nameSetting" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2570,7 +2570,7 @@
       }
     },
     "next" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2587,7 +2587,7 @@
       }
     },
     "noImageError" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2604,7 +2604,7 @@
       }
     },
     "noMoreImagesError" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2621,7 +2621,7 @@
       }
     },
     "nonePee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2638,7 +2638,7 @@
       }
     },
     "nonePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2655,7 +2655,7 @@
       }
     },
     "noneTitlePee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2672,7 +2672,7 @@
       }
     },
     "noneTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2689,7 +2689,7 @@
       }
     },
     "normalPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2707,7 +2707,7 @@
     },
     "normalTitlePoo" : {
       "comment" : "PooForm",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2724,7 +2724,7 @@
       }
     },
     "noSelectedPet" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2741,7 +2741,7 @@
       }
     },
     "noSnackAmountError" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2758,7 +2758,7 @@
       }
     },
     "noTitleError" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2775,7 +2775,7 @@
       }
     },
     "noWeightError" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2792,7 +2792,7 @@
       }
     },
     "orangePee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2809,7 +2809,7 @@
       }
     },
     "orangePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2826,7 +2826,7 @@
       }
     },
     "orangeTitlePee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2843,7 +2843,7 @@
       }
     },
     "orangeTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2860,7 +2860,7 @@
       }
     },
     "others" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2877,7 +2877,7 @@
       }
     },
     "othersTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2894,7 +2894,7 @@
       }
     },
     "peepooRecordDescriptions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2911,7 +2911,7 @@
       }
     },
     "photoAlbumButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2928,7 +2928,7 @@
       }
     },
     "plzRetry" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2945,7 +2945,7 @@
       }
     },
     "plzSelectAbnormalSymptoms" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2962,7 +2962,7 @@
       }
     },
     "plzSelectElement" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2980,7 +2980,7 @@
     },
     "pooPeeTitle" : {
       "comment" : "pooPee",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -2998,7 +2998,7 @@
     },
     "Profile" : {
       "comment" : "tabBar",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3016,7 +3016,7 @@
     },
     "ProfileNavigationTitle" : {
       "comment" : "profileVC",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3033,7 +3033,7 @@
       }
     },
     "puke" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3050,7 +3050,7 @@
       }
     },
     "pukeTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3067,7 +3067,7 @@
       }
     },
     "rabbit" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3084,7 +3084,7 @@
       }
     },
     "rabies" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3101,7 +3101,7 @@
       }
     },
     "rat" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3118,7 +3118,7 @@
       }
     },
     "reasonForVisit" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3136,7 +3136,7 @@
     },
     "recordMedicalHistory" : {
       "comment" : "Medical",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3154,7 +3154,7 @@
     },
     "recordNavigationTitle" : {
       "comment" : "RecordVC",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3171,7 +3171,7 @@
       }
     },
     "recordOf" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3188,7 +3188,7 @@
       }
     },
     "recordRecordTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3205,7 +3205,7 @@
       }
     },
     "recordTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3222,7 +3222,7 @@
       }
     },
     "redPee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3239,7 +3239,7 @@
       }
     },
     "redPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3256,7 +3256,7 @@
       }
     },
     "redTitlePee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3273,7 +3273,7 @@
       }
     },
     "redTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3290,7 +3290,7 @@
       }
     },
     "registrationNumber" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3307,7 +3307,7 @@
       }
     },
     "reptile" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3325,7 +3325,7 @@
     },
     "save" : {
       "comment" : "NavigationBar Button",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3342,7 +3342,7 @@
       }
     },
     "selectFileButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3359,7 +3359,7 @@
       }
     },
     "snackButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3376,7 +3376,7 @@
       }
     },
     "snackRecordDescriptions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3394,7 +3394,7 @@
     },
     "snackTitle" : {
       "comment" : "snack",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3411,7 +3411,7 @@
       }
     },
     "snackVariation" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3428,7 +3428,7 @@
       }
     },
     "sorryForNot %@" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3445,7 +3445,7 @@
       }
     },
     "speciesSetting" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3462,7 +3462,7 @@
       }
     },
     "symptomsRecordDescriptions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3479,7 +3479,7 @@
       }
     },
     "takePictureButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3496,7 +3496,7 @@
       }
     },
     "todaysRecord" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3514,7 +3514,7 @@
     },
     "totalNavigationTitle" : {
       "comment" : "totalVC",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3531,7 +3531,7 @@
       }
     },
     "urine" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3548,7 +3548,7 @@
       }
     },
     "urineColor" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3565,7 +3565,7 @@
       }
     },
     "Vaccinations" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3582,7 +3582,7 @@
       }
     },
     "VaccineRecordButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3599,7 +3599,7 @@
       }
     },
     "vaccineRecordDescriptions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3616,7 +3616,7 @@
       }
     },
     "VaccineRecordDetail" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3633,7 +3633,7 @@
       }
     },
     "vaccineRecordTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3650,7 +3650,7 @@
       }
     },
     "viral_hemorrhagic_disease" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3667,7 +3667,7 @@
       }
     },
     "walkingWeired" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3684,7 +3684,7 @@
       }
     },
     "walkingWeiredTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3701,7 +3701,7 @@
       }
     },
     "waterPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3718,7 +3718,7 @@
       }
     },
     "waterTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3735,7 +3735,7 @@
       }
     },
     "weightButton" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3752,7 +3752,7 @@
       }
     },
     "weightRecordDescriptions" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3769,7 +3769,7 @@
       }
     },
     "weightSetting" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3787,7 +3787,7 @@
     },
     "weightTitle" : {
       "comment" : "weight",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3804,7 +3804,7 @@
       }
     },
     "weiredEear" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3821,7 +3821,7 @@
       }
     },
     "weiredEearTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3838,7 +3838,7 @@
       }
     },
     "weiredEyes" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3855,7 +3855,7 @@
       }
     },
     "weiredEyesTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3872,7 +3872,7 @@
       }
     },
     "weiredNose" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3889,7 +3889,7 @@
       }
     },
     "weiredNoseTitle" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3907,7 +3907,7 @@
     },
     "weiredSkin" : {
       "comment" : "subtitle",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3925,7 +3925,7 @@
     },
     "weiredSkinTitle" : {
       "comment" : "title",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3943,7 +3943,7 @@
     },
     "withNavigationTitle" : {
       "comment" : "withView",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3960,7 +3960,7 @@
       }
     },
     "yellowPee" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3977,7 +3977,7 @@
       }
     },
     "yellowPoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -3995,7 +3995,7 @@
     },
     "yellowTitlePee" : {
       "comment" : "Color",
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
@@ -4012,7 +4012,7 @@
       }
     },
     "yellowTitlePoo" : {
-      "extractionState" : "migrated",
+      "extractionState" : "manual",
       "localizations" : {
         "en" : {
           "stringUnit" : {
